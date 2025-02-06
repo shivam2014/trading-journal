@@ -1,0 +1,1291 @@
+Action,Time,ISIN,Ticker,Name,No. of shares,Price / share,Currency (Price / share),Exchange rate,Result,Currency (Result),Total,Currency (Total),Withholding tax,Currency (Withholding tax),Notes,ID,Currency conversion from amount,Currency (Currency conversion from amount),Currency conversion to amount,Currency (Currency conversion to amount),Currency conversion fee,Currency (Currency conversion fee)
+Lending interest,2023-11-06 01:11:28.298,,,,,,,,,,0.04,"EUR",,,"Share lending interest",4280ce9b-3702-4067-9cd1-d8013953a376,,,,,,
+Lending interest,2023-11-07 01:08:32.952,,,,,,,,,,0.03,"EUR",,,"Share lending interest",d46274e2-cb06-46c1-9e7d-5eceacd1966c,,,,,,
+Deposit,2023-11-07 08:15:04.166,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",b5bd60db-27ce-4a04-a462-0f01e96a36ff,,,,,,
+Market buy,2023-11-07 08:33:22,IE00B94QLN63,2PAL,"WisdomTree Palladium 2x Leveraged",4.0000000000,13.88,USD,1.06995,,"EUR",51.97,"EUR",,,,EOF5751777569,,,,,0.08,"EUR"
+Market buy,2023-11-07 08:33:30,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",2.0000000000,21.59,USD,1.06993,,"EUR",40.41,"EUR",,,,EOF5751777578,,,,,0.06,"EUR"
+Market buy,2023-11-07 08:34:33,LU1900066207,LBRA,"Amundi MSCI Brazil (Acc)",3.5000000000,20.26,EUR,1.00000,,"EUR",70.89,"EUR",,,,EOF5751777643,,,,,,
+Market buy,2023-11-07 08:34:34,XS2595672036,TLT5,"Leverage Shares 5x Long 20+ Year Treasury Bond",6.0000000000,7.00,USD,1.07006,,"EUR",39.31,"EUR",,,,EOF5751777644,,,,,0.06,"EUR"
+Market buy,2023-11-07 08:34:43,LU1900066207,LBRA,"Amundi MSCI Brazil (Acc)",0.5000000000,20.26,EUR,1.00000,,"EUR",10.13,"EUR",,,,EOF5751777653,,,,,,
+Market buy,2023-11-07 08:35:05,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",30.0000000000,1.56,EUR,1.00000,,"EUR",46.68,"EUR",,,,EOF5751777669,,,,,,
+Market buy,2023-11-07 08:35:30,GB00B15KY211,NICK,"WisdomTree Nickel",3.0000000000,16.56,USD,1.06999,,"EUR",46.50,"EUR",,,,EOF5751777713,,,,,0.07,"EUR"
+Market buy,2023-11-07 08:36:13,IE00BKLF1R75,VOLT,"WisdomTree Battery Solutions (Acc)",2.0000000000,31.02,USD,1.07003,,"EUR",58.06,"EUR",,,,EOF5751777752,,,,,0.09,"EUR"
+Market buy,2023-11-07 08:36:41,JE00BDD9Q956,LNGA,"WisdomTree Natural Gas 2x Leveraged",100.0000000000,0.33,USD,1.07013,,"EUR",30.42,"EUR",,,,EOF5751777792,,,,,0.05,"EUR"
+Market buy,2023-11-07 08:37:20,XS2399364665,SPYS,"Leverage Shares -5x Short S&P 500",16.0000000000,3.97,USD,1.07001,,"EUR",59.47,"EUR",,,,EOF5751777820,,,,,0.09,"EUR"
+Market buy,2023-11-07 08:37:35,JE00BN7KB664,WEAT,"WisdomTree Wheat",50.0000000000,0.53,USD,1.06999,,"EUR",24.90,"EUR",,,,EOF5751777827,,,,,0.04,"EUR"
+Market buy,2023-11-07 08:37:44,GB00B15KY328,SLVR,"WisdomTree Silver",2.0000000000,19.64,USD,1.06971,,"EUR",36.78,"EUR",,,,EOF5751777832,,,,,0.06,"EUR"
+Market buy,2023-11-07 08:39:05,GB00B15KXX56,BULL,"WisdomTree Gold",0.9500000000,20.47,USD,1.06966,,"EUR",18.21,"EUR",,,,EOF5751777972,,,,,0.03,"EUR"
+Market buy,2023-11-07 09:00:00,US60770K1079,MRNA,"Moderna",0.6500000000,72.57,USD,1.07035,,"EUR",44.14,"EUR",,,,EOF5751778992,,,,,0.07,"EUR"
+Market buy,2023-11-07 09:07:12,US0126531013,ALB,"Albemarle",0.3000000000,119.52,USD,1.06937,,"EUR",33.58,"EUR",,,,EOF5751779540,,,,,0.05,"EUR"
+Dividend (Dividend),2023-11-07 11:02:02,US6549022043,NOK,"Nokia",33.0326500000,0.02,USD,Not available,,,0.64,"EUR",0.37,USD,,,,,,,,
+Market buy,2023-11-07 14:30:05,IL0065100930,ZIM,"ZIM Integrated Shipping Services",4.0000000000,7.71,USD,1.06675,,"EUR",28.95,"EUR",,,,EOF5751798715,,,,,0.04,"EUR"
+Interest on cash,2023-11-07 22:02:17.854,,,,,,,,,,0.01,"EUR",,,"Interest on cash",accd3b1d-8add-4ec9-a98e-7f615f25ace7,,,,,,
+Lending interest,2023-11-08 01:08:25.259,,,,,,,,,,0.02,"EUR",,,"Share lending interest",54b3d1a1-f0ac-447a-9f74-eec75eaf6b8b,,,,,,
+Lending interest,2023-11-09 01:08:28.321,,,,,,,,,,0.02,"EUR",,,"Share lending interest",5ce112e5-db40-4b49-80aa-ede5f8b60b07,,,,,,
+Market sell,2023-11-09 14:55:45,US2546871060,DIS,"Walt Disney",0.3000000000,90.39,USD,1.07181,2.36,"EUR",25.26,"EUR",,,,EOF5900258005,,,,,0.04,"EUR"
+Interest on cash,2023-11-09 22:02:18.537,,,,,,,,,,0.01,"EUR",,,"Interest on cash",e14194cf-765d-4a23-a388-dcb272fad8ae,,,,,,
+Lending interest,2023-11-10 01:09:29.836,,,,,,,,,,0.02,"EUR",,,"Share lending interest",be06b527-c893-43cc-9d8c-3a2c53f81da8,,,,,,
+Limit buy,2023-11-10 15:25:20,US7170811035,PFE,"Pfizer",0.6600000000,29.20,USD,1.06710,,"EUR",18.09,"EUR",,,,EOF5950124564,,,,,0.03,"EUR"
+Market buy,2023-11-10 15:34:26,US7170811035,PFE,"Pfizer",1.0000000000,29.18,USD,1.06652,,"EUR",27.40,"EUR",,,,EOF5950126068,,,,,0.04,"EUR"
+Lending interest,2023-11-11 01:10:16.752,,,,,,,,,,0.02,"EUR",,,"Share lending interest",80848035-afa7-43be-9bfa-9a21e7237d27,,,,,,
+Interest on cash,2023-11-11 22:02:34.276,,,,,,,,,,0.01,"EUR",,,"Interest on cash",c252e387-0ff1-4e36-bad6-7db0fcbec133,,,,,,
+Lending interest,2023-11-13 01:09:45.036,,,,,,,,,,0.05,"EUR",,,"Share lending interest",eea1e3fe-0b2c-4791-a091-4b432ac12592,,,,,,
+Interest on cash,2023-11-13 22:02:34.905,,,,,,,,,,0.01,"EUR",,,"Interest on cash",8bbc2aca-7a87-4fc0-88be-de10a27758da,,,,,,
+Lending interest,2023-11-14 01:08:39.978,,,,,,,,,,0.07,"EUR",,,"Share lending interest",41a103d8-a37a-47d3-a69b-4b65d228d60c,,,,,,
+Lending interest,2023-11-15 01:09:37.055,,,,,,,,,,0.03,"EUR",,,"Share lending interest",29f66929-eb36-4c09-ab47-bc18943cd6ac,,,,,,
+Interest on cash,2023-11-15 22:02:14.293,,,,,,,,,,0.01,"EUR",,,"Interest on cash",4f142add-0e8f-43e7-b59f-aa3a857deca7,,,,,,
+Lending interest,2023-11-16 01:08:55.807,,,,,,,,,,0.06,"EUR",,,"Share lending interest",a8c7da79-935a-44fd-9375-fafd2e341760,,,,,,
+Limit sell,2023-11-16 14:43:53,US4581401001,INTC,"Intel",1.2014810000,41.88,USD,1.08701,6.06,"EUR",46.22,"EUR",,,,EOF6200188653,,,,,0.07,"EUR"
+Lending interest,2023-11-17 01:09:21.573,,,,,,,,,,0.06,"EUR",,,"Share lending interest",7c6abacf-cd72-480f-b180-b84bd53f76e1,,,,,,
+Interest on cash,2023-11-17 22:02:18.571,,,,,,,,,,0.01,"EUR",,,"Interest on cash",52f6e956-464f-465e-ac6f-1760d5d95343,,,,,,
+Lending interest,2023-11-18 01:10:45.144,,,,,,,,,,0.05,"EUR",,,"Share lending interest",642c4be3-12c5-4bc9-be77-95c2bf49e8cc,,,,,,
+Interest on cash,2023-11-19 22:02:15.611,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b4985b58-53ae-4eda-933c-a21b05d23a71,,,,,,
+Lending interest,2023-11-20 01:09:18.389,,,,,,,,,,0.12,"EUR",,,"Share lending interest",c8ec720a-da1d-4606-b435-798eb3bccec3,,,,,,
+Lending interest,2023-11-21 01:09:20.043,,,,,,,,,,0.04,"EUR",,,"Share lending interest",45a8cc81-727d-4fe1-be9c-fe7ea6558391,,,,,,
+Interest on cash,2023-11-21 22:02:16.919,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b4f9c5ad-fc59-4038-b122-471bf173e0e2,,,,,,
+Lending interest,2023-11-22 01:09:09.666,,,,,,,,,,0.04,"EUR",,,"Share lending interest",15117a4a-0ffc-4b5c-8492-f9fdbef4795e,,,,,,
+Market sell,2023-11-22 15:37:11,US0718131099,BAX,"Baxter International",2.6000000000,35.93,USD,1.08625,7.45,"EUR",85.87,"EUR",,,,EOF6449970799,,,,,0.13,"EUR"
+Market buy,2023-11-22 15:38:28,XS2399367684,SMHS,"Leverage Shares -3x Short Semiconductors",70.0000000000,0.83,USD,1.08599,,"EUR",53.76,"EUR",,,,EOF6449970901,,,,,0.08,"EUR"
+Market buy,2023-11-22 15:39:18,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",3.0000000000,17.67,USD,1.08551,,"EUR",48.89,"EUR",,,,EOF6449971017,,,,,0.07,"EUR"
+Market sell,2023-11-22 15:39:57,XS2595672036,TLT5,"Leverage Shares 5x Long 20+ Year Treasury Bond",14.0000000000,8.06,USD,1.08571,11.81,"EUR",103.81,"EUR",,,,EOF6449971096,,,,,0.16,"EUR"
+Market buy,2023-11-22 15:40:33,US76954A1034,RIVN,"Rivian Automotive",2.0000000000,15.88,USD,1.08581,,"EUR",29.29,"EUR",,,,EOF6449971171,,,,,0.04,"EUR"
+Market buy,2023-11-22 15:41:04,JE00BDD9Q956,LNGA,"WisdomTree Natural Gas 2x Leveraged",300.0000000000,0.23,USD,1.08608,,"EUR",62.24,"EUR",,,,EOF6449971229,,,,,0.09,"EUR"
+Market buy,2023-11-22 15:41:55,LU1900066207,LBRA,"Amundi MSCI Brazil (Acc)",2.0000000000,21.15,EUR,1.00000,,"EUR",42.30,"EUR",,,,EOF6449971311,,,,,,
+Lending interest,2023-11-23 01:10:11.834,,,,,,,,,,0.02,"EUR",,,"Share lending interest",399ca3c5-31e2-4e98-a3e6-d5e5b969f7ba,,,,,,
+Interest on cash,2023-11-23 22:02:39.155,,,,,,,,,,0.01,"EUR",,,"Interest on cash",fc893d17-abe4-4347-9b8c-f47887065a99,,,,,,
+Lending interest,2023-11-24 01:10:47.916,,,,,,,,,,0.02,"EUR",,,"Share lending interest",6b13241c-25dd-4acf-85ed-52265c0a5ca1,,,,,,
+Lending interest,2023-11-25 01:09:22.194,,,,,,,,,,0.02,"EUR",,,"Share lending interest",117ea2bc-036f-43b4-85bd-b65d21a39326,,,,,,
+Interest on cash,2023-11-25 22:02:40.635,,,,,,,,,,0.01,"EUR",,,"Interest on cash",1335cdc2-f311-4b00-849f-62aead6550f4,,,,,,
+Lending interest,2023-11-27 01:10:26.844,,,,,,,,,,0.04,"EUR",,,"Share lending interest",e96bb203-80d2-4994-b813-5da8c1982033,,,,,,
+Interest on cash,2023-11-27 22:02:31.458,,,,,,,,,,0.01,"EUR",,,"Interest on cash",057a0806-ab84-4071-8e32-5e6a164fa7ad,,,,,,
+Lending interest,2023-11-28 01:09:28.397,,,,,,,,,,0.02,"EUR",,,"Share lending interest",79fe7c5f-de67-4bba-a55d-9dccdc869e9f,,,,,,
+Lending interest,2023-11-29 01:09:06.694,,,,,,,,,,0.01,"EUR",,,"Share lending interest",5cd49b93-3d6e-42d3-9898-e50069d22d66,,,,,,
+Market sell,2023-11-29 14:59:28,US0718131099,BAX,"Baxter International",0.4000000000,36.80,USD,1.09768,1.32,"EUR",13.39,"EUR",,,,EOF6703488688,,,,,0.02,"EUR"
+Interest on cash,2023-11-29 22:02:26.501,,,,,,,,,,0.01,"EUR",,,"Interest on cash",802a5410-fec2-4217-b52a-c7f0dbf89b7f,,,,,,
+Lending interest,2023-11-30 01:09:21.564,,,,,,,,,,0.02,"EUR",,,"Share lending interest",4861ca7b-18d7-4fd6-a4f0-9b91a3df7c3e,,,,,,
+Dividend (Dividend),2023-11-30 16:01:47,US1252691001,CF,"CF Industries",1.5003901000,0.34,USD,Not available,,,0.46,"EUR",0.09,USD,,,,,,,,
+Lending interest,2023-12-01 01:09:14.764,,,,,,,,,,0.02,"EUR",,,"Share lending interest",1234349a-3840-47af-af9e-d283ed999189,,,,,,
+Dividend (Dividend),2023-12-01 15:15:01,US4581401001,INTC,"Intel",1.2014810000,0.11,USD,Not available,,,0.12,"EUR",0.02,USD,,,,,,,,
+Interest on cash,2023-12-01 22:02:25.987,,,,,,,,,,0.01,"EUR",,,"Interest on cash",15c3b0ca-36ff-42b4-b9f1-988b6852320a,,,,,,
+Lending interest,2023-12-02 01:09:04.12,,,,,,,,,,0.02,"EUR",,,"Share lending interest",b8570b19-ff0c-4361-8d82-cd9b3a06044b,,,,,,
+Interest on cash,2023-12-03 22:02:23.358,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6c215b80-8c48-4abf-b4e3-e042ac524ba5,,,,,,
+Lending interest,2023-12-04 01:10:18.188,,,,,,,,,,0.04,"EUR",,,"Share lending interest",b03bb340-8214-4e8e-8462-33a5ad70713c,,,,,,
+Dividend (Dividend),2023-12-04 13:00:41,US7170811035,PFE,"Pfizer",0.4400000000,0.35,USD,Not available,,,0.14,"EUR",0.03,USD,,,,,,,,
+Lending interest,2023-12-05 01:09:33.111,,,,,,,,,,0.02,"EUR",,,"Share lending interest",8f1e6fcc-b73d-4a45-84c8-fd6cad70babc,,,,,,
+Interest on cash,2023-12-05 22:02:01.523,,,,,,,,,,0.01,"EUR",,,"Interest on cash",8e8e414f-0a48-4dc3-966e-7224ee2a941e,,,,,,
+Lending interest,2023-12-06 01:09:48.412,,,,,,,,,,0.02,"EUR",,,"Share lending interest",b2383453-635c-4f8e-9e12-b7f2bf2925e3,,,,,,
+Market buy,2023-12-06 16:17:28.832,US76954A1034,RIVN,"Rivian Automotive",1.0000000000,19.07,USD,1.07984,,"EUR",17.69,"EUR",,,,EOF7051533693,,,,,0.03,"EUR"
+Lending interest,2023-12-07 01:10:00.833,,,,,,,,,,0.02,"EUR",,,"Share lending interest",0bbdf608-3051-4fcf-987d-c284cf3a4c94,,,,,,
+Deposit,2023-12-07 08:00:05.857,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",4607e528-66ce-4e53-aff2-8fbe81606a59,,,,,,
+Market buy,2023-12-07 16:49:41.354,US7170811035,PFE,"Pfizer",1.0000000000,28.80,USD,1.07905,,"EUR",26.73,"EUR",,,,EOF7101240148,,,,,0.04,"EUR"
+Lending interest,2023-12-08 01:10:16.83,,,,,,,,,,0.02,"EUR",,,"Share lending interest",69c8fbc5-069a-40ed-be12-f7287176ea25,,,,,,
+Interest on cash,2023-12-08 05:18:45.117,,,,,,,,,,0.02,"EUR",,,"Interest on cash",0491b864-f2fd-43ff-9a54-afa32ebb02ba,,,,,,
+Interest on cash,2023-12-08 22:02:27.778,,,,,,,,,,0.02,"EUR",,,"Interest on cash",dbef78f1-b3fd-43aa-8b7f-5aa82bd6cdda,,,,,,
+Lending interest,2023-12-09 01:09:32.853,,,,,,,,,,0.02,"EUR",,,"Share lending interest",47f41e2a-0391-4ea4-a8cb-526be5516181,,,,,,
+Interest on cash,2023-12-09 22:02:20.372,,,,,,,,,,0.02,"EUR",,,"Interest on cash",a377237b-279e-47cf-8ce2-72736c457b72,,,,,,
+Interest on cash,2023-12-10 22:02:01.085,,,,,,,,,,0.02,"EUR",,,"Interest on cash",05ad1a1f-bc17-4434-aa90-dce16b3faa21,,,,,,
+Lending interest,2023-12-11 01:09:21.891,,,,,,,,,,0.04,"EUR",,,"Share lending interest",bf97407f-f28e-41e3-91e3-05b5b886395d,,,,,,
+Market buy,2023-12-11 10:32:58.754,IE00B4QNHZ41,DES2,"L&G DAX 2x Short (Acc)",70.0000000000,1.23,EUR,1.00000,,"EUR",86.20,"EUR",,,,EOF7201241895,,,,,,
+Market buy,2023-12-11 10:33:33.278,US01609W1027,AHLA,"Alibaba",1.0000000000,65.70,EUR,1.00000,,"EUR",65.70,"EUR",,,,EOF7201241927,,,,,,
+Market buy,2023-12-11 10:33:44.255,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",40.0000000000,1.38,EUR,1.00000,,"EUR",55.17,"EUR",,,,EOF7201241934,,,,,,
+Market buy,2023-12-11 10:34:48.693,IE00BKLF1R75,VOLT,"WisdomTree Battery Solutions (Acc)",1.0100000000,32.63,USD,1.07719,,"EUR",30.64,"EUR",,,,EOF7201241987,,,,,0.05,"EUR"
+Market buy,2023-12-11 10:34:50.752,JE00BDD9Q956,LNGA,"WisdomTree Natural Gas 2x Leveraged",800.0000000000,0.14,USD,1.07715,,"EUR",104.88,"EUR",,,,EOF7201241992,,,,,0.16,"EUR"
+Market buy,2023-12-11 10:36:09.392,GB00B15KXX56,BULL,"WisdomTree Gold",3.0000000000,20.68,USD,1.07708,,"EUR",57.69,"EUR",,,,EOF7201242052,,,,,0.09,"EUR"
+Market buy,2023-12-11 10:40:39.191,XS2297593456,SJPM,"Leverage Shares -1x Short JPMorgan",5.0000000000,3.94,USD,1.07727,,"EUR",18.31,"EUR",,,,EOF7201242394,,,,,0.03,"EUR"
+Market buy,2023-12-11 10:45:28.88,XS2399364665,SPYS,"Leverage Shares -5x Short S&P 500",16.0000000000,3.38,USD,1.07765,,"EUR",50.30,"EUR",,,,EOF7201242830,,,,,0.08,"EUR"
+Dividend (Dividend),2023-12-11 14:45:39,US8740602052,TAK,"Takeda Pharmaceutical",6.0000000000,0.27,USD,Not available,,,1.51,"EUR",0.29,USD,,,,,,,,
+Dividend (Dividend),2023-12-11 14:50:09,US4592001014,IBM,"IBM",1.3074221000,1.41,USD,Not available,,,1.71,"EUR",0.33,USD,,,,,,,,
+Interest on cash,2023-12-11 22:02:17.602,,,,,,,,,,0.01,"EUR",,,"Interest on cash",ebaced05-3d9b-456e-a078-a4bd0c46ca80,,,,,,
+Lending interest,2023-12-12 01:09:39.434,,,,,,,,,,0.02,"EUR",,,"Share lending interest",06db2dfd-0ec0-4a0f-8e10-0a3d8d52fad4,,,,,,
+Dividend (Dividend),2023-12-12 08:53:20,US88579Y1010,MMM,"3M",3.0000000000,1.28,USD,Not available,,,3.55,"EUR",0.68,USD,,,,,,,,
+Lending interest,2023-12-13 01:09:52.305,,,,,,,,,,0.02,"EUR",,,"Share lending interest",c5df655d-45ed-4001-9b13-d3ce55fb9b2f,,,,,,
+Interest on cash,2023-12-13 22:01:58.062,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6345201d-3e31-445a-ac7c-0fcb640e8a20,,,,,,
+Lending interest,2023-12-14 01:09:43.286,,,,,,,,,,0.02,"EUR",,,"Share lending interest",78bf43de-b5ad-4d9a-8abb-c70205bb7c19,,,,,,
+Market buy,2023-12-14 23:33:59.79,US7170811035,PFE,"Pfizer",0.6000000000,26.21,USD,1.09972,,"EUR",14.32,"EUR",,,,EOF7402003716,,,,,0.02,"EUR"
+Lending interest,2023-12-15 01:09:35.382,,,,,,,,,,0.02,"EUR",,,"Share lending interest",f6d999b5-453f-4223-ac11-62c897c36dba,,,,,,
+Market sell,2023-12-15 12:02:42.188,XS2595672036,TLT5,"Leverage Shares 5x Long 20+ Year Treasury Bond",14.5766700000,12.15,USD,1.09702,65.48,"EUR",161.19,"EUR",,,,EOF7402034744,,,,,0.24,"EUR"
+Market buy,2023-12-15 12:09:35.969,IE00BSKRJZ44,IDTL,"iShares USD Treasury Bond 20+yr (Dist)",44.0000000000,3.65,USD,1.09616,,"EUR",146.63,"EUR",,,,EOF7402035027,,,,,0.22,"EUR"
+Market buy,2023-12-15 12:11:19.579,IE00BSKRJZ44,IDTL,"iShares USD Treasury Bond 20+yr (Dist)",4.0000000000,3.65,USD,1.09601,,"EUR",13.33,"EUR",,,,EOF7402035159,,,,,0.02,"EUR"
+Market buy,2023-12-15 12:11:29.457,IE00BSKRJZ44,IDTL,"iShares USD Treasury Bond 20+yr (Dist)",1.0000000000,3.65,USD,1.09519,,"EUR",3.33,"EUR",,,,EOF7402035168,,,,,,
+Market sell,2023-12-15 12:13:35.24,JE00B2NFTL95,LBUL,"WisdomTree Gold 2x Leveraged",0.0678057500,60.94,USD,1.09604,0.32,"EUR",3.76,"EUR",,,,EOF7402035250,,,,,0.01,"EUR"
+Market sell,2023-12-15 12:14:04.523,JE00BDD9QB77,LNIK,"WisdomTree Nickel 2x Leveraged",0.0188940300,22.25,USD,1.10604,-0.88,"EUR",0.38,"EUR",,,,EOF7402035276,,,,,,
+Market sell,2023-12-15 12:14:15.333,JE00B2NFV134,LPLA,"WisdomTree Platinum 2x Leveraged",0.4385052000,1.93,USD,1.09626,-0.43,"EUR",0.77,"EUR",,,,EOF7402035290,,,,,,
+Market sell,2023-12-15 12:14:26.874,IE00B7XD2195,3SIL,"WisdomTree Silver 3x Leveraged",0.0385451500,43.01,USD,1.09789,-0.79,"EUR",1.51,"EUR",,,,EOF7402035297,,,,,,
+Market sell,2023-12-15 12:15:10.778,JE00BDD9QC84,LWEA,"WisdomTree Wheat 2x Leveraged",0.0294122000,7.12,USD,1.10179,-0.41,"EUR",0.19,"EUR",,,,EOF7402035344,,,,,,
+Market sell,2023-12-15 12:15:24.093,JE00B2NFTF36,LCOP,"WisdomTree Copper 2x Leveraged",0.1430269000,7.56,USD,1.09184,-0.28,"EUR",0.99,"EUR",,,,EOF7402035369,,,,,,
+Market sell,2023-12-15 12:15:26.918,JE00B2NFTG43,LCOR,"WisdomTree Corn 2x Leveraged",0.2055271000,2.14,USD,1.10111,-0.40,"EUR",0.40,"EUR",,,,EOF7402035375,,,,,,
+Market sell,2023-12-15 12:15:41.748,JE00B2NFTC05,LALU,"WisdomTree Aluminium 2x Leveraged",0.1142504000,1.88,USD,1.07566,-0.18,"EUR",0.20,"EUR",,,,EOF7402035399,,,,,,
+Market sell,2023-12-15 12:16:02.87,JE00B2NFT427,LAGR,"WisdomTree Agriculture 2x Leveraged",0.3685734600,9.68,USD,1.09744,-1.22,"EUR",3.25,"EUR",,,,EOF7402035422,,,,,,
+Market buy,2023-12-15 12:17:51.597,XS2706221277,2STE,"Leverage Shares -2x Short Tesla",0.0557730000,17.93,EUR,1.00000,,"EUR",1.00,"EUR",,,,EOF7402035507,,,,,,
+Market sell,2023-12-15 12:18:17.639,XS2706221277,2STE,"Leverage Shares -2x Short Tesla",0.0559692100,17.88,EUR,1.00000,-0.01,"EUR",1.00,"EUR",,,,EOF7402035635,,,,,,
+Market sell,2023-12-15 12:27:20.41,CA4339211035,HIVE,"Hive Digital Technologies Ltd",0.6400000000,3.52,USD,1.09359,-9.76,"EUR",2.06,"EUR",,,,EOF7402036164,,,,,,
+Market sell,2023-12-15 12:33:12.798,US3703341046,GIS,"General Mills",1.2500000000,66.45,USD,1.09566,2.55,"EUR",75.70,"EUR",,,,EOF7402036566,,,,,0.11,"EUR"
+Market sell,2023-12-15 12:33:47.072,NL0000235190,AIR,"Airbus",0.0346597000,139.32,EUR,1.00000,0.88,"EUR",4.83,"EUR",,,,EOF7402036599,,,,,,
+Market buy,2023-12-15 12:34:28.56,US76954A1034,RIVN,"Rivian Automotive",3.0000000000,23.30,USD,1.09561,,"EUR",63.90,"EUR",,,,EOF7402036625,,,,,0.10,"EUR"
+Market buy,2023-12-15 12:35:39.031,US7170811035,PFE,"Pfizer",0.3000000000,26.39,USD,1.09502,,"EUR",7.24,"EUR",,,,EOF7402036687,,,,,0.01,"EUR"
+Market sell,2023-12-15 15:06:18.686,US6833734014,OTRK,"Ontrak",0.0750000000,0.45,USD,1.11275,-5.34,"EUR",0.03,"EUR",,,,EOF7450840959,,,,,,
+Dividend (Dividend),2023-12-15 15:14:01,US4278661081,HSY,"Hershey",0.3720000000,1.01,USD,Not available,,,0.34,"EUR",0.07,USD,,,,,,,,
+Market buy,2023-12-15 15:42:16.808,MHY8162K2046,SBLK,"Star Bulk Carriers",0.3764460000,21.00,USD,1.09190,,"EUR",7.25,"EUR",,,,EOF7451905610,,,,,0.01,"EUR"
+Market buy,2023-12-15 15:44:13.792,IL0065100930,ZIM,"ZIM Integrated Shipping Services",0.1974616200,9.20,USD,1.09436,,"EUR",1.66,"EUR",,,,EOF7451905897,,,,,,
+Market buy,2023-12-15 15:45:30.205,GB00B15KXX56,BULL,"WisdomTree Gold",0.1500000000,21.13,USD,1.08891,,"EUR",2.91,"EUR",,,,EOF7451906226,,,,,,
+Market sell,2023-12-15 15:47:59.344,US00202F1021,AMKBY,"AP Moller Maersk",0.1958730000,8.61,USD,1.08804,-0.15,"EUR",1.55,"EUR",,,,EOF7451906649,,,,,,
+Market buy,2023-12-15 15:48:14.369,US00202F1021,AMKBY,"AP Moller Maersk",1.0000000000,8.63,USD,1.09102,,"EUR",7.92,"EUR",,,,EOF7451906982,,,,,0.01,"EUR"
+Market sell,2023-12-15 15:51:29.584,US6549022043,NOK,"Nokia",1.0326500000,3.25,USD,1.08964,-1.37,"EUR",3.08,"EUR",,,,EOF7451908636,,,,,,
+Market buy,2023-12-15 15:51:47.104,US6549022043,NOK,"Nokia",2.0000000000,3.26,USD,1.09030,,"EUR",5.99,"EUR",,,,EOF7451908855,,,,,0.01,"EUR"
+Market sell,2023-12-15 15:52:41.404,CA67077M1086,NTR,"Nutrien",0.1020000000,54.86,USD,1.09078,-2.08,"EUR",5.12,"EUR",,,,EOF7451909107,,,,,0.01,"EUR"
+Market buy,2023-12-15 15:53:29.306,CA67077M1086,NTR,"Nutrien",0.1001366000,54.92,USD,1.09117,,"EUR",5.05,"EUR",,,,EOF7451909212,,,,,0.01,"EUR"
+Limit buy,2023-12-15 19:04:02.664,US4278661081,HSY,"Hershey",0.2000000000,182.78,USD,1.08959,,"EUR",33.60,"EUR",,,,EOF7451945109,,,,,0.05,"EUR"
+Interest on cash,2023-12-15 22:02:37.536,,,,,,,,,,0.01,"EUR",,,"Interest on cash",58ff6fa6-1cd5-4b20-873f-d1864c3b9bd5,,,,,,
+Lending interest,2023-12-16 01:10:02.266,,,,,,,,,,0.02,"EUR",,,"Share lending interest",22d307af-56ab-494d-b08c-d2184a1e2d4f,,,,,,
+Lending interest,2023-12-18 01:10:43.307,,,,,,,,,,0.04,"EUR",,,"Share lending interest",b5f93b03-d101-4a4f-8bb3-06aa941d71bb,,,,,,
+Dividend (Dividend),2023-12-18 13:33:58,MHY8162K2046,SBLK,"Star Bulk Carriers",6.6235540000,0.22,USD,Not available,,,1.34,"EUR",0.00,USD,,,,,,,,
+Interest on cash,2023-12-18 22:02:08.721,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6d57db0e-517f-4990-b2bc-a3ff9f789e2a,,,,,,
+Lending interest,2023-12-19 01:10:40.549,,,,,,,,,,0.02,"EUR",,,"Share lending interest",eeeb4b0d-e12a-4c39-99db-878802bc4a71,,,,,,
+Lending interest,2023-12-20 01:10:18.179,,,,,,,,,,0.02,"EUR",,,"Share lending interest",14a118fc-6ee6-4764-a56a-34971ba334b3,,,,,,
+Market sell,2023-12-20 15:26:27.786,JE00BN7KB441,CORN,"WisdomTree Corn",0.5454545400,24.02,USD,1.09524,-2.71,"EUR",11.94,"EUR",,,,EOF7650454882,,,,,0.02,"EUR"
+Market buy,2023-12-20 15:27:03.294,JE00BN7KB441,CORN,"WisdomTree Corn",0.5000000000,24.05,USD,1.09517,,"EUR",11.00,"EUR",,,,EOF7650454945,,,,,0.02,"EUR"
+Market sell,2023-12-20 15:27:55.172,IE00B94QLN63,2PAL,"WisdomTree Palladium 2x Leveraged",0.0903332000,16.21,USD,1.09276,-0.56,"EUR",1.34,"EUR",,,,EOF7650455044,,,,,,
+Market buy,2023-12-20 15:30:24.553,US5533681012,MP,"MP Materials",2.0000000000,18.68,USD,1.09592,,"EUR",34.14,"EUR",,,,EOF7650455412,,,,,0.05,"EUR"
+Market sell,2023-12-20 15:30:39.403,US5533681012,MP,"MP Materials",0.1005590000,18.70,USD,1.09328,-0.66,"EUR",1.72,"EUR",,,,EOF7650455449,,,,,,
+Market sell,2023-12-20 15:30:56.694,US6516391066,NEM,"Newmont",0.0546543300,41.70,USD,1.09571,-0.09,"EUR",2.08,"EUR",,,,EOF7650455500,,,,,,
+Market sell,2023-12-20 15:33:04.453,US1252691001,CF,"CF Industries",0.5003901000,78.31,USD,1.09671,-0.71,"EUR",35.68,"EUR",,,,EOF7650455708,,,,,0.05,"EUR"
+Market buy,2023-12-20 15:33:14.477,US1252691001,CF,"CF Industries",0.5000000000,78.39,USD,1.09667,,"EUR",35.79,"EUR",,,,EOF7650455728,,,,,0.05,"EUR"
+Market buy,2023-12-20 15:33:31.566,US01609W1027,AHLA,"Alibaba",0.1000000000,68.50,EUR,1.00000,,"EUR",6.85,"EUR",,,,EOF7650455769,,,,,,
+Lending interest,2023-12-21 01:09:33.86,,,,,,,,,,0.02,"EUR",,,"Share lending interest",61749c89-98bb-4d4e-9a5a-461047e86c9c,,,,,,
+Market sell,2023-12-21 10:03:25.713,JE00BN7KB664,WEAT,"WisdomTree Wheat",0.2608695600,25.33,USD,1.09401,-1.18,"EUR",6.03,"EUR",,,,EOF7651763244,,,,,0.01,"EUR"
+Market buy,2023-12-21 10:03:43.168,JE00BN7KB664,WEAT,"WisdomTree Wheat",0.2600000000,25.41,USD,1.09380,,"EUR",6.05,"EUR",,,,EOF7651763273,,,,,0.01,"EUR"
+Market sell,2023-12-21 10:05:05.33,IE00BKLF1R75,VOLT,"WisdomTree Battery Solutions (Acc)",1.0095580000,32.89,USD,1.09440,-5.43,"EUR",30.29,"EUR",,,,EOF7651763403,,,,,0.05,"EUR"
+Market buy,2023-12-21 10:05:15.348,IE00BKLF1R75,VOLT,"WisdomTree Battery Solutions (Acc)",1.0000000000,33.00,USD,1.09416,,"EUR",30.21,"EUR",,,,EOF7651763423,,,,,0.05,"EUR"
+Market sell,2023-12-21 10:07:17.599,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",0.9912778900,16.77,USD,1.09432,-30.48,"EUR",15.17,"EUR",,,,EOF7651763490,,,,,0.02,"EUR"
+Market buy,2023-12-21 10:07:48.443,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",1.0000000000,16.88,USD,1.09364,,"EUR",15.45,"EUR",,,,EOF7651763508,,,,,0.02,"EUR"
+Dividend (Dividend),2023-12-21 15:29:51,US61945C1036,MOS,"Mosaic",6.0003540000,0.17,USD,Not available,,,0.93,"EUR",0.18,USD,,,,,,,,
+Lending interest,2023-12-22 01:09:48.46,,,,,,,,,,0.02,"EUR",,,"Share lending interest",111ac218-4c84-49bf-ba72-ae0c7ecb699b,,,,,,
+Dividend (Dividend),2023-12-22 11:36:20,US6516391066,NEM,"Newmont",4.0546543300,0.34,USD,Not available,,,1.25,"EUR",0.24,USD,,,,,,,,
+Lending interest,2023-12-23 01:29:24.337,,,,,,,,,,0.02,"EUR",,,"Share lending interest",5eea8a73-cd19-4559-ac22-ff9a8d4ae6ef,,,,,,
+Interest on cash,2023-12-23 22:02:17.443,,,,,,,,,,0.01,"EUR",,,"Interest on cash",4be020d2-c4fd-4d56-af90-5f1d36093596,,,,,,
+Lending interest,2023-12-26 01:10:56.651,,,,,,,,,,0.05,"EUR",,,"Share lending interest",e8c7409c-ae3e-47ab-bf42-ad1a374c1870,,,,,,
+Lending interest,2023-12-27 01:11:28.828,,,,,,,,,,0.02,"EUR",,,"Share lending interest",325af26f-7d73-4706-b1c7-663e9635367c,,,,,,
+Lending interest,2023-12-28 01:11:22.115,,,,,,,,,,0.05,"EUR",,,"Share lending interest",602f30b5-bab9-44a6-bdfb-5b9a6640a626,,,,,,
+Interest on cash,2023-12-28 22:02:43.38,,,,,,,,,,0.01,"EUR",,,"Interest on cash",e80847be-1687-4955-a77b-7e33b2004f24,,,,,,
+Lending interest,2023-12-29 01:10:34.053,,,,,,,,,,0.05,"EUR",,,"Share lending interest",25ee6219-a65a-4706-b870-b6b433167c9f,,,,,,
+Lending interest,2023-12-30 01:09:44.405,,,,,,,,,,0.02,"EUR",,,"Share lending interest",3b026111-652f-4652-b4d1-0c84d901df23,,,,,,
+Interest on cash,2024-01-01 22:02:44.751,,,,,,,,,,0.01,"EUR",,,"Interest on cash",83c71c45-ee40-4f82-9d44-3baa661d547d,,,,,,
+Lending interest,2024-01-02 01:10:43.968,,,,,,,,,,0.04,"EUR",,,"Share lending interest",ee4db2d6-4d29-4ffe-972d-2f4032e711f9,,,,,,
+Dividend (Dividend),2024-01-02 12:49:18,US0126531013,ALB,"Albemarle",1.0000253200,0.34,USD,Not available,,,0.31,"EUR",0.06,USD,,,,,,,,
+Lending interest,2024-01-03 07:41:55.579,,,,,,,,,,0.02,"EUR",,,"Share lending interest",f8db42be-481f-43b9-bc65-ecb9ad14b6b9,,,,,,
+Lending interest,2024-01-04 01:09:45.543,,,,,,,,,,0.02,"EUR",,,"Share lending interest",58a854e5-459a-4d8c-a70d-d4b64ba29506,,,,,,
+Deposit,2024-01-04 09:46:23.263,,,,,,,,,,0.15,"EUR",,,"Withholding tax refund - interest on cash Q4 2023.",0fc9a0b0-a51f-41d0-91a8-ed50b549e002,,,,,,
+Lending interest,2024-01-05 01:10:07.969,,,,,,,,,,0.05,"EUR",,,"Share lending interest",375cead7-48df-438d-9e23-98d5cf9f8bc5,,,,,,
+Interest on cash,2024-01-05 22:02:36.91,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b93915e1-0c6c-4662-8a53-66442046a9ec,,,,,,
+Lending interest,2024-01-06 01:11:18.34,,,,,,,,,,0.06,"EUR",,,"Share lending interest",54e28b5d-bdd3-4cff-957d-0df314453e3f,,,,,,
+Lending interest,2024-01-08 01:11:07.922,,,,,,,,,,0.09,"EUR",,,"Share lending interest",34c6bca2-c6ae-4c46-8396-b6d0a719aee9,,,,,,
+Deposit,2024-01-08 08:15:50.568,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",eba5f713-f493-4ba4-b09c-da052cd964a5,,,,,,
+Market buy,2024-01-08 08:36:14.094,GB00B15KXX56,BULL,"WisdomTree Gold",3.9000000000,21.05,USD,1.09343,,"EUR",75.19,"EUR",,,,EOF8352527929,,,,,0.11,"EUR"
+Market buy,2024-01-08 08:37:43.491,IE00B94QLN63,2PAL,"WisdomTree Palladium 2x Leveraged",4.0000000000,11.25,USD,1.09356,,"EUR",41.21,"EUR",,,,EOF8352528069,,,,,0.06,"EUR"
+Market buy,2024-01-08 08:37:58.809,XS2399367684,SMHS,"Leverage Shares -3x Short Semiconductors",100.0000000000,0.78,USD,1.09347,,"EUR",71.57,"EUR",,,,EOF8352528088,,,,,0.11,"EUR"
+Market buy,2024-01-08 08:38:06.334,XS2399364665,SPYS,"Leverage Shares -5x Short S&P 500",35.0000000000,3.19,USD,1.09336,,"EUR",102.26,"EUR",,,,EOF8352528093,,,,,0.15,"EUR"
+Market buy,2024-01-08 08:38:14.35,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",4.0000000000,16.43,USD,1.09337,,"EUR",60.19,"EUR",,,,EOF8352528104,,,,,0.09,"EUR"
+Market buy,2024-01-08 08:38:59.74,GB00B15KY211,NICK,"WisdomTree Nickel",2.5000000000,15.07,USD,1.09325,,"EUR",34.50,"EUR",,,,EOF8352528140,,,,,0.05,"EUR"
+Market buy,2024-01-08 08:39:44.054,LU1900066207,LBRA,"Amundi MSCI Brazil (Acc)",1.0000000000,22.11,EUR,1.00000,,"EUR",22.11,"EUR",,,,EOF8352528174,,,,,,
+Market buy,2024-01-08 08:40:50.775,JE00BN7KB664,WEAT,"WisdomTree Wheat",0.2400000000,25.26,USD,1.09429,,"EUR",5.55,"EUR",,,,EOF8352528251,,,,,0.01,"EUR"
+Market buy,2024-01-08 08:40:59.167,JE00BDD9Q956,LNGA,"WisdomTree Natural Gas 2x Leveraged",200.0000000000,0.19,USD,1.09370,,"EUR",33.88,"EUR",,,,EOF8352528260,,,,,0.05,"EUR"
+Market buy,2024-01-08 09:00:01.076,US70450Y1038,PYPL,"PayPal",0.6000000000,60.05,USD,1.09347,,"EUR",33.00,"EUR",,,,EOF8352529482,,,,,0.05,"EUR"
+Market buy,2024-01-08 09:00:03.038,US2546871060,DIS,"Walt Disney",0.3000000000,91.23,USD,1.09344,,"EUR",25.07,"EUR",,,,EOF8352529763,,,,,0.04,"EUR"
+Market buy,2024-01-08 10:37:11.158,IE00B4QNHZ41,DES2,"L&G DAX 2x Short (Acc)",4.0000000000,1.26,EUR,1.00000,,"EUR",5.05,"EUR",,,,EOF8352536109,,,,,,
+Lending interest,2024-01-09 01:10:38.464,,,,,,,,,,0.10,"EUR",,,"Share lending interest",8b68c2cf-639f-442d-bd08-f8a70d1e2f77,,,,,,
+Interest on cash,2024-01-09 22:02:36.713,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6ff372c7-983e-4b7c-b573-2610e718e670,,,,,,
+Lending interest,2024-01-10 07:59:44.965,,,,,,,,,,0.06,"EUR",,,"Share lending interest",7fd157ae-0795-44f7-8728-306b967c2b88,,,,,,
+Dividend (Dividend),2024-01-10 10:49:57,US2546871060,DIS,"Walt Disney",0.7000000000,0.26,USD,Not available,,,0.16,"EUR",0.03,USD,,,,,,,,
+Interest on cash,2024-01-10 22:02:28.344,,,,,,,,,,0.01,"EUR",,,"Interest on cash",a9553247-7acc-471f-8f45-6dbe5411dcfe,,,,,,
+Lending interest,2024-01-11 01:15:49.706,,,,,,,,,,0.05,"EUR",,,"Share lending interest",729f9e53-e938-4249-9def-34a0a7ba2e90,,,,,,
+Dividend (Dividend),2024-01-11 10:04:36,US8740391003,TSM,"Taiwan Semiconductor Manufacturing",0.5869874000,0.38,USD,Not available,,,0.20,"EUR",0.06,USD,,,,,,,,
+Lending interest,2024-01-12 01:17:32.4,,,,,,,,,,0.06,"EUR",,,"Share lending interest",d3f57786-fa19-404e-9b86-86d01b6185d2,,,,,,
+Dividend (Dividend),2024-01-12 13:26:31,CA67077M1086,NTR,"Nutrien",3.0000000000,0.45,USD,Not available,,,1.23,"EUR",0.24,USD,,,,,,,,
+Interest on cash,2024-01-12 22:02:30.327,,,,,,,,,,0.01,"EUR",,,"Interest on cash",47d8e3b1-c090-430f-a37d-00d924499de6,,,,,,
+Lending interest,2024-01-13 01:17:09.071,,,,,,,,,,0.06,"EUR",,,"Share lending interest",d27bd30e-bccf-424d-88d5-6b6fc38b2a5e,,,,,,
+Interest on cash,2024-01-14 22:02:22.794,,,,,,,,,,0.01,"EUR",,,"Interest on cash",227871b1-836a-4c54-8cd0-8fd03b788c1c,,,,,,
+Lending interest,2024-01-16 01:19:14.793,,,,,,,,,,0.19,"EUR",,,"Share lending interest",6b9a0bbf-8717-47fa-ae6a-9c97b048cf98,,,,,,
+Interest on cash,2024-01-16 22:02:26.532,,,,,,,,,,0.01,"EUR",,,"Interest on cash",4b283a16-6e85-4476-bf61-b3ba3ffb3ddc,,,,,,
+Lending interest,2024-01-17 01:17:24.857,,,,,,,,,,0.06,"EUR",,,"Share lending interest",0e37b76e-351c-438f-b373-c111c4a2b608,,,,,,
+Lending interest,2024-01-18 01:17:16.183,,,,,,,,,,0.06,"EUR",,,"Share lending interest",f785b77e-b8d0-4740-a6e0-2589a421770d,,,,,,
+Interest on cash,2024-01-18 22:02:51.197,,,,,,,,,,0.01,"EUR",,,"Interest on cash",8f2e5f9b-83ae-4bd6-8824-36f357484561,,,,,,
+Market buy,2024-01-18 23:12:49.74,US8485771021,SAVE,"Spirit Airlines",0.5000000000,5.70,USD,1.08778,,"EUR",2.62,"EUR",,,,EOF9000877165,,,,,,
+Lending interest,2024-01-19 01:17:04.891,,,,,,,,,,0.09,"EUR",,,"Share lending interest",66e81c39-754f-4007-9848-3b552ea0a2f8,,,,,,
+Market sell,2024-01-19 15:49:38.273,US8485771021,SAVE,"Spirit Airlines",0.5000000000,6.90,USD,1.08832,0.55,"EUR",3.17,"EUR",,,,EOF9002089707,,,,,,
+Interest on cash,2024-01-19 22:02:48.163,,,,,,,,,,0.01,"EUR",,,"Interest on cash",cb88819c-a136-4543-980c-0fbf1deb1e3e,,,,,,
+Lending interest,2024-01-20 01:16:32.331,,,,,,,,,,0.07,"EUR",,,"Share lending interest",26367e7a-59de-4295-b3bb-de8915388627,,,,,,
+Interest on cash,2024-01-21 22:02:39.403,,,,,,,,,,0.01,"EUR",,,"Interest on cash",397ee520-7b7a-4d43-9b4f-0b7449a4dcf5,,,,,,
+Lending interest,2024-01-22 01:16:46.417,,,,,,,,,,0.14,"EUR",,,"Share lending interest",9df9fe1b-bcb3-49ea-8bbb-045c4027f9f8,,,,,,
+Dividend (Dividend),2024-01-22 12:05:30,US01609W1027,AHLA,"Alibaba",4.4000000000,0.92,EUR,Not available,,,4.04,"EUR",-0.00,EUR,,,,,,,,
+Lending interest,2024-01-23 01:17:03.939,,,,,,,,,,0.08,"EUR",,,"Share lending interest",9c177e0e-3028-48d4-be91-6c6eec8e014d,,,,,,
+Interest on cash,2024-01-23 22:02:23.027,,,,,,,,,,0.01,"EUR",,,"Interest on cash",7b711c4c-3666-4484-9aee-1419f394b8f7,,,,,,
+Lending interest,2024-01-24 01:17:07.049,,,,,,,,,,0.06,"EUR",,,"Share lending interest",7ec8e70d-ce4d-4b20-b0a3-6003f5f620ba,,,,,,
+Interest on cash,2024-01-24 22:02:13.353,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6f692462-d996-4608-93a8-b92c46612b01,,,,,,
+Lending interest,2024-01-25 01:16:17.119,,,,,,,,,,0.06,"EUR",,,"Share lending interest",a280979b-f065-41f0-b80f-9b936d4e2c03,,,,,,
+Lending interest,2024-01-26 01:16:26.889,,,,,,,,,,0.02,"EUR",,,"Share lending interest",a3972603-3fc9-470c-b0bb-ee7f716a8748,,,,,,
+Interest on cash,2024-01-26 22:03:08.564,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b0d2d67b-a427-49c2-900a-436a9c1f0fcd,,,,,,
+Lending interest,2024-01-27 01:15:44.729,,,,,,,,,,0.01,"EUR",,,"Share lending interest",8b5b7340-815c-403a-8937-c698aabe0b13,,,,,,
+Interest on cash,2024-01-27 22:02:29.167,,,,,,,,,,0.01,"EUR",,,"Interest on cash",81fda9b2-d81b-4846-8226-d2b2fb4e944a,,,,,,
+Lending interest,2024-01-29 01:18:00.593,,,,,,,,,,0.03,"EUR",,,"Share lending interest",04104ae1-ebb5-4088-8732-0314a5f8a4d0,,,,,,
+Interest on cash,2024-01-29 22:02:28.971,,,,,,,,,,0.01,"EUR",,,"Interest on cash",88978417-2152-43c1-a8d9-b9088bd0c9a9,,,,,,
+Lending interest,2024-01-30 01:17:20.426,,,,,,,,,,0.01,"EUR",,,"Share lending interest",68a4f7ce-71f3-4906-9e72-d5fd7fe4615a,,,,,,
+Lending interest,2024-01-31 01:17:40.049,,,,,,,,,,0.01,"EUR",,,"Share lending interest",928ca118-0ee7-4f65-83be-db1594230f2b,,,,,,
+Interest on cash,2024-01-31 22:02:58.06,,,,,,,,,,0.01,"EUR",,,"Interest on cash",26601b66-a45d-47fc-aca6-9c786a35caf7,,,,,,
+Lending interest,2024-02-01 01:16:24.521,,,,,,,,,,0.01,"EUR",,,"Share lending interest",65dbaafc-cd3d-40c3-8cbc-0c6ea151bb66,,,,,,
+Interest on cash,2024-02-01 22:02:48.89,,,,,,,,,,0.01,"EUR",,,"Interest on cash",ee1cc83f-a8f6-49fb-a3cd-e3fee46c34e6,,,,,,
+Lending interest,2024-02-02 01:15:38.997,,,,,,,,,,0.05,"EUR",,,"Share lending interest",be7b5e6c-a9e7-49ef-9e56-98ceade51312,,,,,,
+Lending interest,2024-02-03 01:15:55.421,,,,,,,,,,0.05,"EUR",,,"Share lending interest",9e7cfd39-a1dc-451f-ac11-e0dfe373943a,,,,,,
+Interest on cash,2024-02-03 22:02:59.544,,,,,,,,,,0.01,"EUR",,,"Interest on cash",aac8df86-8f44-4f85-8447-dda96c7d4077,,,,,,
+Interest on cash,2024-02-04 22:02:48.331,,,,,,,,,,0.01,"EUR",,,"Interest on cash",f8a87bac-95ef-4a62-827e-e562a08c1e50,,,,,,
+Lending interest,2024-02-05 01:18:34.208,,,,,,,,,,0.10,"EUR",,,"Share lending interest",395d60ae-fcd6-45d3-b421-a9b01b4f5301,,,,,,
+Lending interest,2024-02-06 01:18:23.553,,,,,,,,,,0.10,"EUR",,,"Share lending interest",51840618-4cbb-4de5-a772-24abbc732c74,,,,,,
+Market buy,2024-02-06 09:12:32.235,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",1.5000000000,5.09,USD,1.07405,,"EUR",7.12,"EUR",,,,EOF9950420889,,,,,0.01,"EUR"
+Interest on cash,2024-02-06 22:02:15.647,,,,,,,,,,0.01,"EUR",,,"Interest on cash",5724f90a-77e8-46ed-ad0b-46291dc7dc43,,,,,,
+Lending interest,2024-02-07 01:19:21.855,,,,,,,,,,0.05,"EUR",,,"Share lending interest",1f694b27-e141-49c2-8472-177c94ffcff5,,,,,,
+Deposit,2024-02-07 08:00:10.436,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",a2009491-d5b5-473d-8052-c725c0b801bb,,,,,,
+Market buy,2024-02-07 08:54:34.512,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",30.0000000000,5.71,USD,1.07636,,"EUR",159.47,"EUR",,,,EOF9953427743,,,,,0.24,"EUR"
+Market buy,2024-02-07 08:55:38.699,XS2399367684,SMHS,"Leverage Shares -3x Short Semiconductors",160.0000000000,0.49,USD,1.07637,,"EUR",73.17,"EUR",,,,EOF9953427780,,,,,0.11,"EUR"
+Market buy,2024-02-07 08:56:40.041,JE00BDD9Q956,LNGA,"WisdomTree Natural Gas 2x Leveraged",420.0000000000,0.12,USD,1.07645,,"EUR",45.72,"EUR",,,,EOF9953427818,,,,,0.07,"EUR"
+Market buy,2024-02-07 08:57:07.102,IE00B94QLN63,2PAL,"WisdomTree Palladium 2x Leveraged",1.0000000000,9.61,USD,1.07679,,"EUR",8.93,"EUR",,,,EOF9953427837,,,,,0.01,"EUR"
+Market buy,2024-02-07 08:57:31.921,XS2399364665,SPYS,"Leverage Shares -5x Short S&P 500",80.0000000000,2.72,USD,1.07635,,"EUR",202.53,"EUR",,,,EOF9953427981,,,,,0.30,"EUR"
+Market buy,2024-02-07 09:20:04.427,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",8.0000000000,1.26,EUR,1.00000,,"EUR",10.06,"EUR",,,,EOF9953430089,,,,,,
+Lending interest,2024-02-08 01:18:42.034,,,,,,,,,,0.01,"EUR",,,"Share lending interest",cbe5dd0e-0aaf-4c11-aa36-91a55ea23be0,,,,,,
+Interest on cash,2024-02-08 22:02:19.448,,,,,,,,,,0.01,"EUR",,,"Interest on cash",bf2b038a-d13e-4aa2-9595-490cd869d814,,,,,,
+Lending interest,2024-02-09 01:21:29.578,,,,,,,,,,0.02,"EUR",,,"Share lending interest",df36aa73-ddeb-442f-8afd-c8f386701796,,,,,,
+Lending interest,2024-02-10 01:22:03.672,,,,,,,,,,0.01,"EUR",,,"Share lending interest",dc4dbe28-e925-410e-bc43-8296ea79eefd,,,,,,
+Interest on cash,2024-02-10 22:02:55.785,,,,,,,,,,0.01,"EUR",,,"Interest on cash",bb3defde-e133-4135-a323-449a3995d7f3,,,,,,
+Lending interest,2024-02-12 01:28:04.391,,,,,,,,,,0.03,"EUR",,,"Share lending interest",b5f8a3a2-e801-45b4-995c-f7ca03e6eb36,,,,,,
+Interest on cash,2024-02-12 22:00:53.225,,,,,,,,,,0.01,"EUR",,,"Interest on cash",acdcb254-4a32-4c65-8202-05e7da76e961,,,,,,
+Lending interest,2024-02-13 01:30:04.21,,,,,,,,,,0.01,"EUR",,,"Share lending interest",b4b38679-1ef5-41f8-a90e-4fb9ee7dc49d,,,,,,
+Dividend (Dividend),2024-02-13 10:19:38,US6549022043,NOK,"Nokia",37.0000000000,0.02,USD,Not available,,,0.72,"EUR",0.42,USD,,,,,,,,
+Interest on cash,2024-02-13 22:00:49.142,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b8000621-add7-4a79-a428-1789f0b8397a,,,,,,
+Lending interest,2024-02-14 01:27:51.968,,,,,,,,,,0.07,"EUR",,,"Share lending interest",04fc9341-57b0-4d79-804f-a2e4c93f1ff9,,,,,,
+Lending interest,2024-02-15 01:26:45.803,,,,,,,,,,0.04,"EUR",,,"Share lending interest",f0e7bdbd-53f8-4c4c-87eb-364a5bc249ed,,,,,,
+Interest on cash,2024-02-15 22:00:40.005,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b82faaa3-0405-4b6a-8a8a-7236a3e7c04a,,,,,,
+Lending interest,2024-02-16 01:28:48.643,,,,,,,,,,0.03,"EUR",,,"Share lending interest",6338d693-a2ec-402e-b71a-bf5c8d0e08ef,,,,,,
+Lending interest,2024-02-17 01:27:48.683,,,,,,,,,,0.02,"EUR",,,"Share lending interest",6bad0a63-7253-44a4-aa3d-15e6fbf60bd6,,,,,,
+Interest on cash,2024-02-17 22:00:36.136,,,,,,,,,,0.01,"EUR",,,"Interest on cash",c814bce7-eb6e-4507-a3a0-35321b8e5c94,,,,,,
+Interest on cash,2024-02-19 22:00:24.27,,,,,,,,,,0.01,"EUR",,,"Interest on cash",88c17a4c-4538-46d5-9672-7139c6298087,,,,,,
+Lending interest,2024-02-20 01:31:40.992,,,,,,,,,,0.03,"EUR",,,"Share lending interest",17f39ba9-fcad-45c0-bad6-5dd9b3ef3c80,,,,,,
+Interest on cash,2024-02-20 22:00:24.855,,,,,,,,,,0.01,"EUR",,,"Interest on cash",3a25aa2d-0ca4-4588-8c7e-8e8f2d87e54a,,,,,,
+Lending interest,2024-02-21 01:27:16.335,,,,,,,,,,0.05,"EUR",,,"Share lending interest",1ad310e2-dd26-40ec-be2b-2071dd85cee4,,,,,,
+Lending interest,2024-02-22 01:24:45.25,,,,,,,,,,0.02,"EUR",,,"Share lending interest",24353968-4162-437d-88b0-f95fb5919180,,,,,,
+Interest on cash,2024-02-22 22:00:24.68,,,,,,,,,,0.01,"EUR",,,"Interest on cash",7b97dfeb-cafa-4ae9-ac47-f8694672e86b,,,,,,
+Lending interest,2024-02-23 01:25:26.874,,,,,,,,,,0.02,"EUR",,,"Share lending interest",24f40a57-34dd-4b50-937a-89a20bc4da19,,,,,,
+Lending interest,2024-02-24 20:17:11.538,,,,,,,,,,0.01,"EUR",,,"Share lending interest",c3a29021-e0e7-4dc5-b12a-5bd916e98042,,,,,,
+Interest on cash,2024-02-24 22:00:25.284,,,,,,,,,,0.01,"EUR",,,"Interest on cash",5255b394-3167-49e0-8a5d-1cdd84e8d7e1,,,,,,
+Lending interest,2024-02-26 01:26:10.703,,,,,,,,,,0.02,"EUR",,,"Share lending interest",9f901424-4456-4d68-9167-ffc0ec3e7fd0,,,,,,
+Interest on cash,2024-02-26 22:00:25.752,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b2de2b60-fc63-4f52-9d90-f1ecc94de917,,,,,,
+Lending interest,2024-02-27 01:29:45.95,,,,,,,,,,0.03,"EUR",,,"Share lending interest",707a7f93-9bb4-424a-ad51-3ee3b589b1b1,,,,,,
+Interest on cash,2024-02-27 22:00:25.193,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6f8c8742-4019-4c3c-9461-5ecefd7d2dc3,,,,,,
+Lending interest,2024-02-28 01:13:19.732,,,,,,,,,,0.01,"EUR",,,"Share lending interest",95fd9236-57e0-431f-a619-88f197c9f614,,,,,,
+Deposit,2024-02-28 17:30:12.348,,,,,,,,,,100.00,"EUR",,,"Bank Transfer",97931a9d-52af-4c8f-bf2f-3010057d5b25,,,,,,
+Deposit,2024-02-28 17:45:05.927,,,,,,,,,,2000.00,"EUR",,,"Bank Transfer",5df12e1a-61da-4dbf-a9e3-db821901f48b,,,,,,
+Currency conversion,2024-02-28 17:46:05.693,,,,,,,,,,-3.41,"USD",,,"2100 EUR -> 2275.60 USD",4V7H72R78SMJMNKA,2100.00,"EUR",2275.60,"USD",-3.41,"USD"
+Deposit,2024-02-28 18:00:07.735,,,,,,,,,,2000.00,"EUR",,,"Bank Transfer",20968e2d-2204-40a6-9efb-6adac7d34d54,,,,,,
+Currency conversion,2024-02-28 18:01:47.363,,,,,,,,,,-3.25,"USD",,,"2000 EUR -> 2167.66 USD",6MSUNSPV8N0AETW7,2000.00,"EUR",2167.66,"USD",-3.25,"USD"
+Interest on cash,2024-02-28 22:00:25.311,,,,,,,,,,0.60,"USD",,,"Interest on cash",de16c3e7-bfc1-43ec-9a09-762db8194838,,,,,,
+Lending interest,2024-02-29 01:13:40.654,,,,,,,,,,0.02,"EUR",,,"Share lending interest",a5e5c5ac-8374-4819-aadb-02cb6b266e40,,,,,,
+Dividend (Dividend),2024-02-29 13:40:14,US1252691001,CF,"CF Industries",1.5000000000,0.43,USD,Not available,,,0.59,"EUR",0.11,USD,,,,,,,,
+Interest on cash,2024-02-29 22:00:23.716,,,,,,,,,,0.01,"EUR",,,"Interest on cash",c907a065-bf0e-4a55-8ed1-925dcfd97e55,,,,,,
+Interest on cash,2024-02-29 22:00:23.789,,,,,,,,,,0.60,"USD",,,"Interest on cash",b2732078-0a55-4614-812d-598b5ea33800,,,,,,
+Lending interest,2024-03-01 01:13:23.975,,,,,,,,,,0.01,"EUR",,,"Share lending interest",ae2da6ac-f491-4f50-a7c0-da72cbc66dd9,,,,,,
+Dividend (Dividend),2024-03-01 14:30:55,US7170811035,PFE,"Pfizer",4.0000000000,0.36,USD,Not available,,,1.32,"EUR",0.25,USD,,,,,,,,
+Interest on cash,2024-03-01 22:00:26.793,,,,,,,,,,0.61,"USD",,,"Interest on cash",c229545e-1a25-4691-b8dc-ea8b9b137dbd,,,,,,
+Lending interest,2024-03-02 01:13:33.692,,,,,,,,,,0.04,"EUR",,,"Share lending interest",780e9cff-0f4a-49e7-9946-3dd92ae42ecd,,,,,,
+Interest on cash,2024-03-02 22:00:28.749,,,,,,,,,,0.01,"EUR",,,"Interest on cash",e2704eaa-d7f5-4f6f-bc4a-49183b2aae29,,,,,,
+Interest on cash,2024-03-02 22:00:28.829,,,,,,,,,,0.60,"USD",,,"Interest on cash",aa9e33ac-e8dd-4132-aedb-abc2372eb7ce,,,,,,
+Interest on cash,2024-03-03 22:00:28.431,,,,,,,,,,0.61,"USD",,,"Interest on cash",85c123ad-af3f-4a94-81fd-82c4d1caf84c,,,,,,
+Lending interest,2024-03-04 01:14:01.573,,,,,,,,,,0.11,"EUR",,,"Share lending interest",a09a4c60-2731-4284-872a-f60631c0973d,,,,,,
+Interest on cash,2024-03-04 22:00:26.781,,,,,,,,,,0.01,"EUR",,,"Interest on cash",3f4187bc-6048-4ad6-b344-3ee04fbd8022,,,,,,
+Interest on cash,2024-03-04 22:00:26.828,,,,,,,,,,0.60,"USD",,,"Interest on cash",c517e7fc-06a8-4f54-b5be-52648fccad40,,,,,,
+Lending interest,2024-03-05 01:13:36.127,,,,,,,,,,0.04,"EUR",,,"Share lending interest",57886103-407b-4e9b-b6cd-75008506868a,,,,,,
+Interest on cash,2024-03-05 22:00:26.644,,,,,,,,,,0.01,"EUR",,,"Interest on cash",1e9d3c3e-7b45-43e7-8403-7eb23313b2c4,,,,,,
+Interest on cash,2024-03-05 22:00:26.697,,,,,,,,,,0.61,"USD",,,"Interest on cash",806cbaab-9c73-4b35-b980-337beb4fcf3f,,,,,,
+Lending interest,2024-03-06 01:13:07.576,,,,,,,,,,0.03,"EUR",,,"Share lending interest",0c7176f2-1e27-44c8-b3e2-aee411b5ccde,,,,,,
+Market sell,2024-03-06 19:37:00.52,US8740391003,TSM,"Taiwan Semiconductor Manufacturing",0.3000000000,142.40,USD,1.08979,7.30,"EUR",39.14,"EUR",,,,EOF11301547225,,,,,0.06,"EUR"
+Market sell,2024-03-06 19:37:19.461,MHY8162K2046,SBLK,"Star Bulk Carriers",2.0000000000,24.13,USD,1.08988,3.15,"EUR",44.21,"EUR",,,,EOF11301547242,,,,,0.07,"EUR"
+Market buy,2024-03-06 19:39:17.251,US8334451098,SNOW,"Snowflake",0.3000000000,165.10,USD,1.00000,,"USD",49.53,"USD",,,,EOF11301547498,,,,,,
+Currency conversion,2024-03-06 19:43:12.747,,,,,,,,,,-0.07,"USD",,,"45.53 EUR -> 49.60 USD",NATNXP68Z23IGPW5,45.53,"EUR",49.60,"USD",-0.07,"USD"
+Market buy,2024-03-06 19:43:43.574,US7170811035,PFE,"Pfizer",1.0000000000,27.16,USD,1.08945,,"EUR",24.97,"EUR",,,,EOF11301548098,,,,,0.04,"EUR"
+Market buy,2024-03-06 19:44:18.161,US76954A1034,RIVN,"Rivian Automotive",1.5000000000,10.95,USD,1.08991,,"EUR",15.09,"EUR",,,,EOF11301548159,,,,,0.02,"EUR"
+Interest on cash,2024-03-06 22:00:25.942,,,,,,,,,,0.60,"USD",,,"Interest on cash",e3015070-950f-40d4-927e-951dca1e4a5b,,,,,,
+Lending interest,2024-03-07 07:47:45.412,,,,,,,,,,0.03,"EUR",,,"Share lending interest",f85cb3ad-5263-4b97-9180-3f83e5f4461a,,,,,,
+Deposit,2024-03-07 08:01:12.538,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",12dfeb59-bc03-4712-b611-7687a74dff90,,,,,,
+Market buy,2024-03-07 15:55:01.469,US0126531013,ALB,"Albemarle",0.3000000000,119.84,USD,1.09243,,"EUR",32.96,"EUR",,,,EOF11350934488,,,,,0.05,"EUR"
+Market buy,2024-03-07 15:55:15.736,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",40.0000000000,1.25,EUR,1.00000,,"EUR",50.14,"EUR",,,,EOF11350934542,,,,,,
+Market buy,2024-03-07 15:56:07.832,US00202F1021,AMKBY,"AP Moller Maersk",5.0000000000,6.92,USD,1.09251,,"EUR",31.72,"EUR",,,,EOF11350934638,,,,,0.05,"EUR"
+Market buy,2024-03-07 15:56:15.232,IE00B4QNHZ41,DES2,"L&G DAX 2x Short (Acc)",70.0000000000,1.11,EUR,1.00000,,"EUR",77.48,"EUR",,,,EOF11350934654,,,,,,
+Market buy,2024-03-07 15:56:36.884,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",30.0000000000,1.73,USD,1.09228,,"EUR",47.64,"EUR",,,,EOF11350934725,,,,,0.07,"EUR"
+Market buy,2024-03-07 15:57:05.127,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",25.0000000000,1.73,USD,1.09268,,"EUR",39.71,"EUR",,,,EOF11350934801,,,,,0.06,"EUR"
+Market buy,2024-03-07 15:58:18.264,XS2399367684,SMHS,"Leverage Shares -3x Short Semiconductors",150.0000000000,0.25,USD,1.09291,,"EUR",34.06,"EUR",,,,EOF11350935074,,,,,0.05,"EUR"
+Market buy,2024-03-07 15:58:38.375,US5533681012,MP,"MP Materials",2.0000000000,15.54,USD,1.09282,,"EUR",28.48,"EUR",,,,EOF11350935124,,,,,0.04,"EUR"
+Market buy,2024-03-07 15:58:57.857,CA67077M1086,NTR,"Nutrien",0.5000000000,53.69,USD,1.09303,,"EUR",24.60,"EUR",,,,EOF11350935200,,,,,0.04,"EUR"
+Market buy,2024-03-07 15:59:32.836,US8334451098,SNOW,"Snowflake",0.2000000000,165.76,USD,1.09268,,"EUR",30.39,"EUR",,,,EOF11350935384,,,,,0.05,"EUR"
+Market buy,2024-03-07 15:59:59.199,JE00BDD9Q956,LNGA,"WisdomTree Natural Gas 2x Leveraged",300.0000000000,0.10,USD,1.09307,,"EUR",27.76,"EUR",,,,EOF11350935506,,,,,0.04,"EUR"
+Market buy,2024-03-07 16:00:23.253,IL0065100930,ZIM,"ZIM Integrated Shipping Services",2.0000000000,11.06,USD,1.09288,,"EUR",20.27,"EUR",,,,EOF11350935812,,,,,0.03,"EUR"
+Market buy,2024-03-07 16:00:45.885,IE00B94QLN63,2PAL,"WisdomTree Palladium 2x Leveraged",3.0000000000,11.37,USD,1.09291,,"EUR",31.26,"EUR",,,,EOF11350935955,,,,,0.05,"EUR"
+Market buy,2024-03-07 16:02:04.095,GB00B15KXX56,BULL,"WisdomTree Gold",1.0000000000,22.29,USD,1.09264,,"EUR",20.43,"EUR",,,,EOF11350936223,,,,,0.03,"EUR"
+Market buy,2024-03-07 16:03:02.769,XS2399364665,SPYS,"Leverage Shares -5x Short S&P 500",2.0000000000,2.42,USD,1.09295,,"EUR",4.44,"EUR",,,,EOF11350936575,,,,,0.01,"EUR"
+Market sell,2024-03-07 19:19:24.885,US8740391003,TSM,"Taiwan Semiconductor Manufacturing",0.2869874000,150.25,USD,1.09441,8.88,"EUR",39.34,"EUR",,,,EOF11351921074,,,,,0.06,"EUR"
+Market buy,2024-03-07 19:20:08.109,US8334451098,SNOW,"Snowflake",0.2000000000,168.27,USD,1.09443,,"EUR",30.80,"EUR",,,,EOF11351921240,,,,,0.05,"EUR"
+Interest on cash,2024-03-07 22:00:25.197,,,,,,,,,,0.01,"EUR",,,"Interest on cash",402da2bf-8ed0-4621-a3f2-c3a6952d0b04,,,,,,
+Interest on cash,2024-03-07 22:00:25.245,,,,,,,,,,0.61,"USD",,,"Interest on cash",d36178e1-7472-4f49-a4bb-bd69b46b91bd,,,,,,
+Lending interest,2024-03-08 01:14:08.112,,,,,,,,,,0.04,"EUR",,,"Share lending interest",d306ff60-fca3-4ad3-a56f-c81f412b7a83,,,,,,
+Interest on cash,2024-03-08 22:00:23.962,,,,,,,,,,0.60,"USD",,,"Interest on cash",2ccd4738-1452-41ae-8301-5810f37ff162,,,,,,
+Lending interest,2024-03-09 01:15:15.704,,,,,,,,,,0.04,"EUR",,,"Share lending interest",04854e14-cb47-4ba1-9f8b-7babe6b6d4bb,,,,,,
+Interest on cash,2024-03-09 22:00:29.827,,,,,,,,,,0.01,"EUR",,,"Interest on cash",31a56512-638c-452a-977a-cdfd0cab7d14,,,,,,
+Interest on cash,2024-03-09 22:00:29.883,,,,,,,,,,0.61,"USD",,,"Interest on cash",a869c805-855d-4440-bb47-fedd780bacb7,,,,,,
+Interest on cash,2024-03-10 22:00:34.349,,,,,,,,,,0.01,"EUR",,,"Interest on cash",76b0b577-d1fa-47f3-a208-6c163f2cdc26,,,,,,
+Interest on cash,2024-03-10 22:00:34.393,,,,,,,,,,0.60,"USD",,,"Interest on cash",53547763-54cb-43c8-9f97-83da22405a0d,,,,,,
+Lending interest,2024-03-11 01:13:39.354,,,,,,,,,,0.10,"EUR",,,"Share lending interest",08e6af4f-5ee1-4dc5-af12-1b810d1d1edc,,,,,,
+Dividend (Dividend),2024-03-11 14:13:14,US4592001014,IBM,"IBM",1.3074221000,1.41,USD,Not available,,,1.69,"EUR",0.33,USD,,,,,,,,
+Interest on cash,2024-03-11 22:00:24.882,,,,,,,,,,0.61,"USD",,,"Interest on cash",3bc60c49-04c1-4c49-9a81-7a488268676e,,,,,,
+Lending interest,2024-03-12 01:13:27.86,,,,,,,,,,0.04,"EUR",,,"Share lending interest",f655c9dd-c858-464a-b699-e16601287e57,,,,,,
+Dividend (Dividend),2024-03-12 09:39:23,US88579Y1010,MMM,"3M",3.0000000000,1.28,USD,Not available,,,3.52,"EUR",0.68,USD,,,,,,,,
+Interest on cash,2024-03-12 22:00:25.237,,,,,,,,,,0.01,"EUR",,,"Interest on cash",ac01cee3-30c9-4db5-b0f4-1f513710c616,,,,,,
+Interest on cash,2024-03-12 22:00:25.284,,,,,,,,,,0.60,"USD",,,"Interest on cash",d3b123cc-d104-4df5-ac44-29f3e8a74804,,,,,,
+Lending interest,2024-03-13 01:13:18.959,,,,,,,,,,0.05,"EUR",,,"Share lending interest",4576f91a-2c17-4807-be67-0ec88f92b5f0,,,,,,
+Interest on cash,2024-03-13 22:00:36.062,,,,,,,,,,0.01,"EUR",,,"Interest on cash",db8a7ace-d53a-489f-8cdf-d056233e233e,,,,,,
+Interest on cash,2024-03-13 22:00:36.3,,,,,,,,,,0.61,"USD",,,"Interest on cash",670efb5a-6114-42a1-8882-06bc40ce24a3,,,,,,
+Lending interest,2024-03-14 01:13:33.832,,,,,,,,,,0.05,"EUR",,,"Share lending interest",e4773e1a-4238-40c4-bafd-924c5c76075b,,,,,,
+Interest on cash,2024-03-14 22:00:33.395,,,,,,,,,,0.01,"EUR",,,"Interest on cash",cdff6b88-9083-4cc7-b095-9c1999e0f174,,,,,,
+Interest on cash,2024-03-14 22:00:33.454,,,,,,,,,,0.60,"USD",,,"Interest on cash",31fc5415-f762-45dd-bdf5-7d870cc9f549,,,,,,
+Lending interest,2024-03-15 01:13:16.139,,,,,,,,,,0.06,"EUR",,,"Share lending interest",a384e25b-cec0-4a66-ab50-19d91ad58320,,,,,,
+Dividend (Dividend),2024-03-15 15:57:02,US4278661081,HSY,"Hershey",0.5720000000,1.16,USD,Not available,,,0.61,"EUR",0.12,USD,,,,,,,,
+Interest on cash,2024-03-15 22:00:33.128,,,,,,,,,,0.61,"USD",,,"Interest on cash",f62a17ad-a7ab-4598-a1e1-a40c55634bc6,,,,,,
+Lending interest,2024-03-16 01:13:47.564,,,,,,,,,,0.04,"EUR",,,"Share lending interest",04801461-71c7-4dec-9e25-0583bfb4f600,,,,,,
+Interest on cash,2024-03-16 22:00:47.653,,,,,,,,,,0.01,"EUR",,,"Interest on cash",70b2d196-642c-42b3-be88-fb07c75468a5,,,,,,
+Interest on cash,2024-03-16 22:00:47.745,,,,,,,,,,0.60,"USD",,,"Interest on cash",2f030572-b4d6-474d-8168-a0c6910dfadd,,,,,,
+Interest on cash,2024-03-17 22:00:45.106,,,,,,,,,,0.01,"EUR",,,"Interest on cash",8cc9061b-1109-48da-8d44-517da9296520,,,,,,
+Interest on cash,2024-03-17 22:00:45.318,,,,,,,,,,0.61,"USD",,,"Interest on cash",fd9fa92d-4b3b-4577-ac7b-2120a6c4a1b2,,,,,,
+Lending interest,2024-03-18 01:14:49,,,,,,,,,,0.09,"EUR",,,"Share lending interest",eec571e0-f0f4-4717-8ef8-b5123906f031,,,,,,
+Interest on cash,2024-03-18 22:00:42.576,,,,,,,,,,0.61,"USD",,,"Interest on cash",9c6e956e-6d53-4448-bf61-8e08b199b786,,,,,,
+Lending interest,2024-03-19 01:13:21.289,,,,,,,,,,0.04,"EUR",,,"Share lending interest",6aa8e454-d4f1-41b3-b0c1-e95b84fa025f,,,,,,
+Interest on cash,2024-03-19 22:00:42.993,,,,,,,,,,0.01,"EUR",,,"Interest on cash",3e2b4fc6-c3ab-4269-96b1-7f5e9408f269,,,,,,
+Interest on cash,2024-03-19 22:00:43.059,,,,,,,,,,0.60,"USD",,,"Interest on cash",5c31222b-25b9-4f5c-a8d8-4eb5127ebeb6,,,,,,
+Lending interest,2024-03-20 07:07:11.664,,,,,,,,,,0.06,"EUR",,,"Share lending interest",0c0a85c7-0143-490b-ba87-8f02d7c15143,,,,,,
+Interest on cash,2024-03-20 22:00:37.373,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6836298b-f7e3-441e-9eb4-fb885dae0ee7,,,,,,
+Interest on cash,2024-03-20 22:00:37.448,,,,,,,,,,0.61,"USD",,,"Interest on cash",659903f5-3df3-416f-863e-809696270d03,,,,,,
+Lending interest,2024-03-21 01:10:06.409,,,,,,,,,,0.05,"EUR",,,"Share lending interest",85126859-d56e-4487-9ef9-5e12a9c1a721,,,,,,
+Dividend (Dividend),2024-03-21 13:48:17,US61945C1036,MOS,"Mosaic",6.0003540000,0.18,USD,Not available,,,0.98,"EUR",0.19,USD,,,,,,,,
+Interest on cash,2024-03-21 22:00:41.388,,,,,,,,,,0.01,"EUR",,,"Interest on cash",8c17bc38-6d18-4bc7-8c3c-90bac7726247,,,,,,
+Interest on cash,2024-03-21 22:00:41.436,,,,,,,,,,0.60,"USD",,,"Interest on cash",0bab6177-7861-49d6-b6ee-083d481f83e5,,,,,,
+Lending interest,2024-03-22 01:12:15.63,,,,,,,,,,0.06,"EUR",,,"Share lending interest",a53423d7-fdff-4e32-bee0-106f945c363c,,,,,,
+Interest on cash,2024-03-22 22:00:43.436,,,,,,,,,,0.61,"USD",,,"Interest on cash",8e7d3bac-0033-4084-a463-fe4af484dad0,,,,,,
+Lending interest,2024-03-23 01:12:11.497,,,,,,,,,,0.05,"EUR",,,"Share lending interest",76472912-c499-4267-a7ea-07773741acfa,,,,,,
+Interest on cash,2024-03-23 22:00:49.461,,,,,,,,,,0.01,"EUR",,,"Interest on cash",0ff070ae-9550-43a1-a750-28d4389f7b45,,,,,,
+Interest on cash,2024-03-23 22:00:49.556,,,,,,,,,,0.61,"USD",,,"Interest on cash",36d59347-9d6b-426a-a022-b512b57723f7,,,,,,
+Interest on cash,2024-03-24 22:00:43.666,,,,,,,,,,0.01,"EUR",,,"Interest on cash",0004f4c7-ab2b-4370-92f0-7caaf49ad870,,,,,,
+Interest on cash,2024-03-24 22:00:43.739,,,,,,,,,,0.60,"USD",,,"Interest on cash",fadc0286-626c-470e-a308-b466126a746d,,,,,,
+Lending interest,2024-03-25 01:12:52.435,,,,,,,,,,0.09,"EUR",,,"Share lending interest",900b4c1b-8a46-474c-8878-472593001a07,,,,,,
+Market buy,2024-03-25 14:09:53.544,US8334451098,SNOW,"Snowflake",0.1000000000,158.40,USD,1.08344,,"EUR",14.64,"EUR",,,,EOF12101892908,,,,,0.02,"EUR"
+Market buy,2024-03-25 15:29:40.5,US5494981039,LCID,"Lucid",1.0000000000,2.95,USD,1.08455,,"EUR",2.72,"EUR",,,,EOF12102868182,,,,,,
+Market sell,2024-03-25 18:49:43.445,US4278661081,HSY,"Hershey",0.5720000000,193.05,USD,1.08365,1.06,"EUR",101.75,"EUR",,,,EOF12102895352,,,,,0.15,"EUR"
+Market buy,2024-03-25 18:50:12.058,US76954A1034,RIVN,"Rivian Automotive",4.0000000000,10.64,USD,1.08350,,"EUR",39.34,"EUR",,,,EOF12102895449,,,,,0.06,"EUR"
+Market buy,2024-03-25 18:50:27.759,US76954A1034,RIVN,"Rivian Automotive",0.5000000000,10.64,USD,1.08350,,"EUR",4.92,"EUR",,,,EOF12102895477,,,,,0.01,"EUR"
+Market buy,2024-03-25 18:50:57.366,US8334451098,SNOW,"Snowflake",0.2000000000,158.52,USD,1.08352,,"EUR",29.30,"EUR",,,,EOF12102895506,,,,,0.04,"EUR"
+Market buy,2024-03-25 18:54:02.315,US5494981039,LCID,"Lucid",2.0000000000,2.98,USD,1.08363,,"EUR",5.51,"EUR",,,,EOF12102895764,,,,,0.01,"EUR"
+Market buy,2024-03-25 19:01:21.735,NL0015000F41,LILM,"Lilium",2.0000000000,0.93,USD,1.08104,,"EUR",1.72,"EUR",,,,EOF12102896675,,,,,,
+Market sell,2024-03-25 19:01:21.746,NL0015000F41,LILM,"Lilium",1.2482700000,0.93,USD,1.08202,-4.86,"EUR",1.07,"EUR",,,,EOF12102896676,,,,,,
+Market buy,2024-03-25 19:01:21.757,NL0015000F41,LILM,"Lilium",20.0000000000,0.93,USD,1.08356,,"EUR",17.19,"EUR",,,,EOF12102896678,,,,,0.03,"EUR"
+Interest on cash,2024-03-25 22:00:43.672,,,,,,,,,,0.61,"USD",,,"Interest on cash",6da4e979-2a18-4ca2-9170-ed99253c30c7,,,,,,
+Lending interest,2024-03-26 01:11:34.815,,,,,,,,,,0.02,"EUR",,,"Share lending interest",9ae37bb7-e8a6-4c4f-9de0-8f71088ec0c9,,,,,,
+Interest on cash,2024-03-26 22:00:42.529,,,,,,,,,,0.01,"EUR",,,"Interest on cash",9197d9ef-3be2-4fcd-bcd6-d1534edd3ccd,,,,,,
+Interest on cash,2024-03-26 22:00:42.604,,,,,,,,,,0.61,"USD",,,"Interest on cash",fecd15a4-69e1-4193-8937-e829e4b79eb4,,,,,,
+Interest on cash,2024-03-27 22:00:41.876,,,,,,,,,,0.01,"EUR",,,"Interest on cash",4cd95c68-dd4a-4ba0-b799-c11695ad105a,,,,,,
+Interest on cash,2024-03-27 22:00:41.936,,,,,,,,,,0.60,"USD",,,"Interest on cash",984efb43-cdbe-4687-a5cc-683210d1e0b1,,,,,,
+Dividend (Dividend),2024-03-28 14:36:05,US6516391066,NEM,"Newmont",4.0000000000,0.21,USD,Not available,,,0.79,"EUR",0.15,USD,,,,,,,,
+Dividend (Dividend),2024-03-28 14:39:23,MHY8162K2046,SBLK,"Star Bulk Carriers",5.0000000000,0.45,USD,Not available,,,2.08,"EUR",0.00,USD,,,,,,,,
+Interest on cash,2024-03-28 22:00:42.237,,,,,,,,,,0.61,"USD",,,"Interest on cash",0469a90b-3327-47d0-a6fb-addf395cb2db,,,,,,
+Interest on cash,2024-03-29 22:00:42.313,,,,,,,,,,0.01,"EUR",,,"Interest on cash",dc86be6d-2f0e-40c2-8d32-8c020c8d9625,,,,,,
+Interest on cash,2024-03-29 22:00:42.368,,,,,,,,,,0.60,"USD",,,"Interest on cash",50791f88-661b-4c99-9ccc-6916410863a0,,,,,,
+Interest on cash,2024-03-30 22:00:46.613,,,,,,,,,,0.61,"USD",,,"Interest on cash",0ba1eb1a-6fe9-4e96-a501-60e33ed46c2d,,,,,,
+Interest on cash,2024-03-31 21:00:46.475,,,,,,,,,,0.01,"EUR",,,"Interest on cash",dc7242fb-e8d0-4301-bfa5-b8bc4bbd9964,,,,,,
+Interest on cash,2024-03-31 21:00:46.566,,,,,,,,,,0.61,"USD",,,"Interest on cash",f85c264d-9730-4e55-913e-46e82c37e81c,,,,,,
+Dividend (Dividend),2024-04-01 09:11:59,US0126531013,ALB,"Albemarle",1.3000253200,0.34,USD,Not available,,,0.41,"EUR",0.08,USD,,,,,,,,
+Interest on cash,2024-04-01 21:00:42.457,,,,,,,,,,0.01,"EUR",,,"Interest on cash",43343d2c-f6f8-4ddf-ba2f-46a1f064407f,,,,,,
+Interest on cash,2024-04-01 21:00:42.501,,,,,,,,,,0.61,"USD",,,"Interest on cash",ac4432a5-215a-4b7e-9226-1003a75a1897,,,,,,
+Interest on cash,2024-04-02 21:00:43.787,,,,,,,,,,0.60,"USD",,,"Interest on cash",781f074b-a647-48fe-808f-695b40a427ba,,,,,,
+Dividend (Dividend),2024-04-03 09:03:44,US00202F1021,AMKBY,"AP Moller Maersk",21.0000000000,0.27,USD,Not available,,,5.33,"EUR",2.12,USD,,,,,,,,
+Market buy,2024-04-03 10:19:04.213,IE00BSKRJZ44,IDTL,"iShares USD Treasury Bond 20+yr (Dist)",3.0000000000,3.43,USD,1.07701,,"EUR",9.56,"EUR",,,,EOF12454398292,,,,,0.01,"EUR"
+Market buy,2024-04-03 10:19:46.912,IE00BSKRJZ44,IDTL,"iShares USD Treasury Bond 20+yr (Dist)",1.0000000000,3.43,USD,1.07814,,"EUR",3.18,"EUR",,,,EOF12454398320,,,,,,
+Market buy,2024-04-03 19:12:12.718,NL0015000F41,LILM,"Lilium",1.2000000000,0.91,USD,1.08570,,"EUR",1.01,"EUR",,,,EOF12501296181,,,,,,
+Market sell,2024-04-03 20:36:16.238,US2546871060,DIS,"Walt Disney",0.5000000000,118.72,USD,1.08360,15.50,"EUR",54.70,"EUR",,,,EOF12502452926,,,,,0.08,"EUR"
+Market sell,2024-04-03 20:36:40.131,US2546871060,DIS,"Walt Disney",0.5000000000,118.72,USD,1.08360,15.51,"EUR",54.70,"EUR",,,,EOF12502452945,,,,,0.08,"EUR"
+Market buy,2024-04-03 20:40:55.998,US6516391066,NEM,"Newmont",2.0000000000,37.41,USD,1.08340,,"EUR",69.16,"EUR",,,,EOF12502453023,,,,,0.10,"EUR"
+Interest on cash,2024-04-03 21:00:48.59,,,,,,,,,,0.01,"EUR",,,"Interest on cash",327bc452-4fc0-4fe6-9c18-a12c101e723d,,,,,,
+Interest on cash,2024-04-03 21:00:48.677,,,,,,,,,,0.61,"USD",,,"Interest on cash",fbdbf14f-d461-41fd-8e39-d03290f8a26c,,,,,,
+Market buy,2024-04-03 21:13:59.723,US5533681012,MP,"MP Materials",2.0000000000,15.05,USD,1.08312,,"EUR",27.83,"EUR",,,,EOF12502453837,,,,,0.04,"EUR"
+Withdrawal,2024-04-04 10:44:24.395,,,,,,,,,,-10.92,"EUR",,,,6fedc9ec-0137-40b4-85d5-87e5e5b8be05,,,,,,
+Deposit,2024-04-04 10:44:31.649,,,,,,,,,,14.00,"EUR",,,,9e51b751-5aab-45e0-a9cc-bcb529fc53cf,,,,,,
+Market buy,2024-04-04 14:17:02.564,US83444M1018,SOLV,"Solventum",0.2000000000,65.10,USD,1.08681,,"EUR",12.00,"EUR",,,,EOF12550540334,,,,,0.02,"EUR"
+Market buy,2024-04-04 14:17:46.802,US83444M1018,SOLV,"Solventum",0.0500000000,65.31,USD,1.08850,,"EUR",3.00,"EUR",,,,EOF12550540577,,,,,,
+Interest on cash,2024-04-04 21:00:46.756,,,,,,,,,,0.01,"EUR",,,"Interest on cash",9fb90096-edc5-4397-ba03-bd9b80db5485,,,,,,
+Interest on cash,2024-04-04 21:00:46.817,,,,,,,,,,0.61,"USD",,,"Interest on cash",a673301b-4c38-43dc-8ddf-4ce887a0c252,,,,,,
+Interest on cash,2024-04-05 21:00:43.257,,,,,,,,,,0.60,"USD",,,"Interest on cash",d4991fcb-b736-443b-81f7-96fbf1c6c9b3,,,,,,
+Interest on cash,2024-04-06 21:00:45.952,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b653ac01-9574-421d-a60a-d1734f2c7440,,,,,,
+Interest on cash,2024-04-06 21:00:46.003,,,,,,,,,,0.61,"USD",,,"Interest on cash",e3da977e-e799-4006-a064-1655fae59032,,,,,,
+Interest on cash,2024-04-07 21:00:44.891,,,,,,,,,,0.01,"EUR",,,"Interest on cash",e11c33f9-8d69-4800-b07c-4638fc99a619,,,,,,
+Interest on cash,2024-04-07 21:00:45.103,,,,,,,,,,0.61,"USD",,,"Interest on cash",b956b672-716d-40b8-99d8-621b8d5b3d75,,,,,,
+Deposit,2024-04-08 07:00:34.393,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",e15fcc08-9233-4379-b0ef-e7fe5a8f0e77,,,,,,
+Market buy,2024-04-08 09:42:25.555,IE00B94QLN63,2PAL,"WisdomTree Palladium 2x Leveraged",3.0000000000,10.77,USD,1.08263,,"EUR",29.87,"EUR",,,,EOF12750456348,,,,,0.04,"EUR"
+Market buy,2024-04-08 09:42:49.864,JE00B1VS2W53,PHPT,"WisdomTree Physical Platinum",0.5000000000,86.98,USD,1.08264,,"EUR",40.23,"EUR",,,,EOF12750456372,,,,,0.06,"EUR"
+Market buy,2024-04-08 09:43:05.158,JE00BN7KB664,WEAT,"WisdomTree Wheat",1.5000000000,23.45,USD,1.08264,,"EUR",32.54,"EUR",,,,EOF12750456398,,,,,0.05,"EUR"
+Market buy,2024-04-08 09:43:27.829,GB00B15KY211,NICK,"WisdomTree Nickel",2.0000000000,16.41,USD,1.08248,,"EUR",30.36,"EUR",,,,EOF12750456438,,,,,0.05,"EUR"
+Market buy,2024-04-08 09:44:00.957,JE00BDD9Q956,LNGA,"WisdomTree Natural Gas 2x Leveraged",600.0000000000,0.08,USD,1.08262,,"EUR",42.18,"EUR",,,,EOF12750456458,,,,,0.06,"EUR"
+Market buy,2024-04-08 09:44:30.027,JE00BDD9Q956,LNGA,"WisdomTree Natural Gas 2x Leveraged",400.0000000000,0.08,USD,1.08262,,"EUR",28.12,"EUR",,,,EOF12750456486,,,,,0.04,"EUR"
+Market buy,2024-04-08 09:45:15.654,GB00B15KXX56,BULL,"WisdomTree Gold",7.0000000000,24.14,USD,1.08278,,"EUR",156.29,"EUR",,,,EOF12750456525,,,,,0.23,"EUR"
+Market buy,2024-04-08 09:45:47.856,JE00BN7KB441,CORN,"WisdomTree Corn",1.5000000000,21.66,USD,1.08275,,"EUR",30.04,"EUR",,,,EOF12750456557,,,,,0.04,"EUR"
+Market buy,2024-04-08 09:46:55.872,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",34.0000000000,1.81,USD,1.08298,,"EUR",57.04,"EUR",,,,EOF12750456601,,,,,0.09,"EUR"
+Market buy,2024-04-08 09:49:15.775,IE00BSKRJZ44,IDTL,"iShares USD Treasury Bond 20+yr (Dist)",2.9000000000,3.39,USD,1.08262,,"EUR",9.08,"EUR",,,,EOF12750456747,,,,,0.01,"EUR"
+Market buy,2024-04-08 09:56:15.192,NL0015000F41,LILM,"Lilium",50.0000000000,0.91,USD,1.08281,,"EUR",42.20,"EUR",,,,EOF12750457288,,,,,0.06,"EUR"
+Market buy,2024-04-08 13:55:30.383,NL0015000F41,LILM,"Lilium",1.8000000000,0.93,USD,1.08198,,"EUR",1.54,"EUR",,,,EOF12751746117,,,,,,
+Interest on cash,2024-04-08 21:00:45.438,,,,,,,,,,0.61,"USD",,,"Interest on cash",0353dc0d-ff74-4c06-a50e-52793a86ce4a,,,,,,
+Interest on cash,2024-04-09 21:00:36.659,,,,,,,,,,0.01,"EUR",,,"Interest on cash",de3e3f6f-d6dc-4b99-9cde-788df254777e,,,,,,
+Interest on cash,2024-04-09 21:00:36.71,,,,,,,,,,0.60,"USD",,,"Interest on cash",e1eb396a-cb24-47b2-bf1f-d03d864d189d,,,,,,
+Interest on cash,2024-04-10 21:00:43.607,,,,,,,,,,0.61,"USD",,,"Interest on cash",3e57786a-10c8-43b6-af7c-34a9b22d6740,,,,,,
+Dividend (Dividend),2024-04-11 09:28:30,CA67077M1086,NTR,"Nutrien",3.5000000000,0.46,USD,Not available,,,1.49,"EUR",0.28,USD,,,,,,,,
+Interest on cash,2024-04-11 21:00:42.838,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6a873f24-b1ff-4ee8-80ce-00c48bbe7ffa,,,,,,
+Interest on cash,2024-04-11 21:00:42.899,,,,,,,,,,0.61,"USD",,,"Interest on cash",1f85fa7b-6b78-4f78-a552-6d3eef0a4cb6,,,,,,
+Interest on cash,2024-04-12 21:00:43.437,,,,,,,,,,0.61,"USD",,,"Interest on cash",5a0cc7fd-0289-4c7e-896a-3c2b6a250973,,,,,,
+Interest on cash,2024-04-13 21:00:45.915,,,,,,,,,,0.01,"EUR",,,"Interest on cash",948dd0eb-93da-4bea-a2c1-bc4a92a4e3d3,,,,,,
+Interest on cash,2024-04-13 21:00:45.974,,,,,,,,,,0.61,"USD",,,"Interest on cash",1995d55f-ab61-4950-978e-4bf635745df9,,,,,,
+Interest on cash,2024-04-14 21:00:45.065,,,,,,,,,,0.60,"USD",,,"Interest on cash",f877f5eb-e3c5-4a37-beab-70a9b5006b8b,,,,,,
+Interest on cash,2024-04-15 21:00:44.525,,,,,,,,,,0.01,"EUR",,,"Interest on cash",55af38da-2698-4141-8ebb-db643fff3e76,,,,,,
+Interest on cash,2024-04-15 21:00:44.613,,,,,,,,,,0.61,"USD",,,"Interest on cash",58611954-5959-4ea7-bfb9-e03a4a394c45,,,,,,
+Interest on cash,2024-04-16 21:00:46.133,,,,,,,,,,0.01,"EUR",,,"Interest on cash",ea30b5aa-a175-4a13-82b4-9088ce7beb3c,,,,,,
+Interest on cash,2024-04-16 21:00:46.19,,,,,,,,,,0.61,"USD",,,"Interest on cash",0cdfafd3-dfa0-4be3-8a1b-54fbb25d7fb5,,,,,,
+Market buy,2024-04-17 07:00:03.232,DE0005140008,DBK,"Deutsche Bank",0.8854020000,14.43,EUR,1.00000,,"EUR",12.78,"EUR",,,,EOF13151699387,,,,,,
+Deposit,2024-04-17 07:00:03.239,,,,,,,,,,12.78,"EUR",,,"Free Shares Promotion",9f35d21c-0c44-4112-8d3c-539968f6795d,,,,,,
+Market buy,2024-04-17 14:29:19.555,NL0015000F41,LILM,"Lilium",2.0000000000,0.86,USD,1.06370,,"EUR",1.62,"EUR",,,,EOF13200719070,,,,,,
+Interest on cash,2024-04-17 21:00:44.735,,,,,,,,,,0.61,"USD",,,"Interest on cash",5b0c2783-84fb-4c56-a577-eab838d64f39,,,,,,
+Interest on cash,2024-04-18 21:00:45.12,,,,,,,,,,0.01,"EUR",,,"Interest on cash",df910a99-b815-4087-ad68-c3e0dcbd8f69,,,,,,
+Interest on cash,2024-04-18 21:00:45.173,,,,,,,,,,0.61,"USD",,,"Interest on cash",7663fb15-eac7-4227-913f-c2c72599d35d,,,,,,
+Interest on cash,2024-04-19 21:00:46.29,,,,,,,,,,0.61,"USD",,,"Interest on cash",5083251f-e9a8-4b45-8df3-ace158a50c66,,,,,,
+Interest on cash,2024-04-20 21:00:47.991,,,,,,,,,,0.01,"EUR",,,"Interest on cash",8ccb041d-3484-4bfb-a2b1-04e001f18d86,,,,,,
+Interest on cash,2024-04-20 21:00:48.046,,,,,,,,,,0.60,"USD",,,"Interest on cash",f0746f8f-cf49-43ac-93fc-b6862956de1a,,,,,,
+Interest on cash,2024-04-21 21:00:44.379,,,,,,,,,,0.61,"USD",,,"Interest on cash",80e11938-919a-49c3-940b-1f5100b02921,,,,,,
+Interest on cash,2024-04-22 21:00:43.96,,,,,,,,,,0.01,"EUR",,,"Interest on cash",ceb6fd0b-cad0-4c63-ba28-8820f272c839,,,,,,
+Interest on cash,2024-04-22 21:00:44,,,,,,,,,,0.61,"USD",,,"Interest on cash",23547a48-1dbf-45cf-99ef-697b8b576e31,,,,,,
+Interest on cash,2024-04-23 21:00:56.166,,,,,,,,,,0.61,"USD",,,"Interest on cash",39bdec79-6f52-4e85-831d-5acd86445d8a,,,,,,
+Interest on cash,2024-04-24 21:00:51.174,,,,,,,,,,0.01,"EUR",,,"Interest on cash",af9097e1-f7ad-4d05-806f-35a604e4dae0,,,,,,
+Interest on cash,2024-04-24 21:00:51.267,,,,,,,,,,0.61,"USD",,,"Interest on cash",a7ccf538-3891-4ac4-9fa5-9629a5291c2d,,,,,,
+Interest on cash,2024-04-25 21:00:51.46,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b8aba7a4-f5ad-49c8-b43f-f957bac38301,,,,,,
+Interest on cash,2024-04-25 21:00:51.569,,,,,,,,,,0.61,"USD",,,"Interest on cash",9a03f69f-e9f0-4fef-a0b5-571dddb28de8,,,,,,
+Market sell,2024-04-26 10:58:30.231,DE0005140008,DBK,"Deutsche Bank",0.8854020000,16.59,EUR,1.00000,1.91,"EUR",14.69,"EUR",,,,EOF13552491336,,,,,,
+Market buy,2024-04-26 11:00:00.246,KYG651631007,JOBY,"Joby Aviation",2.9000000000,5.12,USD,1.07283,,"EUR",13.86,"EUR",,,,EOF13552491381,,,,,0.02,"EUR"
+Market buy,2024-04-26 11:03:49.712,KYG651631007,JOBY,"Joby Aviation",0.2500000000,5.11,USD,1.07352,,"EUR",1.19,"EUR",,,,EOF13552491626,,,,,,
+Interest on cash,2024-04-26 21:00:49.107,,,,,,,,,,0.61,"USD",,,"Interest on cash",c5c27a4a-fad0-4aa4-9d61-d536a839ab09,,,,,,
+Interest on cash,2024-04-27 21:00:54.218,,,,,,,,,,0.01,"EUR",,,"Interest on cash",7c9f8194-b839-4dc5-af1f-c04a55d1e516,,,,,,
+Interest on cash,2024-04-27 21:00:54.337,,,,,,,,,,0.61,"USD",,,"Interest on cash",84e0aeda-782b-4ec5-be52-0177510af557,,,,,,
+Interest on cash,2024-04-28 21:00:50.742,,,,,,,,,,0.60,"USD",,,"Interest on cash",014240c8-8d67-4e7a-8698-239017d062a9,,,,,,
+Interest on cash,2024-04-29 21:00:49.617,,,,,,,,,,0.01,"EUR",,,"Interest on cash",df9c9c3c-661c-48f7-a5e3-e27549182442,,,,,,
+Interest on cash,2024-04-29 21:00:49.685,,,,,,,,,,0.61,"USD",,,"Interest on cash",60441c92-6ed6-4823-9eba-93227058b389,,,,,,
+Interest on cash,2024-04-30 21:00:47.758,,,,,,,,,,0.61,"USD",,,"Interest on cash",22b2dc91-1565-41e2-9312-ebdcedfde8ba,,,,,,
+Interest on cash,2024-05-01 21:00:38.218,,,,,,,,,,0.01,"EUR",,,"Interest on cash",e1f25b29-13ef-4eec-b83c-feac6ddcd438,,,,,,
+Interest on cash,2024-05-01 21:00:38.28,,,,,,,,,,0.61,"USD",,,"Interest on cash",90d3e043-58f6-4558-8c71-0e57685d8179,,,,,,
+Interest on cash,2024-05-02 21:00:37.244,,,,,,,,,,0.61,"USD",,,"Interest on cash",c59b0645-430e-4714-9aea-0be77f1b8286,,,,,,
+Interest on cash,2024-05-03 21:00:37.11,,,,,,,,,,0.01,"EUR",,,"Interest on cash",552181f5-f3f9-4ba0-b88e-f4d1cddc552a,,,,,,
+Interest on cash,2024-05-03 21:00:37.174,,,,,,,,,,0.61,"USD",,,"Interest on cash",6f516610-63d2-4ca1-a025-b426a6634507,,,,,,
+Interest on cash,2024-05-04 21:00:39.913,,,,,,,,,,0.61,"USD",,,"Interest on cash",a67338e6-a7ec-4fbe-879f-89e9fa38ee33,,,,,,
+Interest on cash,2024-05-05 21:00:37.769,,,,,,,,,,0.01,"EUR",,,"Interest on cash",9c6ede1d-edd5-433b-b21a-cea23d7abaa7,,,,,,
+Interest on cash,2024-05-05 21:00:37.817,,,,,,,,,,0.61,"USD",,,"Interest on cash",84d14ee7-7c0f-479b-85b0-0642ec755f2e,,,,,,
+Market sell,2024-05-06 14:48:31.824,IE00BKM4GZ66,IS3N,"iShares Core MSCI EM IMI (Acc)",15.6250380000,31.24,EUR,1.00000,0.49,"EUR",488.19,"EUR",,,,EOF14100736032,,,,,,
+Market buy,2024-05-06 14:49:13.273,KYG651631007,JOBY,"Joby Aviation",50.0000000000,5.53,USD,1.07805,,"EUR",256.86,"EUR",,,,EOF14100736155,,,,,0.38,"EUR"
+Market buy,2024-05-06 14:53:04.144,KYG651631007,JOBY,"Joby Aviation",0.8500000000,5.51,USD,1.07666,,"EUR",4.36,"EUR",,,,EOF14100737393,,,,,0.01,"EUR"
+Interest on cash,2024-05-06 21:00:38.358,,,,,,,,,,0.03,"EUR",,,"Interest on cash",19dc64f5-5e08-4b41-80c0-6bbdf8d74c8c,,,,,,
+Interest on cash,2024-05-06 21:00:38.403,,,,,,,,,,0.61,"USD",,,"Interest on cash",56d9dd21-3d36-414e-af8d-0978797c4ef3,,,,,,
+Deposit,2024-05-07 06:45:08.679,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",872aaea1-9828-4480-9cf0-0aaa062beefb,,,,,,
+Market buy,2024-05-07 06:47:23.288,US7170811035,PFE,"Pfizer",4.0000000000,28.28,USD,1.07600,,"EUR",105.29,"EUR",,,,EOF14101985120,,,,,0.16,"EUR"
+Market buy,2024-05-07 06:48:12.937,US8334451098,SNOW,"Snowflake",1.0000000000,163.96,USD,1.07606,,"EUR",152.60,"EUR",,,,EOF14101985181,,,,,0.23,"EUR"
+Market buy,2024-05-07 06:51:22.573,US4592001014,IBM,"IBM",0.3000000000,169.03,USD,1.07616,,"EUR",47.19,"EUR",,,,EOF14101985210,,,,,0.07,"EUR"
+Market buy,2024-05-07 07:00:32.183,IE00BKLF1R75,VOLT,"WisdomTree Battery Solutions (Acc)",1.0000000000,32.56,USD,1.07619,,"EUR",30.30,"EUR",,,,EOF14101986567,,,,,0.05,"EUR"
+Market buy,2024-05-07 07:00:33.512,XS2399364665,SPYS,"Leverage Shares -5x Short S&P 500",22.0000000000,2.47,USD,1.07643,,"EUR",50.58,"EUR",,,,EOF14101987525,,,,,0.08,"EUR"
+Market buy,2024-05-07 07:00:35.564,IE00BSKRJZ44,IDTL,"iShares USD Treasury Bond 20+yr (Dist)",1.1000000000,3.38,USD,1.07583,,"EUR",3.47,"EUR",,,,EOF14101989163,,,,,0.01,"EUR"
+Market buy,2024-05-07 07:00:35.581,IE00BSKRJZ44,IDTL,"iShares USD Treasury Bond 20+yr (Dist)",68.0000000000,3.38,USD,1.07634,,"EUR",214.11,"EUR",,,,EOF14101989176,,,,,0.32,"EUR"
+Market buy,2024-05-07 07:00:48.252,GB00B15KY328,SLVR,"WisdomTree Silver",1.0000000000,23.35,USD,1.07630,,"EUR",21.72,"EUR",,,,EOF14101994363,,,,,0.03,"EUR"
+Market buy,2024-05-07 07:01:01.883,JE00BN7KB441,CORN,"WisdomTree Corn",2.0000000000,23.01,USD,1.07649,,"EUR",42.81,"EUR",,,,EOF14101995959,,,,,0.06,"EUR"
+Market buy,2024-05-07 07:04:13.292,US01609W1027,AHLA,"Alibaba",0.5000000000,74.30,EUR,1.00000,,"EUR",37.15,"EUR",,,,EOF14101999460,,,,,,
+Interest on cash,2024-05-07 21:00:39.581,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b9a3bd5c-e0d5-4f79-9122-81a2431cd1e3,,,,,,
+Interest on cash,2024-05-07 21:00:39.636,,,,,,,,,,0.61,"USD",,,"Interest on cash",e2012ee9-94ff-4cca-b792-b3cc5609fcc4,,,,,,
+Dividend (Dividend),2024-05-08 08:47:09,US6549022043,NOK,"Nokia",37.0000000000,0.03,USD,Not available,,,0.97,"EUR",0.56,USD,,,,,,,,
+Market sell,2024-05-08 13:53:49.862,GB00B15KXQ89,COPA,"WisdomTree Copper",2.0000000000,40.55,USD,1.07516,11.65,"EUR",75.32,"EUR",,,,EOF14200470786,,,,,0.11,"EUR"
+Market sell,2024-05-08 13:57:53.836,GB00B15KY328,SLVR,"WisdomTree Silver",8.0000000000,23.26,USD,1.07506,24.57,"EUR",172.79,"EUR",,,,EOF14200471927,,,,,0.26,"EUR"
+Market sell,2024-05-08 13:58:10.154,GB00B15KXX56,BULL,"WisdomTree Gold",71.0000000000,23.78,USD,1.07494,235.78,"EUR",1567.97,"EUR",,,,EOF14200471988,,,,,2.36,"EUR"
+Market sell,2024-05-08 14:00:45.601,US60770K1079,MRNA,"Moderna",3.0000000000,120.23,USD,1.07524,80.92,"EUR",334.95,"EUR",,,,EOF14200472835,,,,,0.50,"EUR"
+Market sell,2024-05-08 14:08:43.359,US6516391066,NEM,"Newmont",6.0000000000,41.35,USD,1.07491,3.09,"EUR",230.46,"EUR",,,,EOF14200474952,,,,,0.35,"EUR"
+Market sell,2024-05-08 14:10:52.389,MHY8162K2046,SBLK,"Star Bulk Carriers",4.0000000000,26.22,USD,1.07503,15.30,"EUR",97.41,"EUR",,,,EOF14200475275,,,,,0.15,"EUR"
+Interest on cash,2024-05-08 21:00:39.23,,,,,,,,,,0.29,"EUR",,,"Interest on cash",2c35821a-8ce0-46c7-b8eb-9d0370d97960,,,,,,
+Interest on cash,2024-05-08 21:00:39.299,,,,,,,,,,0.61,"USD",,,"Interest on cash",6afea523-c8ff-4c19-b750-c4b4c1ead9d4,,,,,,
+Market sell,2024-05-09 17:45:21.059,IL0065100930,ZIM,"ZIM Integrated Shipping Services",24.0000000000,16.08,USD,1.07804,4.98,"EUR",357.44,"EUR",,,,EOF14251169079,,,,,0.54,"EUR"
+Market sell,2024-05-09 17:45:51.095,IL0065100930,ZIM,"ZIM Integrated Shipping Services",6.0000000000,16.07,USD,1.07804,1.19,"EUR",89.31,"EUR",,,,EOF14251169117,,,,,0.13,"EUR"
+Market buy,2024-05-09 17:48:14.241,CA67077M1086,NTR,"Nutrien",1.0000000000,57.73,USD,1.07785,,"EUR",53.64,"EUR",,,,EOF14251169250,,,,,0.08,"EUR"
+Interest on cash,2024-05-09 21:00:39.073,,,,,,,,,,0.33,"EUR",,,"Interest on cash",887ecf7a-0e3a-4ad0-8a01-a80e6ef50461,,,,,,
+Interest on cash,2024-05-09 21:00:39.143,,,,,,,,,,0.61,"USD",,,"Interest on cash",3dc46f85-e7cc-4d1e-a161-bce77c4e23bd,,,,,,
+Interest on cash,2024-05-10 21:00:41.404,,,,,,,,,,0.33,"EUR",,,"Interest on cash",723a52a2-d1d6-47a8-84f6-4b7a57ddb9dc,,,,,,
+Interest on cash,2024-05-10 21:00:41.464,,,,,,,,,,0.61,"USD",,,"Interest on cash",7dced3ca-0e44-4b23-a5ea-4f1e918360e5,,,,,,
+Interest on cash,2024-05-11 21:00:42.964,,,,,,,,,,0.33,"EUR",,,"Interest on cash",7500504a-113e-4531-b615-c073c2f62447,,,,,,
+Interest on cash,2024-05-11 21:00:43.02,,,,,,,,,,0.61,"USD",,,"Interest on cash",f50ed3ba-69e6-443f-a1ed-cbac3febf48c,,,,,,
+Interest on cash,2024-05-12 21:00:39.115,,,,,,,,,,0.33,"EUR",,,"Interest on cash",2fadc358-607e-46cf-ae72-9054b2352bf0,,,,,,
+Interest on cash,2024-05-12 21:00:39.165,,,,,,,,,,0.61,"USD",,,"Interest on cash",04385052-dd41-436d-945a-32e62024915e,,,,,,
+Interest on cash,2024-05-13 21:00:40.543,,,,,,,,,,0.33,"EUR",,,"Interest on cash",8f67a714-0835-4fff-aeb0-a70af0eeed96,,,,,,
+Interest on cash,2024-05-13 21:00:40.591,,,,,,,,,,0.61,"USD",,,"Interest on cash",a49a34c0-cb16-4a41-83b8-ba00ada55468,,,,,,
+Interest on cash,2024-05-14 21:00:31.976,,,,,,,,,,0.34,"EUR",,,"Interest on cash",7cca26b1-9458-41ea-8326-6f0c791c9dac,,,,,,
+Interest on cash,2024-05-14 21:00:32.033,,,,,,,,,,0.61,"USD",,,"Interest on cash",851e5c7a-3593-41a1-bbc9-66a2cf4a62f6,,,,,,
+Interest on cash,2024-05-15 21:00:32.961,,,,,,,,,,0.33,"EUR",,,"Interest on cash",064335b7-8a0c-484c-be1d-f37febed4a71,,,,,,
+Interest on cash,2024-05-15 21:00:33.017,,,,,,,,,,0.61,"USD",,,"Interest on cash",eae8933c-196f-4e4e-a61f-1ab9255c130f,,,,,,
+Interest on cash,2024-05-16 21:00:31.662,,,,,,,,,,0.33,"EUR",,,"Interest on cash",71828372-9c3a-4925-a783-65eac6ff050b,,,,,,
+Interest on cash,2024-05-16 21:00:31.704,,,,,,,,,,0.61,"USD",,,"Interest on cash",10b5d9f4-ac68-4b05-ab15-7b7032eafc95,,,,,,
+Market buy,2024-05-17 14:24:02.412,IE000NDWFGA5,URNU,"Global X Uranium (Acc)",33.8883550000,17.87,USD,1.08595,,"EUR",558.43,"EUR",,,,EOF14601523985,,,,,0.84,"EUR"
+Market buy,2024-05-17 14:24:03.79,IE000NDWFGA5,URNU,"Global X Uranium (Acc)",6.1116450000,17.87,USD,1.08596,,"EUR",100.72,"EUR",,,,EOF14601523992,,,,,0.15,"EUR"
+Market buy,2024-05-17 14:26:47.862,US36467W1099,GME,"GameStop",5.0000000000,20.77,USD,1.08595,,"EUR",95.77,"EUR",,,,EOF14601525053,,,,,0.14,"EUR"
+Market buy,2024-05-17 14:30:57.883,JE00BN2CJ301,WGLD,"WisdomTree Core Physical Gold",5.0000000000,239.78,USD,1.08640,,"EUR",1105.21,"EUR",,,,EOF14601526368,,,,,1.66,"EUR"
+Market buy,2024-05-17 16:45:19.423,US8740602052,TAK,"Takeda Pharmaceutical",2.0000000000,13.27,USD,1.08681,,"EUR",24.46,"EUR",,,,EOF14602404952,,,,,0.04,"EUR"
+Market buy,2024-05-17 17:03:31.005,US88579Y1010,MMM,"3M",1.0000000000,105.66,USD,1.08692,,"EUR",97.36,"EUR",,,,EOF14602408438,,,,,0.15,"EUR"
+Interest on cash,2024-05-17 21:00:32.023,,,,,,,,,,0.11,"EUR",,,"Interest on cash",39b23215-0ae0-4aa2-890a-899674a3d4b1,,,,,,
+Interest on cash,2024-05-17 21:00:32.075,,,,,,,,,,0.62,"USD",,,"Interest on cash",1a54ebe8-6fae-4148-b69e-e182f691a25c,,,,,,
+Interest on cash,2024-05-18 21:00:32.278,,,,,,,,,,0.11,"EUR",,,"Interest on cash",5458cffb-15c3-4003-8e6e-8135afa2708d,,,,,,
+Interest on cash,2024-05-18 21:00:32.344,,,,,,,,,,0.61,"USD",,,"Interest on cash",37a8ae16-a6cb-4d98-aa3a-cf1515085426,,,,,,
+Interest on cash,2024-05-19 21:00:33.023,,,,,,,,,,0.11,"EUR",,,"Interest on cash",9791a046-6744-4f2c-a209-a29131a5d394,,,,,,
+Interest on cash,2024-05-19 21:00:33.069,,,,,,,,,,0.61,"USD",,,"Interest on cash",c65093e4-a8ea-447f-b9c7-cc393263323d,,,,,,
+Market buy,2024-05-20 07:04:27.634,US01609W1027,AHLA,"Alibaba",1.0000000000,80.70,EUR,1.00000,,"EUR",80.70,"EUR",,,,EOF14700319693,,,,,,
+Interest on cash,2024-05-20 21:00:32.974,,,,,,,,,,0.10,"EUR",,,"Interest on cash",d65142ac-fa6d-4190-b022-b446ac5395e7,,,,,,
+Interest on cash,2024-05-20 21:00:33.035,,,,,,,,,,0.61,"USD",,,"Interest on cash",032ce3eb-c296-40f1-987f-071a0c6487ed,,,,,,
+Market buy,2024-05-21 09:15:59.417,GB00B15KXN58,ALUM,"WisdomTree Aluminium",20.0000000000,3.52,USD,1.08723,,"EUR",64.87,"EUR",,,,EOF14755185982,,,,,0.10,"EUR"
+Market buy,2024-05-21 09:17:45.038,IE00B94QLN63,2PAL,"WisdomTree Palladium 2x Leveraged",20.0000000000,10.72,USD,1.08721,,"EUR",197.41,"EUR",,,,EOF14755186075,,,,,0.30,"EUR"
+Market buy,2024-05-21 09:18:06.856,IE00B94QLN63,2PAL,"WisdomTree Palladium 2x Leveraged",1.0000000000,10.73,USD,1.08713,,"EUR",9.88,"EUR",,,,EOF14755186095,,,,,0.01,"EUR"
+Market buy,2024-05-21 09:19:39.625,US76954A1034,RIVN,"Rivian Automotive",4.0000000000,10.23,USD,1.08714,,"EUR",37.70,"EUR",,,,EOF14755186269,,,,,0.06,"EUR"
+Market buy,2024-05-21 09:20:33.814,US6549022043,NOK,"Nokia",20.0000000000,3.84,USD,1.08704,,"EUR",70.76,"EUR",,,,EOF14755186392,,,,,0.11,"EUR"
+Market buy,2024-05-21 09:21:18.625,US7170811035,PFE,"Pfizer",5.0000000000,28.53,USD,1.08710,,"EUR",131.42,"EUR",,,,EOF14755186495,,,,,0.20,"EUR"
+Market buy,2024-05-21 09:23:24.536,US8334451098,SNOW,"Snowflake",0.5000000000,164.54,USD,1.08722,,"EUR",75.78,"EUR",,,,EOF14755186599,,,,,0.11,"EUR"
+Market buy,2024-05-21 10:55:38.693,US61945C1036,MOS,"Mosaic",2.0000000000,30.70,USD,1.08672,,"EUR",56.58,"EUR",,,,EOF14755195325,,,,,0.08,"EUR"
+Market buy,2024-05-21 14:43:10.139,US4592001014,IBM,"IBM",0.3925779000,174.25,USD,1.08582,,"EUR",63.09,"EUR",,,,EOF14801407243,,,,,0.09,"EUR"
+Interest on cash,2024-05-21 21:00:33.708,,,,,,,,,,0.02,"EUR",,,"Interest on cash",3086fe4f-6687-42e8-827a-a8957e9f2773,,,,,,
+Interest on cash,2024-05-21 21:00:33.755,,,,,,,,,,0.61,"USD",,,"Interest on cash",ee7ac404-1c26-4d3d-8347-bbd7bc272bba,,,,,,
+Interest on cash,2024-05-22 21:00:34.749,,,,,,,,,,0.02,"EUR",,,"Interest on cash",6b6412ed-6673-4bfe-839d-a4e09d2db983,,,,,,
+Interest on cash,2024-05-22 21:00:34.805,,,,,,,,,,0.61,"USD",,,"Interest on cash",fb049940-505e-4706-acbd-7ffb26260059,,,,,,
+Interest on cash,2024-05-23 21:00:32.135,,,,,,,,,,0.01,"EUR",,,"Interest on cash",ba3c3707-2a06-4cd9-a405-4dfd968b9bc1,,,,,,
+Interest on cash,2024-05-23 21:00:32.193,,,,,,,,,,0.61,"USD",,,"Interest on cash",6621d48f-4e56-4bbe-b1ae-40bdc06b5dea,,,,,,
+Market sell,2024-05-24 07:00:32.718,JE00BN2CJ301,WGLD,"WisdomTree Core Physical Gold",5.0000000000,232.74,USD,1.08139,-27.44,"EUR",1074.50,"EUR",,,,EOF14902862405,,,,,1.61,"EUR"
+Interest on cash,2024-05-24 21:00:34.017,,,,,,,,,,0.15,"EUR",,,"Interest on cash",c66ead28-8b35-4d02-b110-9743f0df766c,,,,,,
+Interest on cash,2024-05-24 21:00:34.067,,,,,,,,,,0.61,"USD",,,"Interest on cash",29ba53a7-3825-4473-8b5d-6080bc29cc05,,,,,,
+Interest on cash,2024-05-25 21:00:32.149,,,,,,,,,,0.14,"EUR",,,"Interest on cash",d9a60b5d-9932-47e9-b9c5-c09e81529232,,,,,,
+Interest on cash,2024-05-25 21:00:32.211,,,,,,,,,,0.61,"USD",,,"Interest on cash",66e5c94b-f18b-4c6e-978d-9c8d24638d94,,,,,,
+Interest on cash,2024-05-26 21:00:32.986,,,,,,,,,,0.14,"EUR",,,"Interest on cash",53f74b06-5c9d-4d8e-8e60-8c05e2485360,,,,,,
+Interest on cash,2024-05-26 21:00:33.044,,,,,,,,,,0.62,"USD",,,"Interest on cash",8288ebae-c97e-44c9-bf9e-87bcb5fcba28,,,,,,
+Interest on cash,2024-05-27 21:00:33.145,,,,,,,,,,0.14,"EUR",,,"Interest on cash",a0b7075e-5e39-437a-be58-11791b386235,,,,,,
+Interest on cash,2024-05-27 21:00:33.213,,,,,,,,,,0.61,"USD",,,"Interest on cash",09526267-bfda-40d6-bd3a-aa9a2af968f4,,,,,,
+Interest on cash,2024-05-28 21:00:33.811,,,,,,,,,,0.14,"EUR",,,"Interest on cash",4bd8f4c8-1ba6-4386-b8f0-ece183379120,,,,,,
+Interest on cash,2024-05-28 21:00:33.884,,,,,,,,,,0.61,"USD",,,"Interest on cash",1d65c76a-6d1b-4eec-88f3-cf9d7a625298,,,,,,
+Interest on cash,2024-05-29 21:00:31.418,,,,,,,,,,0.14,"EUR",,,"Interest on cash",bbfef9b7-8a51-4963-98f0-e8980a9e10e3,,,,,,
+Interest on cash,2024-05-29 21:00:31.482,,,,,,,,,,0.61,"USD",,,"Interest on cash",cddabef3-8313-45e4-ae3a-5ebf8e6fd21c,,,,,,
+Interest on cash,2024-05-30 21:00:33.273,,,,,,,,,,0.14,"EUR",,,"Interest on cash",75463a93-ed59-4d9f-bfd0-371b0ed79217,,,,,,
+Interest on cash,2024-05-30 21:00:33.359,,,,,,,,,,0.61,"USD",,,"Interest on cash",2c577f30-2903-4daf-86a6-5cee4b3e2a34,,,,,,
+Dividend (Dividend),2024-05-31 11:55:30,US1252691001,CF,"CF Industries",1.5000000000,0.43,USD,Not available,,,0.59,"EUR",0.11,USD,,,,,,,,
+Interest on cash,2024-05-31 21:00:30.498,,,,,,,,,,0.14,"EUR",,,"Interest on cash",7e0d077b-86fe-4177-b41e-13ee48d9d8b0,,,,,,
+Interest on cash,2024-05-31 21:00:30.559,,,,,,,,,,0.62,"USD",,,"Interest on cash",d8e443bb-4312-4541-9dc8-99d613ac2f5d,,,,,,
+Interest on cash,2024-06-01 21:00:31.224,,,,,,,,,,0.14,"EUR",,,"Interest on cash",643060a4-84f2-4060-b1dc-759170ee039b,,,,,,
+Interest on cash,2024-06-01 21:00:31.277,,,,,,,,,,0.61,"USD",,,"Interest on cash",4854c902-545a-4c21-9a2f-2818514d7553,,,,,,
+Interest on cash,2024-06-02 21:00:31.42,,,,,,,,,,0.15,"EUR",,,"Interest on cash",17226b3d-f0e8-4791-ae7a-439c9dc3c794,,,,,,
+Interest on cash,2024-06-02 21:00:31.472,,,,,,,,,,0.61,"USD",,,"Interest on cash",1b3720f5-69df-4c28-a124-0afc464290f1,,,,,,
+Market buy,2024-06-03 17:04:14.997,US36467W1099,GME,"GameStop",4.0000000000,30.50,USD,1.08841,,"EUR",112.26,"EUR",,,,EOF15455358489,,,,,0.17,"EUR"
+Interest on cash,2024-06-03 21:00:32.497,,,,,,,,,,0.12,"EUR",,,"Interest on cash",336f6597-2325-47b8-91dc-c1ec7be8e143,,,,,,
+Interest on cash,2024-06-03 21:00:32.553,,,,,,,,,,0.61,"USD",,,"Interest on cash",c93a63e6-42ff-4b24-bcdb-c3104ed41864,,,,,,
+Market buy,2024-06-04 14:57:08.873,US36467W1099,GME,"GameStop",4.0000000000,26.70,USD,1.08801,,"EUR",98.31,"EUR",,,,EOF15500687925,,,,,0.15,"EUR"
+Market buy,2024-06-04 15:00:22.355,US36467W1099,GME,"GameStop",2.0000000000,26.93,USD,1.08808,,"EUR",49.57,"EUR",,,,EOF15500688661,,,,,0.07,"EUR"
+Market buy,2024-06-04 15:03:21.154,US36467W1099,GME,"GameStop",5.0000000000,27.05,USD,1.08783,,"EUR",124.52,"EUR",,,,EOF15500689169,,,,,0.19,"EUR"
+Market buy,2024-06-04 15:11:03.326,US36467W1099,GME,"GameStop",5.0000000000,27.75,USD,1.08789,,"EUR",127.73,"EUR",,,,EOF15500690581,,,,,0.19,"EUR"
+Interest on cash,2024-06-04 21:00:32.509,,,,,,,,,,0.09,"EUR",,,"Interest on cash",491cb844-95dc-4926-b03d-2678e53523bf,,,,,,
+Interest on cash,2024-06-04 21:00:32.587,,,,,,,,,,0.61,"USD",,,"Interest on cash",631ea108-35b5-4bb2-835f-e2173e1bface,,,,,,
+Withdrawal,2024-06-05 04:42:03.339,,,,,,,,,,-100.00,"EUR",,,,1ccb1441-b178-404c-b285-e7385bcdfab2,,,,,,
+Interest on cash,2024-06-05 21:00:32.671,,,,,,,,,,0.07,"EUR",,,"Interest on cash",76ddcbf9-e642-432f-b182-0639c03e5e69,,,,,,
+Interest on cash,2024-06-05 21:00:32.761,,,,,,,,,,0.62,"USD",,,"Interest on cash",85d7e516-a646-49be-8bda-48145e1a8993,,,,,,
+Market buy,2024-06-06 14:12:49.149,US8334451098,SNOW,"Snowflake",0.5000000000,134.11,USD,1.08784,,"EUR",61.73,"EUR",,,,EOF15600726665,,,,,0.09,"EUR"
+Market buy,2024-06-06 16:06:59.205,US70450Y1038,PYPL,"PayPal",5.0000000000,66.43,USD,1.08812,,"EUR",305.71,"EUR",,,,EOF15601908255,,,,,0.46,"EUR"
+Market buy,2024-06-06 16:07:11.401,US70450Y1038,PYPL,"PayPal",1.0000000000,66.36,USD,1.08804,,"EUR",61.08,"EUR",,,,EOF15601908267,,,,,0.09,"EUR"
+Interest on cash,2024-06-06 21:00:32.978,,,,,,,,,,0.02,"EUR",,,"Interest on cash",a2c6f111-c7b5-438b-ab50-e8639968423d,,,,,,
+Interest on cash,2024-06-06 21:00:33.037,,,,,,,,,,0.61,"USD",,,"Interest on cash",a59f4cdf-5a48-4eaf-a235-3c4255bfa4f4,,,,,,
+Deposit,2024-06-07 06:45:18.591,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",7c5cbd66-c4b3-4354-ab72-1548a2f8ee08,,,,,,
+Dividend (Dividend),2024-06-07 08:56:26,US00202F1021,AMKBY,"AP Moller Maersk",21.0000000000,0.33,USD,Not available,,,6.30,"EUR",0.00,USD,,,,,,,,
+Market buy,2024-06-07 10:46:19.642,US36467W1099,GME,"GameStop",7.0000000000,41.36,USD,1.08915,,"EUR",266.22,"EUR",,,,EOF15650100762,,,,,0.40,"EUR"
+Market buy,2024-06-07 10:52:24.391,US36467W1099,GME,"GameStop",7.0000000000,40.55,USD,1.08917,,"EUR",261.00,"EUR",,,,EOF15650101885,,,,,0.39,"EUR"
+Market buy,2024-06-07 10:53:10.853,US36467W1099,GME,"GameStop",1.0000000000,41.40,USD,1.08918,,"EUR",38.07,"EUR",,,,EOF15650102024,,,,,0.06,"EUR"
+Market buy,2024-06-07 14:26:11.521,US36467W1099,GME,"GameStop",1.0000000000,36.90,USD,1.08147,,"EUR",34.17,"EUR",,,,EOF15651372188,,,,,0.05,"EUR"
+Interest on cash,2024-06-07 21:00:30.924,,,,,,,,,,0.02,"EUR",,,"Interest on cash",9c998828-7c73-4574-ac5a-b386d101bab5,,,,,,
+Interest on cash,2024-06-07 21:00:31,,,,,,,,,,0.61,"USD",,,"Interest on cash",99eccab9-6530-42fc-a946-c865a14a4a71,,,,,,
+Interest on cash,2024-06-08 21:00:33.553,,,,,,,,,,0.01,"EUR",,,"Interest on cash",b0a9ea83-d09b-4fce-8e75-d103cd9e784a,,,,,,
+Interest on cash,2024-06-08 21:00:33.64,,,,,,,,,,0.61,"USD",,,"Interest on cash",cd72f816-5665-4706-8055-ec2c1d982545,,,,,,
+Interest on cash,2024-06-09 21:00:34.012,,,,,,,,,,0.01,"EUR",,,"Interest on cash",01400684-55ec-4074-8e10-4f349d7d6999,,,,,,
+Interest on cash,2024-06-09 21:00:34.066,,,,,,,,,,0.62,"USD",,,"Interest on cash",4fe65bb7-9313-4ae2-8468-a498729c69a0,,,,,,
+Dividend (Dividend),2024-06-10 09:51:41,US4592001014,IBM,"IBM",1.6074221000,1.42,USD,Not available,,,2.12,"EUR",0.40,USD,,,,,,,,
+Market buy,2024-06-10 19:11:46.065,US36467W1099,GME,"GameStop",5.0000000000,23.96,USD,1.00000,,"USD",119.80,"USD",,,,EOF15753963959,,,,,,
+Market buy,2024-06-10 19:12:11.409,US36467W1099,GME,"GameStop",4.0000000000,24.14,USD,1.00000,,"USD",96.56,"USD",,,,EOF15753964002,,,,,,
+Interest on cash,2024-06-10 21:00:33.643,,,,,,,,,,0.02,"EUR",,,"Interest on cash",34972c79-b465-460f-8144-443174ea7653,,,,,,
+Interest on cash,2024-06-10 21:00:33.706,,,,,,,,,,0.58,"USD",,,"Interest on cash",e07f59f8-f97b-4aae-baee-2ff66bcd8cfe,,,,,,
+Limit buy,2024-06-11 13:02:28.787,US36467W1099,GME,"GameStop",40.0000000000,24.59,USD,1.00000,,"USD",983.60,"USD",,,,EOF15754724894,,,,,,
+Market buy,2024-06-11 13:57:39.116,US36467W1099,GME,"GameStop",10.0000000000,23.04,USD,1.00000,,"USD",230.40,"USD",,,,EOF15800711167,,,,,,
+Interest on cash,2024-06-11 21:00:35.714,,,,,,,,,,0.01,"EUR",,,"Interest on cash",d4a64dd6-f366-4f3c-8fe5-c9401339ec6e,,,,,,
+Interest on cash,2024-06-11 21:00:35.775,,,,,,,,,,0.42,"USD",,,"Interest on cash",a978395f-2247-48fe-abc7-115da9bbb682,,,,,,
+Dividend (Dividend),2024-06-12 12:15:55,US88579Y1010,MMM,"3M",4.0000000000,0.60,USD,Not available,,,2.22,"EUR",0.42,USD,,,,,,,,
+Interest on cash,2024-06-12 21:00:32.663,,,,,,,,,,0.01,"EUR",,,"Interest on cash",80684ea2-af6b-4961-9c98-3d7d3c7e3f14,,,,,,
+Interest on cash,2024-06-12 21:00:32.715,,,,,,,,,,0.42,"USD",,,"Interest on cash",d1f3961a-09b3-469e-b663-30df0bf7d05c,,,,,,
+Interest on cash,2024-06-13 21:00:36.177,,,,,,,,,,0.02,"EUR",,,"Interest on cash",0a171238-2e7c-4edf-9b13-ecb66621c3d8,,,,,,
+Interest on cash,2024-06-13 21:00:36.301,,,,,,,,,,0.41,"USD",,,"Interest on cash",219b587e-f2e9-4f04-a34a-e7917a56b69c,,,,,,
+Dividend (Dividend),2024-06-14 12:29:03,US7170811035,PFE,"Pfizer",9.0000000000,0.36,USD,Not available,,,2.99,"EUR",0.57,USD,,,,,,,,
+Interest on cash,2024-06-14 21:00:35.305,,,,,,,,,,0.01,"EUR",,,"Interest on cash",39c4ef23-3cc8-4d66-90fd-28f52f58e372,,,,,,
+Interest on cash,2024-06-14 21:00:35.373,,,,,,,,,,0.42,"USD",,,"Interest on cash",508f946e-8cab-4e00-9f46-46939bac71e9,,,,,,
+Interest on cash,2024-06-15 21:00:33.788,,,,,,,,,,0.02,"EUR",,,"Interest on cash",c46a6d39-df61-44bd-aaf1-9d6e88fef9b3,,,,,,
+Interest on cash,2024-06-15 21:00:33.882,,,,,,,,,,0.42,"USD",,,"Interest on cash",74bc4afe-fa54-4f2b-b07e-c2d172111882,,,,,,
+Interest on cash,2024-06-16 21:00:32.311,,,,,,,,,,0.01,"EUR",,,"Interest on cash",cee41c84-2603-4b5b-b069-0a7f04e7723d,,,,,,
+Interest on cash,2024-06-16 21:00:32.385,,,,,,,,,,0.42,"USD",,,"Interest on cash",ad710188-3121-4ca5-aeba-e9fb0dc6c7d5,,,,,,
+Interest on cash,2024-06-17 21:00:38.58,,,,,,,,,,0.02,"EUR",,,"Interest on cash",2f761e23-ec9a-4baf-b641-2d3a987b55ef,,,,,,
+Interest on cash,2024-06-17 21:00:38.63,,,,,,,,,,0.42,"USD",,,"Interest on cash",22f9659a-5d84-4cca-8743-f7973e3d7425,,,,,,
+Interest on cash,2024-06-18 21:00:37.495,,,,,,,,,,0.01,"EUR",,,"Interest on cash",9288f86e-455d-460a-b2d4-3ae1b414db62,,,,,,
+Interest on cash,2024-06-18 21:00:37.555,,,,,,,,,,0.42,"USD",,,"Interest on cash",3f825ef7-704d-4cb9-a7ba-772e1c185557,,,,,,
+Interest on cash,2024-06-19 21:00:40.648,,,,,,,,,,0.01,"EUR",,,"Interest on cash",0e2d35ee-d8ff-4070-bfb3-5cdd1e561ff8,,,,,,
+Interest on cash,2024-06-19 21:00:40.709,,,,,,,,,,0.41,"USD",,,"Interest on cash",a2534539-027e-4417-8fab-af9885f9f4dc,,,,,,
+Dividend (Dividend),2024-06-20 09:44:57,MHY8162K2046,SBLK,"Star Bulk Carriers",1.0000000000,0.75,USD,Not available,,,0.70,"EUR",0.00,USD,,,,,,,,
+Dividend (Dividend),2024-06-20 09:51:18,US61945C1036,MOS,"Mosaic",8.0003540000,0.18,USD,Not available,,,1.33,"EUR",0.25,USD,,,,,,,,
+Interest on cash,2024-06-20 21:00:40.567,,,,,,,,,,0.02,"EUR",,,"Interest on cash",0255d088-f3f6-44be-824f-8a42eecaba32,,,,,,
+Interest on cash,2024-06-20 21:00:40.657,,,,,,,,,,0.42,"USD",,,"Interest on cash",fe0300e3-71bb-4893-93e5-5b03e140f379,,,,,,
+Interest on cash,2024-06-21 21:00:40.13,,,,,,,,,,0.01,"EUR",,,"Interest on cash",8cb9766f-89ff-4f67-8217-8783e08e4884,,,,,,
+Interest on cash,2024-06-21 21:00:40.314,,,,,,,,,,0.42,"USD",,,"Interest on cash",87b6f371-ab3b-4b45-a9e2-5739c4320153,,,,,,
+Interest on cash,2024-06-22 21:00:39.024,,,,,,,,,,0.02,"EUR",,,"Interest on cash",bde94960-c6bc-4b95-b9e6-f1ade94a55bc,,,,,,
+Interest on cash,2024-06-22 21:00:39.084,,,,,,,,,,0.42,"USD",,,"Interest on cash",e60eda42-52f0-4039-8aba-ea44e6ca9901,,,,,,
+Interest on cash,2024-06-23 21:00:40.238,,,,,,,,,,0.01,"EUR",,,"Interest on cash",62af7425-fd0a-4abb-aabe-e8717f910193,,,,,,
+Interest on cash,2024-06-23 21:00:40.3,,,,,,,,,,0.42,"USD",,,"Interest on cash",8deaf3c5-7944-43a9-a010-2fed1a3df619,,,,,,
+Interest on cash,2024-06-24 21:00:40.684,,,,,,,,,,0.02,"EUR",,,"Interest on cash",f9e84419-e039-4dfb-90b9-c5f8b69577ac,,,,,,
+Interest on cash,2024-06-24 21:00:40.766,,,,,,,,,,0.42,"USD",,,"Interest on cash",7f3f6b8d-3053-429f-82dd-44cae835dc81,,,,,,
+Interest on cash,2024-06-25 21:00:38.625,,,,,,,,,,0.01,"EUR",,,"Interest on cash",241bde05-f1f2-4c7c-acd3-2bf17c860e31,,,,,,
+Interest on cash,2024-06-25 21:00:38.677,,,,,,,,,,0.42,"USD",,,"Interest on cash",1406b013-661f-44d4-9449-3e68642728ea,,,,,,
+Dividend (Dividend),2024-06-26 12:32:31,IE00BSKRJZ44,IDTL,"iShares USD Treasury Bond 20+yr (Dist)",125.0000000000,0.08,USD,Not available,,,8.85,"EUR",0.00,USD,,,,,,,,
+Market buy,2024-06-26 14:07:28.062,US0126531013,ALB,"Albemarle",0.2200000000,97.75,USD,1.06830,,"EUR",20.16,"EUR",,,,EOF16550990315,,,,,0.03,"EUR"
+Interest on cash,2024-06-26 21:00:39.26,,,,,,,,,,0.01,"EUR",,,"Interest on cash",2c1328c0-7f48-479e-b057-11763a2cb707,,,,,,
+Interest on cash,2024-06-26 21:00:39.321,,,,,,,,,,0.42,"USD",,,"Interest on cash",7fcf69b1-6602-4630-9b7a-3c12219f33b7,,,,,,
+Interest on cash,2024-06-27 21:00:41.847,,,,,,,,,,0.02,"EUR",,,"Interest on cash",6b595d20-c6d6-48f8-b983-cb1beafd602a,,,,,,
+Interest on cash,2024-06-27 21:00:41.904,,,,,,,,,,0.41,"USD",,,"Interest on cash",cbb65b2c-0f8c-4ac7-8cc6-83e66aa57a38,,,,,,
+Interest on cash,2024-06-28 21:00:40.267,,,,,,,,,,0.01,"EUR",,,"Interest on cash",2c1ace16-c168-4ff6-ae7b-7cdad2707d8f,,,,,,
+Interest on cash,2024-06-28 21:00:40.337,,,,,,,,,,0.42,"USD",,,"Interest on cash",66d069df-39b8-481c-ba2d-6ff397d90473,,,,,,
+Interest on cash,2024-06-29 21:00:42.226,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6bbe3c59-29ae-40ca-ad1e-380730f5b9c0,,,,,,
+Interest on cash,2024-06-29 21:00:42.283,,,,,,,,,,0.42,"USD",,,"Interest on cash",1c0375bc-0887-45fa-a2be-dbb4941d978f,,,,,,
+Interest on cash,2024-06-30 21:00:42.563,,,,,,,,,,0.02,"EUR",,,"Interest on cash",e69e1e30-d1f1-41b9-b9b8-3edf78a72970,,,,,,
+Interest on cash,2024-06-30 21:00:42.635,,,,,,,,,,0.42,"USD",,,"Interest on cash",b2b493cc-7139-4350-94b9-21ebdfa9c00d,,,,,,
+Dividend (Dividend),2024-07-01 14:34:21,US0126531013,ALB,"Albemarle",1.3000253200,0.34,USD,Not available,,,0.41,"EUR",0.08,USD,,,,,,,,
+Interest on cash,2024-07-01 21:00:40.097,,,,,,,,,,0.01,"EUR",,,"Interest on cash",9501b8c8-287c-4184-b066-f87e9b142673,,,,,,
+Interest on cash,2024-07-01 21:00:40.157,,,,,,,,,,0.42,"USD",,,"Interest on cash",351185c4-5b2b-4d27-9dd5-21777c9a5662,,,,,,
+Interest on cash,2024-07-02 21:00:40.346,,,,,,,,,,0.01,"EUR",,,"Interest on cash",7a681830-fdb5-4373-bec1-42fddec04183,,,,,,
+Interest on cash,2024-07-02 21:00:40.412,,,,,,,,,,0.42,"USD",,,"Interest on cash",2d26715f-ed28-42b8-b386-b59daccf92c8,,,,,,
+Interest on cash,2024-07-03 21:00:40.133,,,,,,,,,,0.02,"EUR",,,"Interest on cash",20d2476b-55b9-467c-8de0-75328d27c9dd,,,,,,
+Interest on cash,2024-07-03 21:00:40.233,,,,,,,,,,0.42,"USD",,,"Interest on cash",f9aafb66-2d6e-4f62-8131-fd74d1e358c3,,,,,,
+Interest on cash,2024-07-04 21:00:43.501,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6c410c7b-c625-4fb8-b7bc-00de23b85996,,,,,,
+Interest on cash,2024-07-04 21:00:43.583,,,,,,,,,,0.42,"USD",,,"Interest on cash",891c0671-c8d3-46a5-875d-294d611df6c4,,,,,,
+Interest on cash,2024-07-05 21:00:42.806,,,,,,,,,,0.01,"EUR",,,"Interest on cash",65d66787-c3e0-4f91-9fb5-05c77e4c0810,,,,,,
+Interest on cash,2024-07-05 21:00:42.882,,,,,,,,,,0.42,"USD",,,"Interest on cash",9d58446e-0e3c-475b-be62-990f749dc20f,,,,,,
+Interest on cash,2024-07-06 21:00:43.584,,,,,,,,,,0.02,"EUR",,,"Interest on cash",17e6ce69-196b-40df-b901-4a016bbbe752,,,,,,
+Interest on cash,2024-07-06 21:00:43.663,,,,,,,,,,0.42,"USD",,,"Interest on cash",3a1c809f-a751-4420-85db-c514d3e14e42,,,,,,
+Interest on cash,2024-07-07 21:00:40.259,,,,,,,,,,0.01,"EUR",,,"Interest on cash",18dbac17-656f-4ccf-af0b-ce960146ba9c,,,,,,
+Interest on cash,2024-07-07 21:00:40.319,,,,,,,,,,0.42,"USD",,,"Interest on cash",7c3901bb-fcf2-431b-85b7-55daa4394c63,,,,,,
+Deposit,2024-07-08 09:31:04.508,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",f1c6c19d-1fe6-4db3-879d-c73cfc05143f,,,,,,
+Dividend (Dividend),2024-07-08 12:43:50,US8740602052,TAK,"Takeda Pharmaceutical",6.0000000000,0.25,USD,Not available,,,1.37,"EUR",0.27,USD,,,,,,,,
+Interest on cash,2024-07-08 21:00:43.999,,,,,,,,,,0.07,"EUR",,,"Interest on cash",f026282a-dc96-4b79-9bf1-724fe49725e5,,,,,,
+Interest on cash,2024-07-08 21:00:44.06,,,,,,,,,,0.42,"USD",,,"Interest on cash",4436721f-31fa-4831-b4a7-2035a0246c83,,,,,,
+Interest on cash,2024-07-09 21:00:41.501,,,,,,,,,,0.07,"EUR",,,"Interest on cash",a1eaa32a-3fe8-4804-960c-58f320567e66,,,,,,
+Interest on cash,2024-07-09 21:00:41.559,,,,,,,,,,0.42,"USD",,,"Interest on cash",2c06384a-db6c-46e0-9081-9d41d37af217,,,,,,
+Market buy,2024-07-10 14:10:30.371,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",150.0000000000,0.33,USD,1.08230,,"EUR",46.36,"EUR",,,,EOF17251901794,,,,,0.07,"EUR"
+Market buy,2024-07-10 14:10:49.664,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",200.0000000000,0.33,USD,1.08248,,"EUR",61.80,"EUR",,,,EOF17251901896,,,,,0.09,"EUR"
+Market buy,2024-07-10 14:11:19.923,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",100.0000000000,0.33,USD,1.08230,,"EUR",30.91,"EUR",,,,EOF17251902158,,,,,0.05,"EUR"
+Market buy,2024-07-10 14:13:40.346,US0126531013,ALB,"Albemarle",0.4799746800,91.48,USD,1.08227,,"EUR",40.63,"EUR",,,,EOF17251902965,,,,,0.06,"EUR"
+Market buy,2024-07-10 14:14:36.282,US5533681012,MP,"MP Materials",3.0000000000,14.36,USD,1.08214,,"EUR",39.87,"EUR",,,,EOF17251903342,,,,,0.06,"EUR"
+Market buy,2024-07-10 14:14:45.278,US8740602052,TAK,"Takeda Pharmaceutical",3.0000000000,13.20,USD,1.08226,,"EUR",36.64,"EUR",,,,EOF17251903382,,,,,0.05,"EUR"
+Market buy,2024-07-10 14:15:00.396,JE00BN7KB441,CORN,"WisdomTree Corn",2.0000000000,19.22,USD,1.08220,,"EUR",35.57,"EUR",,,,EOF17251903478,,,,,0.05,"EUR"
+Market buy,2024-07-10 14:15:06.055,IE00B94QLN63,2PAL,"WisdomTree Palladium 2x Leveraged",6.0000000000,9.75,USD,1.08225,,"EUR",54.12,"EUR",,,,EOF17251903506,,,,,0.08,"EUR"
+Market buy,2024-07-10 14:15:31.857,JE00BN7KB664,WEAT,"WisdomTree Wheat",2.0000000000,22.18,USD,1.08223,,"EUR",41.04,"EUR",,,,EOF17251903857,,,,,0.06,"EUR"
+Market buy,2024-07-10 14:16:06.512,CA67077M1086,NTR,"Nutrien",0.5000000000,48.14,USD,1.08228,,"EUR",22.27,"EUR",,,,EOF17251904020,,,,,0.03,"EUR"
+Market buy,2024-07-10 14:17:49.627,IE00BKLF1R75,VOLT,"WisdomTree Battery Solutions (Acc)",1.0000000000,29.27,USD,1.08247,,"EUR",27.08,"EUR",,,,EOF17251904413,,,,,0.04,"EUR"
+Market buy,2024-07-10 14:18:14.986,XS2399367684,SMHS,"Leverage Shares -3x Short Semiconductors",300.0000000000,0.13,USD,1.08241,,"EUR",35.36,"EUR",,,,EOF17251904488,,,,,0.05,"EUR"
+Market buy,2024-07-10 14:18:34.716,XS2399367684,SMHS,"Leverage Shares -3x Short Semiconductors",150.0000000000,0.13,USD,1.08210,,"EUR",17.69,"EUR",,,,EOF17251904592,,,,,0.03,"EUR"
+Market buy,2024-07-10 14:19:00.168,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",12.5000000000,0.33,USD,1.08116,,"EUR",3.86,"EUR",,,,EOF17251904693,,,,,0.01,"EUR"
+Market buy,2024-07-10 14:21:23.283,XS2399364665,SPYS,"Leverage Shares -5x Short S&P 500",5.0000000000,1.91,USD,1.08233,,"EUR",8.84,"EUR",,,,EOF17251905741,,,,,0.01,"EUR"
+Interest on cash,2024-07-10 21:00:44.682,,,,,,,,,,0.01,"EUR",,,"Interest on cash",f2cbd78a-7513-4598-b127-be1f795e159d,,,,,,
+Interest on cash,2024-07-10 21:00:44.766,,,,,,,,,,0.42,"USD",,,"Interest on cash",a06c1a6d-3b63-42df-b9a2-883418558a86,,,,,,
+Interest on cash,2024-07-11 21:00:43.005,,,,,,,,,,0.02,"EUR",,,"Interest on cash",98b03a44-1bdd-4ebf-9d02-f49d075534cd,,,,,,
+Interest on cash,2024-07-11 21:00:43.105,,,,,,,,,,0.42,"USD",,,"Interest on cash",e7c7af46-0b75-4d8f-963d-007756680c98,,,,,,
+Dividend (Dividend),2024-07-12 11:45:09,US01609W1027,AHLA,"Alibaba",6.0000000000,0.92,EUR,Not available,,,5.52,"EUR",-0.00,EUR,,,,,,,,
+Dividend (Dividend),2024-07-12 11:52:54,US01609W1027,AHLA,"Alibaba",6.0000000000,0.61,EUR,Not available,,,3.64,"EUR",-0.00,EUR,,,,,,,,
+Interest on cash,2024-07-12 21:00:43.079,,,,,,,,,,0.01,"EUR",,,"Interest on cash",a6020221-b105-4c5d-b234-b13043607944,,,,,,
+Interest on cash,2024-07-12 21:00:43.153,,,,,,,,,,0.42,"USD",,,"Interest on cash",871028a8-18ac-4ae8-9af5-daa5112a5564,,,,,,
+Interest on cash,2024-07-13 21:00:41.908,,,,,,,,,,0.02,"EUR",,,"Interest on cash",e1361ec7-2752-4ab6-822d-45c2431fffee,,,,,,
+Interest on cash,2024-07-13 21:00:41.975,,,,,,,,,,0.42,"USD",,,"Interest on cash",5f0edd24-f6ec-4603-882d-54abb32f8a3b,,,,,,
+Interest on cash,2024-07-14 21:00:43.372,,,,,,,,,,0.01,"EUR",,,"Interest on cash",da420cef-79ec-46be-bfe6-f4d34e10b917,,,,,,
+Interest on cash,2024-07-14 21:00:43.456,,,,,,,,,,0.42,"USD",,,"Interest on cash",f8a71179-e857-4631-bd79-59e9819e1d0a,,,,,,
+Interest on cash,2024-07-15 21:00:41.877,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6171c755-e5a4-4219-b8f8-87447302dff3,,,,,,
+Interest on cash,2024-07-15 21:00:42,,,,,,,,,,0.42,"USD",,,"Interest on cash",39ce4d2f-77a4-4e11-a6e8-3869518759dc,,,,,,
+Interest on cash,2024-07-16 21:00:44.874,,,,,,,,,,0.02,"EUR",,,"Interest on cash",024f5bca-f2fb-4bef-9f28-e16bdc5418d0,,,,,,
+Interest on cash,2024-07-16 21:00:44.958,,,,,,,,,,0.42,"USD",,,"Interest on cash",7ac57ca9-59c3-459f-a6ef-74501fd06513,,,,,,
+Interest on cash,2024-07-17 21:00:40.347,,,,,,,,,,0.01,"EUR",,,"Interest on cash",acc04e63-e30f-4bb1-836b-4cfaa8817b7e,,,,,,
+Interest on cash,2024-07-17 21:00:40.433,,,,,,,,,,0.42,"USD",,,"Interest on cash",cf3f93af-9094-4cf1-8fe4-cecc6b1bbaba,,,,,,
+Market sell,2024-07-17 21:51:37.502,KYG651631007,JOBY,"Joby Aviation",26.0000000000,7.00,USD,1.09401,33.54,"EUR",166.11,"EUR",,,,EOF17602787132,,,,,0.25,"EUR"
+Market buy,2024-07-18 14:26:49.222,US26853E1029,EH,"EHang",10.0000000000,13.87,USD,1.09066,,"EUR",127.36,"EUR",,,,EOF17650694778,,,,,0.19,"EUR"
+Interest on cash,2024-07-18 21:00:34.59,,,,,,,,,,0.02,"EUR",,,"Interest on cash",74177432-f4f7-42b4-a0f5-9d43389c8a86,,,,,,
+Interest on cash,2024-07-18 21:00:34.646,,,,,,,,,,0.42,"USD",,,"Interest on cash",270f017a-8b15-4338-a2f4-2eed0729c410,,,,,,
+Dividend (Dividend),2024-07-19 10:54:52,CA67077M1086,NTR,"Nutrien",4.5000000000,0.46,USD,Not available,,,1.90,"EUR",0.36,USD,,,,,,,,
+Market sell,2024-07-19 16:04:31.567,US5494981039,LCID,"Lucid",3.0000000000,3.52,USD,1.08865,1.48,"EUR",9.69,"EUR",,,,EOF17701443919,,,,,0.01,"EUR"
+Interest on cash,2024-07-19 21:00:35.414,,,,,,,,,,0.02,"EUR",,,"Interest on cash",11656f99-9798-425d-b653-c0efbef3a2f4,,,,,,
+Interest on cash,2024-07-19 21:00:35.479,,,,,,,,,,0.42,"USD",,,"Interest on cash",df3a5060-ce96-4452-8d6e-3bcd20d8c298,,,,,,
+Interest on cash,2024-07-20 21:00:38.866,,,,,,,,,,0.02,"EUR",,,"Interest on cash",edb986ee-9a54-4221-883a-c9350f7f5013,,,,,,
+Interest on cash,2024-07-20 21:00:38.943,,,,,,,,,,0.42,"USD",,,"Interest on cash",4a828a11-9d94-4104-8df6-f50029877534,,,,,,
+Interest on cash,2024-07-21 21:00:38.064,,,,,,,,,,0.02,"EUR",,,"Interest on cash",2dd107f4-b3ac-4c3a-b07c-f8d3993e393b,,,,,,
+Interest on cash,2024-07-21 21:00:38.135,,,,,,,,,,0.42,"USD",,,"Interest on cash",1c817ff8-3c38-46d2-81ac-f2178fbedf45,,,,,,
+Interest on cash,2024-07-22 21:00:35.647,,,,,,,,,,0.02,"EUR",,,"Interest on cash",e7862c14-9398-49d2-bb48-b90d9c011b49,,,,,,
+Interest on cash,2024-07-22 21:00:35.718,,,,,,,,,,0.42,"USD",,,"Interest on cash",ed876149-0be8-46a1-b5b5-6ccc4c36fb86,,,,,,
+Market buy,2024-07-23 08:00:59.349,US26853E1029,EH,"EHang",4.0000000000,12.41,USD,1.08764,,"EUR",45.71,"EUR",,,,EOF17855402730,,,,,0.07,"EUR"
+Interest on cash,2024-07-23 21:00:35.035,,,,,,,,,,0.02,"EUR",,,"Interest on cash",e5a8a615-c061-4d46-9998-3884b4134f6a,,,,,,
+Interest on cash,2024-07-23 21:00:35.08,,,,,,,,,,0.42,"USD",,,"Interest on cash",5a4ae9c0-cd87-4e6f-bf21-d26fcce8be2b,,,,,,
+Interest on cash,2024-07-24 21:00:36.769,,,,,,,,,,0.01,"EUR",,,"Interest on cash",4fcc4ed2-1d47-47b2-8810-dd4c3c14b22f,,,,,,
+Interest on cash,2024-07-24 21:00:36.83,,,,,,,,,,0.42,"USD",,,"Interest on cash",b5e519e6-ae1a-48e2-a069-9cae30ca6140,,,,,,
+Market buy,2024-07-25 08:05:05.216,GB00B15KXQ89,COPA,"WisdomTree Copper",2.0000000000,36.87,USD,1.08520,,"EUR",68.05,"EUR",,,,EOF17954209579,,,,,0.10,"EUR"
+Market sell,2024-07-25 10:00:15.036,KYG651631007,JOBY,"Joby Aviation",28.0000000000,6.09,USD,1.08521,14.09,"EUR",156.89,"EUR",,,,EOF17954225558,,,,,0.24,"EUR"
+Interest on cash,2024-07-25 21:00:37.965,,,,,,,,,,0.03,"EUR",,,"Interest on cash",dca97fbb-3259-42e8-a61c-7facf9dddc24,,,,,,
+Interest on cash,2024-07-25 21:00:38.047,,,,,,,,,,0.42,"USD",,,"Interest on cash",e4f9fc43-76ea-4fcf-87bd-cdf1c5c30205,,,,,,
+Market buy,2024-07-26 18:22:57.568,US7170811035,PFE,"Pfizer",30.0000000000,30.82,USD,1.00000,,"USD",924.60,"USD",,,,EOF18052562711,,,,,,
+Interest on cash,2024-07-26 21:00:38.155,,,,,,,,,,0.02,"EUR",,,"Interest on cash",a27b30f0-4048-4b62-ad77-d9892a3bf9d3,,,,,,
+Interest on cash,2024-07-26 21:00:38.219,,,,,,,,,,0.29,"USD",,,"Interest on cash",75fed2c8-7604-4159-9722-2cc226a5aa0c,,,,,,
+Interest on cash,2024-07-27 21:00:38.386,,,,,,,,,,0.03,"EUR",,,"Interest on cash",7bfcf2e4-f2d1-480f-b4e0-02224ee4e8ad,,,,,,
+Interest on cash,2024-07-27 21:00:38.439,,,,,,,,,,0.30,"USD",,,"Interest on cash",d828c10c-0aa5-4207-9456-adf437cda90d,,,,,,
+Interest on cash,2024-07-28 21:00:35.897,,,,,,,,,,0.02,"EUR",,,"Interest on cash",e7fd168b-8f4c-4fdc-9f7c-635dd0ff21de,,,,,,
+Interest on cash,2024-07-28 21:00:35.947,,,,,,,,,,0.29,"USD",,,"Interest on cash",564735c7-2488-455f-9f32-ed9f2befd1e5,,,,,,
+Interest on cash,2024-07-29 21:00:37.826,,,,,,,,,,0.02,"EUR",,,"Interest on cash",4c17e327-ca2d-444b-9c7b-5259b568a540,,,,,,
+Interest on cash,2024-07-29 21:00:37.886,,,,,,,,,,0.30,"USD",,,"Interest on cash",5ae0763d-2cf3-449c-9694-a9edfd1ce01e,,,,,,
+Interest on cash,2024-07-30 21:00:36.309,,,,,,,,,,0.03,"EUR",,,"Interest on cash",7b7103bf-1dab-40fa-8bd5-9a27293c9f50,,,,,,
+Interest on cash,2024-07-30 21:00:36.36,,,,,,,,,,0.29,"USD",,,"Interest on cash",ab02fcfa-6187-443f-acac-eee0feb0aec9,,,,,,
+Interest on cash,2024-07-31 21:00:37.896,,,,,,,,,,0.02,"EUR",,,"Interest on cash",741b719b-bcc4-4f23-8139-e36dd64a96b5,,,,,,
+Interest on cash,2024-07-31 21:00:37.954,,,,,,,,,,0.30,"USD",,,"Interest on cash",a6672cca-5940-41bd-933a-a4bdbb5c8a11,,,,,,
+Interest on cash,2024-08-02 02:10:36.186,,,,,,,,,,0.03,"EUR",,,"Interest on cash",329a1ab5-e10e-4986-a41d-f4fcd9e81d02,,,,,,
+Interest on cash,2024-08-02 02:10:36.435,,,,,,,,,,0.29,"USD",,,"Interest on cash",f332b28c-79ae-46f6-a2e3-fc0bc852aa4b,,,,,,
+Market buy,2024-08-02 13:50:26.279,US4581401001,INTC,"Intel",4.0000000000,21.23,USD,1.08997,,"EUR",78.03,"EUR",,,,EOF18409626247,,,,,0.12,"EUR"
+Market buy,2024-08-02 13:51:18.272,US4581401001,INTC,"Intel",6.0000000000,21.29,USD,1.00000,,"USD",127.74,"USD",,,,EOF18409626579,,,,,,
+Market buy,2024-08-02 14:06:01.128,US5533681012,MP,"MP Materials",5.0000000000,11.43,USD,1.00000,,"USD",57.15,"USD",,,,EOF18409634419,,,,,,
+Market buy,2024-08-02 14:06:29.378,US5533681012,MP,"MP Materials",2.0000000000,11.45,USD,1.00000,,"USD",22.90,"USD",,,,EOF18409634608,,,,,,
+Market buy,2024-08-02 14:40:19.159,US87918A1051,TDOC,"Teladoc Health",1.0000000000,7.97,USD,1.09178,,"EUR",7.31,"EUR",,,,EOF18410651487,,,,,0.01,"EUR"
+Market buy,2024-08-02 14:41:12.203,US87918A1051,TDOC,"Teladoc Health",0.2400000000,7.95,USD,1.09028,,"EUR",1.75,"EUR",,,,EOF18410651700,,,,,,
+Market buy,2024-08-02 14:42:14.65,GB00B15KY211,NICK,"WisdomTree Nickel",10.0000000000,14.91,USD,1.00000,,"USD",149.05,"USD",,,,EOF18410652273,,,,,,
+Market buy,2024-08-02 14:48:26.889,US4581401001,INTC,"Intel",10.0000000000,21.08,USD,1.00000,,"USD",210.80,"USD",,,,EOF18410655696,,,,,,
+Interest on cash,2024-08-03 01:01:30.53,,,,,,,,,,0.01,"EUR",,,"Interest on cash",f1b28c83-9d4d-442d-8c52-453e87cf6bd8,,,,,,
+Interest on cash,2024-08-03 01:01:30.589,,,,,,,,,,0.22,"USD",,,"Interest on cash",1b95a0f4-534b-4c10-89fe-1b97680ba846,,,,,,
+Interest on cash,2024-08-04 01:01:34.491,,,,,,,,,,0.02,"EUR",,,"Interest on cash",d69c2e90-9afc-4dae-adbb-75b53e1e3a63,,,,,,
+Interest on cash,2024-08-04 01:01:34.568,,,,,,,,,,0.22,"USD",,,"Interest on cash",f37ac93e-e6fb-4ae3-bdcb-30b06c52ef1c,,,,,,
+Interest on cash,2024-08-05 01:01:30.156,,,,,,,,,,0.01,"EUR",,,"Interest on cash",6162c6d2-c8a6-480a-a749-da1edba54249,,,,,,
+Interest on cash,2024-08-05 01:01:30.215,,,,,,,,,,0.22,"USD",,,"Interest on cash",62d0a005-e9de-4e19-bf55-47492b070cb0,,,,,,
+Market sell,2024-08-05 08:01:25.881,US88579Y1010,MMM,"3M",3.0000000000,120.19,USD,1.09545,54.13,"EUR",328.66,"EUR",,,,EOF18500694442,,,,,0.49,"EUR"
+Market sell,2024-08-05 13:11:47.701,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",390.0000000000,1.53,EUR,1.00000,-169.26,"EUR",598.34,"EUR",,,,EOF18552717071,,,,,,
+Market sell,2024-08-05 13:11:47.717,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",4.0000000000,1.53,EUR,1.00000,-1.73,"EUR",6.14,"EUR",,,,EOF18552717073,,,,,,
+Market buy,2024-08-05 13:13:46.369,US8334451098,SNOW,"Snowflake",1.0000000000,110.99,USD,1.09847,,"EUR",101.19,"EUR",,,,EOF18552717810,,,,,0.15,"EUR"
+Market buy,2024-08-05 13:28:12.05,US67066G1040,NVDA,"Nvidia",2.0000000000,92.61,USD,1.09955,,"EUR",168.70,"EUR",,,,EOF18552720296,,,,,0.25,"EUR"
+Market buy,2024-08-05 13:32:01.481,US0126531013,ALB,"Albemarle",1.0000000000,80.40,USD,1.09941,,"EUR",73.24,"EUR",,,,EOF18554161015,,,,,0.11,"EUR"
+Market buy,2024-08-05 13:36:42.407,US8334451098,SNOW,"Snowflake",0.5000000000,112.38,USD,1.09960,,"EUR",51.18,"EUR",,,,EOF18554184494,,,,,0.08,"EUR"
+Market buy,2024-08-05 13:42:24.601,US5533681012,MP,"MP Materials",5.0000000000,10.12,USD,1.09880,,"EUR",46.12,"EUR",,,,EOF18555456252,,,,,0.07,"EUR"
+Market sell,2024-08-05 15:33:36.825,US67066G1040,NVDA,"Nvidia",2.0000000000,100.74,USD,1.09708,15.20,"EUR",183.37,"EUR",,,,EOF18556522195,,,,,0.28,"EUR"
+Interest on cash,2024-08-06 01:01:32.743,,,,,,,,,,0.10,"EUR",,,"Interest on cash",6fff927a-656b-477f-941a-85ebfed5a893,,,,,,
+Interest on cash,2024-08-06 01:01:32.795,,,,,,,,,,0.21,"USD",,,"Interest on cash",7697ae2e-982f-4887-a05f-400ebd90655d,,,,,,
+Dividend (Dividend),2024-08-06 09:30:02,US6549022043,NOK,"Nokia",57.0000000000,0.02,USD,Not available,,,1.10,"EUR",0.65,USD,,,,,,,,
+Market buy,2024-08-06 11:00:00.383,US61945C1036,MOS,"Mosaic",1.9996460000,27.00,USD,1.09071,,"EUR",49.57,"EUR",,,,EOF18559521817,,,,,0.07,"EUR"
+Market buy,2024-08-06 11:51:27.206,US5494981039,LCID,"Lucid",3.0000000000,3.35,USD,1.09120,,"EUR",9.22,"EUR",,,,EOF18559527895,,,,,0.01,"EUR"
+Interest on cash,2024-08-07 01:01:29.874,,,,,,,,,,0.08,"EUR",,,"Interest on cash",d7ac5d6a-a9c2-42bf-8c1f-c97c6a94719f,,,,,,
+Interest on cash,2024-08-07 01:01:29.93,,,,,,,,,,0.22,"USD",,,"Interest on cash",ab420781-ddf4-47ef-9115-5f87ec2a3250,,,,,,
+Deposit,2024-08-07 06:45:31.063,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",03f34d2d-16c8-443d-81b1-bdf199e9f96a,,,,,,
+Limit buy,2024-08-07 19:56:24.742,US4581401001,INTC,"Intel",10.0000000000,19.00,USD,1.09220,,"EUR",174.22,"EUR",,,,EOF18652288538,,,,,0.26,"EUR"
+Interest on cash,2024-08-08 01:01:29.805,,,,,,,,,,0.12,"EUR",,,"Interest on cash",a708c395-35a2-4724-bec6-4b538d8b0aec,,,,,,
+Interest on cash,2024-08-08 01:01:29.861,,,,,,,,,,0.22,"USD",,,"Interest on cash",1a54f9d0-ecc7-4385-a1db-342c7bfb35c4,,,,,,
+Market buy,2024-08-08 14:08:28.294,US9344231041,WBD,"Warner Bros Discovery",2.0000000000,6.86,USD,1.08888,,"EUR",12.62,"EUR",,,,EOF18700526620,,,,,0.02,"EUR"
+Market buy,2024-08-08 14:09:55.812,IE000NDWFGA5,URNU,"Global X Uranium (Acc)",3.0000000000,13.40,USD,1.08943,,"EUR",36.96,"EUR",,,,EOF18700527032,,,,,0.06,"EUR"
+Market buy,2024-08-08 14:10:03.654,IE000NDWFGA5,URNU,"Global X Uranium (Acc)",3.0000000000,13.41,USD,1.08949,,"EUR",36.98,"EUR",,,,EOF18700527070,,,,,0.06,"EUR"
+Market buy,2024-08-08 15:29:04.222,US31188V1008,FSLY,"Fastly",10.0000000000,5.68,USD,1.09083,,"EUR",52.15,"EUR",,,,EOF18700541695,,,,,0.08,"EUR"
+Interest on cash,2024-08-09 01:01:31.2,,,,,,,,,,0.11,"EUR",,,"Interest on cash",1b076176-d191-47ed-842b-30a234327ddd,,,,,,
+Interest on cash,2024-08-09 01:01:31.261,,,,,,,,,,0.22,"USD",,,"Interest on cash",fc4e6376-632e-4c52-8c1f-d548d0f9f296,,,,,,
+Market buy,2024-08-09 17:06:02.648,US03945R1023,ACHR,"Archer Aviation",30.0000000000,3.77,USD,1.09180,,"EUR",103.75,"EUR",,,,EOF18751389384,,,,,0.16,"EUR"
+Market buy,2024-08-09 17:06:35.666,KYG651631007,JOBY,"Joby Aviation",22.0000000000,5.08,USD,1.09172,,"EUR",102.52,"EUR",,,,EOF18751389418,,,,,0.15,"EUR"
+Market buy,2024-08-09 18:42:17.348,US4581401001,INTC,"Intel",10.0000000000,19.85,USD,1.00000,,"USD",198.50,"USD",,,,EOF18751395398,,,,,,
+Interest on cash,2024-08-10 01:01:33.869,,,,,,,,,,0.08,"EUR",,,"Interest on cash",8be48a50-5e7d-4339-b7a5-a58ee24a0a12,,,,,,
+Interest on cash,2024-08-10 01:01:33.911,,,,,,,,,,0.19,"USD",,,"Interest on cash",5da4b468-1daa-4a81-8d4b-11fb59f60522,,,,,,
+Interest on cash,2024-08-11 01:01:31.311,,,,,,,,,,0.08,"EUR",,,"Interest on cash",8af2efca-77ca-4a8f-bc3e-e8c4408ba57c,,,,,,
+Interest on cash,2024-08-11 01:01:31.364,,,,,,,,,,0.19,"USD",,,"Interest on cash",8bedf733-9bc6-4dcb-ac77-3fa4767311b7,,,,,,
+Interest on cash,2024-08-12 01:01:31.225,,,,,,,,,,0.09,"EUR",,,"Interest on cash",3c234ca3-bb39-4443-8c3f-ea87b14dbf65,,,,,,
+Interest on cash,2024-08-12 01:01:31.268,,,,,,,,,,0.19,"USD",,,"Interest on cash",e1d0b5e1-0e9b-4269-86d5-42718cb62048,,,,,,
+Interest on cash,2024-08-13 01:01:34.394,,,,,,,,,,0.08,"EUR",,,"Interest on cash",2fa9632f-f41d-4328-9067-4de0a5172ee9,,,,,,
+Interest on cash,2024-08-13 01:01:34.456,,,,,,,,,,0.19,"USD",,,"Interest on cash",cfc18d72-565f-4c0a-8253-9e6779466b4c,,,,,,
+Market buy,2024-08-13 10:52:05.074,XS2399364665,SPYS,"Leverage Shares -5x Short S&P 500",18.0000000000,2.16,USD,1.09224,,"EUR",35.63,"EUR",,,,EOF18904531446,,,,,0.05,"EUR"
+Market sell,2024-08-13 11:00:04.706,US31188V1008,FSLY,"Fastly",10.0000000000,5.95,USD,1.09234,2.40,"EUR",54.39,"EUR",,,,EOF18904531987,,,,,0.08,"EUR"
+Market buy,2024-08-13 12:44:28.943,XS2399364665,SPYS,"Leverage Shares -5x Short S&P 500",28.0000000000,2.13,USD,1.09385,,"EUR",54.48,"EUR",,,,EOF18904540069,,,,,0.08,"EUR"
+Interest on cash,2024-08-14 01:01:30.81,,,,,,,,,,0.08,"EUR",,,"Interest on cash",9298fc87-e3f5-4368-94ba-8585ba6e31b2,,,,,,
+Interest on cash,2024-08-14 01:01:30.898,,,,,,,,,,0.19,"USD",,,"Interest on cash",1d2bdcf3-98f9-4b26-9470-d8d139321fb9,,,,,,
+Interest on cash,2024-08-15 01:01:33.395,,,,,,,,,,0.08,"EUR",,,"Interest on cash",9d84bef4-ec2f-4030-a301-860099967505,,,,,,
+Interest on cash,2024-08-15 01:01:33.479,,,,,,,,,,0.19,"USD",,,"Interest on cash",bd679586-6c3f-42a6-9a9b-2e342f82b828,,,,,,
+Limit buy,2024-08-15 07:04:16.571,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",82.0000000000,0.94,EUR,1.00000,,"EUR",76.91,"EUR",,,,EOF19050105512,,,,,,
+Market buy,2024-08-15 08:15:03.49,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",8.0000000000,0.94,EUR,1.00000,,"EUR",7.49,"EUR",,,,EOF19050122445,,,,,,
+Market sell,2024-08-15 08:16:30.866,US88579Y1010,MMM,"3M",1.0000000000,125.73,USD,1.10115,22.51,"EUR",114.01,"EUR",,,,EOF19050122637,,,,,0.17,"EUR"
+Market buy,2024-08-15 08:17:19.035,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",100.0000000000,0.94,EUR,1.00000,,"EUR",93.65,"EUR",,,,EOF19050122707,,,,,,
+Market buy,2024-08-15 08:17:43.046,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",20.0000000000,0.94,EUR,1.00000,,"EUR",18.73,"EUR",,,,EOF19050122738,,,,,,
+Market sell,2024-08-15 08:19:38.812,LU1900066207,LBRA,"Amundi MSCI Brazil (Acc)",5.0000000000,19.81,EUR,1.00000,-0.43,"EUR",99.05,"EUR",,,,EOF19050122892,,,,,,
+Market buy,2024-08-15 08:22:05.777,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",100.0000000000,0.94,EUR,1.00000,,"EUR",94.09,"EUR",,,,EOF19050123078,,,,,,
+Market sell,2024-08-15 08:22:14.82,LU1900066207,LBRA,"Amundi MSCI Brazil (Acc)",10.0000000000,19.81,EUR,1.00000,-0.90,"EUR",198.06,"EUR",,,,EOF19050123091,,,,,,
+Interest on cash,2024-08-16 01:01:30.858,,,,,,,,,,0.09,"EUR",,,"Interest on cash",eca1121b-081a-4c36-8756-9b1e3b605713,,,,,,
+Interest on cash,2024-08-16 01:01:30.907,,,,,,,,,,0.19,"USD",,,"Interest on cash",f4634816-213d-481f-9651-1c3d42e792fd,,,,,,
+Interest on cash,2024-08-17 01:01:31.502,,,,,,,,,,0.09,"EUR",,,"Interest on cash",9489e13f-717a-41b0-ae3c-717801d0e612,,,,,,
+Interest on cash,2024-08-17 01:01:31.562,,,,,,,,,,0.19,"USD",,,"Interest on cash",eb4200aa-e003-441c-8548-009e06a6969f,,,,,,
+Interest on cash,2024-08-18 01:01:38.928,,,,,,,,,,0.09,"EUR",,,"Interest on cash",a90b57e3-2b4a-45ca-b32c-144720875ea6,,,,,,
+Interest on cash,2024-08-18 01:01:38.981,,,,,,,,,,0.20,"USD",,,"Interest on cash",db958b50-ad39-452e-aebd-0dbdcc821672,,,,,,
+Interest on cash,2024-08-19 01:01:35.029,,,,,,,,,,0.09,"EUR",,,"Interest on cash",89134db7-7b53-4c81-a6fe-ea2ba336c99f,,,,,,
+Interest on cash,2024-08-19 01:01:35.136,,,,,,,,,,0.19,"USD",,,"Interest on cash",5a03c464-bf47-4a56-a37c-ab27b18b3cf7,,,,,,
+Interest on cash,2024-08-20 01:01:31.098,,,,,,,,,,0.10,"EUR",,,"Interest on cash",ad02ba3f-8778-44c3-997e-3fece1357d4a,,,,,,
+Interest on cash,2024-08-20 01:01:31.154,,,,,,,,,,0.19,"USD",,,"Interest on cash",22319353-8916-424a-a660-1fae9d481434,,,,,,
+Limit sell,2024-08-20 14:53:31.967,US9344231041,WBD,"Warner Bros Discovery",1.0000000000,7.71,USD,1.11095,0.64,"EUR",6.93,"EUR",,,,EOF19301239188,,,,,0.01,"EUR"
+Interest on cash,2024-08-21 01:01:33.696,,,,,,,,,,0.09,"EUR",,,"Interest on cash",457292db-7129-4195-8feb-678a19388401,,,,,,
+Interest on cash,2024-08-21 01:01:33.755,,,,,,,,,,0.19,"USD",,,"Interest on cash",b9e7cb6e-3cb0-4478-9b22-14a27ebad1cf,,,,,,
+Interest on cash,2024-08-22 01:01:29.857,,,,,,,,,,0.09,"EUR",,,"Interest on cash",2f590c33-621b-4256-a8e6-87f82e2b3cbf,,,,,,
+Interest on cash,2024-08-22 01:01:29.906,,,,,,,,,,0.19,"USD",,,"Interest on cash",6f326c98-4b4c-492b-9118-f08ef4e0a0e5,,,,,,
+Interest on cash,2024-08-23 01:01:34.481,,,,,,,,,,0.10,"EUR",,,"Interest on cash",ee750775-480e-4ee0-bbc3-6ffc9a1238e1,,,,,,
+Interest on cash,2024-08-23 01:01:34.561,,,,,,,,,,0.19,"USD",,,"Interest on cash",c8ae1d5f-4cd3-43bb-ae3b-936578a102c3,,,,,,
+Interest on cash,2024-08-24 01:01:30.436,,,,,,,,,,0.09,"EUR",,,"Interest on cash",ecc834ea-b4de-429a-a5bc-2dd78a729d94,,,,,,
+Interest on cash,2024-08-24 01:01:30.483,,,,,,,,,,0.19,"USD",,,"Interest on cash",efad4773-063a-4fba-8994-2ba13ab43af3,,,,,,
+Interest on cash,2024-08-25 01:01:35.353,,,,,,,,,,0.09,"EUR",,,"Interest on cash",37950db7-c849-4068-9f8b-4c9598713b93,,,,,,
+Interest on cash,2024-08-25 01:01:35.407,,,,,,,,,,0.19,"USD",,,"Interest on cash",b518c192-bea1-4297-920a-482e3ad8765f,,,,,,
+Interest on cash,2024-08-26 01:01:34.118,,,,,,,,,,0.09,"EUR",,,"Interest on cash",9edfc6ad-70cb-4815-a976-ccab5b54f185,,,,,,
+Interest on cash,2024-08-26 01:01:34.16,,,,,,,,,,0.19,"USD",,,"Interest on cash",ab2dbbd9-9d65-4de9-9ba1-f575a2e4f9e0,,,,,,
+Market sell,2024-08-26 14:18:47.955,US26853E1029,EH,"EHang",6.0000000000,14.31,USD,1.11680,2.82,"EUR",76.76,"EUR",,,,EOF19551920251,,,,,0.12,"EUR"
+Interest on cash,2024-08-27 01:01:34.291,,,,,,,,,,0.11,"EUR",,,"Interest on cash",5588b23a-3247-4aca-8aec-b505ebe31095,,,,,,
+Interest on cash,2024-08-27 01:01:34.346,,,,,,,,,,0.20,"USD",,,"Interest on cash",8aea7415-a355-4663-96cb-838285c8bbd1,,,,,,
+Interest on cash,2024-08-28 01:01:31.221,,,,,,,,,,0.10,"EUR",,,"Interest on cash",2036259c-a639-4b0b-b1c5-cc6122f9a8ef,,,,,,
+Interest on cash,2024-08-28 01:01:31.266,,,,,,,,,,0.19,"USD",,,"Interest on cash",97cdc29d-d99c-433d-882a-e6a07ca56f6b,,,,,,
+Interest on cash,2024-08-29 01:01:30.523,,,,,,,,,,0.10,"EUR",,,"Interest on cash",ca71a291-3cba-40a2-9c69-cad7a14878e5,,,,,,
+Interest on cash,2024-08-29 01:01:30.599,,,,,,,,,,0.19,"USD",,,"Interest on cash",f178fd14-d2df-420b-9dd5-1e3e296c6284,,,,,,
+Interest on cash,2024-08-30 01:01:33.283,,,,,,,,,,0.10,"EUR",,,"Interest on cash",b31c0af4-1ce4-42a8-9318-5acf1b3fed37,,,,,,
+Interest on cash,2024-08-30 01:01:33.333,,,,,,,,,,0.19,"USD",,,"Interest on cash",a5e8560d-6c29-4278-96a4-2c16341ae2df,,,,,,
+Dividend (Dividend),2024-08-30 11:03:51,US1252691001,CF,"CF Industries",1.5000000000,0.43,USD,Not available,,,0.58,"EUR",0.11,USD,,,,,,,,
+Market buy,2024-08-30 14:04:40.722,KYG651631007,JOBY,"Joby Aviation",30.0000000000,5.19,USD,1.10755,,"EUR",140.79,"EUR",,,,EOF19750938116,,,,,0.21,"EUR"
+Interest on cash,2024-08-31 01:01:30.026,,,,,,,,,,0.09,"EUR",,,"Interest on cash",a83dcc63-2981-47ac-8204-52a64b402509,,,,,,
+Interest on cash,2024-08-31 01:01:30.099,,,,,,,,,,0.19,"USD",,,"Interest on cash",d6e05b54-35e4-48cf-bda4-e9daf92db7d5,,,,,,
+Interest on cash,2024-09-01 01:01:30.19,,,,,,,,,,0.08,"EUR",,,"Interest on cash",48031fbf-97cf-4360-ad44-10284c6a31a0,,,,,,
+Interest on cash,2024-09-01 01:01:30.227,,,,,,,,,,0.19,"USD",,,"Interest on cash",b2f64595-6d5a-46df-b705-baec6abb10f8,,,,,,
+Interest on cash,2024-09-02 01:01:30.65,,,,,,,,,,0.09,"EUR",,,"Interest on cash",d17f816f-cb18-4a08-b985-dcf447ff3da3,,,,,,
+Interest on cash,2024-09-02 01:01:30.754,,,,,,,,,,0.19,"USD",,,"Interest on cash",0502af8d-e86a-4534-829b-43f9742c4263,,,,,,
+Dividend (Dividend),2024-09-02 10:25:23,US4581401001,INTC,"Intel",20.0000000000,0.11,USD,Not available,,,1.92,"EUR",0.38,USD,,,,,,,,
+Interest on cash,2024-09-03 01:01:30.726,,,,,,,,,,0.09,"EUR",,,"Interest on cash",04f663e5-3d5c-42ed-86cb-d1effe3da6b1,,,,,,
+Interest on cash,2024-09-03 01:01:30.789,,,,,,,,,,0.20,"USD",,,"Interest on cash",fa303367-7239-4c6a-841e-5b63fa670c1b,,,,,,
+Dividend (Dividend),2024-09-03 09:26:24,US7170811035,PFE,"Pfizer",14.0000000000,0.36,USD,Not available,,,4.52,"EUR",0.88,USD,,,,,,,,
+Interest on cash,2024-09-04 01:01:30.705,,,,,,,,,,0.08,"EUR",,,"Interest on cash",1d258ccd-73a7-4239-a63d-fa83f5489e10,,,,,,
+Interest on cash,2024-09-04 01:01:30.75,,,,,,,,,,0.19,"USD",,,"Interest on cash",d724b7b5-4d44-40c2-86b2-ca0a492f8c9e,,,,,,
+Interest on cash,2024-09-05 01:01:30.154,,,,,,,,,,0.09,"EUR",,,"Interest on cash",4fc92e6c-a3e2-4e7b-8334-13ad68eff8a4,,,,,,
+Interest on cash,2024-09-05 01:01:30.202,,,,,,,,,,0.19,"USD",,,"Interest on cash",932a0431-4084-4cdc-bf1c-68592be25182,,,,,,
+Interest on cash,2024-09-06 01:01:30.461,,,,,,,,,,0.09,"EUR",,,"Interest on cash",ebf27d42-083b-4ad6-bc15-4fbac70a2b22,,,,,,
+Interest on cash,2024-09-06 01:01:30.535,,,,,,,,,,0.19,"USD",,,"Interest on cash",de4f673b-dfbb-478d-b304-b0047c6ae8e1,,,,,,
+Dividend (Dividend),2024-09-06 11:54:04,MHY8162K2046,SBLK,"Star Bulk Carriers",1.0000000000,0.70,USD,Not available,,,0.63,"EUR",0.00,USD,,,,,,,,
+Interest on cash,2024-09-07 01:01:32.993,,,,,,,,,,0.08,"EUR",,,"Interest on cash",d2c1289f-7318-4376-a9d4-fc0edc065218,,,,,,
+Interest on cash,2024-09-07 01:01:33.055,,,,,,,,,,0.19,"USD",,,"Interest on cash",967c98d0-0f37-44c0-b08d-5ebbb197c485,,,,,,
+Interest on cash,2024-09-08 01:01:31.141,,,,,,,,,,0.09,"EUR",,,"Interest on cash",ffa5012b-237c-4021-b8d0-f20d9d2b744d,,,,,,
+Interest on cash,2024-09-08 01:01:31.19,,,,,,,,,,0.19,"USD",,,"Interest on cash",0c3c67b9-ef9c-443f-ad62-f0e85b9cdae4,,,,,,
+Interest on cash,2024-09-09 01:01:35.156,,,,,,,,,,0.09,"EUR",,,"Interest on cash",8b67bffc-fa53-4809-8e1a-4fb5a8603606,,,,,,
+Interest on cash,2024-09-09 01:01:35.234,,,,,,,,,,0.19,"USD",,,"Interest on cash",96741c71-1001-4dee-8c1e-d3f63e340555,,,,,,
+Deposit,2024-09-09 09:30:24.611,,,,,,,,,,500.00,"EUR",,,"Bank Transfer",7514bd67-252c-4a02-8bb8-cb5ce47f142e,,,,,,
+Market sell,2024-09-09 14:16:33.126,US9344231041,WBD,"Warner Bros Discovery",1.0000000000,7.26,USD,1.10334,0.28,"EUR",6.57,"EUR",,,,EOF20252974062,,,,,0.01,"EUR"
+Market buy,2024-09-09 19:51:13.885,US2566771059,DG,"Dollar General",1.0000000000,80.89,USD,1.10384,,"EUR",73.39,"EUR",,,,EOF20253918141,,,,,0.11,"EUR"
+Market buy,2024-09-09 19:52:29.163,US60770K1079,MRNA,"Moderna",1.0000000000,75.93,USD,1.10379,,"EUR",68.89,"EUR",,,,EOF20253918223,,,,,0.10,"EUR"
+Market buy,2024-09-09 20:03:23.139,US2566771059,DG,"Dollar General",0.5000000000,82.40,USD,1.10366,,"EUR",37.39,"EUR",,,,EOF20253919474,,,,,0.06,"EUR"
+Limit buy,2024-09-09 20:16:41.866,US62914V1061,NIO,"NIO",20.0000000000,5.55,USD,1.10381,,"EUR",100.71,"EUR",,,,EOF20253920033,,,,,0.15,"EUR"
+Limit buy,2024-09-09 20:31:34.568,US8334451098,SNOW,"Snowflake",0.5000000000,110.35,USD,1.10372,,"EUR",50.06,"EUR",,,,EOF20253920822,,,,,0.07,"EUR"
+Interest on cash,2024-09-10 01:01:31.084,,,,,,,,,,0.10,"EUR",,,"Interest on cash",d86ea324-93c6-4664-b9de-0e893a41c9e3,,,,,,
+Interest on cash,2024-09-10 01:01:31.183,,,,,,,,,,0.20,"USD",,,"Interest on cash",aca6cef7-c8eb-4f74-915f-702c9fdadaae,,,,,,
+Dividend (Dividend),2024-09-10 13:30:14,US4592001014,IBM,"IBM",2.0000000000,1.42,USD,Not available,,,2.57,"EUR",0.50,USD,,,,,,,,
+Interest on cash,2024-09-11 01:01:30.328,,,,,,,,,,0.11,"EUR",,,"Interest on cash",635dfac6-de14-4703-b192-2185e88491d7,,,,,,
+Interest on cash,2024-09-11 01:01:30.374,,,,,,,,,,0.19,"USD",,,"Interest on cash",813fada6-89d5-4b38-a6f9-bb04374730ea,,,,,,
+Market buy,2024-09-11 15:03:41.941,US83417M1045,SEDG,"SolarEdge Technologies",4.0000000000,18.68,USD,1.10109,,"EUR",67.96,"EUR",,,,EOF20351378620,,,,,0.10,"EUR"
+Market buy,2024-09-11 15:06:20.312,IE00BKLF1R75,VOLT,"WisdomTree Battery Solutions (Acc)",1.0000000000,26.92,USD,1.10147,,"EUR",24.48,"EUR",,,,EOF20351379120,,,,,0.04,"EUR"
+Market buy,2024-09-11 19:11:14.211,US03945R1023,ACHR,"Archer Aviation",3.0000000000,3.31,USD,1.10210,,"EUR",9.02,"EUR",,,,EOF20352509304,,,,,0.01,"EUR"
+Limit buy,2024-09-12 00:01:05.409,US8334451098,SNOW,"Snowflake",1.0000000000,112.00,USD,1.00000,,"USD",112.00,"USD",,,,EOF20352524081,,,,,,
+Interest on cash,2024-09-12 01:01:31.512,,,,,,,,,,0.10,"EUR",,,"Interest on cash",098e29ad-0b75-41a4-a07a-ff9cd7346da2,,,,,,
+Interest on cash,2024-09-12 01:01:31.59,,,,,,,,,,0.19,"USD",,,"Interest on cash",e83e9f98-ac3f-4cbb-951c-0c6e98d132de,,,,,,
+Interest on cash,2024-09-13 01:01:31.935,,,,,,,,,,0.09,"EUR",,,"Interest on cash",f27f9dcb-ae32-4481-9a91-a8caaaaf5cf9,,,,,,
+Interest on cash,2024-09-13 01:01:32.002,,,,,,,,,,0.18,"USD",,,"Interest on cash",08ca1333-fb91-4f86-8489-c179a20cd9c8,,,,,,
+Market buy,2024-09-13 13:26:57.074,US9778521024,WOLF,"Wolfspeed",1.0000000000,8.58,USD,1.10996,,"EUR",7.74,"EUR",,,,EOF20403979470,,,,,0.01,"EUR"
+Market buy,2024-09-13 13:28:33.931,US9778521024,WOLF,"Wolfspeed",30.0000000000,8.57,USD,1.00000,,"USD",257.10,"USD",,,,EOF20403979715,,,,,,
+Market buy,2024-09-13 13:29:12.019,US9778521024,WOLF,"Wolfspeed",30.0000000000,8.53,USD,1.00000,,"USD",255.90,"USD",,,,EOF20403979802,,,,,,
+Market buy,2024-09-13 13:29:44.224,US9778521024,WOLF,"Wolfspeed",4.0000000000,8.54,USD,1.00000,,"USD",34.16,"USD",,,,EOF20403979858,,,,,,
+Market buy,2024-09-13 13:31:36.004,US9778521024,WOLF,"Wolfspeed",9.0000000000,8.52,USD,1.00000,,"USD",76.68,"USD",,,,EOF20403995669,,,,,,
+Market buy,2024-09-13 13:31:53.47,US9778521024,WOLF,"Wolfspeed",2.0000000000,8.52,USD,1.00000,,"USD",17.04,"USD",,,,EOF20403995914,,,,,,
+Interest on cash,2024-09-14 01:01:30.84,,,,,,,,,,0.10,"EUR",,,"Interest on cash",d643e356-f234-45e5-a167-90be38a8a805,,,,,,
+Interest on cash,2024-09-14 01:01:30.92,,,,,,,,,,0.09,"USD",,,"Interest on cash",f6442caa-d295-4a2f-b2b0-ec2a8e3960b1,,,,,,
+Interest on cash,2024-09-15 01:01:31.043,,,,,,,,,,0.09,"EUR",,,"Interest on cash",e9f29e33-595c-4bdc-b813-995032c436fd,,,,,,
+Interest on cash,2024-09-15 01:01:31.108,,,,,,,,,,0.08,"USD",,,"Interest on cash",01c9c863-5b80-4653-a9f9-1f6afe29e591,,,,,,
+Interest on cash,2024-09-16 01:01:34.199,,,,,,,,,,0.10,"EUR",,,"Interest on cash",42d81336-f703-4c09-80fd-4f2f6544b265,,,,,,
+Interest on cash,2024-09-16 01:01:34.256,,,,,,,,,,0.09,"USD",,,"Interest on cash",f37062df-1cdd-4d6d-b80c-451025ed66f8,,,,,,
+Interest on cash,2024-09-17 01:01:32.058,,,,,,,,,,0.09,"EUR",,,"Interest on cash",bde86968-6f5c-4bdb-b0a8-60d4dcabbb00,,,,,,
+Interest on cash,2024-09-17 01:01:32.115,,,,,,,,,,0.09,"USD",,,"Interest on cash",18dfe769-730c-4bf3-b4ba-b49b3c8e254b,,,,,,
+Interest on cash,2024-09-18 01:01:39.659,,,,,,,,,,0.10,"EUR",,,"Interest on cash",208d1cb2-668b-418c-b24e-6c3dd0252aa6,,,,,,
+Interest on cash,2024-09-18 01:01:39.742,,,,,,,,,,0.09,"USD",,,"Interest on cash",9c4b4cc0-d41a-4291-8570-17684de4b057,,,,,,
+Market sell,2024-09-18 19:07:42.944,US4592001014,IBM,"IBM",1.0000000000,215.12,USD,1.11316,58.55,"EUR",192.96,"EUR",,,,EOF20701956058,,,,,0.29,"EUR"
+Market sell,2024-09-18 19:08:05.588,US4592001014,IBM,"IBM",0.5000000000,215.39,USD,1.11324,29.39,"EUR",96.59,"EUR",,,,EOF20701956109,,,,,0.15,"EUR"
+Market sell,2024-09-18 19:08:23.98,US2566771059,DG,"Dollar General",0.5000000000,87.16,USD,1.11343,2.27,"EUR",39.08,"EUR",,,,EOF20701956122,,,,,0.06,"EUR"
+Interest on cash,2024-09-19 01:01:42.346,,,,,,,,,,0.13,"EUR",,,"Interest on cash",55a18d86-4e80-4566-8c28-1e3dddbd1425,,,,,,
+Interest on cash,2024-09-19 01:01:42.43,,,,,,,,,,0.09,"USD",,,"Interest on cash",1eff03ee-2bfe-4a2a-a8da-6e9c24c8f103,,,,,,
+Dividend (Dividend),2024-09-19 10:54:18,US61945C1036,MOS,"Mosaic",10.0000000000,0.18,USD,Not available,,,1.61,"EUR",0.32,USD,,,,,,,,
+Interest on cash,2024-09-20 01:01:37.947,,,,,,,,,,0.13,"EUR",,,"Interest on cash",62d55829-5a01-4bce-b794-023f7a2e83ad,,,,,,
+Interest on cash,2024-09-20 01:01:38.023,,,,,,,,,,0.09,"USD",,,"Interest on cash",8c298f45-b901-4230-8e01-6eb02312355c,,,,,,
+Interest on cash,2024-09-21 01:01:38.077,,,,,,,,,,0.13,"EUR",,,"Interest on cash",992d37b9-b9b2-4f10-9705-ca7a46df14b4,,,,,,
+Interest on cash,2024-09-21 01:01:38.159,,,,,,,,,,0.09,"USD",,,"Interest on cash",c201b3c3-a48f-4bcf-a103-5fe7f1d49c66,,,,,,
+Interest on cash,2024-09-22 01:01:37.825,,,,,,,,,,0.13,"EUR",,,"Interest on cash",ade6f42c-9244-4b0c-8689-902df5700b0a,,,,,,
+Interest on cash,2024-09-22 01:01:37.932,,,,,,,,,,0.09,"USD",,,"Interest on cash",7e0c87fb-43c3-4bb2-b12f-08fdd2dc0848,,,,,,
+Interest on cash,2024-09-23 01:01:43.006,,,,,,,,,,0.14,"EUR",,,"Interest on cash",37917444-6191-4cde-9481-ab0309d7be27,,,,,,
+Interest on cash,2024-09-23 01:01:43.098,,,,,,,,,,0.09,"USD",,,"Interest on cash",0109dc16-b4f6-4563-9a8b-4e173c0fe96d,,,,,,
+Interest on cash,2024-09-24 01:01:43.115,,,,,,,,,,0.13,"EUR",,,"Interest on cash",d2136bab-aaed-46d3-a8dd-2ec29c905f33,,,,,,
+Interest on cash,2024-09-24 01:01:43.195,,,,,,,,,,0.09,"USD",,,"Interest on cash",a559cbae-6725-49d3-9019-d86ce074b396,,,,,,
+Interest on cash,2024-09-25 01:01:40.604,,,,,,,,,,0.13,"EUR",,,"Interest on cash",2d458866-f80f-4f93-bba6-0c486c6f3210,,,,,,
+Interest on cash,2024-09-25 01:01:40.667,,,,,,,,,,0.09,"USD",,,"Interest on cash",fb9386dc-7b8f-4849-9cfa-ce1e3544996b,,,,,,
+Interest on cash,2024-09-26 01:01:47.235,,,,,,,,,,0.13,"EUR",,,"Interest on cash",97b5a09e-018f-4928-90bf-06a368ce58ba,,,,,,
+Interest on cash,2024-09-26 01:01:47.314,,,,,,,,,,0.09,"USD",,,"Interest on cash",3bccf0bf-24f5-42de-a670-5aa74c644ee4,,,,,,
+Market sell,2024-09-26 12:04:08.643,US01609W1027,AHLA,"Alibaba",1.0000000000,90.90,EUR,1.00000,13.73,"EUR",90.90,"EUR",,,,EOF21050271637,,,,,,
+Market sell,2024-09-26 12:05:06.91,US70450Y1038,PYPL,"PayPal",1.0000000000,78.04,USD,1.11549,10.46,"EUR",69.86,"EUR",,,,EOF21050271744,,,,,0.10,"EUR"
+Market sell,2024-09-26 12:06:54.096,US01609W1027,AHLA,"Alibaba",2.0000000000,90.90,EUR,1.00000,27.45,"EUR",181.80,"EUR",,,,EOF21050271920,,,,,,
+Market sell,2024-09-26 12:07:12.082,US70450Y1038,PYPL,"PayPal",3.0000000000,78.04,USD,1.11560,31.36,"EUR",209.55,"EUR",,,,EOF21050271941,,,,,0.31,"EUR"
+Market sell,2024-09-26 12:09:44.317,US70450Y1038,PYPL,"PayPal",1.0000000000,78.02,USD,1.11552,10.44,"EUR",69.84,"EUR",,,,EOF21050272269,,,,,0.10,"EUR"
+Market sell,2024-09-26 12:12:41.186,US70450Y1038,PYPL,"PayPal",1.0000000000,78.02,USD,1.11584,10.42,"EUR",69.82,"EUR",,,,EOF21050272602,,,,,0.10,"EUR"
+Market sell,2024-09-26 12:14:41.254,US01609W1027,AHLA,"Alibaba",2.0000000000,91.20,EUR,1.00000,28.05,"EUR",182.40,"EUR",,,,EOF21050272835,,,,,,
+Market sell,2024-09-26 12:17:48.727,US70450Y1038,PYPL,"PayPal",3.0000000000,78.05,USD,1.11590,31.34,"EUR",209.52,"EUR",,,,EOF21050273283,,,,,0.31,"EUR"
+Market buy,2024-09-26 12:47:29.235,US9778521024,WOLF,"Wolfspeed",70.0000000000,8.17,USD,1.11544,,"EUR",513.48,"EUR",,,,EOF21050276813,,,,,0.77,"EUR"
+Market buy,2024-09-26 12:48:12.173,US9778521024,WOLF,"Wolfspeed",4.0000000000,8.19,USD,1.11504,,"EUR",29.42,"EUR",,,,EOF21050277017,,,,,0.04,"EUR"
+Market sell,2024-09-26 12:52:31.116,XS2399364665,SPYS,"Leverage Shares -5x Short S&P 500",667.0000000000,1.61,USD,1.11546,-1789.06,"EUR",961.03,"EUR",,,,EOF21050277521,,,,,1.44,"EUR"
+Market buy,2024-09-26 12:53:10.61,US9778521024,WOLF,"Wolfspeed",130.0000000000,8.30,USD,1.11525,,"EUR",968.94,"EUR",,,,EOF21050277663,,,,,1.45,"EUR"
+Market sell,2024-09-26 12:54:56.822,IE00B4QNHZ41,DES2,"L&G DAX 2x Short (Acc)",1264.0000000000,0.99,EUR,1.00000,-767.58,"EUR",1250.35,"EUR",,,,EOF21050277823,,,,,,
+Market buy,2024-09-26 12:55:19.496,US9778521024,WOLF,"Wolfspeed",170.0000000000,8.31,USD,1.11514,,"EUR",1268.73,"EUR",,,,EOF21050277850,,,,,1.90,"EUR"
+Market sell,2024-09-26 12:56:06.322,XS2706225427,NV3S,"Leverage Shares -3x Short Nvidia NVDA",602.0000000000,0.21,USD,1.11549,-1058.31,"EUR",115.32,"EUR",,,,EOF21050277878,,,,,0.17,"EUR"
+Market sell,2024-09-26 12:57:18.846,JE00BDD9Q956,LNGA,"WisdomTree Natural Gas 2x Leveraged",4722.0000000000,0.06,USD,1.11528,-1319.34,"EUR",249.43,"EUR",,,,EOF21050278036,,,,,0.37,"EUR"
+Market sell,2024-09-26 12:57:32.687,XS2399367684,SMHS,"Leverage Shares -3x Short Semiconductors",1141.0000000000,0.12,USD,1.11543,-557.92,"EUR",122.57,"EUR",,,,EOF21050278062,,,,,0.18,"EUR"
+Market buy,2024-09-26 12:57:49.838,US9778521024,WOLF,"Wolfspeed",65.0000000000,8.30,USD,1.11526,,"EUR",484.47,"EUR",,,,EOF21050278113,,,,,0.73,"EUR"
+Market sell,2024-09-26 13:04:15.183,GB00B15KXQ89,COPA,"WisdomTree Copper",2.0000000000,41.43,USD,1.11460,6.39,"EUR",74.23,"EUR",,,,EOF21050279048,,,,,0.11,"EUR"
+Market buy,2024-09-26 13:05:00.256,US9778521024,WOLF,"Wolfspeed",10.0000000000,8.29,USD,1.11439,,"EUR",74.50,"EUR",,,,EOF21050279124,,,,,0.11,"EUR"
+Market sell,2024-09-26 13:05:14.464,LU0832435464,VOOL,"Amundi S&P 500 VIX Futures Enhanced Roll (Acc)",310.0000000000,0.93,EUR,1.00000,-1.61,"EUR",289.26,"EUR",,,,EOF21050279148,,,,,,
+Market buy,2024-09-26 13:05:56.74,US9778521024,WOLF,"Wolfspeed",38.0000000000,8.26,USD,1.11443,,"EUR",282.07,"EUR",,,,EOF21050279216,,,,,0.42,"EUR"
+Interest on cash,2024-09-27 01:01:47.623,,,,,,,,,,0.19,"EUR",,,"Interest on cash",d0fe5f6f-5aa4-412c-afbc-e07d0a43c69b,,,,,,
+Interest on cash,2024-09-27 01:01:47.733,,,,,,,,,,0.09,"USD",,,"Interest on cash",ba57a7d9-4419-40c9-919d-1830e8167518,,,,,,
+Market sell,2024-09-27 14:32:13.471,IE00BSKRJZ44,IDTL,"iShares USD Treasury Bond 20+yr (Dist)",125.0000000000,3.65,USD,1.11836,6.31,"EUR",407.80,"EUR",,,,EOF21101693522,,,,,0.61,"EUR"
+Market buy,2024-09-27 14:32:50.099,US76954A1034,RIVN,"Rivian Automotive",42.0000000000,11.68,USD,1.11841,,"EUR",439.28,"EUR",,,,EOF21101693775,,,,,0.66,"EUR"
+Market buy,2024-09-27 14:33:14.193,US76954A1034,RIVN,"Rivian Automotive",0.8000000000,11.68,USD,1.00000,,"USD",9.34,"USD",,,,EOF21101693889,,,,,,
+Market buy,2024-09-27 14:33:59.508,US76954A1034,RIVN,"Rivian Automotive",0.2000000000,11.68,USD,1.11770,,"EUR",2.09,"EUR",,,,EOF21101694095,,,,,,
+Market sell,2024-09-27 14:36:46.661,US25058X3035,DM,"Desktop Metal",0.7322590000,4.69,USD,1.11866,-21.50,"EUR",3.07,"EUR",,,,EOF21101694602,,,,,,
+Market buy,2024-09-27 14:57:27.655,US83417M1045,SEDG,"SolarEdge Technologies",23.0000000000,23.41,USD,1.00000,,"USD",538.43,"USD",,,,EOF21103050093,,,,,,
+Market buy,2024-09-27 14:57:52.617,US83417M1045,SEDG,"SolarEdge Technologies",2.0000000000,23.41,USD,1.00000,,"USD",46.82,"USD",,,,EOF21103050148,,,,,,
+Market sell,2024-09-27 14:59:32.981,US4592001014,IBM,"IBM",0.5000000000,223.71,USD,1.11787,32.72,"EUR",99.91,"EUR",,,,EOF21103050586,,,,,0.15,"EUR"
+Market buy,2024-09-27 14:59:54.104,US83417M1045,SEDG,"SolarEdge Technologies",0.6000000000,23.35,USD,1.00000,,"USD",14.01,"USD",,,,EOF21103050660,,,,,,
+Market buy,2024-09-27 15:00:15.39,US83417M1045,SEDG,"SolarEdge Technologies",5.4000000000,23.31,USD,1.11768,,"EUR",112.79,"EUR",,,,EOF21103050886,,,,,0.17,"EUR"
+Market buy,2024-09-27 16:07:09.776,US7311052010,PSNY,"Polestar Automotive Holding UK",0.8000000000,1.84,USD,1.00000,,"USD",1.47,"USD",,,,EOF21103065632,,,,,,
+Market buy,2024-09-27 16:08:23.084,US7311052010,PSNY,"Polestar Automotive Holding UK",100.0000000000,1.84,USD,1.11589,,"EUR",165.14,"EUR",,,,EOF21103065716,,,,,0.25,"EUR"
+Market buy,2024-09-27 16:08:48.005,US7311052010,PSNY,"Polestar Automotive Holding UK",1.2000000000,1.84,USD,1.11515,,"EUR",1.98,"EUR",,,,EOF21103065763,,,,,,
+Market buy,2024-09-27 16:10:15.846,US7311052010,PSNY,"Polestar Automotive Holding UK",130.0000000000,1.84,USD,1.11587,,"EUR",214.68,"EUR",,,,EOF21103065986,,,,,0.32,"EUR"
+Market buy,2024-09-27 16:11:05.517,US7311052010,PSNY,"Polestar Automotive Holding UK",14.0000000000,1.84,USD,1.11563,,"EUR",23.12,"EUR",,,,EOF21103066078,,,,,0.03,"EUR"
+Market buy,2024-09-27 16:13:47.43,US7311052010,PSNY,"Polestar Automotive Holding UK",1.9000000000,1.84,USD,1.11693,,"EUR",3.13,"EUR",,,,EOF21103066531,,,,,,
+Market sell,2024-09-27 16:14:21.048,US5494981039,LCID,"Lucid",3.0000000000,3.69,USD,1.11592,0.71,"EUR",9.91,"EUR",,,,EOF21103066568,,,,,0.01,"EUR"
+Market buy,2024-09-27 16:15:02.223,US7311052010,PSNY,"Polestar Automotive Holding UK",4.9000000000,1.84,USD,1.11584,,"EUR",8.09,"EUR",,,,EOF21103066604,,,,,0.01,"EUR"
+Interest on cash,2024-09-28 01:01:39.131,,,,,,,,,,0.14,"EUR",,,"Interest on cash",f404a517-8426-4526-804d-81722a96b554,,,,,,
+Interest on cash,2024-09-29 01:01:38.957,,,,,,,,,,0.14,"EUR",,,"Interest on cash",b2864cfe-ced9-437d-a425-36ae2febb5db,,,,,,
+Interest on cash,2024-09-29 01:01:39.056,,,,,,,,,,0.01,"USD",,,"Interest on cash",45ccb242-53eb-45be-92f1-ea36cbfdd54a,,,,,,
+Interest on cash,2024-09-30 01:01:37.429,,,,,,,,,,0.14,"EUR",,,"Interest on cash",737fe0c4-c6e6-4ef8-b5ed-811f47913708,,,,,,
+Interest on cash,2024-09-30 01:01:37.515,,,,,,,,,,0.01,"USD",,,"Interest on cash",29cd7827-0048-4471-838f-c8da585b4bd4,,,,,,
+Interest on cash,2024-10-01 01:01:36.749,,,,,,,,,,0.14,"EUR",,,"Interest on cash",01a020f0-db19-450c-bd92-30ae8dbed33d,,,,,,
+Lending interest,2024-10-01 01:01:47.944,,,,,,,,,,0.26,"EUR",,,"Share lending interest",0d121d2c-bce4-48d6-8bd7-d22e72c87ff0,,,,,,
+Dividend (Dividend),2024-10-01 10:20:34,US0126531013,ALB,"Albemarle",3.0000000000,0.34,USD,Not available,,,0.93,"EUR",0.18,USD,,,,,,,,
+Interest on cash,2024-10-02 01:01:37.327,,,,,,,,,,0.14,"EUR",,,"Interest on cash",db68c516-fa05-47b6-94a1-bf709706d1cc,,,,,,
+Interest on cash,2024-10-02 01:01:37.399,,,,,,,,,,0.01,"USD",,,"Interest on cash",0478ab28-3555-44e3-b69c-568e409ae5ed,,,,,,
+Lending interest,2024-10-02 01:19:23.611,,,,,,,,,,0.27,"EUR",,,"Share lending interest",c554ffeb-c983-46fd-abeb-63a3c7b8555d,,,,,,
+Interest on cash,2024-10-03 01:01:35.493,,,,,,,,,,0.13,"EUR",,,"Interest on cash",4722c358-9f56-4c5c-8f4c-019f2b2c6616,,,,,,
+Lending interest,2024-10-03 01:17:21.607,,,,,,,,,,0.28,"EUR",,,"Share lending interest",a78caf10-1744-45d8-86fc-f494800e81cd,,,,,,
+Interest on cash,2024-10-04 01:01:39.243,,,,,,,,,,0.14,"EUR",,,"Interest on cash",f5b7e69b-8809-4b14-8fe9-72adbe96b9be,,,,,,
+Interest on cash,2024-10-04 01:01:39.308,,,,,,,,,,0.01,"USD",,,"Interest on cash",1b97b725-af6a-4333-9e7c-0633c7bdc0d4,,,,,,
+Lending interest,2024-10-04 01:10:46.539,,,,,,,,,,0.27,"EUR",,,"Share lending interest",c358320c-3575-486c-941a-84c472e7acaa,,,,,,
+Market buy,2024-10-04 14:53:03.265,US7311052010,PSNY,"Polestar Automotive Holding UK",1.2000000000,1.68,USD,1.09565,,"EUR",1.84,"EUR",,,,EOF21452215328,,,,,,
+Market buy,2024-10-04 14:53:48.279,US7311052010,PSNY,"Polestar Automotive Holding UK",140.0000000000,1.69,USD,1.09745,,"EUR",215.91,"EUR",,,,EOF21452215615,,,,,0.32,"EUR"
+Market buy,2024-10-04 14:54:00.286,US7311052010,PSNY,"Polestar Automotive Holding UK",8.0000000000,1.69,USD,1.09740,,"EUR",12.34,"EUR",,,,EOF21452215654,,,,,0.02,"EUR"
+Interest on cash,2024-10-05 01:01:45.783,,,,,,,,,,0.11,"EUR",,,"Interest on cash",eee2d75a-ce19-4d2c-944e-eb9b97a8033a,,,,,,
+Lending interest,2024-10-05 01:16:37.64,,,,,,,,,,0.27,"EUR",,,"Share lending interest",56f0833a-9a5e-4aeb-a5dd-f77e1d47b546,,,,,,
+Interest on cash,2024-10-06 01:01:42.495,,,,,,,,,,0.11,"EUR",,,"Interest on cash",d0909a7c-e65c-410d-9c27-11100a04451c,,,,,,
+Interest on cash,2024-10-06 01:01:42.573,,,,,,,,,,0.01,"USD",,,"Interest on cash",2c4dd28e-4862-40a8-8c4f-baf87d34af67,,,,,,
+Interest on cash,2024-10-07 01:01:49.327,,,,,,,,,,0.11,"EUR",,,"Interest on cash",d94b51b6-5ae9-4303-806a-ebb855014c2b,,,,,,
+Interest on cash,2024-10-07 01:01:49.412,,,,,,,,,,0.01,"USD",,,"Interest on cash",80f233e2-bbd7-44d2-9db5-edae2be9f0c3,,,,,,
+Lending interest,2024-10-07 01:14:43.399,,,,,,,,,,0.56,"EUR",,,"Share lending interest",ea53e0f3-34c0-47f6-b2cf-13ef69668161,,,,,,
+Market sell,2024-10-07 14:36:37.959,US26853E1029,EH,"EHang",4.0000000000,21.28,USD,1.09747,28.18,"EUR",77.44,"EUR",,,,EOF21603713634,,,,,0.12,"EUR"
+Interest on cash,2024-10-08 01:01:49.472,,,,,,,,,,0.11,"EUR",,,"Interest on cash",867fef8b-b899-411e-bf4b-6cc82d5cdd07,,,,,,
+Lending interest,2024-10-08 01:10:00.34,,,,,,,,,,0.40,"EUR",,,"Share lending interest",3ae628e5-3a92-4ca3-9574-2045cfc6b5ca,,,,,,
+Market sell,2024-10-08 18:04:11.44,US1252691001,CF,"CF Industries",1.5000000000,86.79,USD,1.09749,10.05,"EUR",118.44,"EUR",,,,EOF21652292741,,,,,0.18,"EUR"
+Market sell,2024-10-08 18:05:35.359,MHY8162K2046,SBLK,"Star Bulk Carriers",1.0000000000,22.08,USD,1.09741,-0.44,"EUR",20.09,"EUR",,,,EOF21652292866,,,,,0.03,"EUR"
+Withdrawal,2024-10-08 18:06:12.928,,,,,,,,,,-220.00,"EUR",,,,d79cb9c5-1dd1-4921-861a-5966303907fa,,,,,,
+Interest on cash,2024-10-09 01:01:48.725,,,,,,,,,,0.11,"EUR",,,"Interest on cash",16db9e8e-8d47-4741-89ca-03b957eb0990,,,,,,
+Interest on cash,2024-10-09 01:01:48.834,,,,,,,,,,0.01,"USD",,,"Interest on cash",dd393918-a7e0-49ee-9778-829a46f72aed,,,,,,
+Lending interest,2024-10-09 01:02:47.95,,,,,,,,,,0.40,"EUR",,,"Share lending interest",7869be6d-4ae3-4452-acc3-aff00eef2001,,,,,,
+Market buy,2024-10-09 18:55:47.64,US15118V2079,CELH,"Celsius",3.4000000000,30.12,USD,1.09363,,"EUR",93.78,"EUR",,,,EOF21702765436,,,,,0.14,"EUR"
+Market buy,2024-10-09 18:56:01.743,US15118V2079,CELH,"Celsius",0.1000000000,30.11,USD,1.09490,,"EUR",2.75,"EUR",,,,EOF21702765459,,,,,,
+Market buy,2024-10-09 19:46:34.081,US15118V2079,CELH,"Celsius",2.0000000000,30.28,USD,1.09373,,"EUR",55.45,"EUR",,,,EOF21702770799,,,,,0.08,"EUR"
+Interest on cash,2024-10-10 01:01:50.922,,,,,,,,,,0.10,"EUR",,,"Interest on cash",0267d347-5c79-438f-90c1-e654f66d6277,,,,,,
+Lending interest,2024-10-10 01:16:19.744,,,,,,,,,,0.39,"EUR",,,"Share lending interest",0df5ae45-2aab-48e6-9241-c0445c4e9c79,,,,,,
+Market sell,2024-10-10 16:08:18.711,US15118V2079,CELH,"Celsius",5.5000000000,34.05,USD,1.09268,19.63,"EUR",171.13,"EUR",,,,EOF21752318980,,,,,0.26,"EUR"
+Market buy,2024-10-10 17:26:47.356,US98980L1017,ZM,"Zoom Video Communications",1.3000000000,71.08,USD,1.09121,,"EUR",84.81,"EUR",,,,EOF21752330057,,,,,0.13,"EUR"
+Market buy,2024-10-10 17:27:11.683,US98980L1017,ZM,"Zoom Video Communications",0.1000000000,71.06,USD,1.09155,,"EUR",6.52,"EUR",,,,EOF21752330100,,,,,0.01,"EUR"
+Interest on cash,2024-10-11 01:01:48.161,,,,,,,,,,0.10,"EUR",,,"Interest on cash",481462cb-6502-49d6-b67c-92cdb6a523d3,,,,,,
+Interest on cash,2024-10-11 01:01:48.23,,,,,,,,,,0.01,"USD",,,"Interest on cash",32262bc6-8759-43fc-916e-ebeec3ee6c5a,,,,,,
+Lending interest,2024-10-11 01:16:41.291,,,,,,,,,,0.36,"EUR",,,"Share lending interest",ef9a25fc-cd12-4dcf-af09-b59f2e3ff0bd,,,,,,
+Interest on cash,2024-10-12 01:01:50.205,,,,,,,,,,0.10,"EUR",,,"Interest on cash",3156707a-b779-49e2-852f-da661828d3a7,,,,,,
+Lending interest,2024-10-12 01:13:02.955,,,,,,,,,,0.35,"EUR",,,"Share lending interest",70444c5f-4c7c-4eb1-b21b-085eeb1be550,,,,,,
+Interest on cash,2024-10-13 01:01:48.756,,,,,,,,,,0.10,"EUR",,,"Interest on cash",5453bd62-d04a-41a6-bef7-42a214a127ea,,,,,,
+Interest on cash,2024-10-13 01:01:48.874,,,,,,,,,,0.01,"USD",,,"Interest on cash",b5675b4d-a33f-4e47-a9f7-0cce873cbb5b,,,,,,
+Interest on cash,2024-10-14 01:01:46.012,,,,,,,,,,0.10,"EUR",,,"Interest on cash",890f676e-be0a-4db4-85ca-406855e10f3c,,,,,,
+Interest on cash,2024-10-14 01:01:46.085,,,,,,,,,,0.01,"USD",,,"Interest on cash",1c7d8b39-046d-4973-bab9-8ba3d8e491e7,,,,,,
+Lending interest,2024-10-14 01:20:06.466,,,,,,,,,,0.76,"EUR",,,"Share lending interest",d0b7ef74-a805-45fc-a246-af818605ec96,,,,,,
+Market sell,2024-10-14 15:10:28.675,JE00B1VS2W53,PHPT,"WisdomTree Physical Platinum",2.6340000000,91.32,USD,1.09161,2.44,"EUR",220.02,"EUR",,,,EOF21954312043,,,,,0.33,"EUR"
+Market sell,2024-10-14 15:10:29.485,JE00B1VS2W53,PHPT,"WisdomTree Physical Platinum",0.8660000000,91.35,USD,1.09161,0.83,"EUR",72.36,"EUR",,,,EOF21954312045,,,,,0.11,"EUR"
+Market buy,2024-10-14 15:11:14.347,US91332U1016,U,"Unity Software",13.5000000000,21.79,USD,1.09152,,"EUR",269.90,"EUR",,,,EOF21954312181,,,,,0.40,"EUR"
+Market buy,2024-10-14 15:11:35.283,US91332U1016,U,"Unity Software",0.5000000000,21.78,USD,1.09118,,"EUR",9.99,"EUR",,,,EOF21954312261,,,,,0.01,"EUR"
+Market buy,2024-10-14 15:11:51.138,US91332U1016,U,"Unity Software",0.5000000000,21.80,USD,1.09109,,"EUR",10.00,"EUR",,,,EOF21954312399,,,,,0.01,"EUR"
+Market buy,2024-10-14 15:12:50.953,US91332U1016,U,"Unity Software",3.5000000000,21.81,USD,1.09127,,"EUR",70.05,"EUR",,,,EOF21954312817,,,,,0.10,"EUR"
+Market sell,2024-10-14 15:13:52.408,US62914V1061,NIO,"NIO",20.0000000000,5.90,USD,1.09137,7.56,"EUR",107.96,"EUR",,,,EOF21954313143,,,,,0.16,"EUR"
+Market buy,2024-10-14 15:14:18.503,US91332U1016,U,"Unity Software",5.8000000000,21.81,USD,1.09134,,"EUR",116.08,"EUR",,,,EOF21954313202,,,,,0.17,"EUR"
+Market buy,2024-10-14 15:14:30.083,US91332U1016,U,"Unity Software",0.2000000000,21.83,USD,1.09150,,"EUR",4.01,"EUR",,,,EOF21954313249,,,,,0.01,"EUR"
+Market sell,2024-10-14 15:15:11.003,US8740602052,TAK,"Takeda Pharmaceutical",11.0000000000,14.27,USD,1.09150,-5.13,"EUR",143.59,"EUR",,,,EOF21954313430,,,,,0.22,"EUR"
+Market buy,2024-10-14 15:15:29.036,US91332U1016,U,"Unity Software",7.0000000000,21.85,USD,1.09133,,"EUR",140.36,"EUR",,,,EOF21954313527,,,,,0.21,"EUR"
+Market buy,2024-10-14 15:15:43.694,US91332U1016,U,"Unity Software",0.5000000000,21.84,USD,1.09090,,"EUR",10.03,"EUR",,,,EOF21954313569,,,,,0.02,"EUR"
+Market sell,2024-10-14 15:21:36.94,US2566771059,DG,"Dollar General",1.0000000000,80.67,USD,1.09116,0.19,"EUR",73.82,"EUR",,,,EOF21954315685,,,,,0.11,"EUR"
+Market buy,2024-10-14 15:22:04.152,US7311052010,PSNY,"Polestar Automotive Holding UK",54.0000000000,1.38,USD,1.09106,,"EUR",68.40,"EUR",,,,EOF21954315815,,,,,0.10,"EUR"
+Market buy,2024-10-14 15:22:26.301,US7311052010,PSNY,"Polestar Automotive Holding UK",5.0000000000,1.38,USD,1.09177,,"EUR",6.33,"EUR",,,,EOF21954315883,,,,,0.01,"EUR"
+Market buy,2024-10-14 15:23:05.529,US7311052010,PSNY,"Polestar Automotive Holding UK",1.0000000000,1.38,USD,1.09523,,"EUR",1.26,"EUR",,,,EOF21954315989,,,,,,
+Market buy,2024-10-14 15:23:20.71,US91332U1016,U,"Unity Software",0.5000000000,21.67,USD,1.09113,,"EUR",9.94,"EUR",,,,EOF21954316025,,,,,0.01,"EUR"
+Market buy,2024-10-14 15:23:53.606,US7311052010,PSNY,"Polestar Automotive Holding UK",60.0000000000,1.38,USD,1.09105,,"EUR",76.00,"EUR",,,,EOF21954316125,,,,,0.11,"EUR"
+Market buy,2024-10-14 15:24:36.945,US7311052010,PSNY,"Polestar Automotive Holding UK",7.0000000000,1.38,USD,1.09152,,"EUR",8.86,"EUR",,,,EOF21954316227,,,,,0.01,"EUR"
+Market sell,2024-10-14 15:26:07.971,US83444M1018,SOLV,"Solventum",1.0000000000,68.78,USD,1.09122,48.05,"EUR",62.94,"EUR",,,,EOF21954316762,,,,,0.09,"EUR"
+Market buy,2024-10-14 15:26:43.325,US98980L1017,ZM,"Zoom Video Communications",0.9000000000,68.29,USD,1.09108,,"EUR",56.41,"EUR",,,,EOF21954316856,,,,,0.08,"EUR"
+Interest on cash,2024-10-15 01:01:43.394,,,,,,,,,,0.09,"EUR",,,"Interest on cash",55500b24-d03c-431b-80f6-d54b0dd51e41,,,,,,
+Lending interest,2024-10-15 01:08:21.625,,,,,,,,,,0.34,"EUR",,,"Share lending interest",3f0590ce-ce3f-4db7-aac5-6fd9f8cfb5b0,,,,,,
+Interest on cash,2024-10-16 01:01:43.718,,,,,,,,,,0.08,"EUR",,,"Interest on cash",f3997cbc-0361-4ff9-a4f5-f6a2e280b282,,,,,,
+Interest on cash,2024-10-16 01:01:43.782,,,,,,,,,,0.01,"USD",,,"Interest on cash",f07b7d69-a754-4816-b7cf-10b8ae00ad66,,,,,,
+Lending interest,2024-10-16 01:08:43.681,,,,,,,,,,0.45,"EUR",,,"Share lending interest",ddd56815-0fd3-4bd2-ab7a-0a47d0526b63,,,,,,
+Market buy,2024-10-16 13:56:37.813,US7311052010,PSNY,"Polestar Automotive Holding UK",6.0000000000,1.23,USD,1.08849,,"EUR",6.79,"EUR",,,,EOF22051684265,,,,,0.01,"EUR"
+Market sell,2024-10-16 16:24:21.142,US9778521024,WOLF,"Wolfspeed",90.0000000000,16.35,USD,1.08768,681.20,"EUR",1350.84,"EUR",,,,EOF22053175026,,,,,2.03,"EUR"
+Market sell,2024-10-16 16:26:23.463,US9778521024,WOLF,"Wolfspeed",110.0000000000,16.24,USD,1.08751,821.73,"EUR",1640.19,"EUR",,,,EOF22053175265,,,,,2.46,"EUR"
+Market sell,2024-10-16 16:33:27.755,US9778521024,WOLF,"Wolfspeed",63.0000000000,16.23,USD,1.08721,470.30,"EUR",939.06,"EUR",,,,EOF22053176713,,,,,1.41,"EUR"
+Market buy,2024-10-16 16:35:12.812,US98980L1017,ZM,"Zoom Video Communications",4.5000000000,68.98,USD,1.08709,,"EUR",285.97,"EUR",,,,EOF22053176930,,,,,0.43,"EUR"
+Market buy,2024-10-16 16:35:43.366,US98980L1017,ZM,"Zoom Video Communications",0.2000000000,68.98,USD,1.08715,,"EUR",12.71,"EUR",,,,EOF22053177046,,,,,0.02,"EUR"
+Market buy,2024-10-16 16:40:13.214,US8522341036,SQ,"Block",10.0000000000,73.07,USD,1.08689,,"EUR",673.29,"EUR",,,,EOF22053178151,,,,,1.01,"EUR"
+Market buy,2024-10-16 16:41:11.833,US98980L1017,ZM,"Zoom Video Communications",2.0000000000,69.07,USD,1.08677,,"EUR",127.30,"EUR",,,,EOF22053178385,,,,,0.19,"EUR"
+Market buy,2024-10-16 16:44:10.389,US03945R1023,ACHR,"Archer Aviation",100.0000000000,3.18,USD,1.08684,,"EUR",293.03,"EUR",,,,EOF22053178913,,,,,0.44,"EUR"
+Market buy,2024-10-16 17:50:43.205,US9314271084,WBA,"Walgreens Boots Alliance",100.0000000000,10.94,USD,1.08613,,"EUR",1008.75,"EUR",,,,EOF22053190073,,,,,1.51,"EUR"
+Market buy,2024-10-16 17:53:02.512,US9314271084,WBA,"Walgreens Boots Alliance",95.0000000000,10.94,USD,1.08621,,"EUR",958.25,"EUR",,,,EOF22053190514,,,,,1.44,"EUR"
+Market buy,2024-10-16 17:53:16.096,US9314271084,WBA,"Walgreens Boots Alliance",5.0000000000,10.94,USD,1.08617,,"EUR",50.44,"EUR",,,,EOF22053190543,,,,,0.08,"EUR"
+Market buy,2024-10-16 17:53:27.681,US9314271084,WBA,"Walgreens Boots Alliance",3.0000000000,10.94,USD,1.08603,,"EUR",30.27,"EUR",,,,EOF22053190565,,,,,0.05,"EUR"
+Market buy,2024-10-16 18:04:48.46,US7311052010,PSNY,"Polestar Automotive Holding UK",3.0000000000,1.27,USD,1.08547,,"EUR",3.52,"EUR",,,,EOF22053192864,,,,,0.01,"EUR"
+Market sell,2024-10-16 21:29:16.897,US9778521024,WOLF,"Wolfspeed",10.0000000000,15.80,USD,1.08658,70.78,"EUR",145.19,"EUR",,,,EOF22054568884,,,,,0.22,"EUR"
+Market sell,2024-10-16 21:29:55.782,US9778521024,WOLF,"Wolfspeed",190.0000000000,15.80,USD,1.08655,1344.89,"EUR",2758.71,"EUR",,,,EOF22054568901,,,,,4.14,"EUR"
+Market sell,2024-10-16 21:32:32.742,US9778521024,WOLF,"Wolfspeed",50.0000000000,15.81,USD,1.08671,354.27,"EUR",726.33,"EUR",,,,EOF22054568950,,,,,1.09,"EUR"
+Market sell,2024-10-16 21:52:15.155,US9778521024,WOLF,"Wolfspeed",40.0000000000,15.83,USD,1.08655,284.25,"EUR",581.89,"EUR",,,,EOF22054569881,,,,,0.87,"EUR"
+Market sell,2024-10-16 21:52:56.857,US9778521024,WOLF,"Wolfspeed",10.0000000000,15.83,USD,1.08662,71.05,"EUR",145.46,"EUR",,,,EOF22054569894,,,,,0.22,"EUR"
+Interest on cash,2024-10-17 01:01:50.241,,,,,,,,,,0.13,"EUR",,,"Interest on cash",1abb0fd2-6a24-4c95-84de-be3fd8ba0b30,,,,,,
+Lending interest,2024-10-17 01:13:29.461,,,,,,,,,,0.44,"EUR",,,"Share lending interest",a4a2064d-c34e-4d14-9a6b-9552639c409c,,,,,,
+Market buy,2024-10-17 12:49:15.111,US7311052010,PSNY,"Polestar Automotive Holding UK",25.0000000000,1.29,USD,1.08476,,"EUR",29.77,"EUR",,,,EOF22055893270,,,,,0.04,"EUR"
+Market buy,2024-10-17 12:49:48.258,US76954A1034,RIVN,"Rivian Automotive",3.0000000000,10.16,USD,1.08469,,"EUR",28.14,"EUR",,,,EOF22055893288,,,,,0.04,"EUR"
+Market buy,2024-10-17 12:50:55.692,US4581401001,INTC,"Intel",3.0000000000,22.59,USD,1.08449,,"EUR",62.58,"EUR",,,,EOF22055893570,,,,,0.09,"EUR"
+Market buy,2024-10-17 12:51:14.659,US36467W1099,GME,"GameStop",3.0000000000,21.59,USD,1.08456,,"EUR",59.81,"EUR",,,,EOF22055893614,,,,,0.09,"EUR"
+Market buy,2024-10-17 12:51:40.447,US6549022043,NOK,"Nokia",6.0000000000,4.21,USD,1.08505,,"EUR",23.31,"EUR",,,,EOF22055893639,,,,,0.03,"EUR"
+Market buy,2024-10-17 12:52:15.221,US00202F1021,AMKBY,"AP Moller Maersk",2.0000000000,7.37,USD,1.08462,,"EUR",13.61,"EUR",,,,EOF22055893706,,,,,0.02,"EUR"
+Market buy,2024-10-17 12:53:04.036,US98980L1017,ZM,"Zoom Video Communications",4.0000000000,69.98,USD,1.08479,,"EUR",258.43,"EUR",,,,EOF22055893846,,,,,0.39,"EUR"
+Market buy,2024-10-17 12:53:05.939,IE00BKLF1R75,VOLT,"WisdomTree Battery Solutions (Acc)",1.0000000000,29.65,USD,1.08488,,"EUR",27.37,"EUR",,,,EOF22055893847,,,,,0.04,"EUR"
+Market buy,2024-10-17 12:53:38.822,JE00BN7KB441,CORN,"WisdomTree Corn",3.0000000000,19.05,USD,1.08485,,"EUR",52.76,"EUR",,,,EOF22055893887,,,,,0.08,"EUR"
+Market buy,2024-10-17 12:54:14.121,US83417M1045,SEDG,"SolarEdge Technologies",8.0000000000,17.86,USD,1.08480,,"EUR",131.91,"EUR",,,,EOF22055893954,,,,,0.20,"EUR"
+Market buy,2024-10-17 12:54:35.265,LU1900066207,LBRA,"Amundi MSCI Brazil (Acc)",1.0000000000,18.90,EUR,1.00000,,"EUR",18.90,"EUR",,,,EOF22055893972,,,,,,
+Market buy,2024-10-17 12:55:07.308,US91332U1016,U,"Unity Software",1.0000000000,21.91,USD,1.08465,,"EUR",20.23,"EUR",,,,EOF22055894072,,,,,0.03,"EUR"
+Market buy,2024-10-17 12:55:15.176,KYG651631007,JOBY,"Joby Aviation",1.0000000000,5.55,USD,1.08398,,"EUR",5.13,"EUR",,,,EOF22055894097,,,,,0.01,"EUR"
+Market buy,2024-10-17 12:55:27.059,US8522341036,SQ,"Block",3.0000000000,73.94,USD,1.08437,,"EUR",204.87,"EUR",,,,EOF22055894115,,,,,0.31,"EUR"
+Market buy,2024-10-17 12:55:28.603,US60770K1079,MRNA,"Moderna",1.0000000000,57.55,USD,1.08441,,"EUR",53.15,"EUR",,,,EOF22055894118,,,,,0.08,"EUR"
+Market buy,2024-10-17 12:55:44.092,NL0015000F41,LILM,"Lilium",105.0000000000,0.67,USD,1.08423,,"EUR",64.50,"EUR",,,,EOF22055894140,,,,,0.10,"EUR"
+Market buy,2024-10-17 12:55:49.898,US61945C1036,MOS,"Mosaic",3.0000000000,25.80,USD,1.08418,,"EUR",71.50,"EUR",,,,EOF22055894156,,,,,0.11,"EUR"
+Market sell,2024-10-17 12:56:26.436,IE000NDWFGA5,URNU,"Global X Uranium (Acc)",3.0000000000,18.28,USD,1.08434,2.84,"EUR",50.50,"EUR",,,,EOF22055894209,,,,,0.08,"EUR"
+Market sell,2024-10-17 12:57:35.004,US7170811035,PFE,"Pfizer",1.0000000000,29.56,USD,1.08437,-0.44,"EUR",27.22,"EUR",,,,EOF22055894320,,,,,0.04,"EUR"
+Market sell,2024-10-17 13:00:56.541,US87918A1051,TDOC,"Teladoc Health",0.8819610000,9.82,USD,1.08396,-20.10,"EUR",7.98,"EUR",,,,EOF22055894741,,,,,0.01,"EUR"
+Market buy,2024-10-17 13:00:56.541,US87918A1051,TDOC,"Teladoc Health",10.0000000000,9.85,USD,1.08420,,"EUR",90.99,"EUR",,,,EOF22055894742,,,,,0.14,"EUR"
+Market buy,2024-10-17 13:06:42.23,XS2297593456,SJPM,"Leverage Shares -1x Short JPMorgan",5.0000000000,2.77,USD,1.08379,,"EUR",12.79,"EUR",,,,EOF22055895684,,,,,0.02,"EUR"
+Market buy,2024-10-17 13:08:14.492,US87918A1051,TDOC,"Teladoc Health",2.0000000000,9.85,USD,1.08301,,"EUR",18.22,"EUR",,,,EOF22055895855,,,,,0.03,"EUR"
+Market buy,2024-10-17 13:30:05.401,CA89788C1041,TCNNF,"Trulieve Cannabis",7.0000000000,12.03,USD,1.08127,,"EUR",78.00,"EUR",,,,EOF22102216477,,,,,0.12,"EUR"
+Market buy,2024-10-17 13:30:05.401,CA89788C1041,TCNNF,"Trulieve Cannabis",1.0000000000,12.03,USD,1.08086,,"EUR",11.15,"EUR",,,,EOF22102216476,,,,,0.02,"EUR"
+Market buy,2024-10-17 13:35:12.434,US9314271084,WBA,"Walgreens Boots Alliance",180.0000000000,11.02,USD,1.08148,,"EUR",1836.89,"EUR",,,,EOF22102231068,,,,,2.75,"EUR"
+Market buy,2024-10-17 13:35:29.233,US9314271084,WBA,"Walgreens Boots Alliance",20.0000000000,11.01,USD,1.08142,,"EUR",203.93,"EUR",,,,EOF22102233401,,,,,0.31,"EUR"
+Interest on cash,2024-10-18 01:01:47.1,,,,,,,,,,0.25,"EUR",,,"Interest on cash",5270f6ca-012a-40c4-b839-76a790dbbc72,,,,,,
+Interest on cash,2024-10-18 01:01:47.183,,,,,,,,,,0.01,"USD",,,"Interest on cash",37d46365-6dca-4e2d-8750-443548a7ca1f,,,,,,
+Lending interest,2024-10-18 01:12:26.454,,,,,,,,,,0.46,"EUR",,,"Share lending interest",a637ff0c-4faf-410e-8b93-580dab1fb97a,,,,,,
+Dividend (Dividend),2024-10-18 11:36:25,CA67077M1086,NTR,"Nutrien",5.0000000000,0.46,USD,Not available,,,2.12,"EUR",0.41,USD,,,,,,,,
+Market buy,2024-10-18 16:45:07.247,NL0015000F41,LILM,"Lilium",34.0000000000,0.49,USD,1.08665,,"EUR",15.22,"EUR",,,,EOF22153286861,,,,,0.02,"EUR"
+Market buy,2024-10-18 16:45:53.387,NL0015000F41,LILM,"Lilium",84.0000000000,0.49,USD,1.00000,,"USD",41.08,"USD",,,,EOF22153287082,,,,,,
+Market buy,2024-10-18 16:46:13.303,NL0015000F41,LILM,"Lilium",4.0000000000,0.49,USD,1.08644,,"EUR",1.80,"EUR",,,,EOF22153287124,,,,,,
+Market buy,2024-10-18 17:04:20.664,NL0015000F41,LILM,"Lilium",36.0000000000,0.50,USD,1.08647,,"EUR",16.71,"EUR",,,,EOF22153289284,,,,,0.03,"EUR"
+Market buy,2024-10-18 17:04:38.214,NL0015000F41,LILM,"Lilium",2.0000000000,0.50,USD,1.00000,,"USD",1.01,"USD",,,,EOF22153289359,,,,,,
+Market buy,2024-10-18 21:30:59.338,US8485771021,SAVE,"Spirit Airlines",1.5500000000,1.98,USD,1.08829,,"EUR",2.82,"EUR",,,,EOF22154613216,,,,,,
+Market buy,2024-10-18 21:31:21.656,US8485771021,SAVE,"Spirit Airlines",1.9000000000,1.98,USD,1.00000,,"USD",3.76,"USD",,,,EOF22154613232,,,,,,
+Market buy,2024-10-18 21:33:48.028,US8485771021,SAVE,"Spirit Airlines",60.0000000000,2.01,USD,1.08648,,"EUR",111.17,"EUR",,,,EOF22154613275,,,,,0.17,"EUR"
+Interest on cash,2024-10-19 01:01:41.77,,,,,,,,,,0.25,"EUR",,,"Interest on cash",7dfd270c-287a-41df-a792-4d08c6707d72,,,,,,
+Lending interest,2024-10-19 01:17:00.966,,,,,,,,,,0.42,"EUR",,,"Share lending interest",e4254806-1f1c-4e5b-aa56-e7e7c6bf8a41,,,,,,
+Interest on cash,2024-10-20 01:01:44.467,,,,,,,,,,0.23,"EUR",,,"Interest on cash",355e6e8d-2625-494b-a4bd-05262d7f186c,,,,,,
+Interest on cash,2024-10-21 01:01:46.201,,,,,,,,,,0.24,"EUR",,,"Interest on cash",1f97e582-c5f1-4bde-9f1d-14d25b19cf43,,,,,,
+Lending interest,2024-10-21 01:11:21.063,,,,,,,,,,0.86,"EUR",,,"Share lending interest",6c8e5aef-30c5-46e5-8e8c-bc1fa1c49e34,,,,,,
+Market sell,2024-10-21 15:18:35.4,US6549022043,NOK,"Nokia",63.0000000000,4.77,USD,1.00000,26.52,"USD",300.51,"USD",,,,EOF22304566547,,,,,,
+Market sell,2024-10-21 19:08:59.36,US91332U1016,U,"Unity Software",33.0000000000,21.69,USD,1.00000,-4.02,"USD",715.77,"USD",,,,EOF22305852420,,,,,,
+Market buy,2024-10-21 19:09:38.99,US55087P1049,LYFT,"Lyft",44.0000000000,13.94,USD,1.00000,,"USD",613.36,"USD",,,,EOF22305852486,,,,,,
+Market buy,2024-10-21 19:09:40.722,US55087P1049,LYFT,"Lyft",4.8000000000,13.94,USD,1.00000,,"USD",66.91,"USD",,,,EOF22305852491,,,,,,
+Market buy,2024-10-21 19:09:54.64,US55087P1049,LYFT,"Lyft",1.2000000000,13.94,USD,1.00000,,"USD",16.73,"USD",,,,EOF22305852527,,,,,,
+Market buy,2024-10-21 19:10:11.087,US55087P1049,LYFT,"Lyft",1.0000000000,13.94,USD,1.00000,,"USD",13.94,"USD",,,,EOF22305852563,,,,,,
+Market sell,2024-10-21 19:10:41.418,US8485771021,SAVE,"Spirit Airlines",63.4500000000,2.22,USD,1.00000,13.43,"USD",140.86,"USD",,,,EOF22305852609,,,,,,
+Market buy,2024-10-21 19:11:06.409,US55087P1049,LYFT,"Lyft",9.0000000000,13.94,USD,1.00000,,"USD",125.46,"USD",,,,EOF22305852646,,,,,,
+Market buy,2024-10-21 19:11:18.885,US55087P1049,LYFT,"Lyft",1.0000000000,13.92,USD,1.00000,,"USD",13.92,"USD",,,,EOF22305852685,,,,,,
+Market buy,2024-10-21 19:38:26.943,US76655K1034,RGTI,"Rigetti Computing",400.0000000000,1.29,USD,1.08114,,"EUR",477.99,"EUR",,,,EOF22305856957,,,,,0.72,"EUR"
+Interest on cash,2024-10-22 01:01:43.353,,,,,,,,,,0.18,"EUR",,,"Interest on cash",eeba5fb0-214e-4f96-8c7f-35e14878d9d4,,,,,,
+Interest on cash,2024-10-22 01:01:43.444,,,,,,,,,,0.04,"USD",,,"Interest on cash",62ef84f0-994b-4296-bd97-7eee44834be8,,,,,,
+Lending interest,2024-10-22 01:18:45.94,,,,,,,,,,0.51,"EUR",,,"Share lending interest",13f40d56-d382-420a-8b76-cf03dc2f3f38,,,,,,
+Dividend (Dividend),2024-10-22 08:10:42,US2566771059,DG,"Dollar General",1.0000000000,0.50,USD,Not available,,,0.46,"EUR",0.09,USD,,,,,,,,
+Market sell,2024-10-22 14:42:17.314,GB00B15KXN58,ALUM,"WisdomTree Aluminium",43.0000000000,3.41,USD,1.00000,1.63,"USD",146.72,"USD",,,,EOF22351579258,,,,,,
+Market buy,2024-10-22 14:43:54.55,US60770K1079,MRNA,"Moderna",2.0000000000,53.49,USD,1.00000,,"USD",106.98,"USD",,,,EOF22351579637,,,,,,
+Market sell,2024-10-22 18:13:05.551,KYG651631007,JOBY,"Joby Aviation",26.0000000000,6.18,USD,1.00000,26.75,"USD",160.68,"USD",,,,EOF22352813275,,,,,,
+Market sell,2024-10-22 18:23:40.012,US98980L1017,ZM,"Zoom Video Communications",13.0000000000,72.18,USD,1.00000,35.10,"USD",938.34,"USD",,,,EOF22352814652,,,,,,
+Market sell,2024-10-22 18:26:26.358,KYG651631007,JOBY,"Joby Aviation",27.0000000000,6.08,USD,1.00000,25.08,"USD",164.16,"USD",,,,EOF22352815064,,,,,,
+Market buy,2024-10-22 18:30:49.883,US9314271084,WBA,"Walgreens Boots Alliance",50.0000000000,9.68,USD,1.08016,,"EUR",448.75,"EUR",,,,EOF22352815477,,,,,0.67,"EUR"
+Market buy,2024-10-22 18:31:15.406,US9314271084,WBA,"Walgreens Boots Alliance",3.9000000000,9.68,USD,1.08017,,"EUR",35.00,"EUR",,,,EOF22352815524,,,,,0.05,"EUR"
+Market buy,2024-10-22 18:31:45.548,US9314271084,WBA,"Walgreens Boots Alliance",1.1000000000,9.68,USD,1.00000,,"USD",10.65,"USD",,,,EOF22352815567,,,,,,
+Market buy,2024-10-22 18:32:00.109,US9314271084,WBA,"Walgreens Boots Alliance",5.0000000000,9.68,USD,1.00000,,"USD",48.40,"USD",,,,EOF22352815605,,,,,,
+Market sell,2024-10-22 19:49:21.325,CA89788C1041,TCNNF,"Trulieve Cannabis",18.9380000000,13.33,USD,1.00000,2.31,"USD",252.44,"USD",,,,EOF22352825520,,,,,,
+Market sell,2024-10-22 19:49:22.249,CA89788C1041,TCNNF,"Trulieve Cannabis",46.0340000000,13.33,USD,1.00000,5.63,"USD",613.63,"USD",,,,EOF22352825522,,,,,,
+Market sell,2024-10-22 19:49:45.965,CA89788C1041,TCNNF,"Trulieve Cannabis",18.7550000000,13.40,USD,1.00000,3.61,"USD",251.32,"USD",,,,EOF22352825564,,,,,,
+Market sell,2024-10-22 19:49:46.99,CA89788C1041,TCNNF,"Trulieve Cannabis",9.2730000000,13.40,USD,1.00000,1.79,"USD",124.26,"USD",,,,EOF22352825568,,,,,,
+Market buy,2024-10-22 19:51:31.384,US03945R1023,ACHR,"Archer Aviation",100.0000000000,3.29,USD,1.00000,,"USD",329.00,"USD",,,,EOF22352825726,,,,,,
+Market buy,2024-10-22 19:52:01.894,US03945R1023,ACHR,"Archer Aviation",100.0000000000,3.29,USD,1.00000,,"USD",329.00,"USD",,,,EOF22352825786,,,,,,
+Market buy,2024-10-22 19:53:44.394,US03945R1023,ACHR,"Archer Aviation",100.0000000000,3.29,USD,1.00000,,"USD",329.00,"USD",,,,EOF22352826050,,,,,,
+Market buy,2024-10-22 19:54:06.398,US03945R1023,ACHR,"Archer Aviation",100.0000000000,3.30,USD,1.00000,,"USD",330.00,"USD",,,,EOF22352826082,,,,,,
+Market buy,2024-10-22 19:54:17.16,US03945R1023,ACHR,"Archer Aviation",30.0000000000,3.30,USD,1.00000,,"USD",99.00,"USD",,,,EOF22352826101,,,,,,
+Market sell,2024-10-22 19:54:55.061,US8522341036,SQ,"Block",13.0000000000,72.87,USD,1.00000,-5.21,"USD",947.31,"USD",,,,EOF22352826181,,,,,,
+Market buy,2024-10-22 19:55:13.398,US03945R1023,ACHR,"Archer Aviation",300.0000000000,3.31,USD,1.00000,,"USD",993.00,"USD",,,,EOF22352826229,,,,,,
+Market sell,2024-10-22 19:55:50.065,US5533681012,MP,"MP Materials",30.0000000000,18.33,USD,1.00000,32.89,"USD",549.90,"USD",,,,EOF22352826284,,,,,,
+Market buy,2024-10-22 19:56:12.924,US03945R1023,ACHR,"Archer Aviation",100.0000000000,3.31,USD,1.00000,,"USD",331.00,"USD",,,,EOF22352826322,,,,,,
+Market buy,2024-10-22 19:56:53.927,US03945R1023,ACHR,"Archer Aviation",95.0000000000,3.31,USD,1.00000,,"USD",314.45,"USD",,,,EOF22352826387,,,,,,
+Market buy,2024-10-22 19:57:02.188,US03945R1023,ACHR,"Archer Aviation",5.0000000000,3.31,USD,1.00000,,"USD",16.55,"USD",,,,EOF22352826407,,,,,,
+Interest on cash,2024-10-23 01:01:47.537,,,,,,,,,,0.13,"EUR",,,"Interest on cash",27ff3b44-d698-42cc-b22f-ff7ebde4d9cf,,,,,,
+Interest on cash,2024-10-23 01:01:47.645,,,,,,,,,,0.15,"USD",,,"Interest on cash",5d995d50-7aab-46fe-9fdb-359b14b35cb8,,,,,,
+Lending interest,2024-10-23 01:13:08.191,,,,,,,,,,0.42,"EUR",,,"Share lending interest",27698f99-049b-42ab-ad57-4e318c837e4e,,,,,,
+Market buy,2024-10-23 14:07:57.017,US9314271084,WBA,"Walgreens Boots Alliance",90.0000000000,9.39,USD,1.00000,,"USD",845.10,"USD",,,,EOF22401484768,,,,,,
+Market sell,2024-10-23 14:15:47.492,US55087P1049,LYFT,"Lyft",61.0000000000,13.46,USD,1.00000,-29.26,"USD",821.06,"USD",,,,EOF22401487065,,,,,,
+Market buy,2024-10-23 14:16:39.076,US9314271084,WBA,"Walgreens Boots Alliance",80.0000000000,9.36,USD,1.00000,,"USD",748.80,"USD",,,,EOF22401487247,,,,,,
+Market buy,2024-10-23 14:16:51.942,US9314271084,WBA,"Walgreens Boots Alliance",10.0000000000,9.35,USD,1.00000,,"USD",93.50,"USD",,,,EOF22401487300,,,,,,
+Interest on cash,2024-10-24 01:01:46.602,,,,,,,,,,0.13,"EUR",,,"Interest on cash",7f2818db-da51-4885-81c5-c78e1d0eacd9,,,,,,
+Interest on cash,2024-10-24 01:01:46.687,,,,,,,,,,0.04,"USD",,,"Interest on cash",039ed50e-afe8-4648-a372-cd0bbc4bdbc7,,,,,,
+Lending interest,2024-10-24 01:05:44.137,,,,,,,,,,0.51,"EUR",,,"Share lending interest",6574d92c-8502-4b69-aefa-e2cc047fe304,,,,,,
+Market buy,2024-10-24 19:21:24.843,NL0015000F41,LILM,"Lilium",200.0000000000,0.21,USD,1.00000,,"USD",41.12,"USD",,,,EOF22453408055,,,,,,
+Market buy,2024-10-24 19:21:34.298,NL0015000F41,LILM,"Lilium",50.0000000000,0.20,USD,1.00000,,"USD",10.23,"USD",,,,EOF22453408072,,,,,,
+Market buy,2024-10-24 19:22:40.204,NL0015000F41,LILM,"Lilium",100.0000000000,0.21,USD,1.08198,,"EUR",19.18,"EUR",,,,EOF22453408153,,,,,0.03,"EUR"
+Market buy,2024-10-24 19:23:10.96,NL0015000F41,LILM,"Lilium",170.0000000000,0.21,USD,1.08239,,"EUR",32.31,"EUR",,,,EOF22453408186,,,,,0.05,"EUR"
+Market buy,2024-10-24 19:23:30.971,NL0015000F41,LILM,"Lilium",20.0000000000,0.21,USD,1.08232,,"EUR",3.80,"EUR",,,,EOF22453408223,,,,,0.01,"EUR"
+Interest on cash,2024-10-25 01:01:50.894,,,,,,,,,,0.12,"EUR",,,"Interest on cash",c8f0ad51-67a8-4d8e-9bc7-2af071a10a74,,,,,,
+Interest on cash,2024-10-25 01:01:50.992,,,,,,,,,,0.04,"USD",,,"Interest on cash",23182a85-c4c2-4ea2-8202-c2fab197079c,,,,,,
+Lending interest,2024-10-25 01:17:01.341,,,,,,,,,,0.48,"EUR",,,"Share lending interest",a75fe60a-9ae5-4252-8396-731115ba5a0f,,,,,,
+Market sell,2024-10-25 08:11:07.844,NL0015000F41,LILM,"Lilium",953.0000000000,0.18,USD,1.00000,-560.64,"USD",170.02,"USD",,,,EOF22454705129,,,,,,
+Market sell,2024-10-25 13:47:58.302,US03945R1023,ACHR,"Archer Aviation",123.0000000000,3.09,USD,1.00000,-26.31,"USD",380.07,"USD",,,,EOF22501438062,,,,,,
+Market sell,2024-10-25 13:56:50.639,US03945R1023,ACHR,"Archer Aviation",100.0000000000,3.10,USD,1.00000,-20.39,"USD",310.00,"USD",,,,EOF22501441986,,,,,,
+Market sell,2024-10-25 13:58:15.3,US76655K1034,RGTI,"Rigetti Computing",400.0000000000,1.29,USD,1.00000,0.00,"USD",516.00,"USD",,,,EOF22501443018,,,,,,
+Market sell,2024-10-25 14:23:48.063,IE00B94QLN63,2PAL,"WisdomTree Palladium 2x Leveraged",56.0000000000,13.48,USD,1.00000,-55.37,"USD",754.60,"USD",,,,EOF22502954582,,,,,,
+Currency conversion,2024-10-25 14:41:19.41,,,,,,,,,,-1.50,"EUR",,,"1084.85 USD -> 1001.50 EUR",VCSXNLFOGU1LK6X9,1084.85,"USD",1001.50,"EUR",-1.50,"EUR"
+Market buy,2024-10-25 14:41:35.045,US01609W1027,AHLA,"Alibaba",10.0000000000,91.20,EUR,1.00000,,"EUR",912.00,"EUR",,,,EOF22502962140,,,,,,
+Market buy,2024-10-25 14:41:45.688,US01609W1027,AHLA,"Alibaba",0.9000000000,91.20,EUR,1.00000,,"EUR",82.08,"EUR",,,,EOF22502962219,,,,,,
+Market buy,2024-10-25 14:41:59.847,US01609W1027,AHLA,"Alibaba",0.0900000000,91.20,EUR,1.00000,,"EUR",8.21,"EUR",,,,EOF22502962285,,,,,,
+Market buy,2024-10-25 14:42:13.438,US01609W1027,AHLA,"Alibaba",0.0110000000,91.20,EUR,1.00000,,"EUR",1.00,"EUR",,,,EOF22502962390,,,,,,
+Market buy,2024-10-25 14:52:45.529,US9314271084,WBA,"Walgreens Boots Alliance",100.0000000000,9.48,USD,1.00000,,"USD",948.00,"USD",,,,EOF22502966262,,,,,,
+Market buy,2024-10-25 14:53:33.395,US9314271084,WBA,"Walgreens Boots Alliance",9.5000000000,9.47,USD,1.00000,,"USD",89.97,"USD",,,,EOF22502966517,,,,,,
+Market buy,2024-10-25 14:53:43.748,US9314271084,WBA,"Walgreens Boots Alliance",0.5000000000,9.47,USD,1.00000,,"USD",4.74,"USD",,,,EOF22502966567,,,,,,
+Market buy,2024-10-25 16:03:27.158,US83417M1045,SEDG,"SolarEdge Technologies",2.0000000000,16.20,USD,1.08108,,"EUR",30.01,"EUR",,,,EOF22502981589,,,,,0.04,"EUR"
+Interest on cash,2024-10-26 01:01:44.626,,,,,,,,,,0.12,"EUR",,,"Interest on cash",ff26573e-8ac1-4374-83a8-1abad9470ba6,,,,,,
+Interest on cash,2024-10-26 01:01:44.713,,,,,,,,,,0.03,"USD",,,"Interest on cash",96b51148-0b51-4a14-b404-4376dfd98e83,,,,,,
+Lending interest,2024-10-26 01:09:45.876,,,,,,,,,,0.49,"EUR",,,"Share lending interest",1ff31e39-4b00-4c54-ac52-b6035bd11e4c,,,,,,
+Interest on cash,2024-10-27 02:01:45.494,,,,,,,,,,0.13,"EUR",,,"Interest on cash",00576818-4bd0-4b23-884b-260555bd0d6a,,,,,,
+Interest on cash,2024-10-27 02:01:45.574,,,,,,,,,,0.04,"USD",,,"Interest on cash",73c7107e-d4e5-41f7-b6cd-5bd24467a152,,,,,,
+Interest on cash,2024-10-28 02:01:48.618,,,,,,,,,,0.12,"EUR",,,"Interest on cash",a6afe9e0-cd28-48e7-890d-0762304b9663,,,,,,
+Interest on cash,2024-10-28 02:01:48.717,,,,,,,,,,0.04,"USD",,,"Interest on cash",1a531483-f043-4fce-846b-1f56dd5b5289,,,,,,
+Lending interest,2024-10-28 02:10:05.076,,,,,,,,,,0.98,"EUR",,,"Share lending interest",64110cb7-0c34-44d5-90c4-157b7bf69266,,,,,,
+Interest on cash,2024-10-29 02:01:45.126,,,,,,,,,,0.12,"EUR",,,"Interest on cash",e1b44d66-4a54-439c-a5dd-262a15f57b19,,,,,,
+Interest on cash,2024-10-29 02:01:45.212,,,,,,,,,,0.04,"USD",,,"Interest on cash",636071c1-1bc3-4250-b943-ba3fcd721bbe,,,,,,
+Lending interest,2024-10-29 02:06:57.791,,,,,,,,,,0.38,"EUR",,,"Share lending interest",9ccb9906-ffdd-4a04-9c56-9b7e2142aa96,,,,,,
+Limit sell,2024-10-29 19:38:09.281,US03945R1023,ACHR,"Archer Aviation",360.0000000000,3.33,USD,1.00000,9.40,"USD",1198.80,"USD",,,,EOF22704520404,,,,,,
+Withdrawal,2024-10-29 19:38:43.518,,,,,,,,,,-1130.00,"EUR",,,,b52a5cd9-245d-4af1-9e2e-cf660441ab28,,,,,,
+Lending interest,2024-10-30 02:00:10.47,,,,,,,,,,0.38,"EUR",,,"Share lending interest",db16f0b8-ac50-405f-9b3f-ca2a6fe85b38,,,,,,
+Interest on cash,2024-10-30 02:01:47.254,,,,,,,,,,0.18,"USD",,,"Interest on cash",6bfe2524-9e9e-438b-8115-5d6814cbf6a8,,,,,,
+Interest on cash,2024-10-31 02:01:48.518,,,,,,,,,,0.19,"USD",,,"Interest on cash",77932c3a-fe82-49c5-a734-048f510d0d26,,,,,,
+Lending interest,2024-10-31 02:06:58.266,,,,,,,,,,0.34,"EUR",,,"Share lending interest",411d6774-1f6f-4e11-aa1b-c3f652b771c5,,,,,,
+Interest on cash,2024-11-01 02:01:47.783,,,,,,,,,,0.18,"USD",,,"Interest on cash",5e78ee71-882b-4656-a07f-045a2e1a28de,,,,,,
+Lending interest,2024-11-01 02:26:00.982,,,,,,,,,,0.33,"EUR",,,"Share lending interest",60f3ceea-e51d-4a65-bb14-8ebb6238889c,,,,,,
+Market sell,2024-11-01 10:36:44.388,US26853E1029,EH,"EHang",4.0000000000,16.80,USD,1.00000,13.39,"USD",67.20,"USD",,,,EOF22806443444,,,,,,
+Market buy,2024-11-01 12:02:40.507,US87164U5083,TOVX,"Theriva Biologics",50.0000000000,2.12,USD,1.00000,,"USD",106.00,"USD",,,,EOF22851607994,,,,,,
+Market sell,2024-11-01 13:13:27.335,US87164U5083,TOVX,"Theriva Biologics",50.0000000000,2.22,USD,1.00000,5.00,"USD",111.00,"USD",,,,EOF22851616609,,,,,,
+Market buy,2024-11-01 14:30:33.619,US1710774076,CDXC,"ChromaDex",20.0000000000,5.32,USD,1.00000,,"USD",106.40,"USD",,,,EOF22853797639,,,,,,
+Market buy,2024-11-01 15:05:27.567,US1710774076,CDXC,"ChromaDex",20.0000000000,5.15,USD,1.00000,,"USD",103.00,"USD",,,,EOF22855306902,,,,,,
+Market buy,2024-11-01 15:31:24.035,US1710774076,CDXC,"ChromaDex",30.0000000000,5.17,USD,1.00000,,"USD",155.10,"USD",,,,EOF22855312645,,,,,,
+Market sell,2024-11-01 16:40:29.086,US1710774076,CDXC,"ChromaDex",36.8600000000,5.20,USD,1.00000,-0.27,"USD",191.67,"USD",,,,EOF22855327285,,,,,,
+Market sell,2024-11-01 16:40:31.859,US1710774076,CDXC,"ChromaDex",23.1400000000,5.20,USD,1.00000,-0.16,"USD",120.33,"USD",,,,EOF22855327291,,,,,,
+Market buy,2024-11-01 17:10:06.792,AU0000288284,VSTE,"Vast Solar",10.0000000000,5.59,USD,1.00000,,"USD",55.90,"USD",,,,EOF22855330863,,,,,,
+Market buy,2024-11-01 17:20:43.394,AU0000288284,VSTE,"Vast Solar",10.0000000000,5.09,USD,1.00000,,"USD",50.90,"USD",,,,EOF22855332457,,,,,,
+Market sell,2024-11-01 17:39:08.463,US1710774076,CDXC,"ChromaDex",10.0000000000,5.21,USD,1.00000,0.03,"USD",52.10,"USD",,,,EOF22855334442,,,,,,
+Market buy,2024-11-01 17:56:49.08,AU0000288284,VSTE,"Vast Solar",10.0000000000,4.44,USD,1.00000,,"USD",44.40,"USD",,,,EOF22855336797,,,,,,
+Market buy,2024-11-01 18:04:44.155,AU0000288284,VSTE,"Vast Solar",10.0000000000,4.66,USD,1.00000,,"USD",46.60,"USD",,,,EOF22855337766,,,,,,
+Limit sell,2024-11-01 18:07:18.627,AU0000288284,VSTE,"Vast Solar",10.0000000000,4.99,USD,1.00000,0.45,"USD",49.90,"USD",,,,EOF22855338096,,,,,,
+Limit sell,2024-11-01 18:08:31.609,AU0000288284,VSTE,"Vast Solar",20.0000000000,5.35,USD,1.00000,8.10,"USD",107.00,"USD",,,,EOF22855338267,,,,,,
+Limit sell,2024-11-01 18:23:45.96,AU0000288284,VSTE,"Vast Solar",10.0000000000,5.95,USD,1.00000,10.05,"USD",59.50,"USD",,,,EOF22855340763,,,,,,
+Market buy,2024-11-01 19:59:48.022,US47215P1066,JD,"JD.com",10.0000000000,40.46,USD,1.00000,,"USD",404.60,"USD",,,,EOF22856800531,,,,,,
+Interest on cash,2024-11-02 02:01:38.255,,,,,,,,,,0.15,"USD",,,"Interest on cash",064aa6d0-094b-4714-83cf-68c4cda8e4c7,,,,,,
+Lending interest,2024-11-02 02:09:40.924,,,,,,,,,,0.33,"EUR",,,"Share lending interest",99f19826-c0dc-4c81-b25c-96d7a88ff467,,,,,,
+Interest on cash,2024-11-03 02:01:34.848,,,,,,,,,,0.15,"USD",,,"Interest on cash",4ec5fcf8-b0b5-4625-b326-a1e5b7c6c711,,,,,,
+Interest on cash,2024-11-04 02:01:38.382,,,,,,,,,,0.14,"USD",,,"Interest on cash",9733fc34-afcb-4553-b342-1e38c1b40727,,,,,,
+Lending interest,2024-11-04 02:12:56.398,,,,,,,,,,0.65,"EUR",,,"Share lending interest",b957beca-9933-409c-a666-76b1e7ab0a38,,,,,,
+Market buy,2024-11-04 11:51:42.103,AU0000288284,VSTE,"Vast Solar",5.0000000000,9.36,USD,1.00000,,"USD",46.80,"USD",,,,EOF23001502878,,,,,,
+Limit buy,2024-11-04 12:54:59.469,AU0000288284,VSTE,"Vast Solar",5.0000000000,7.08,USD,1.00000,,"USD",35.40,"USD",,,,EOF23001507023,,,,,,
+Market buy,2024-11-04 13:25:25.894,AU0000288284,VSTE,"Vast Solar",5.0000000000,7.44,USD,1.00000,,"USD",37.20,"USD",,,,EOF23001509513,,,,,,
+Market buy,2024-11-04 14:24:04.272,US00788A2042,ADN,"Advent Technologies",35.0000000000,4.07,USD,1.00000,,"USD",142.45,"USD",,,,EOF23001513610,,,,,,
+Limit buy,2024-11-04 14:30:42.391,US67113Y6032,NUWE,"Nuwellis",22.0000000000,2.15,USD,1.00000,,"USD",47.30,"USD",,,,EOF23001535023,,,,,,
+Limit sell,2024-11-04 14:35:08.071,US67113Y6032,NUWE,"Nuwellis",22.0000000000,2.49,USD,1.00000,7.48,"USD",54.78,"USD",,,,EOF23001539477,,,,,,
+Market buy,2024-11-04 14:49:26.119,US4579852082,IART,"Integra LifeSciences",2.0000000000,23.35,USD,1.00000,,"USD",46.70,"USD",,,,EOF23003615866,,,,,,
+Limit buy,2024-11-04 14:57:42.851,AU0000288284,VSTE,"Vast Solar",5.0000000000,6.29,USD,1.00000,,"USD",31.45,"USD",,,,EOF23003618863,,,,,,
+Market buy,2024-11-04 15:07:46.632,US67113Y6032,NUWE,"Nuwellis",10.0000000000,2.90,USD,1.00000,,"USD",29.00,"USD",,,,EOF23003621607,,,,,,
+Market buy,2024-11-04 15:11:03.671,US67113Y6032,NUWE,"Nuwellis",10.0000000000,3.01,USD,1.00000,,"USD",30.10,"USD",,,,EOF23003622345,,,,,,
+Market sell,2024-11-04 15:28:59.267,US4579852082,IART,"Integra LifeSciences",2.0000000000,24.16,USD,1.00000,1.62,"USD",48.32,"USD",,,,EOF23003625798,,,,,,
+Limit buy,2024-11-04 16:44:44.681,US00788A2042,ADN,"Advent Technologies",35.0000000000,2.95,USD,1.00000,,"USD",103.25,"USD",,,,EOF23003636144,,,,,,
+Limit buy,2024-11-04 17:54:25.123,US67113Y6032,NUWE,"Nuwellis",16.0000000000,2.55,USD,1.00000,,"USD",40.80,"USD",,,,EOF23003644998,,,,,,
+Market buy,2024-11-04 19:07:03.664,US67113Y6032,NUWE,"Nuwellis",20.0000000000,2.88,USD,1.00000,,"USD",57.60,"USD",,,,EOF23005851475,,,,,,
+Interest on cash,2024-11-05 02:01:33.545,,,,,,,,,,0.08,"USD",,,"Interest on cash",da12765c-1542-41f0-bd03-cca56d8fe5c5,,,,,,
+Lending interest,2024-11-05 02:09:39.012,,,,,,,,,,0.33,"EUR",,,"Share lending interest",ab52ef3f-5137-4e20-8bf2-afb63d0ab630,,,,,,
+Limit buy,2024-11-05 10:19:36.835,AU0000288284,VSTE,"Vast Solar",10.0000000000,5.43,USD,1.00000,,"USD",54.30,"USD",,,,EOF23005889750,,,,,,
+Market buy,2024-11-05 12:59:30.157,US98987D3008,ZVSA,"ZyVersa Therapeutics",30.0000000000,2.66,USD,1.00000,,"USD",79.80,"USD",,,,EOF23005897851,,,,,,
+Market buy,2024-11-05 13:34:06.91,US00853E4044,AGFY,"Agrify",10.0000000000,4.50,USD,1.00000,,"USD",45.00,"USD",,,,EOF23050050172,,,,,,
+Market sell,2024-11-05 13:52:28.583,US00853E4044,AGFY,"Agrify",5.0000000000,5.56,USD,1.00000,5.30,"USD",27.80,"USD",,,,EOF23050051888,,,,,,
+Market sell,2024-11-05 13:53:29.374,US00853E4044,AGFY,"Agrify",3.0000000000,6.44,USD,1.00000,5.82,"USD",19.32,"USD",,,,EOF23050051955,,,,,,
+Market sell,2024-11-05 13:54:06.698,US00853E4044,AGFY,"Agrify",2.0000000000,6.52,USD,1.00000,4.04,"USD",13.04,"USD",,,,EOF23050052014,,,,,,
+Market sell,2024-11-05 14:03:12.04,US98987D3008,ZVSA,"ZyVersa Therapeutics",10.0000000000,2.91,USD,1.00000,2.50,"USD",29.10,"USD",,,,EOF23050052779,,,,,,
+Market sell,2024-11-05 14:04:31.552,US98987D3008,ZVSA,"ZyVersa Therapeutics",15.0000000000,3.27,USD,1.00000,9.15,"USD",49.05,"USD",,,,EOF23050052977,,,,,,
+Market sell,2024-11-05 14:05:17.785,US98987D3008,ZVSA,"ZyVersa Therapeutics",5.0000000000,3.06,USD,1.00000,2.00,"USD",15.30,"USD",,,,EOF23050053062,,,,,,
+Limit buy,2024-11-05 14:33:29.651,US67113Y6032,NUWE,"Nuwellis",19.0000000000,1.90,USD,1.00000,,"USD",36.10,"USD",,,,EOF23050067881,,,,,,
+Market buy,2024-11-05 14:46:06.495,US98987D3008,ZVSA,"ZyVersa Therapeutics",20.0000000000,3.05,USD,1.00000,,"USD",61.00,"USD",,,,EOF23050080358,,,,,,
+Market buy,2024-11-05 15:18:28.741,US92719V1008,VMEO,"Vimeo",5.0000000000,6.99,USD,1.00000,,"USD",34.95,"USD",,,,EOF23050091304,,,,,,
+Market sell,2024-11-05 15:26:11.134,US92719V1008,VMEO,"Vimeo",5.0000000000,6.92,USD,1.00000,-0.35,"USD",34.60,"USD",,,,EOF23050092742,,,,,,
+Market sell,2024-11-05 15:27:27.64,US00788A2042,ADN,"Advent Technologies",40.0000000000,3.55,USD,1.00000,1.60,"USD",142.00,"USD",,,,EOF23050093032,,,,,,
+Market sell,2024-11-05 15:32:10.2,US00788A2042,ADN,"Advent Technologies",30.0000000000,3.63,USD,1.00000,3.60,"USD",108.90,"USD",,,,EOF23050093677,,,,,,
+Market buy,2024-11-05 17:06:46.443,US09063M2052,BNOX,"Bionomics",300.0000000000,0.58,USD,1.00000,,"USD",174.00,"USD",,,,EOF23052457400,,,,,,
+Market buy,2024-11-05 17:09:15.139,US09063M2052,BNOX,"Bionomics",190.0000000000,0.57,USD,1.00000,,"USD",107.96,"USD",,,,EOF23052457671,,,,,,
+Market sell,2024-11-05 17:14:50.714,US09063M2052,BNOX,"Bionomics",360.0000000000,0.51,USD,1.00000,-23.55,"USD",183.60,"USD",,,,EOF23052458104,,,,,,
+Market sell,2024-11-05 17:15:28.984,US09063M2052,BNOX,"Bionomics",130.0000000000,0.52,USD,1.00000,-6.72,"USD",68.09,"USD",,,,EOF23052458138,,,,,,
+Market buy,2024-11-05 19:24:55.255,US45784G2003,ZCAR,"Zoomcar Holdings",8.5000000000,14.52,USD,1.00000,,"USD",123.42,"USD",,,,EOF23052468867,,,,,,
+Market sell,2024-11-05 19:27:40.742,US45784G2003,ZCAR,"Zoomcar Holdings",8.5000000000,13.70,USD,1.00000,-6.97,"USD",116.45,"USD",,,,EOF23052469137,,,,,,
+Market buy,2024-11-05 19:32:54.382,US45784G2003,ZCAR,"Zoomcar Holdings",15.0000000000,14.65,USD,1.00000,,"USD",219.75,"USD",,,,EOF23052469634,,,,,,
+Market sell,2024-11-05 19:34:12.281,US45784G2003,ZCAR,"Zoomcar Holdings",10.0000000000,14.92,USD,1.00000,2.70,"USD",149.20,"USD",,,,EOF23052469724,,,,,,
+Market sell,2024-11-05 19:35:03.866,US45784G2003,ZCAR,"Zoomcar Holdings",3.9650000000,15.82,USD,1.00000,4.64,"USD",62.73,"USD",,,,EOF23052469806,,,,,,
+Market sell,2024-11-05 19:35:04.812,US45784G2003,ZCAR,"Zoomcar Holdings",1.0350000000,15.84,USD,1.00000,1.23,"USD",16.39,"USD",,,,EOF23052469808,,,,,,
+Market buy,2024-11-05 19:48:43.493,AU0000288284,VSTE,"Vast Solar",42.0000000000,5.05,USD,1.00000,,"USD",212.10,"USD",,,,EOF23052471473,,,,,,
+Market buy,2024-11-05 19:50:10.768,AU0000288284,VSTE,"Vast Solar",8.0000000000,5.09,USD,1.00000,,"USD",40.72,"USD",,,,EOF23052471601,,,,,,
+Market sell,2024-11-05 19:55:21.866,AU0000288284,VSTE,"Vast Solar",50.0000000000,5.72,USD,1.00000,-0.23,"USD",286.00,"USD",,,,EOF23052472585,,,,,,
+Market buy,2024-11-05 19:57:05.594,AU0000288284,VSTE,"Vast Solar",14.0000000000,6.20,USD,1.00000,,"USD",86.80,"USD",,,,EOF23052472847,,,,,,
+Market sell,2024-11-05 20:14:49.604,AU0000288284,VSTE,"Vast Solar",25.0000000000,6.00,USD,1.00000,3.10,"USD",150.00,"USD",,,,EOF23052475221,,,,,,
+Market sell,2024-11-05 20:16:30.48,AU0000288284,VSTE,"Vast Solar",19.0000000000,5.81,USD,1.00000,-1.25,"USD",110.39,"USD",,,,EOF23052475333,,,,,,
+Market buy,2024-11-05 20:41:35.167,AU0000288284,VSTE,"Vast Solar",12.0000000000,5.80,USD,1.00000,,"USD",69.60,"USD",,,,EOF23052477455,,,,,,
+Market buy,2024-11-05 20:44:33.894,US45784G2003,ZCAR,"Zoomcar Holdings",5.0000000000,14.73,USD,1.00000,,"USD",73.65,"USD",,,,EOF23052477883,,,,,,
+Market sell,2024-11-05 20:55:09.267,US45784G2003,ZCAR,"Zoomcar Holdings",5.0000000000,13.25,USD,1.00000,-7.40,"USD",66.25,"USD",,,,EOF23052479066,,,,,,

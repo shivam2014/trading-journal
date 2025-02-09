@@ -1,5 +1,17 @@
 // Add event listener for DOMContentLoaded to initialize the application
-document.addEventListener('DOMContentLoaded', initializeApplication);
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded, initializing application...');
+    initializeApplication().then(() => {
+        // After initialization, check if tradelog tab is active
+        const tradelogTab = document.querySelector('[data-tab="tradelog"]');
+        if (tradelogTab && tradelogTab.classList.contains('active')) {
+            console.log('Trade log tab is active, populating table...');
+            populateTradesTable();
+        }
+    }).catch(error => {
+        console.error('Error during application initialization:', error);
+    });
+});
 
 const csvFiles = [
   'T212_CSV_exports/from_2020-05-24_to_2020-11-05_MTczMDg0Mzk0NzY2MA.csv',
@@ -110,28 +122,48 @@ function formatCurrency(value) {
 }
 
 async function loadAndParseCSV(filePath) {
-  try {
-    const response = await fetch(filePath);
+    try {
+        const response = await fetch(filePath);
         if (!response.ok) {
             throw new Error(`Failed to load ${filePath}: ${response.status} ${response.statusText}`);
         }
-    const csvData = await response.text();
-        const result = Papa.parse(csvData, { 
+        
+        const csvData = await response.text();        
+        const result = Papa.parse(csvData, {
             header: true,
             skipEmptyLines: true,
             transformHeader: (header) => header.trim(),
-            transform: (value) => value.trim()
+            transform: (value) => value.trim(),
+            complete: (results) => {
+                console.log(`Parsed ${results.data.length} rows from ${filePath}`);
+            }
         });
+        
+        // Validate required columns
+        const requiredColumns = ['Time', 'Ticker', 'Action', 'No. of shares', 'Price / share', 'Result'];
+        const missingColumns = requiredColumns.filter(col => !result.meta.fields.includes(col));
+        
+        if (missingColumns.length > 0) {
+            throw new Error(`Missing required columns in ${filePath}: ${missingColumns.join(', ')}`);
+        }
         
         if (result.errors.length > 0) {
             console.warn(`Parsing warnings for ${filePath}:`, result.errors);
         }
         
-        return result.data;
-  } catch (error) {
-    console.error('Error loading CSV:', filePath, error);
-    return [];
-  }
+        // Filter out any invalid rows
+        const validData = result.data.filter(row => {
+            return row.Time && row.Ticker && row.Action &&
+                   !isNaN(parseFloat(row['No. of shares'])) &&
+                   !isNaN(parseFloat(row['Price / share']));
+        });
+        
+        return validData;
+        
+    } catch (error) {
+        console.error('Error loading CSV:', filePath, error);
+        return [];
+    }
 }
 
 async function loadData() {
@@ -146,8 +178,15 @@ async function loadData() {
         for (const csvFile of csvFiles) {
             console.log(`Loading CSV file: ${csvFile}`);
             const trades = await loadAndParseCSV(csvFile);
+            console.log(`Loaded ${trades?.length || 0} trades from ${csvFile}`);
+            
             if (trades && trades.length > 0) {
                 trades.forEach(trade => {
+                    if (!trade.Time || !trade.Ticker || !trade.Action) {
+                        console.warn('Invalid trade data:', trade);
+                        return;
+                    }
+                    
                     const tradeId = `${trade.Time}_${trade.Ticker}_${trade.Action}_${trade['No. of shares']}_${trade['Price / share']}`;
                     if (!processedTradeIds.has(tradeId)) {
                         processedTradeIds.add(tradeId);
@@ -161,6 +200,8 @@ async function loadData() {
             console.error('No trades loaded from CSV files');
             return;
         }
+        
+        console.log(`Successfully loaded ${allTrades.length} unique trades`);
         
         console.log(`Total trades loaded: ${allTrades.length}`);
         
@@ -186,9 +227,23 @@ async function loadData() {
         // Create charts after dashboard update
         console.log('Creating charts...');
         await createCharts();
-        
-        console.log('Populating trades table...');
-        populateTradesTable();
+
+        // Check current active tab
+        const activeTab = document.querySelector('.nav-tab.active');
+        if (activeTab && activeTab.getAttribute('data-tab') === 'tradelog') {
+            console.log('Trade log tab is active, populating table...');
+            // Ensure we're working with the latest data
+            if (allTrades && allTrades.length > 0) {
+                populateTradesTable();
+                console.log('Trades table populated with', allTrades.length, 'trades');
+            } else {
+                console.warn('No trades available to populate table');
+                const tableBody = document.getElementById('tradeLogTableBody');
+                if (tableBody) {
+                    tableBody.innerHTML = '<tr><td colspan="10">No trades data available</td></tr>';
+                }
+            }
+        }
         
         console.log('Data loading completed successfully');
     } catch (error) {
@@ -197,10 +252,34 @@ async function loadData() {
 }
 
 function processTradeGroups() {
+    console.log('Processing trade groups...');
     const tickerGroups = new Map();
+
+    if (!allTrades || allTrades.length === 0) {
+        console.warn('No trades to process');
+        return [];
+    }
+
+    console.log(`Processing ${allTrades.length} trades for grouping...`);
+
+    // Validate trades array
+    const validTrades = allTrades.filter(trade => {
+        if (!trade || !trade.Ticker || !trade.Time || !trade.Action) {
+            console.warn('Invalid trade found:', trade);
+            return false;
+        }
+        return true;
+    });
+
+    console.log(`Found ${validTrades.length} valid trades`);
 
     // First pass: Group trades by ticker
     allTrades.forEach(trade => {
+        if (!trade.Ticker) {
+            console.warn('Trade missing ticker:', trade);
+            return;
+        }
+
         const ticker = trade.Ticker;
         if (!tickerGroups.has(ticker)) {
             tickerGroups.set(ticker, {
@@ -657,18 +736,55 @@ function createEquityCurveChart(ctx) {
     });
 }
 
-// Initialize dashboard
+// Initialize dashboard and set up tab navigation
 function initDashboard() {
     console.log('Initializing dashboard...');
     
     // Update stats
     updateDashboardStats();
     
-    // Add event listeners for navigation
+    // Add event listeners for navigation with improved error handling
     document.querySelectorAll('.nav-tab').forEach(tab => {
-        tab.addEventListener('click', (e) => {
-            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-            e.target.classList.add('active');
+        tab.addEventListener('click', async (e) => {
+            try {
+                console.log('Tab clicked:', e.target.getAttribute('data-tab'));
+                
+                // Update tab buttons
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+    
+                const targetId = e.target.getAttribute('data-tab');
+                if (!targetId) {
+                    console.error('No target tab ID found');
+                    return;
+                }
+    
+                // Hide all tab panes
+                document.querySelectorAll('.tab-pane').forEach(pane => {
+                    pane.classList.remove('active');
+                });
+    
+                // Show the target tab pane
+                const targetPane = document.getElementById(targetId);
+                if (!targetPane) {
+                    console.error(`Tab pane not found: ${targetId}`);
+                    return;
+                }
+                
+                targetPane.classList.add('active');
+                
+                // If switching to trade log tab, ensure data is loaded and populate the table
+                if (targetId === 'tradelog') {
+                    console.log('Switching to trade log tab');
+                    if (!allTrades || allTrades.length === 0) {
+                        console.log('No trades loaded, loading data first...');
+                        await loadData();
+                    }
+                    populateTradesTable();
+                }
+            } catch (error) {
+                console.error('Error handling tab switch:', error);
+            }
         });
     });
 }
@@ -1741,14 +1857,17 @@ function paginateTrades(trades) {
 
 // Add this function to handle pagination
 function setupPaginationListeners() {
-    const prevBtn = document.querySelector('.prev-page');
-    const nextBtn = document.querySelector('.next-page');
+    const prevBtn = document.getElementById('prevPage');
+    const nextBtn = document.getElementById('nextPage');
+    const currentPageSpan = document.getElementById('currentPage');
+    const totalPagesSpan = document.getElementById('totalPages');
 
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
             if (currentPage > 1) {
                 currentPage--;
                 populateTradesTable();
+                updatePaginationDisplay(currentPageSpan, totalPagesSpan);
             }
         });
     }
@@ -1760,8 +1879,32 @@ function setupPaginationListeners() {
             if (currentPage < totalPages) {
                 currentPage++;
                 populateTradesTable();
+                updatePaginationDisplay(currentPageSpan, totalPagesSpan);
             }
         });
+    }
+}
+
+function updatePaginationDisplay(currentPageSpan, totalPagesSpan) {
+    const totalItems = getFilteredTrades().length;
+    const totalPages = Math.ceil(totalItems / tradesPerPage);
+    
+    if (currentPageSpan) {
+        currentPageSpan.textContent = currentPage;
+    }
+    if (totalPagesSpan) {
+        totalPagesSpan.textContent = totalPages;
+    }
+
+    // Enable/disable pagination buttons
+    const prevBtn = document.getElementById('prevPage');
+    const nextBtn = document.getElementById('nextPage');
+    
+    if (prevBtn) {
+        prevBtn.disabled = currentPage <= 1;
+    }
+    if (nextBtn) {
+        nextBtn.disabled = currentPage >= totalPages;
     }
 }
 
@@ -2201,11 +2344,19 @@ function generateTradeGroupHTML(group) {
 
 // Update the populateTradesTable function
 function populateTradesTable() {
-    const tableBody = document.getElementById('tradesTableBody');
-    if (!tableBody) return;
+    const tableBody = document.getElementById('tradeLogTableBody');
+    if (!tableBody) {
+        console.error('Trade log table body not found');
+        return;
+    }
 
     // Process trades into groups
     let tickerGroups = processTradeGroups();
+    
+    if (!tickerGroups || tickerGroups.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="10">No trades found</td></tr>';
+        return;
+    }
     
     // Apply sorting
     tickerGroups = sortTickerGroups(tickerGroups);
@@ -2362,26 +2513,38 @@ function sortTickerGroups(groups) {
 }
 
 function getSortValue(tickerData) {
-    switch (currentSort.column) {
+    let value;
+    switch (currentSort.column?.toLowerCase()) {
         case 'ticker':
-            return tickerData.ticker.toLowerCase(); // Case-insensitive sorting for tickers
+            value = tickerData.ticker?.toLowerCase();
+            break;
         case 'lasttradedate':
-            return tickerData.lastTradeDate;
+            value = tickerData.lastTradeDate;
+            break;
         case 'groupcount':
-            return tickerData.tradeGroups.length;
+            value = tickerData.tradeGroups?.length || 0;
+            break;
         case 'unrealizedpnl':
-            return tickerData.totalUnrealizedPnL || 0; // Handle null/undefined values
+            value = tickerData.totalUnrealizedPnL || 0;
+            break;
         case 'realizedpnl':
-            return tickerData.totalRealizedPnL || 0;
+            value = tickerData.totalRealizedPnL || 0;
+            break;
         case 'dividends':
-            return tickerData.totalDividends || 0;
+            value = tickerData.totalDividends || 0;
+            break;
         case 'fees':
-            return tickerData.totalFees || 0;
+            value = tickerData.totalFees || 0;
+            break;
         case 'openpositions':
-            return tickerData.openPositions || 0;
+            value = tickerData.openPositions || 0;
+            break;
         default:
-            return tickerData.ticker.toLowerCase();
+            value = tickerData.ticker?.toLowerCase();
     }
+    
+    // Removed verbose sorting debug log
+    return value;
 }
 
 function compareValues(a, b) {
@@ -2445,26 +2608,6 @@ function formatNumber(value, options = {}) {
 // Single performance chart initialization function
 // Remove redundant function as createCharts now handles all chart initialization
 
-// Single initialization function
-async function initializeApplication() {
-    console.log('DOM loaded, initializing application...');
-    await loadData();
-    await initDashboard();
-    initializePerformanceCharts();
-}
-
-// Single event listener for initialization
-document.addEventListener('DOMContentLoaded', initializeApplication);
-
-// Ensure initDashboard is defined
-function initDashboard() {
-    const trades = window.tradeData; // Use global tradeData from loadData()
-    if (!trades) return;
-
-    updateMetrics(trades);
-    renderCharts(trades);
-}
-
 // Single application initialization function
 async function initializeApplication() {
     console.log('DOM loaded, initializing application...');
@@ -2474,13 +2617,31 @@ async function initializeApplication() {
         
         // Load data first
         await loadData();
+        console.log('Data loaded, trades count:', allTrades.length);
         
         // Update dashboard stats
         updateDashboardStats();
         
-        // Wait for DOM updates
-        await new Promise(resolve => setTimeout(resolve, 100));
-
+        // Initialize dashboard
+        await initDashboard();
+        
+        // Always populate the trade log table initially
+        console.log('Populating trade log table...');
+        populateTradesTable();
+        
+        // Set up tab visibility based on current active tab
+        const currentTab = document.querySelector('.nav-tab.active');
+        if (currentTab) {
+            const targetId = currentTab.getAttribute('data-tab');
+            const targetPane = document.getElementById(targetId);
+            if (targetPane) {
+                document.querySelectorAll('.tab-pane').forEach(pane => {
+                    pane.classList.remove('active');
+                });
+                targetPane.classList.add('active');
+            }
+        }
+        
         console.log('Application initialized successfully');
     } catch (error) {
         console.error('Error during application initialization:', error);
@@ -3100,15 +3261,12 @@ function calculateHourlyPerformance() {
 }
 
 async function createCharts() {
-    console.log('Starting chart creation...');
-    
     // First destroy all existing charts
     if (window.chartInstances) {
         for (const [id, chart] of Object.entries(window.chartInstances)) {
             if (chart && typeof chart.destroy === 'function') {
                 try {
                     chart.destroy();
-                    console.log(`Destroyed existing chart: ${id}`);
                 } catch (e) {
                     console.warn(`Error destroying chart ${id}:`, e);
                 }
@@ -3207,7 +3365,6 @@ async function createCharts() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             canvas.style.opacity = '0';
             
-            console.log(`Creating chart: ${chart.id}`);
             window.chartInstances[chart.id] = chart.create(ctx);
             
             // Fade in chart

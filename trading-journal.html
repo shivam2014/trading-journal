@@ -20,10 +20,10 @@
         <nav class="nav-header">
             <div class="nav-brand">Trading Journal</div>
             <div class="nav-tabs">
-                <button class="nav-tab active">Dashboard</button>
-                <button class="nav-tab">Trade Log</button>
-                <button class="nav-tab">Analytics</button>
-                <button class="nav-tab">Reports</button>
+                <button class="nav-tab active" data-tab="dashboard">Dashboard</button>
+                <button class="nav-tab" data-tab="tradelog">Trade Log</button>
+                <button class="nav-tab" data-tab="analytics">Analytics</button>
+                <button class="nav-tab" data-tab="reports">Reports</button>
             </div>
         </nav>
 
@@ -51,135 +51,156 @@
             </div>
         </div>
 
-        <!-- Main Dashboard Grid -->
-        <div class="dashboard-grid">
-            <!-- Performance Overview -->
-            <div class="dashboard-card main-chart">
-                <h3>Performance Overview</h3>
-                <canvas id="equityCurve"></canvas>
-            </div>
 
-            <!-- Trade Statistics -->
-            <div class="dashboard-card stats-panel">
-                <h3>Trade Statistics</h3>
-                <div class="stats-grid">
-                    <div class="stat-group">
-                        <div class="stat-row">
-                            <span>Win Rate</span>
-                            <span id="winRateDetailed">-</span>
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Dashboard Tab -->
+            <div class="tab-pane active" id="dashboard">
+                <div class="dashboard-grid">
+                    <!-- Performance Overview -->
+                    <div class="dashboard-card main-chart">
+                        <h3>Performance Overview</h3>
+                        <canvas id="equityCurve"></canvas>
+                    </div>
+
+                    <!-- Trade Statistics -->
+                    <div class="dashboard-card stats-panel">
+                        <h3>Trade Statistics</h3>
+                        <div class="stats-grid">
+                            <div class="stat-group">
+                                <div class="stat-row">
+                                    <span>Win Rate</span>
+                                    <span id="winRateDetailed">-</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Loss Rate</span>
+                                    <span id="lossRate">-</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Profit Factor</span>
+                                    <span id="profitFactor">-</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stat-row">
-                            <span>Loss Rate</span>
-                            <span id="lossRate">-</span>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h4>Win/Loss Ratio</h4>
+                            <canvas id="winLossRatio"></canvas>
                         </div>
-                        <div class="stat-row">
-                            <span>Profit Factor</span>
-                            <span id="profitFactor">-</span>
+                        <div class="chart-card">
+                            <h4>Position Size vs P&L</h4>
+                            <canvas id="positionSize"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h4>Daily Performance</h4>
+                            <canvas id="dailyPerformance"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h4>Monthly Performance</h4>
+                            <canvas id="monthlyPerformance"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Charts Grid -->
-            <div class="charts-grid">
-                <div class="chart-card">
-                    <h4>Win/Loss Ratio</h4>
-                    <canvas id="winLossRatio"></canvas>
-                </div>
-                <div class="chart-card">
-                    <h4>Position Size vs P&L</h4>
-                    <canvas id="positionSize"></canvas>
-                </div>
-                <div class="chart-card">
-                    <h4>Daily Performance</h4>
-                    <canvas id="dailyPerformance"></canvas>
-                </div>
-                <div class="chart-card">
-                    <h4>Monthly Performance</h4>
-                    <canvas id="monthlyPerformance"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="filters">
-                <input type="text" id="symbolFilter" placeholder="Filter by symbol...">
-                <select id="sideFilter">
-                    <option value="">All Sides</option>
-                    <option value="LONG">Long</option>
-                    <option value="SHORT">Short</option>
-                </select>
-                <input type="date" id="dateFilter">
-                <select id="statusFilter">
-                    <option value="">All Status</option>
-                    <option value="OPEN">Open</option>
-                    <option value="CLOSED">Closed</option>
-                </select>
-                <button id="clearFilter">Clear Filter</button>
-            </div>
-
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-label">Total Return</div>
-                    <div class="metric-value" id="totalReturn">$0.00</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Win Rate</div>
-                    <div class="metric-value" id="winRate">0%</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Biggest Winner</div>
-                    <div class="metric-value" id="biggestWinner">$0.00</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-label">Biggest Loser</div>
-                    <div class="metric-value" id="biggestLoser">$0.00</div>
-                </div>
-            </div>
-
-            <!-- Advanced Analytics Section -->
-            <div class="advanced-charts">
-                <h3>Advanced Analytics</h3>
-                <div class="charts-grid">
-                    <div class="chart-container" data-title="Risk Reward">
-                        <canvas id="riskReward"></canvas>
-                    </div>
-                    <div class="chart-container" data-title="Trade Duration">
-                        <canvas id="tradeDuration"></canvas>
-                    </div>
-                    <div class="chart-container" data-title="Hourly Distribution">
-                        <canvas id="hourlyStats"></canvas>
+            <!-- Trade Log Tab -->
+            <div class="tab-pane" id="tradelog">
+                <div class="filters-section">
+                    <h3>Trade Log</h3>
+                    <div class="filters">
+                        <input type="text" id="symbolFilter" placeholder="Filter by symbol...">
+                        <select id="sideFilter">
+                            <option value="">All Sides</option>
+                            <option value="LONG">Long</option>
+                            <option value="SHORT">Short</option>
+                        </select>
+                        <input type="date" id="dateFilter">
+                        <select id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="OPEN">Open</option>
+                            <option value="CLOSED">Closed</option>
+                        </select>
+                        <button id="clearFilter">Clear Filter</button>
                     </div>
                 </div>
-            </div>
-
-            <div class="trades-table-container">
-                <table class="trades-table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th data-sortable data-column="ticker">Ticker</th>
-                            <th data-sortable data-column="lastTradeDate">Last Trade</th>
-                            <th data-sortable data-column="groupCount">Trade Groups</th>
-                            <th data-sortable data-column="unrealizedPnL">Unrealized P&L</th>
-                            <th data-sortable data-column="realizedPnL">Realized P&L</th>
-                            <th data-sortable data-column="dividends">Dividends</th>
-                            <th data-sortable data-column="fees">Fees</th>
-                            <th data-sortable data-column="openPositions">Open Positions</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tradesTableBody"></tbody>
-                </table>
-
+                <div class="trades-table-container">
+                    <table class="trades-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th data-sortable data-column="ticker">Ticker</th>
+                                <th data-sortable data-column="lastTradeDate">Last Trade</th>
+                                <th data-sortable data-column="groupCount">Trade Groups</th>
+                                <th data-sortable data-column="unrealizedPnL">Unrealized P&L</th>
+                                <th data-sortable data-column="realizedPnL">Realized P&L</th>
+                                <th data-sortable data-column="dividends">Dividends</th>
+                                <th data-sortable data-column="fees">Fees</th>
+                                <th data-sortable data-column="openPositions">Open Positions</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tradeLogTableBody">
+                            <!-- Trade rows will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
                 <div class="pagination">
-                    <button class="pagination-btn prev-page">Previous</button>
-                    <span class="pagination-info">
-                        Page <span id="currentPage">1</span> of <span id="totalPages">1</span>
-                        (<span id="totalTrades">0</span> trades)
-                    </span>
-                    <button class="pagination-btn next-page">Next</button>
+                    <button class="pagination-btn" id="prevPage">Previous</button>
+                    <span class="pagination-info">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
+                    <button class="pagination-btn" id="nextPage">Next</button>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Total Return</div>
+                        <div class="metric-value" id="totalReturn">$0.00</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Win Rate</div>
+                        <div class="metric-value" id="winRate">0%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Biggest Winner</div>
+                        <div class="metric-value" id="biggestWinner">$0.00</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Biggest Loser</div>
+                        <div class="metric-value" id="biggestLoser">$0.00</div>
+                    </div>
+                </div>
+
+                <!-- Advanced Analytics Section -->
+                <div class="advanced-charts">
+                    <h3>Advanced Analytics</h3>
+                    <div class="charts-grid">
+                        <div class="chart-container" data-title="Risk Reward">
+                            <canvas id="riskReward"></canvas>
+                        </div>
+                        <div class="chart-container" data-title="Trade Duration">
+                            <canvas id="tradeDuration"></canvas>
+                        </div>
+                        <div class="chart-container" data-title="Hourly Distribution">
+                            <canvas id="hourlyStats"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+            <!-- Analytics Tab -->
+            <div class="tab-pane" id="analytics">
+                <div class="content-container">
+                    <h2>Analytics</h2>
+                    <!-- Analytics content will be implemented in the future -->
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div class="tab-pane" id="reports">
+                <div class="content-container">
+                    <h2>Reports</h2>
+                    <!-- Reports content will be implemented in the future -->
                 </div>
             </div>
         </div>

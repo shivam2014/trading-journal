@@ -1,3 +1,18 @@
+/* Show dashboard grid only in dashboard tab */
+#dashboard.tab-pane.active .dashboard-grid {
+    display: grid;
+}
+
+.dashboard-grid {
+    display: none;
+}
+
+/* Reset min-height for non-dashboard tabs */
+.tab-pane.active {
+    min-height: 0;
+    height: auto;
+}
+
 /* Base styles */
 :root {
     --bg-primary: #151c24;
@@ -32,11 +47,13 @@ body {
 /* Navigation */
 .nav-header {
     background-color: var(--bg-secondary);
-    padding: 1rem 2rem;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .nav-brand {
@@ -67,10 +84,10 @@ body {
 /* Stats Bar */
 .stats-bar {
     background-color: var(--bg-secondary);
-    padding: 1rem 2rem;
+    padding: 1rem;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -78,6 +95,38 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .nav-tabs {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 5px;
+    }
+    
+    .nav-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .nav-brand {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-bar {
+        grid-template-columns: 1fr;
+    }
 }
 
 .stat-label {
@@ -355,9 +404,18 @@ h4 {
 }
 
 /* Chart containers */
+.chart-container {
+    position: relative;
+    height: 400px;
+    max-height: 600px;
+    width: 100%;
+    overflow: hidden;
+}
+
 canvas {
     width: 100% !important;
-    height: calc(100% - 2rem) !important;
+    height: 100% !important;
+    max-height: inherit;
 }
 
 /* Stats Grid */
@@ -393,15 +451,17 @@ canvas {
 
 /* Trade Log Table */
 .trade-log {
-    margin-top: 2rem;
+    margin-top: clamp(1rem, 4vw, 2rem);
     background-color: var(--card-bg);
     border-radius: 8px;
     border: 1px solid var(--border-color);
-    overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .trade-log table {
     width: 100%;
+    min-width: 600px; /* Ensure table doesn't get too narrow */
     border-collapse: collapse;
 }
 
@@ -410,20 +470,37 @@ canvas {
     color: var(--text-secondary);
     font-weight: 500;
     text-align: left;
-    padding: 1rem;
-    font-size: 0.875rem;
+    padding: clamp(0.5rem, 2vw, 1rem);
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .trade-log td {
-    padding: 1rem;
+    padding: clamp(0.5rem, 2vw, 1rem);
     border-top: 1px solid var(--border-color);
     color: var(--text-primary);
 }
 
 .trade-log tr:hover {
     background-color: var(--secondary-bg);
+}
+
+@media (max-width: 768px) {
+    .trade-log td {
+        font-size: 0.9rem;
+    }
+    
+    .trade-log {
+        margin: 0 -1rem; /* Negative margin to allow full-width scrolling */
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
 }
 
 /* Responsive adjustments */
@@ -522,11 +599,231 @@ body {
   margin-top: 20px;
 }
 
-.main-content,
-.sidebar {
-  background-color: #151c24;
-  border-radius: 6px;
-  padding: 20px;
+/* Tab content */
+.tab-content {
+  position: relative;
+  min-height: calc(100vh - 110px);
+}
+
+.tab-pane {
+   display: none;
+   padding: 20px;
+   background-color: #151c24;
+   width: 100%;
+   opacity: 0;
+   transition: opacity 0.3s ease;
+}
+
+.tab-pane.active {
+   display: block;
+   opacity: 1;
+}
+
+/* Trade log specific styling */
+#tradelog.tab-pane {
+   padding: 0;
+   display: none;
+   opacity: 0;
+}
+
+#tradelog.tab-pane.active {
+   display: flex;
+   flex-direction: column;
+   opacity: 1;
+   gap: 0;
+}
+
+/* Dashboard specific layout */
+#dashboard .dashboard-grid {
+   margin-bottom: 20px;
+}
+
+/* Metrics and charts styling */
+.metrics-grid,
+.advanced-charts {
+   display: block;
+   margin: 20px 0;
+}
+
+.tab-pane:not(#dashboard) .metrics-grid,
+.tab-pane:not(#dashboard) .advanced-charts {
+   display: none;
+}
+
+/* Trade log specific layout */
+#tradelog .filters-section {
+   padding: 20px 0 10px 0;
+   margin: 0;
+   background-color: #151c24;
+   position: sticky;
+   top: 0;
+   z-index: 1;
+}
+
+#tradelog .trades-table-container {
+   margin: 0;
+   padding: 0;
+}
+
+#tradelog .trades-table {
+   margin-top: 0;
+}
+
+.tab-pane.active {
+   display: block;
+   opacity: 1;
+}
+
+/* Container for trades table */
+.trades-table-container {
+    margin: 0;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    display: block;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    position: relative;
+    padding: 0; /* Remove fixed padding-top */
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+/* Style scrollbar for Webkit browsers */
+.trades-table-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.trades-table-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.trades-table-container::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 3px;
+}
+
+.trades-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.trades-table thead {
+    background: var(--bg-secondary);
+}
+
+.trades-table th {
+    position: sticky;
+    top: 0;
+    background: var(--bg-secondary);
+    z-index: 2;
+    padding: clamp(8px, 1.5vw, 12px) clamp(8px, 2vw, 16px);
+    white-space: nowrap;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    font-weight: 500;
+    text-align: left;
+}
+
+.trades-table td {
+    padding: clamp(6px, 1.5vw, 10px) clamp(8px, 2vw, 16px);
+    line-height: 1.4;
+    vertical-align: middle;
+}
+
+/* Column widths */
+.trades-table th:first-child,
+.trades-table td:first-child {
+    width: 40px;
+    min-width: 40px;
+}
+
+.trades-table th:nth-child(2),
+.trades-table td:nth-child(2) {
+    width: 100px;
+    min-width: 100px;
+}
+
+.trades-table th:last-child,
+.trades-table td:last-child {
+    width: 120px;
+    min-width: 120px;
+}
+
+/* Handle text overflow */
+.trades-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Tab-specific layouts */
+#dashboard {
+   display: flex;
+   flex-direction: column;
+   gap: clamp(15px, 3vw, 20px);
+   padding: clamp(10px, 3vw, 20px);
+   max-width: 100%;
+   overflow-x: hidden;
+}
+
+#tradeLog {
+   display: flex;
+   flex-direction: column;
+   gap: clamp(15px, 3vw, 20px);
+   max-width: 100%;
+   overflow-x: hidden;
+}
+
+/* Ensure charts maintain aspect ratio */
+.chart-container {
+   position: relative;
+   width: 100%;
+   padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+   height: 0;
+   overflow: hidden;
+}
+
+.chart-container canvas {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100% !important;
+   height: 100% !important;
+}
+
+/* Dashboard responsive adjustments */
+@media (max-width: 1200px) {
+   .dashboard-grid {
+       grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+@media (max-width: 768px) {
+   .dashboard-grid {
+       grid-template-columns: 1fr;
+   }
+   
+   #dashboard,
+   #tradeLog {
+       padding: clamp(5px, 2vw, 10px);
+   }
+   
+   .chart-container {
+       padding-bottom: 75%; /* 4:3 Aspect Ratio for mobile */
+   }
+}
+
+@media (max-width: 480px) {
+   .metrics-grid {
+       grid-template-columns: 1fr;
+   }
 }
 
 /* Header styles */
@@ -676,19 +973,108 @@ body {
 
 /* Table base styles */
 .trades-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9em;
-  background-color: #151c24;
-  border-radius: 8px;
-  overflow: hidden;
+   width: 100%;
+   min-width: 650px; /* Reduced from 800px */
+   border-collapse: separate;
+   border-spacing: 0;
+   font-size: clamp(0.75em, 2vw, 0.9em);
+   background-color: #151c24;
+   border-radius: 8px;
+   overflow: hidden;
+   table-layout: fixed; /* Add fixed table layout */
 }
 
 .trades-table th,
 .trades-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #1e2636;
+   padding: clamp(8px, 1.5vw, 12px);
+   text-align: left;
+   border-bottom: 1px solid #1e2636;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   max-width: 200px;
+}
+
+@media (max-width: 768px) {
+    /* Trade log table mobile adjustments */
+    .trades-table {
+        min-width: 500px;
+        font-size: 0.85em;
+    }
+    
+    .trades-table th,
+    .trades-table td {
+        padding: 8px 6px;
+    }
+    
+    .trades-table-container {
+        margin: 0 -1rem;
+        border-radius: 0;
+        padding: 0;
+    }
+    
+    /* Adjust spacing for better touch targets */
+    .trades-table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    
+    .trades-table td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    /* Improve readability of numerical values */
+    .trades-table td[data-numerical] {
+        font-size: 0.9em;
+        font-family: 'SF Mono', 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
+    }
+    
+    /* Handle long content better */
+    .trades-table td {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .trades-table {
+        min-width: 450px;
+        font-size: 0.8em;
+    }
+    
+    .trades-table th,
+    .trades-table td {
+        padding: 6px 4px;
+    }
+    
+    /* Further reduce some column widths on very small screens */
+    .trades-table th:first-child,
+    .trades-table td:first-child {
+        width: 30px;
+        min-width: 30px;
+    }
+    
+    .trades-table th:nth-child(2),
+    .trades-table td:nth-child(2) {
+        width: 70px;
+        min-width: 70px;
+    }
+    
+    .trades-table th:last-child,
+    .trades-table td:last-child {
+        width: 90px;
+        min-width: 90px;
+    }
+    
+    /* Improve touch targets for buttons */
+    .action-btn,
+    .expand-legs-btn {
+        min-height: 36px;
+        min-width: 36px;
+    }
 }
 
 .trades-table th {
@@ -1103,13 +1489,37 @@ body {
 }
 
 /* Filter section styles */
+.filters-section {
+   margin-bottom: clamp(10px, 3vw, 15px);
+}
+
+#tradelog .filters-section {
+   padding-top: clamp(8px, 2vw, 10px);
+   position: sticky;
+   top: 0;
+   z-index: 10;
+   background: var(--bg-primary);
+}
+
+#tradelog .trades-table-container {
+   margin-top: 0;
+}
+
+.filters-section h3 {
+   color: var(--text-primary);
+   font-size: clamp(1rem, 3vw, 1.2rem);
+   font-weight: 500;
+   margin-bottom: clamp(8px, 2vw, 10px);
+}
+
 .filters {
-  display: flex;
-  gap: 15px;
-  padding: 20px;
-  background: #1a2634;
-  border-radius: 8px;
-  margin-bottom: 20px;
+   display: flex;
+   flex-wrap: wrap;
+   gap: clamp(8px, 2vw, 15px);
+   padding: clamp(10px, 3vw, 15px);
+   background: #1a2634;
+   border-radius: 8px;
+   margin-bottom: clamp(10px, 3vw, 15px);
 }
 
 .filters input,
@@ -1117,15 +1527,28 @@ body {
   background: #131722;
   border: 1px solid #2a3744;
   color: #8f9ba8;
-  padding: 8px 12px;
+  padding: clamp(6px, 2vw, 8px) clamp(8px, 2vw, 12px);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: clamp(12px, 2vw, 14px);
+  min-width: 120px;
+  max-width: 100%;
 }
 
 .filters input:focus,
 .filters select:focus {
   outline: none;
   border-color: #00c7b6;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+  
+  .filters input,
+  .filters select {
+    width: 100%;
+  }
 }
 
 /* Sort indicators */
@@ -1387,10 +1810,10 @@ th.sort-desc::after {
 }
 
 .metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-bottom: 24px;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 20px;
+   margin: 0;
 }
 
 .metrics-section {
@@ -1641,8 +2064,9 @@ th.sort-desc::after {
   border-bottom: 1px solid #2a3744;
 }
 
-/* Dashboard Styling */
-.dashboard-container {
+/* Container Styling */
+.dashboard-container,
+.content-container {
   padding: 1.5rem;
   background: #1a1d23;
   border-radius: 12px;
@@ -1651,10 +2075,10 @@ th.sort-desc::after {
 }
 
 .metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: clamp(0.5rem, 2vw, 1rem);
+   margin-bottom: clamp(1rem, 4vw, 2rem);
 }
 
 .metric-card {
@@ -1710,8 +2134,12 @@ canvas {
   margin: 0 auto;
 }
 
-/* Dashboard grid */
+/* Dashboard grid - only shown in dashboard tab */
 .dashboard-grid {
+    display: none;
+}
+
+#dashboard.tab-pane.active .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
@@ -1720,30 +2148,51 @@ canvas {
 
 .chart-card {
     background-color: #151c24;
-    padding: 1.5rem;
+    padding: clamp(1rem, 3vw, 1.5rem);
     border-radius: 8px;
     border: 1px solid #2a3744;
-    height: 300px;
+    height: min(300px, 60vh);
+    max-height: 400px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chart-card .chart-container {
+    flex: 1;
+    min-height: 0;
+    height: calc(100% - 2rem);
+    width: 100%;
 }
 
 .chart-card h3 {
     color: #8f9ba8;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    margin-bottom: clamp(0.5rem, 2vw, 1rem);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Chart container */
 .chart-card canvas {
     width: 100% !important;
-    height: calc(100% - 2rem) !important;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: 1rem;
+    height: 100% !important;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    max-height: calc(100% - 2rem);
+}
+
+
+.chart-card .chart-content {
+    position: relative;
+    height: calc(100% - 2rem);
+    overflow: hidden;
 }
 
 /* Responsive adjustments */

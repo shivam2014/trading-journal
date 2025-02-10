@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export interface Trade {
   id: string;
   ticker: string;
@@ -17,6 +19,9 @@ export interface Trade {
   exchangeRate?: number;    // For currency conversion transactions
   percentClosed?: number;   // For partially closed trades
   isDemo?: boolean;         // Flag to identify demo trades
+  adjustedShares?: number;  // Share quantity adjusted for splits
+  originalShares?: number;  // Original share quantity before splits
+  isAdjustedForSplit?: boolean; // Flag to indicate if shares were adjusted for splits
 }
 
 export interface TradeGroupSummary {
@@ -56,7 +61,7 @@ export interface TradeGroup {
   percentClosed: number;
   currency?: string;
   summary: TradeGroupSummary;
-  // Additional metrics from original implementation
+  // Additional metrics
   avgEntryPrice: number;
   avgExitPrice: number;
   holdingPeriodHours: number;
@@ -64,6 +69,12 @@ export interface TradeGroup {
   positionSizePercent: number;
   score: number;
   winRate: number;
+  // New fields for hierarchical grouping
+  parentGroupId?: string;    // Reference to parent group if this is a sub-group
+  childGroups?: TradeGroup[]; // Child groups if this is a parent group
+  isSubGroup?: boolean;      // Flag to identify if this is a sub-group
+  groupType?: 'strategy' | 'session' | 'manual'; // Type of grouping
+  description?: string;      // Optional description of the group
 }
 
 export interface TickerGroup {
@@ -75,9 +86,15 @@ export interface TickerGroup {
   totalFees: number;
   openPositions: number;
   lastTradeDate: Date;
-  totalVolume: number;   // Required for sorting and display
-  winRate: number;      // Required for sorting and display
-  score: number;        // Required for sorting and display
+  totalVolume: number;
+  winRate: number;
+  score: number;
+  // New fields for improved organization
+  strategies: string[];      // List of unique strategies used
+  sessions: string[];        // List of unique sessions
+  openGroups: number;        // Count of open groups
+  closedGroups: number;      // Count of closed groups
+  partialGroups: number;     // Count of partially closed groups
 }
 
 export interface TradingStats {
@@ -94,10 +111,10 @@ export interface TradingStats {
   averageLoss: number;
   profitFactor: number;
   averageHoldingTime: number;
-  totalInterest: number;     // Added for interest earnings
-  totalDividends: number;    // Added for dividend earnings
-  totalDeposits: number;     // Added for deposits
-  totalWithdrawals: number;  // Added for withdrawals
+  totalInterest: number;
+  totalDividends: number;
+  totalDeposits: number;
+  totalWithdrawals: number;
   totalFees: number;
   totalVolume: number;
   partiallyClosedTrades: number;
@@ -116,7 +133,7 @@ export interface ChartData {
 }
 
 export interface TradeFilters {
-  symbol?: string;
+  symbols?: string[];
   strategy?: string;
   session?: string;
   startDate?: Date;
@@ -124,6 +141,7 @@ export interface TradeFilters {
   action?: 'BUY' | 'SELL' | 'INTEREST' | 'LENDING_INTEREST' | 'DIVIDEND' | 'DEPOSIT' | 'WITHDRAWAL' | 'CURRENCY_CONVERSION';
   status?: 'OPEN' | 'CLOSED' | 'PARTIALLY_CLOSED';
   currency?: string;
+  groupType?: 'strategy' | 'session' | 'manual';
 }
 
 export type SortableTickerColumns = 

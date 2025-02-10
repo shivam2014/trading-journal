@@ -4,14 +4,28 @@ import { NextResponse } from 'next/server';
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const ticker = searchParams.get('ticker');
-    const action = searchParams.get('action');
-    const startDate = searchParams.get('startDate');
-    const endDate = searchParams.get('endDate');
-    const sortColumn = searchParams.get('sortColumn');
-    const sortDirection = searchParams.get('sortDirection');
+    const sortColumn = searchParams.get('sortColumn') || 'timestamp';
+    const sortDirection = searchParams.get('sortDirection') || 'desc';
 
-    let queryString = `
+    // Convert sortColumn to actual database column name
+    const columnMap: Record<string, string> = {
+      'lastTradeDate': 'timestamp',
+      'ticker': 'ticker',
+      'action': 'action',
+      'shares': 'shares',
+      'price': 'price',
+      'result': 'result'
+    };
+
+    const dbColumn = columnMap[sortColumn] || 'timestamp';
+
+    // Add better error handling and logging
+    console.log('Fetching trades with params:', {
+      sortColumn: dbColumn,
+      sortDirection
+    });
+
+    const queryString = `
       SELECT
         id,
         ticker,
@@ -23,44 +37,18 @@ export async function GET(request: Request) {
         fees,
         notes,
         group_id,
+        currency,
+        target_currency,
+        exchange_rate,
+        strategy,
+        session,
         is_demo
       FROM trades
+      ORDER BY ${dbColumn} ${sortDirection}
     `;
 
-    const conditions: string[] = [];
-    const values: any[] = [];
-
-    if (ticker) {
-      conditions.push(`ticker ILIKE $${values.length + 1}`);
-      values.push(`%${ticker}%`);
-    }
-
-    if (action) {
-      conditions.push(`action = $${values.length + 1}`);
-      values.push(action);
-    }
-
-    if (startDate) {
-      conditions.push(`timestamp >= $${values.length + 1}`);
-      values.push(new Date(startDate));
-    }
-
-    if (endDate) {
-      conditions.push(`timestamp <= $${values.length + 1}`);
-      values.push(new Date(endDate));
-    }
-
-    if (conditions.length > 0) {
-      queryString += ` AND ${conditions.join(" AND ")}`;
-    }
-
-    if (sortColumn && sortDirection) {
-      queryString += ` ORDER BY ${sortColumn} ${sortDirection}`;
-    } else {
-      queryString += ` ORDER BY timestamp DESC`;
-    }
-
-    const result = await db.query(queryString, values);
+    const result = await db.query(queryString);
+    console.log(`Found ${result.rows.length} trades`);
 
     if (result.rows.length === 0) {
       return NextResponse.json({
@@ -69,19 +57,29 @@ export async function GET(request: Request) {
       });
     }
 
+    const trades = result.rows.map(row => ({
+      id: row.id,
+      ticker: row.ticker,
+      action: row.action,
+      shares: Number(row.shares),
+      price: Number(row.price),
+      timestamp: new Date(row.timestamp),
+      result: row.result ? Number(row.result) : 0,
+      fees: row.fees ? Number(row.fees) : 0,
+      notes: row.notes,
+      groupId: row.group_id,
+      currency: row.currency,
+      targetCurrency: row.target_currency,
+      exchangeRate: row.exchange_rate ? Number(row.exchange_rate) : undefined,
+      strategy: row.strategy,
+      session: row.session,
+      isDemo: row.is_demo
+    }));
+
+    console.log(`Processed ${trades.length} trades for response`);
+
     return NextResponse.json({
-      trades: result.rows.map(row => ({
-        id: row.id,
-        ticker: row.ticker,
-        action: row.action,
-        shares: Number(row.shares),
-        price: Number(row.price),
-        timestamp: row.timestamp,
-        result: row.result ? Number(row.result) : 0,
-        fees: row.fees ? Number(row.fees) : 0,
-        notes: row.notes,
-        groupId: row.group_id,
-      })),
+      trades,
       status: 'success'
     });
   } catch (error) {

@@ -24,7 +24,7 @@ export async function GET() {
         CREATE TABLE trades (
           id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
           ticker VARCHAR(20) NOT NULL,
-          action VARCHAR(10) NOT NULL CHECK (action IN ('BUY', 'SELL')),
+          action VARCHAR(20) NOT NULL CHECK (action IN ('BUY', 'SELL', 'DIVIDEND', 'DEPOSIT', 'WITHDRAWAL', 'LENDING_INTEREST', 'CURRENCY_CONVERSION')),
           shares DECIMAL NOT NULL,
           price DECIMAL NOT NULL,
           timestamp TIMESTAMPTZ NOT NULL,
@@ -33,7 +33,13 @@ export async function GET() {
           notes TEXT,
           group_id UUID,
           created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-          updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+          updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+          is_demo BOOLEAN DEFAULT false,
+          currency VARCHAR(10),
+          target_currency VARCHAR(10),
+          exchange_rate DECIMAL,
+          strategy VARCHAR(20),
+          session VARCHAR(20)
         );
       `);
 
@@ -62,7 +68,8 @@ export async function GET() {
       message: 'Trades table exists',
       status: 'exists',
       schema: columnsCheck.rows,
-      isEmpty: Number(tradesCount.rows[0]?.count || '0') === 0
+      isEmpty: Number(tradesCount.rows[0]?.count || '0') === 0,
+      hasData: Number(tradesCount.rows[0]?.count || '0') > 0
     });
 
   } catch (error) {

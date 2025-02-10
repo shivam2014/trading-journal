@@ -29,6 +29,13 @@ export interface TradeGroupSummary {
   totalDividends: number;
   partiallyClosedTrades: number;
   avgPercentClosed: number;
+  avgEntryPrice: number;
+  avgExitPrice: number;
+  holdingPeriodHours: number;
+  riskRewardRatio: number;
+  positionSizePercent: number;
+  score: number;
+  winRate: number;
 }
 
 export interface TradeGroup {
@@ -49,6 +56,28 @@ export interface TradeGroup {
   percentClosed: number;
   currency?: string;
   summary: TradeGroupSummary;
+  // Additional metrics from original implementation
+  avgEntryPrice: number;
+  avgExitPrice: number;
+  holdingPeriodHours: number;
+  riskRewardRatio: number;
+  positionSizePercent: number;
+  score: number;
+  winRate: number;
+}
+
+export interface TickerGroup {
+  ticker: string;
+  tradeGroups: TradeGroup[];
+  totalRealizedPnL: number;
+  totalUnrealizedPnL: number;
+  totalDividends: number;
+  totalFees: number;
+  openPositions: number;
+  lastTradeDate: Date;
+  totalVolume: number;   // Required for sorting and display
+  winRate: number;      // Required for sorting and display
+  score: number;        // Required for sorting and display
 }
 
 export interface TradingStats {
@@ -97,8 +126,20 @@ export interface TradeFilters {
   currency?: string;
 }
 
+export type SortableTickerColumns = 
+  | 'ticker'
+  | 'lastTradeDate'
+  | 'totalRealizedPnL'
+  | 'totalUnrealizedPnL'
+  | 'totalDividends'
+  | 'totalFees'
+  | 'openPositions'
+  | 'totalVolume'
+  | 'winRate'
+  | 'score';
+
 export interface TradeSort {
-  column: string;
+  column: SortableTickerColumns;
   direction: 'asc' | 'desc';
 }
 

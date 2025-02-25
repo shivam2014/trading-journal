@@ -2,8 +2,49 @@ import { useCallback } from 'react';
 import type { Trade, TradeGroupSummary } from '@/types/trade';
 
 export function useTradeGroupMetrics() {
+  // Calculate group score based on various metrics
+  const calculateGroupScore = useCallback((
+    realizedPnL: number,
+    unrealizedPnL: number,
+    percentClosed: number,
+    holdingPeriodHours: number
+  ): number => {
+    let score = 0;
+    const totalPnL = realizedPnL + unrealizedPnL;
+
+    // Profit/Loss impact (0-50 points)
+    if (totalPnL > 0) {
+      score += Math.min(50, (totalPnL / 1000) * 10);
+    }
+
+    // Holding period impact (0-25 points)
+    const holdingPeriodDays = holdingPeriodHours / 24;
+    if (holdingPeriodDays <= 5) {
+      score += 25;
+    } else if (holdingPeriodDays <= 10) {
+      score += 15;
+    } else if (holdingPeriodDays <= 20) {
+      score += 10;
+    } else {
+      score += 5;
+    }
+
+    // Position closure impact (0-25 points)
+    if (percentClosed === 100) {
+      score += 25;
+    } else if (percentClosed >= 75) {
+      score += 20;
+    } else if (percentClosed >= 50) {
+      score += 15;
+    } else if (percentClosed > 0) {
+      score += 10;
+    }
+
+    return Math.round(score);
+  }, []);
+
   // Calculate metrics for a group of trades
-  const calculateGroupMetrics = useCallback((trades: Trade[], isSubGroup: boolean = false) => {
+  const calculateGroupMetrics = useCallback((trades: Trade[]) => {
     let netShares = 0;
     let realizedPnL = 0;
     let unrealizedPnL = 0;
@@ -109,48 +150,7 @@ export function useTradeGroupMetrics() {
       summary,
       status
     };
-  }, []);
-
-  // Calculate group score based on various metrics
-  const calculateGroupScore = useCallback((
-    realizedPnL: number,
-    unrealizedPnL: number,
-    percentClosed: number,
-    holdingPeriodHours: number
-  ): number => {
-    let score = 0;
-    const totalPnL = realizedPnL + unrealizedPnL;
-
-    // Profit/Loss impact (0-50 points)
-    if (totalPnL > 0) {
-      score += Math.min(50, (totalPnL / 1000) * 10);
-    }
-
-    // Holding period impact (0-25 points)
-    const holdingPeriodDays = holdingPeriodHours / 24;
-    if (holdingPeriodDays <= 5) {
-      score += 25;
-    } else if (holdingPeriodDays <= 10) {
-      score += 15;
-    } else if (holdingPeriodDays <= 20) {
-      score += 10;
-    } else {
-      score += 5;
-    }
-
-    // Position closure impact (0-25 points)
-    if (percentClosed === 100) {
-      score += 25;
-    } else if (percentClosed >= 75) {
-      score += 20;
-    } else if (percentClosed >= 50) {
-      score += 15;
-    } else if (percentClosed > 0) {
-      score += 10;
-    }
-
-    return Math.round(score);
-  }, []);
+  }, [calculateGroupScore]);
 
   return {
     calculateGroupMetrics,

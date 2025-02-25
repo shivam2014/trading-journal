@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useTrades } from './useTrades';
 import { useTradeGrouping } from './useTradeGrouping';
-import { useTradeProcessing, ProcessedTrade } from './useTradeProcessing';
+import { useTradeProcessing } from './useTradeProcessing';
 import type { TradeSort, TradeFilters, TradeGroup, TickerGroup } from '@/types/trade';
 
 interface UseGroupedTradesOptions {
@@ -33,9 +33,6 @@ export function useGroupedTrades({ sort, filter }: UseGroupedTradesOptions = {})
   } = useTradeGrouping();
 
   const { groups, tickerGroups, summary } = useMemo(() => {
-    console.log('Starting trade grouping process');
-
-    // Initialize empty state
     const emptySummary: GroupedTradesSummary = {
       totalTrades: 0,
       totalVolume: 0,
@@ -49,7 +46,6 @@ export function useGroupedTrades({ sort, filter }: UseGroupedTradesOptions = {})
       closedGroups: 0
     };
 
-    // Return empty state if no processed trades
     if (!processedTrades?.length) {
       return {
         groups: [],
@@ -58,7 +54,6 @@ export function useGroupedTrades({ sort, filter }: UseGroupedTradesOptions = {})
       };
     }
 
-    // Initialize data structures
     const sortedTrades = [...processedTrades].sort((a, b) => a.timestamp.getTime() - b.timestamp.getTime());
     const tickerMap = new Map<string, TickerGroup>();
     const summary: GroupedTradesSummary = {
@@ -66,33 +61,26 @@ export function useGroupedTrades({ sort, filter }: UseGroupedTradesOptions = {})
       totalTrades: processedTrades.length
     };
 
-    // First pass: Create ticker groups
     sortedTrades.forEach(trade => {
       if (!tickerMap.has(trade.ticker)) {
         tickerMap.set(trade.ticker, createTickerGroup(trade.ticker));
       }
     });
 
-    // Second pass: Process trades by ticker
     tickerMap.forEach((tickerGroup, ticker) => {
       const tickerTrades = sortedTrades.filter(t => t.ticker === ticker);
-      console.log(`Processing ${tickerTrades.length} trades for ${ticker}`);
 
-      // Use adjusted shares for trade grouping
       const adjustedTrades = tickerTrades.map(trade => ({
         ...trade,
         shares: trade.adjustedShares || trade.shares
       }));
 
-      // Group trades by relationship (buy/sell pairs)
       const tradeGroups = groupTradesByRelationship(adjustedTrades, ticker);
 
-      // Add trade groups to ticker group and update metrics
       tradeGroups.forEach(tradeGroup => {
         tickerGroup.tradeGroups.push(tradeGroup);
         updateTickerGroupMetrics(tickerGroup, tradeGroup);
 
-        // Update summary counters
         if (tradeGroup.status === 'PARTIALLY_CLOSED') {
           summary.partiallyClosedCount++;
         } else if (tradeGroup.status === 'OPEN') {
@@ -101,7 +89,6 @@ export function useGroupedTrades({ sort, filter }: UseGroupedTradesOptions = {})
           summary.closedGroups++;
         }
 
-        // Track unique strategies and sessions
         if (tradeGroup.strategy && !tickerGroup.strategies.includes(tradeGroup.strategy)) {
           tickerGroup.strategies.push(tradeGroup.strategy);
         }
@@ -110,14 +97,12 @@ export function useGroupedTrades({ sort, filter }: UseGroupedTradesOptions = {})
         }
       });
 
-      // Calculate ticker group averages
       const activeGroups = tickerGroup.tradeGroups.length;
       if (activeGroups > 0) {
         tickerGroup.winRate = tickerGroup.tradeGroups.reduce((acc, g) => acc + g.winRate, 0) / activeGroups;
         tickerGroup.score = tickerGroup.tradeGroups.reduce((acc, g) => acc + g.score, 0) / activeGroups;
       }
 
-      // Update overall summary
       summary.totalVolume += tickerGroup.totalVolume;
       summary.totalPnL += tickerGroup.totalRealizedPnL + tickerGroup.totalUnrealizedPnL;
       summary.realizedPnL += tickerGroup.totalRealizedPnL;
@@ -126,7 +111,6 @@ export function useGroupedTrades({ sort, filter }: UseGroupedTradesOptions = {})
       summary.totalDividends += tickerGroup.totalDividends;
     });
 
-    // Sort ticker groups based on sort parameter or default to last trade date
     let sortedTickerGroups = Array.from(tickerMap.values());
     if (sort?.column) {
       sortedTickerGroups.sort((a, b) => {
@@ -157,7 +141,6 @@ export function useGroupedTrades({ sort, filter }: UseGroupedTradesOptions = {})
         }
       });
     } else {
-      // Default sort by last trade date descending
       sortedTickerGroups.sort((a, b) => b.lastTradeDate.getTime() - a.lastTradeDate.getTime());
     }
 
@@ -166,14 +149,7 @@ export function useGroupedTrades({ sort, filter }: UseGroupedTradesOptions = {})
       tickerGroups: sortedTickerGroups,
       summary
     };
-  }, [
-    processedTrades,
-    sort,
-    createTickerGroup,
-    createTradeGroup,
-    groupTradesByRelationship,
-    updateTickerGroupMetrics
-  ]);
+  }, [processedTrades, sort, createTickerGroup, createTradeGroup, groupTradesByRelationship, updateTickerGroupMetrics]);
 
   return {
     groups,

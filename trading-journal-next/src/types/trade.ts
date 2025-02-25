@@ -1,9 +1,7 @@
-import type { ReactNode } from 'react';
-
 export interface Trade {
   id: string;
   ticker: string;
-  action: 'BUY' | 'SELL' | 'INTEREST' | 'LENDING_INTEREST' | 'DIVIDEND' | 'DEPOSIT' | 'WITHDRAWAL' | 'CURRENCY_CONVERSION';
+  action: 'BUY' | 'SELL' | 'INTEREST' | 'LENDING_INTEREST' | 'DIVIDEND' | 'DEPOSIT' | 'WITHDRAWAL' | 'CURRENCY_CONVERSION' | 'SPLIT';
   shares: number;
   price: number;
   timestamp: Date;
@@ -22,6 +20,11 @@ export interface Trade {
   adjustedShares?: number;  // Share quantity adjusted for splits
   originalShares?: number;  // Original share quantity before splits
   isAdjustedForSplit?: boolean; // Flag to indicate if shares were adjusted for splits
+  splitRatio?: {           // For SPLIT action trades
+    numerator: number;     // e.g., 4 in a 4:1 split
+    denominator: number;   // e.g., 1 in a 4:1 split
+  };
+  isSystemGenerated?: boolean; // Flag to identify system-generated trades like splits
 }
 
 export interface TradeGroupSummary {

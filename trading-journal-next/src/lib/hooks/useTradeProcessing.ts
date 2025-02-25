@@ -29,7 +29,6 @@ export function useTradeProcessing(trades: Trade[]) {
         setIsLoading(true);
         const processedTradesMap = new Map<string, ProcessedTrade[]>();
         
-        // Group trades by ticker for efficient processing
         trades.forEach(trade => {
           const trades = processedTradesMap.get(trade.ticker) || [];
           trades.push({
@@ -41,23 +40,23 @@ export function useTradeProcessing(trades: Trade[]) {
           processedTradesMap.set(trade.ticker, trades);
         });
 
-        // Process each ticker's trades
         for (const [ticker, tickerTrades] of processedTradesMap.entries()) {
           try {
-            // Sort trades by date for accurate split processing
             tickerTrades.sort((a, b) => a.timestamp.getTime() - b.timestamp.getTime());
-            
-            // Get splits data for full trade date range
+            console.log(`Processing splits for ${ticker}`);
             const splits = await getStockSplits(
               ticker,
               tickerTrades[0].timestamp,
               tickerTrades[tickerTrades.length - 1].timestamp
             );
 
-            // Skip if no splits found
-            if (!splits.length) continue;
+            console.log(`Found splits for ${ticker}:`, splits);
 
-            // Adjust shares for splits
+            if (!splits.length) {
+              console.log(`No splits found for ${ticker}`);
+              continue;
+            }
+
             tickerTrades.forEach(trade => {
               const adjustedShares = adjustSharesForSplits(
                 trade.shares,
@@ -65,40 +64,50 @@ export function useTradeProcessing(trades: Trade[]) {
                 splits
               );
 
+              console.log(`${ticker} trade adjustment:`, {
+                date: trade.timestamp,
+                originalShares: trade.shares,
+                adjustedShares,
+                action: trade.action,
+                splitInfo: splits.map(split => ({
+                  date: split.date,
+                  ratio: `${split.numerator}:${split.denominator}`
+                }))
+              });
+
               if (adjustedShares !== trade.shares) {
                 trade.adjustedShares = adjustedShares;
                 trade.isAdjustedForSplit = true;
               }
             });
 
-            // Validate prices for adjusted trades
             for (const trade of tickerTrades) {
               if (trade.isAdjustedForSplit) {
-                const isValid = await validatePriceData(
+                await validatePriceData(
                   ticker,
                   trade.timestamp,
                   trade.price
                 );
-                
-                if (!isValid) {
-                  console.warn(
-                    `Price validation failed for ${ticker} on ${trade.timestamp}`
-                  );
-                }
               }
             }
           } catch (error) {
-            console.error(`Error processing trades for ${ticker}:`, error);
+            console.error(`Processing error for ${ticker}:`, {
+              error: error instanceof Error ? {
+                name: error.name,
+                message: error.message,
+                stack: error.stack
+              } : String(error),
+              ticker
+            });
           }
         }
 
-        // Flatten the map back to array
         const results = Array.from(processedTradesMap.values()).flat();
         setProcessedTrades(results);
         setError(null);
       } catch (error) {
         setError(error as Error);
-        console.error('Error processing trades:', error);
+        console.error('Trade processing error');
       } finally {
         setIsLoading(false);
       }

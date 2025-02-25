@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDownIcon, ChevronRightIcon, ArrowsUpDownIcon } from '@heroicons/react/24/outline';
 import { Trade, TradeGroup as ITradeGroup } from '@/types/trade';
 import { formatCurrency, formatDate } from '@/lib/utils/format';
+import { getCurrentPrice } from '@/lib/utils/yahoo-finance';
 
 interface TradeGroupProps {
   group: ITradeGroup;
@@ -15,6 +16,24 @@ interface TradeGroupProps {
 export function TradeGroup({ group, level = 0, isExpanded: defaultExpanded = false, groupNumber }: TradeGroupProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [showTrades, setShowTrades] = useState(false);
+  const [currentPrice, setCurrentPrice] = useState<number | null>(null);
+
+  // Fetch current price when group is expanded
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchPrice = async () => {
+      if (showTrades && group.ticker) {
+        const price = await getCurrentPrice(group.ticker);
+        if (isMounted) {
+          setCurrentPrice(price);
+        }
+      }
+    };
+
+    fetchPrice();
+    return () => { isMounted = false; };
+  }, [showTrades, group.ticker]);
 
   const childGroups = group.childGroups || [];
   const hasChildGroups = childGroups.length > 0;
@@ -76,6 +95,23 @@ export function TradeGroup({ group, level = 0, isExpanded: defaultExpanded = fal
         </td>
         <td className="whitespace-nowrap px-6 py-4 text-right text-sm text-gray-900 dark:text-gray-100">
           {formatCurrency(trade.price)}
+        </td>
+        <td className="whitespace-nowrap px-6 py-4 text-right text-sm">
+          {currentPrice === null ? (
+            <span className="text-gray-500 dark:text-gray-400" title="Loading or unable to fetch current price">
+              {showTrades ? "Loading..." : "-"}
+            </span>
+          ) : (
+            <span className={`font-medium ${
+              currentPrice > trade.price
+                ? 'text-green-600 dark:text-green-400'
+                : currentPrice < trade.price
+                ? 'text-red-600 dark:text-red-400'
+                : 'text-gray-900 dark:text-gray-100'
+            }`}>
+              {formatCurrency(currentPrice)}
+            </span>
+          )}
         </td>
         <td className="whitespace-nowrap px-6 py-4 text-right text-sm">
           <span
@@ -217,6 +253,9 @@ export function TradeGroup({ group, level = 0, isExpanded: defaultExpanded = fal
                     </th>
                     <th className="px-6 py-3 text-right text-sm font-semibold text-gray-900 dark:text-gray-100">
                       Price
+                    </th>
+                    <th className="px-6 py-3 text-right text-sm font-semibold text-gray-900 dark:text-gray-100">
+                      Current Price
                     </th>
                     <th className="px-6 py-3 text-right text-sm font-semibold text-gray-900 dark:text-gray-100">
                       P/L

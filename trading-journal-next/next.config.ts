@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import moduleAlias from 'module-alias';
+
+moduleAlias.addAlias('punycode', 'punycode/');
 
 const nextConfig: NextConfig = {
   env: {

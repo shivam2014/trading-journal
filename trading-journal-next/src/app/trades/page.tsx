@@ -7,10 +7,20 @@ import { TradeFilters } from "@/components/trades/TradeFilters";
 import { useState } from "react";
 import type { TradeFilters as ITradeFilters } from "@/types/trade";
 
+const defaultFilters: ITradeFilters = {
+  symbols: [],
+  strategy: undefined,
+  session: undefined,
+  startDate: undefined,
+  endDate: undefined,
+  action: undefined,
+  status: undefined,
+  currency: undefined,
+  groupType: 'strategy' // Default grouping
+};
+
 export default function TradesPage() {
-  const [filters, setFilters] = useState<ITradeFilters>({
-    groupType: 'strategy' // Default grouping
-  });
+  const [filters, setFilters] = useState<ITradeFilters>(defaultFilters);
 
   const handleFilterChange = (newFilters: Partial<ITradeFilters>) => {
     setFilters(prev => ({ ...prev, ...newFilters }));

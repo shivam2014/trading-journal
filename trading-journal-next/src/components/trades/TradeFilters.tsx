@@ -7,7 +7,10 @@ interface TradeFiltersProps {
   onFilterChange: (filters: Partial<ITradeFilters>) => void;
 }
 
-export function TradeFilters({ filters, onFilterChange }: TradeFiltersProps) {
+export function TradeFilters({ filters = { symbols: [] }, onFilterChange }: TradeFiltersProps) {
+  // Ensure filters.symbols is always an array
+  const symbols = Array.isArray(filters?.symbols) ? filters.symbols : [];
+  
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {/* Symbol Filter */}
@@ -23,13 +26,13 @@ export function TradeFilters({ filters, onFilterChange }: TradeFiltersProps) {
           id="symbols"
           className="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-500"
           placeholder="e.g., AAPL, MSFT"
-          value={filters.symbols?.join(', ') || ''}
+          value={symbols.join(', ')}
           onChange={(e) => {
-            const symbols = e.target.value
+            const newSymbols = e.target.value
               .split(',')
               .map(s => s.trim())
               .filter(Boolean);
-            onFilterChange({ symbols: symbols.length > 0 ? symbols : undefined });
+            onFilterChange({ symbols: newSymbols.length > 0 ? newSymbols : [] });
           }}
         />
       </div>
@@ -47,7 +50,7 @@ export function TradeFilters({ filters, onFilterChange }: TradeFiltersProps) {
           id="strategy"
           className="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-500"
           placeholder="Enter strategy"
-          value={filters.strategy || ''}
+          value={filters?.strategy || ''}
           onChange={(e) => onFilterChange({ strategy: e.target.value || undefined })}
         />
       </div>
@@ -65,7 +68,7 @@ export function TradeFilters({ filters, onFilterChange }: TradeFiltersProps) {
           id="session"
           className="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-400 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-500"
           placeholder="Enter session"
-          value={filters.session || ''}
+          value={filters?.session || ''}
           onChange={(e) => onFilterChange({ session: e.target.value || undefined })}
         />
       </div>
@@ -81,7 +84,7 @@ export function TradeFilters({ filters, onFilterChange }: TradeFiltersProps) {
         <select
           id="status"
           className="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
-          value={filters.status || ''}
+          value={filters?.status || ''}
           onChange={(e) => onFilterChange({ 
             status: (e.target.value || undefined) as ITradeFilters['status']
           })}
@@ -104,7 +107,7 @@ export function TradeFilters({ filters, onFilterChange }: TradeFiltersProps) {
         <select
           id="groupType"
           className="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
-          value={filters.groupType || 'strategy'}
+          value={filters?.groupType || 'strategy'}
           onChange={(e) => onFilterChange({ 
             groupType: (e.target.value || undefined) as ITradeFilters['groupType']
           })}
@@ -124,7 +127,7 @@ export function TradeFilters({ filters, onFilterChange }: TradeFiltersProps) {
           <input
             type="date"
             className="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
-            value={filters.startDate?.toISOString().split('T')[0] || ''}
+            value={filters?.startDate?.toISOString().split('T')[0] || ''}
             onChange={(e) => onFilterChange({ 
               startDate: e.target.value ? new Date(e.target.value) : undefined
             })}
@@ -132,7 +135,7 @@ export function TradeFilters({ filters, onFilterChange }: TradeFiltersProps) {
           <input
             type="date"
             className="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
-            value={filters.endDate?.toISOString().split('T')[0] || ''}
+            value={filters?.endDate?.toISOString().split('T')[0] || ''}
             onChange={(e) => onFilterChange({ 
               endDate: e.target.value ? new Date(e.target.value) : undefined
             })}

@@ -8,27 +8,28 @@ interface UseTradesOptions {
   filter?: TradeFilters;
 }
 
-function processTrade(trade: any): Trade {
-  // Ensure timestamp is a Date object whether it comes as string or Date
+interface RawTrade {
+  timestamp: Date | string;
+  shares: number | string;
+  price: number | string;
+  result?: number | string;
+  fees?: number | string;
+  exchangeRate?: number | string;
+  ticker: string;
+  action: Trade['action'];
+  [key: string]: unknown;
+}
+
+function processTrade(trade: RawTrade): Trade {
   const timestamp = trade.timestamp instanceof Date ? 
     trade.timestamp : 
     new Date(trade.timestamp);
   
-  // Process numeric fields
   const shares = Number(trade.shares);
   const price = Number(trade.price);
   const result = trade.result ? Number(trade.result) : 0;
   const fees = trade.fees ? Number(trade.fees) : 0;
   const exchangeRate = trade.exchangeRate ? Number(trade.exchangeRate) : undefined;
-
-  console.log('Processing trade:', {
-    ticker: trade.ticker,
-    action: trade.action,
-    timestamp: timestamp.toISOString(),
-    shares,
-    price,
-    result
-  });
 
   return {
     ...trade,
@@ -38,7 +39,7 @@ function processTrade(trade: any): Trade {
     result,
     fees,
     exchangeRate
-  };
+  } as Trade;
 }
 
 export function useTrades(options: UseTradesOptions = {}) {
@@ -49,7 +50,6 @@ export function useTrades(options: UseTradesOptions = {}) {
 
   const { sort } = options;
 
-  // Check database state and load demo trades if needed
   useEffect(() => {
     async function checkDatabase() {
       try {
@@ -59,10 +59,8 @@ export function useTrades(options: UseTradesOptions = {}) {
         }
         
         const data = await response.json();
-        console.log('Database check result:', data);
         
         if (data.status === 'created' || data.isEmpty) {
-          // Load demo trades when database is empty
           const demoResponse = await fetch('/api/trades/demo', {
             method: 'POST'
           });
@@ -83,7 +81,7 @@ export function useTrades(options: UseTradesOptions = {}) {
         setDbState('empty');
         setIsLoading(false);
       } catch (e) {
-        console.error("Error checking database:", e);
+        console.error("DB Check Error:", e);
         setDbState('error');
         setError(e instanceof Error ? e : new Error("Failed to check database status"));
         setIsLoading(false);
@@ -92,7 +90,6 @@ export function useTrades(options: UseTradesOptions = {}) {
     void checkDatabase();
   }, []);
 
-  // Construct URL with sort parameters
   const getTradesUrl = useCallback(() => {
     const url = new URL('/api/trades', window.location.origin);
     if (sort?.column && sort?.direction) {
@@ -105,7 +102,6 @@ export function useTrades(options: UseTradesOptions = {}) {
     return url.toString();
   }, [sort]);
 
-  // Fetch trades when database is ready
   useEffect(() => {
     if (dbState === 'ready') {
       async function fetchTrades() {
@@ -113,25 +109,21 @@ export function useTrades(options: UseTradesOptions = {}) {
           setIsLoading(true);
           setError(null);
 
-          console.log('Fetching trades from:', getTradesUrl());
           const response = await fetch(getTradesUrl());
           if (!response.ok) throw new Error('Failed to fetch trades');
 
           const data = await response.json();
-          console.log('Trades API response:', data);
 
           if (data.status === 'empty') {
-            console.log('No trades found');
             setTrades([]);
             setIsLoading(false);
             return;
           }
 
-          const processedTrades = data.trades.map(processTrade);
-          console.log(`Processed ${processedTrades.length} trades`);
+          const processedTrades = data.trades.map((trade: RawTrade) => processTrade(trade));
           setTrades(processedTrades);
         } catch (e) {
-          console.error("Error fetching trades:", e);
+          console.error("Trade Fetch Error:", e);
           setError(e instanceof Error ? e : new Error("Failed to fetch trades"));
         } finally {
           setIsLoading(false);
@@ -148,25 +140,20 @@ export function useTrades(options: UseTradesOptions = {}) {
       setIsLoading(true);
       setError(null);
 
-      console.log('Refreshing trades');
       const response = await fetch(getTradesUrl());
       if (!response.ok) throw new Error('Failed to fetch trades');
 
       const data = await response.json();
-      console.log('Refresh response:', data);
-      
-      const processedTrades = data.trades.map(processTrade);
-      console.log(`Processed ${processedTrades.length} trades during refresh`);
+      const processedTrades = data.trades.map((trade: RawTrade) => processTrade(trade));
       setTrades(processedTrades);
     } catch (e) {
-      console.error("Error fetching trades:", e);
+      console.error("Refresh Error:", e);
       setError(e instanceof Error ? e : new Error("Failed to fetch trades"));
     } finally {
       setIsLoading(false);
     }
   }, [dbState, getTradesUrl]);
 
-  // Create a default pagination object
   const pagination: Pagination = {
     page: 1,
     pageSize: 20,

@@ -11,6 +11,12 @@ const tickerMap: Record<string, string> = {
   'LLOY.L': 'LLOY.LON',
   'VOD.L': 'VOD.LON',
   
+  // Commodities - Need special Yahoo Finance symbols
+  'NG': 'NG=F',  // Natural Gas Futures
+  'CL': 'CL=F',  // Crude Oil Futures
+  'GC': 'GC=F',  // Gold Futures
+  'SI': 'SI=F',  // Silver Futures
+  
   // Add more mappings as needed
 };
 
@@ -33,6 +39,12 @@ export function normalizeTickerSymbol(t212Ticker: string): string {
   // For UK stocks, ensure .LON suffix
   if (t212Ticker.endsWith('.L')) {
     return t212Ticker.replace('.L', '.LON');
+  }
+  
+  // Check if it might be a commodity future
+  if (/^[A-Z]{2}$/.test(t212Ticker)) {
+    // Common format for commodity futures is Symbol=F
+    return `${t212Ticker}=F`;
   }
   
   // If no special handling needed, return as-is

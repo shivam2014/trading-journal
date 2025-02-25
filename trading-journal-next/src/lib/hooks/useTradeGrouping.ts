@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import type { Trade, TradeGroup, TickerGroup } from '@/types/trade';
+import { ProcessedTrade } from './useTradeProcessing';
 import { useTradeGroupMetrics } from './useTradeGroupMetrics';
 
 export function useTradeGrouping() {
@@ -65,12 +66,12 @@ export function useTradeGrouping() {
       isSubGroup,
       groupType: isSubGroup ? 'session' : 'strategy'
     };
-  }, [calculateGroupMetrics]);
+  }, []);
 
-  const groupTradesByRelationship = useCallback((trades: Trade[], ticker: string): TradeGroup[] => {
+  const groupTradesByRelationship = useCallback((trades: (Trade | ProcessedTrade)[], ticker: string): TradeGroup[] => {
     const sortedTrades = [...trades].sort((a, b) => a.timestamp.getTime() - b.timestamp.getTime());
     const groups: TradeGroup[] = [];
-    let currentGroup: Trade[] = [];
+    let currentGroup: (Trade | ProcessedTrade)[] = [];
     let remainingShares = 0;
 
     // Process each trade
@@ -80,12 +81,14 @@ export function useTradeGrouping() {
         if (remainingShares === 0) {
           currentGroup = [];
         }
-        remainingShares += trade.shares;
+        const tradeShares = 'adjustedShares' in trade ? trade.adjustedShares : trade.shares;
+        remainingShares += tradeShares;
         currentGroup.push(trade);
       } else if (trade.action === 'SELL') {
         // Only add sell trades if we have an active group
         if (remainingShares > 0) {
-          remainingShares -= trade.shares;
+          const tradeShares = 'adjustedShares' in trade ? trade.adjustedShares : trade.shares;
+          remainingShares -= tradeShares;
           currentGroup.push(trade);
 
           // If position is closed (remainingShares = 0), finish the group

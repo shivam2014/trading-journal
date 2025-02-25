@@ -1,57 +1,84 @@
 'use client';
 
-import { Suspense } from "react";
-import { TradeLog } from "@/components/trades/TradeLog";
-import { PageHeader } from "@/components/layout/PageHeader";
-import { TradeFilters } from "@/components/trades/TradeFilters";
-import { useState } from "react";
-import type { TradeFilters as ITradeFilters } from "@/types/trade";
-
-const defaultFilters: ITradeFilters = {
-  symbols: [],
-  strategy: undefined,
-  session: undefined,
-  startDate: undefined,
-  endDate: undefined,
-  action: undefined,
-  status: undefined,
-  currency: undefined,
-  groupType: 'strategy' // Default grouping
-};
+import { useState } from 'react';
+import { useTrades } from '@/lib/hooks/useTrades';
+import TradeTable from '@/components/trades/TradeTable';
+import TradeGroups from '@/components/trades/TradeGroups';
+import ImportTrades from '@/components/trades/ImportTrades';
+import PageHeader from '@/components/layout/PageHeader';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { toast } from 'sonner';
 
 export default function TradesPage() {
-  const [filters, setFilters] = useState<ITradeFilters>(defaultFilters);
+  const [selectedTab, setSelectedTab] = useState<'trades' | 'groups'>('trades');
+  
+  const {
+    trades,
+    isLoading,
+    error,
+    clearTrades,
+  } = useTrades({
+    onError: (error) => toast.error(error.message),
+  });
 
-  const handleFilterChange = (newFilters: Partial<ITradeFilters>) => {
-    setFilters(prev => ({ ...prev, ...newFilters }));
+  const handleClearTrades = async () => {
+    try {
+      await clearTrades();
+      toast.success('Trades cleared successfully');
+    } catch (error) {
+      console.error('Failed to clear trades:', error);
+    }
   };
 
   return (
-    <div className="space-y-6 py-6">
+    <div className="container mx-auto px-4 py-8">
       <PageHeader
-        title="Trade Log"
-        description="View and analyze your trading history with advanced grouping and filtering."
+        title="Trades"
+        description="Manage and analyze your trades"
+        actions={
+          <div className="flex gap-4">
+            <ImportTrades />
+            <button
+              onClick={handleClearTrades}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            >
+              Clear Trades
+            </button>
+          </div>
+        }
       />
-      <div className="space-y-6">
-        {/* Filters Section */}
-        <div className="rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900">
-          <h2 className="mb-4 text-sm font-medium text-gray-900 dark:text-gray-100">
-            Filters & Options
-          </h2>
-          <TradeFilters filters={filters} onFilterChange={handleFilterChange} />
-        </div>
 
-        {/* Trade Log */}
-        <Suspense
-          fallback={
-            <div className="flex h-48 items-center justify-center">
-              <div className="text-gray-500 dark:text-gray-400">Loading trades...</div>
-            </div>
-          }
+      {error ? (
+        <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-md">
+          {error.message}
+        </div>
+      ) : (
+        <Tabs
+          value={selectedTab}
+          onValueChange={(value) => setSelectedTab(value as 'trades' | 'groups')}
+          className="mt-6"
         >
-          <TradeLog filters={filters} />
-        </Suspense>
-      </div>
+          <TabsList className="grid w-full grid-cols-2 lg:w-[400px]">
+            <TabsTrigger value="trades">Individual Trades</TabsTrigger>
+            <TabsTrigger value="groups">Trade Groups</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="trades" className="mt-6">
+            <TradeTable
+              trades={trades}
+              isLoading={isLoading}
+              className="mt-4"
+            />
+          </TabsContent>
+
+          <TabsContent value="groups" className="mt-6">
+            <TradeGroups
+              trades={trades}
+              className="mt-4"
+            />
+          </TabsContent>
+        </Tabs>
+      )}
     </div>
   );
 }

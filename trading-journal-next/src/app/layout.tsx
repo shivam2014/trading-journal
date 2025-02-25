@@ -1,44 +1,32 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navigation from "@/components/layout/Navigation";
-import { Providers } from "@/components/providers/Providers";
+import { Inter } from 'next/font/google';
+import { Toaster } from 'sonner';
+import { AuthProvider } from '@/components/providers/AuthProvider';
+import './globals.css';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ['latin'] });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Trading Journal",
-  description: "A modern trading journal application",
+export const metadata = {
+  title: 'Trading Journal',
+  description: 'A comprehensive trading journal with technical analysis',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background text-foreground antialiased`}
-      >
-        <Providers>
-          <div className="flex min-h-screen">
-            <Navigation />
-            <main className="flex-1 px-6 pb-6">
-              <div className="mx-auto max-w-7xl">
-                {children}
-              </div>
-            </main>
-          </div>
-        </Providers>
+      <body className={inter.className}>
+        <AuthProvider>
+          {children}
+          <Toaster
+            position="top-right"
+            expand={false}
+            richColors
+            closeButton
+          />
+        </AuthProvider>
       </body>
     </html>
   );

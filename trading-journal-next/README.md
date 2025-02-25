@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stock Trading Journal App
+
+A comprehensive trading journal application that allows traders to import their trade history, analyze performance, identify patterns, and gain actionable insights.
+
+## Features
+
+- **Trade Data Import**
+  - CSV uploads from Trading212 (with support for more brokers planned)
+  - Automated trade data parsing and analysis
+  - Real-time trade data syncing (where available)
+
+- **Trade Analysis**
+  - Automatic grouping of buy/sell transactions into complete trades
+  - Performance metrics calculation (win rate, P&L, risk-reward)
+  - Pattern identification in successful/unsuccessful trades
+  - Technical chart pattern detection
+
+- **Visualization & Insights**
+  - Performance dashboards with overall stats
+  - Interactive candlestick charts with volume
+  - Pattern annotations and technical indicators
+  - Historical analysis by various timeframes
+
+- **Currency Support**
+  - Multi-currency support (EUR, PHP, etc.)
+  - Real-time currency conversion
+  - Dynamic portfolio valuation
+
+- **Accessibility**
+  - Responsive design for desktop and mobile
+  - Dark theme optimized for traders
+  - Automated data processing for minimal manual input
+
+## Tech Stack
+
+- **Frontend**: Next.js 14 with React and TypeScript
+- **Styling**: Tailwind CSS
+- **Charts**: TBD (Chart.js/D3.js)
+- **Backend**: Next.js API Routes
+- **Database**: PostgreSQL
+- **Real-time Updates**: WebSocket/Socket.io
+- **Deployment**: Docker with AWS/Google Cloud
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [repository-url]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+Create a `.env.local` file with:
+```
+DATABASE_URL=your_database_url
+OPEN_EXCHANGE_RATES_KEY=your_api_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-To learn more about Next.js, take a look at the following resources:
+## Development Status
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Currently implementing core features:
+- ✅ Basic trade import functionality
+- ✅ Trade grouping logic
+- ✅ Performance metrics
+- 🟡 Currency conversion
+- 🟡 Technical analysis
+- ⚪️ Authentication
+- ⚪️ Docker deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Documentation
 
-## Deploy on Vercel
+- [Architecture Overview](docs/ARCHITECTURE.md)
+- [Technical Documentation](docs/TECHNICAL.md)
+- [Dependencies](docs/DEPENDENCIES.md)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## License
+
+[MIT License](LICENSE)

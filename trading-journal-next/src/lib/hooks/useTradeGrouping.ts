@@ -1,166 +1,156 @@
-import { useCallback } from 'react';
-import type { Trade, TradeGroup, TickerGroup } from '@/types/trade';
-import { ProcessedTrade } from './useTradeProcessing';
-import { useTradeGroupMetrics } from './useTradeGroupMetrics';
+import { useState, useCallback } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { TradeGroupingService } from '@/lib/services/trade-grouping';
+import type { 
+  Trade, 
+  TradeGroup, 
+  GroupingOptions, 
+  TradeGroupingResult 
+} from '@/types/trade';
 
-export function useTradeGrouping() {
-  const { calculateGroupMetrics } = useTradeGroupMetrics();
+interface UseTradeGroupingOptions {
+  enabled?: boolean;
+  onError?: (error: Error) => void;
+  onSuccess?: (results: TradeGroupingResult[]) => void;
+}
 
-  const createTickerGroup = useCallback((ticker: string): TickerGroup => {
-    return {
-      ticker,
-      tradeGroups: [],
-      totalRealizedPnL: 0,
-      totalUnrealizedPnL: 0,
-      totalDividends: 0,
-      totalFees: 0,
-      openPositions: 0,
-      lastTradeDate: new Date(),
-      totalVolume: 0,
-      winRate: 0,
-      score: 0,
-      strategies: [],
-      sessions: [],
-      openGroups: 0,
-      closedGroups: 0,
-      partialGroups: 0
-    };
-  }, []);
+export function useTradeGrouping(options: UseTradeGroupingOptions = {}) {
+  const [isCreatingGroup, setIsCreatingGroup] = useState(false);
+  const queryClient = useQueryClient();
+  
+  // Create a singleton instance of the service
+  const tradeGroupingService = new TradeGroupingService();
 
-  const createTradeGroup = useCallback((
-    trades: Trade[],
-    ticker: string,
-    strategy: string | undefined,
-    session: string | undefined,
-    metrics: ReturnType<typeof calculateGroupMetrics>,
-    isSubGroup: boolean = false
-  ): TradeGroup => {
-    const regularTrades = trades.filter(t => t.action === 'BUY' || t.action === 'SELL');
-    const dividendTrades = trades.filter(t => t.action === 'DIVIDEND');
+  // Query existing groups
+  const {
+    data: groups,
+    isLoading: isLoadingGroups,
+    error: groupsError,
+    refetch: refetchGroups,
+  } = useQuery({
+    queryKey: ['tradeGroups'],
+    queryFn: async () => {
+      // This would be replaced with your API call to fetch groups
+      return [] as TradeGroup[];
+    },
+    enabled: options.enabled,
+  });
 
-    return {
-      id: `${ticker}-${strategy || 'default'}-${session || 'default'}-${Date.now()}`,
-      ticker,
-      strategy,
-      session,
-      status: metrics.status as 'OPEN' | 'CLOSED' | 'PARTIALLY_CLOSED',
-      openDate: trades[0].timestamp,
-      closeDate: metrics.status === 'CLOSED' ? trades[trades.length - 1].timestamp : undefined,
-      trades,
-      regularTrades,
-      dividendTrades,
-      netShares: metrics.netShares,
-      realizedPnL: metrics.realizedPnL,
-      unrealizedPnL: metrics.unrealizedPnL,
-      totalFees: metrics.totalFees,
-      percentClosed: metrics.percentClosed,
-      currency: regularTrades[0]?.currency,
-      summary: metrics.summary,
-      avgEntryPrice: metrics.summary.avgEntryPrice,
-      avgExitPrice: metrics.summary.avgExitPrice,
-      holdingPeriodHours: metrics.summary.holdingPeriodHours,
-      riskRewardRatio: metrics.summary.riskRewardRatio,
-      positionSizePercent: metrics.summary.positionSizePercent,
-      score: metrics.summary.score,
-      winRate: metrics.summary.winRate,
-      isSubGroup,
-      groupType: isSubGroup ? 'session' : 'strategy'
-    };
-  }, []);
-
-  const groupTradesByRelationship = useCallback((trades: (Trade | ProcessedTrade)[], ticker: string): TradeGroup[] => {
-    const sortedTrades = [...trades].sort((a, b) => a.timestamp.getTime() - b.timestamp.getTime());
-    const groups: TradeGroup[] = [];
-    let currentGroup: (Trade | ProcessedTrade)[] = [];
-    let remainingShares = 0;
-
-    // Process each trade
-    for (const trade of sortedTrades) {
-      if (trade.action === 'BUY') {
-        // If we have no remaining shares, start a new group
-        if (remainingShares === 0) {
-          currentGroup = [];
-        }
-        const tradeShares = 'adjustedShares' in trade ? trade.adjustedShares : trade.shares;
-        remainingShares += tradeShares;
-        currentGroup.push(trade);
-      } else if (trade.action === 'SELL') {
-        // Only add sell trades if we have an active group
-        if (remainingShares > 0) {
-          const tradeShares = 'adjustedShares' in trade ? trade.adjustedShares : trade.shares;
-          remainingShares -= tradeShares;
-          currentGroup.push(trade);
-
-          // If position is closed (remainingShares = 0), finish the group
-          if (remainingShares === 0) {
-            const metrics = calculateGroupMetrics(currentGroup);
-            const group = createTradeGroup(
-              currentGroup,
-              ticker,
-              currentGroup[0].strategy,
-              currentGroup[0].session,
-              metrics,
-              false
-            );
-            groups.push(group);
-            currentGroup = [];
-          }
-          // If we've sold more shares than we have, something is wrong
-          else if (remainingShares < 0) {
-            console.error('Invalid trade sequence: More shares sold than bought');
-            remainingShares = 0;
-            currentGroup = [];
-          }
-        }
-      } else if (trade.action === 'DIVIDEND' && currentGroup.length > 0) {
-        // Add dividends to the current group if one exists
-        currentGroup.push(trade);
+  // Mutation for creating groups
+  const {
+    mutateAsync: createGroups,
+    isPending: isCreatingGroups,
+    error: createError,
+  } = useMutation({
+    mutationFn: async ({ 
+      trades, 
+      groupingOptions 
+    }: { 
+      trades: Trade[];
+      groupingOptions: GroupingOptions;
+    }) => {
+      setIsCreatingGroup(true);
+      try {
+        // We'll need to get the user ID from your auth context
+        const userId = 'current-user-id'; // Replace with actual user ID
+        return await tradeGroupingService.groupTrades(
+          userId,
+          trades,
+          groupingOptions
+        );
+      } finally {
+        setIsCreatingGroup(false);
       }
+    },
+    onSuccess: (results) => {
+      // Invalidate and refetch groups
+      queryClient.invalidateQueries({ queryKey: ['tradeGroups'] });
+      options.onSuccess?.(results);
+    },
+    onError: (error: Error) => {
+      options.onError?.(error);
+    },
+  });
+
+  // Convenience method for creating a single group
+  const createGroup = useCallback(async (
+    trades: Trade[],
+    groupingOptions: GroupingOptions
+  ): Promise<TradeGroupingResult[]> => {
+    return createGroups({ trades, groupingOptions });
+  }, [createGroups]);
+
+  // Method to get metrics for a specific group
+  const getGroupMetrics = useCallback(async (
+    groupId: string
+  ): Promise<TradeGroupingResult | null> => {
+    const group = groups?.find(g => g.id === groupId);
+    if (!group) return null;
+
+    try {
+      // Get metrics for the group
+      const metrics = await tradeGroupingService.getGroupMetrics(group);
+      return { group, metrics };
+    } catch (error) {
+      options.onError?.(error as Error);
+      return null;
+    }
+  }, [groups, options.onError, tradeGroupingService]);
+
+  // Method to update group settings
+  const updateGroup = useCallback(async (
+    groupId: string,
+    updates: Partial<GroupingOptions>
+  ): Promise<void> => {
+    try {
+      // This would be replaced with your API call to update group
+      await Promise.resolve(); // Placeholder
+      // Invalidate and refetch groups
+      queryClient.invalidateQueries({ queryKey: ['tradeGroups'] });
+    } catch (error) {
+      options.onError?.(error as Error);
+    }
+  }, [queryClient, options.onError]);
+
+  // Helper method to check if trades can be grouped
+  const canGroupTrades = useCallback((
+    trades: Trade[],
+    options: GroupingOptions
+  ): boolean => {
+    if (!trades.length) return false;
+    
+    // Check minimum trades requirement
+    if (options.minTrades && trades.length < options.minTrades) {
+      return false;
     }
 
-    // If we have an unfinished group with remaining shares, add it
-    if (currentGroup.length > 0) {
-      const metrics = calculateGroupMetrics(currentGroup);
-      const group = createTradeGroup(
-        currentGroup,
-        ticker,
-        currentGroup[0].strategy,
-        currentGroup[0].session,
-        metrics,
-        false
-      );
-      groups.push(group);
-    }
-
-    return groups;
-  }, [calculateGroupMetrics, createTradeGroup]);
-
-  const updateTickerGroupMetrics = useCallback((
-    tickerGroup: TickerGroup,
-    tradeGroup: TradeGroup
-  ) => {
-    tickerGroup.totalRealizedPnL += tradeGroup.realizedPnL;
-    tickerGroup.totalUnrealizedPnL += tradeGroup.unrealizedPnL;
-    tickerGroup.totalDividends += tradeGroup.summary.totalDividends;
-    tickerGroup.totalFees += tradeGroup.totalFees;
-    tickerGroup.openPositions += tradeGroup.netShares;
-    tickerGroup.totalVolume += tradeGroup.summary.totalVolume;
-
-    if (tradeGroup.status === 'OPEN') tickerGroup.openGroups++;
-    else if (tradeGroup.status === 'CLOSED') tickerGroup.closedGroups++;
-    else tickerGroup.partialGroups++;
-
-    // Update lastTradeDate if this group has more recent trades
-    const groupLastTradeDate = tradeGroup.closeDate || tradeGroup.openDate;
-    if (groupLastTradeDate > tickerGroup.lastTradeDate) {
-      tickerGroup.lastTradeDate = groupLastTradeDate;
-    }
+    // Additional validation could be added here
+    return true;
   }, []);
 
   return {
-    createTickerGroup,
-    createTradeGroup,
-    groupTradesByRelationship,
-    updateTickerGroupMetrics
+    // Data
+    groups,
+    isLoadingGroups,
+    error: groupsError || createError,
+
+    // State
+    isCreatingGroup: isCreatingGroup || isCreatingGroups,
+
+    // Methods
+    createGroup,
+    createGroups,
+    getGroupMetrics,
+    updateGroup,
+    canGroupTrades,
+    refetchGroups,
   };
 }
+
+// Export types
+export type { 
+  GroupingOptions,
+  TradeGroup,
+  TradeGroupingResult,
+  UseTradeGroupingOptions,
+};

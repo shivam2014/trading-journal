@@ -1,225 +1,204 @@
-# System Dependencies and Knowledge Graph
+# Dependencies Documentation
 
-## Component Relationships
+## Current Dependencies Analysis
 
-```mermaid
-graph TB
-    subgraph Frontend
-        Dashboard[Dashboard page]
-        Trades[Trades page]
-        Import[Import page]
-        Settings[Settings page]
-    end
+### Core Framework
+- `next`: ^15.1.6 (Next.js framework)
+- `react`: ^19.0.0
+- `react-dom`: ^19.0.0
+- `typescript`: ^5 (Development)
 
-    subgraph Components
-        EquityChart[EquityChart]
-        StatsGrid[StatsGrid]
-        TradeTable[TradeTable]
-        TradeFilters[TradeFilters]
-        ImportTrades[ImportTrades]
-    end
+### UI Components and Styling
+- `@headlessui/react`: ^2.2.0 (UI components)
+- `@heroicons/react`: ^2.2.0 (Icons)
+- `tailwindcss`: ^3.4.1 (CSS framework)
+- `classnames`: ^2.5.1 (CSS class utilities)
+- `clsx`: ^2.1.1 (CSS class utilities)
+- `framer-motion`: ^12.4.1 (Animations)
+- `sonner`: ^1.7.4 (Toast notifications)
 
-    subgraph Hooks
-        useTradeProcessing[useTradeProcessing]
-        useGroupedTrades[useGroupedTrades]
-        useTradeStats[useTradeStats]
-        useTradeGroupMetrics[useTradeGroupMetrics]
-    end
+### Data Visualization
+- `chart.js`: ^4.4.7
+- `react-chartjs-2`: ^5.3.0
 
-    subgraph API
-        TradesAPI[/api/trades]
-        StatsAPI[/api/stats]
-        MigrationsAPI[/api/migrations]
-    end
+### Data Management
+- `@neondatabase/serverless`: ^0.10.4 (Database)
+- `@vercel/postgres`: ^0.10.0 (Database)
+- `csv-parse`: ^5.6.0 (CSV parsing)
+- `date-fns`: ^4.1.0 (Date utilities)
 
-    subgraph Utils
-        YahooFinance[yahoo-finance.ts]
-        Format[format.ts]
-        TickerMapping[ticker-mapping.ts]
-    end
+### API Integration
+- `cross-fetch`: ^4.1.0 (HTTP requests)
+- `yahoo-finance2`: ^2.13.3 (Market data)
+- `ws`: ^8.18.0 (WebSocket)
+- `isomorphic-ws`: ^5.0.0 (WebSocket)
 
-    %% Frontend Dependencies
-    Dashboard --> EquityChart
-    Dashboard --> StatsGrid
-    Trades --> TradeTable
-    Trades --> TradeFilters
-    Import --> ImportTrades
+## Required Additional Dependencies
 
-    %% Component Dependencies
-    EquityChart --> useTradeStats
-    StatsGrid --> useTradeStats
-    TradeTable --> useGroupedTrades
-    TradeFilters --> useGroupedTrades
-    ImportTrades --> TradesAPI
-
-    %% Hook Dependencies
-    useTradeProcessing --> TradesAPI
-    useGroupedTrades --> useTradeProcessing
-    useTradeStats --> useTradeProcessing
-    useTradeGroupMetrics --> useGroupedTrades
-
-    %% API Dependencies
-    TradesAPI --> YahooFinance
-    YahooFinance --> TickerMapping
-    TradesAPI --> Format
+### Technical Analysis
+```json
+{
+  "dependencies": {
+    "technicalindicators": "^3.1.0",
+    "trading-signals": "^3.7.0",
+    "talib.js": "^1.4.6"
+  }
+}
 ```
 
-## Data Flow Diagram
-
-```mermaid
-flowchart LR
-    subgraph Input
-        IF[Import File]
-        MA[Manual Addition]
-    end
-
-    subgraph Processing
-        VP[Validation & Processing]
-        TG[Trade Grouping]
-        MC[Metrics Calculation]
-    end
-
-    subgraph Storage
-        DB[(Database)]
-    end
-
-    subgraph Output
-        EC[Equity Chart]
-        TT[Trade Table]
-        SG[Stats Grid]
-    end
-
-    IF --> VP
-    MA --> VP
-    VP --> DB
-    DB --> TG
-    TG --> MC
-    MC --> EC
-    MC --> SG
-    TG --> TT
+### Currency Support
+```json
+{
+  "dependencies": {
+    "currency.js": "^2.0.4",
+    "exchange-rates-api": "^1.1.0"
+  }
+}
 ```
 
-## Critical Code Paths
-
-```mermaid
-graph TD
-    subgraph Trade Import
-        A[Import File] -->|Validation| B[Parse Data]
-        B -->|Processing| C[Store Trades]
-        C -->|Update| D[Refresh Views]
-    end
-
-    subgraph Performance Calculation
-        E[Fetch Trades] -->|Group| F[Calculate Metrics]
-        F -->|Aggregate| G[Update Stats]
-        G -->|Render| H[Display Charts]
-    end
-
-    subgraph Real-time Updates
-        I[Price Update] -->|Fetch| J[Yahoo Finance]
-        J -->|Process| K[Update Trade]
-        K -->|Recalculate| L[Update UI]
-    end
+### Data Management
+```json
+{
+  "dependencies": {
+    "zod": "^3.22.4",
+    "prisma": "^5.7.1",
+    "@prisma/client": "^5.7.1",
+    "swr": "^2.2.4"
+  },
+  "devDependencies": {
+    "prisma-cli": "^1.0.0"
+  }
+}
 ```
 
-## Module Interface Map
-
-```mermaid
-classDiagram
-    class Trade {
-        +string id
-        +string symbol
-        +number entry_price
-        +number exit_price
-        +number quantity
-        +string direction
-        +Date entry_date
-        +Date exit_date
-        +number pnl
-        +number fees
-        +string? notes
-    }
-
-    class TradeGroup {
-        +Trade[] trades
-        +calculateMetrics()
-        +getStats()
-    }
-
-    class TradeProcessor {
-        +processTrades()
-        +groupTrades()
-        +calculateStats()
-    }
-
-    class YahooFinance {
-        +fetchHistoricalPrices()
-        +fetchCurrentPrice()
-        +validateSymbol()
-    }
-
-    Trade -- TradeGroup
-    TradeGroup -- TradeProcessor
-    TradeProcessor -- YahooFinance
+### Authentication
+```json
+{
+  "dependencies": {
+    "next-auth": "^5.0.0",
+    "@auth/prisma-adapter": "^1.0.12",
+    "bcryptjs": "^2.4.3",
+    "jose": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6"
+  }
+}
 ```
 
-## Key API Interfaces
-
-```mermaid
-graph LR
-    subgraph External APIs
-        YF[Yahoo Finance API]
-    end
-
-    subgraph Internal APIs
-        TA[Trades API]
-        SA[Stats API]
-        MA[Migrations API]
-    end
-
-    subgraph Database
-        DB[(PostgreSQL)]
-    end
-
-    YF -->|Market Data| TA
-    TA -->|CRUD| DB
-    SA -->|Read| DB
-    MA -->|Manage| DB
+### Testing
+```json
+{
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/user-event": "^14.5.1",
+    "msw": "^2.0.11",
+    "cypress": "^13.6.1"
+  }
+}
 ```
 
-## Development Workflow
-
-```mermaid
-graph LR
-    subgraph Development
-        CD[Code Changes]
-        TU[Unit Tests]
-        IT[Integration Tests]
-    end
-
-    subgraph Deployment
-        ST[Staging]
-        PR[Production]
-    end
-
-    CD -->|Validate| TU
-    TU -->|Pass| IT
-    IT -->|Success| ST
-    ST -->|Verify| PR
+### Development Tools
+```json
+{
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0"
+  }
+}
 ```
 
-This knowledge graph provides a comprehensive view of:
-1. Component relationships and dependencies
-2. Data flow through the system
-3. Critical code paths and their interactions
-4. Module interfaces and their connections
-5. API architecture and database interactions
-6. Development and deployment workflow
+## Installation Instructions
 
-Use this documentation to:
-- Understand system architecture
-- Track dependencies between components
-- Identify potential bottlenecks
-- Plan feature implementations
-- Guide code reviews
-- Assist in debugging
+1. Install new production dependencies:
+```bash
+npm install technicalindicators trading-signals talib.js currency.js exchange-rates-api zod prisma @prisma/client swr next-auth @auth/prisma-adapter bcryptjs jose
+```
+
+2. Install new development dependencies:
+```bash
+npm install -D prisma-cli @types/bcryptjs jest @testing-library/react @testing-library/jest-dom @testing-library/user-event msw cypress husky lint-staged prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser
+```
+
+## Configuration Requirements
+
+### Prisma
+```bash
+npx prisma init
+```
+
+### Jest
+Create `jest.config.js`:
+```javascript
+const nextJest = require('next/jest')
+
+const createJestConfig = nextJest({
+  dir: './',
+})
+
+const customJestConfig = {
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  moduleDirectories: ['node_modules', '<rootDir>/'],
+  testEnvironment: 'jest-environment-jsdom',
+}
+
+module.exports = createJestConfig(customJestConfig)
+```
+
+### ESLint
+Update `.eslintrc.json`:
+```json
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"]
+}
+```
+
+### Prettier
+Create `.prettierrc`:
+```json
+{
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5"
+}
+```
+
+### Husky
+```bash
+npx husky install
+npx husky add .husky/pre-commit "npm run lint-staged"
+```
+
+Create `lint-staged.config.js`:
+```javascript
+module.exports = {
+  '**/*.(ts|tsx)': () => 'npm run tsc --noEmit',
+  '**/*.(ts|tsx|js)': (filenames) => [
+    `npm run lint --fix ${filenames.join(' ')}`,
+    `npm run prettier --write ${filenames.join(' ')}`
+  ]
+}
+```
+
+## Environment Variables
+Add to `.env.local`:
+```env
+DATABASE_URL="postgresql://..."
+NEXT_PUBLIC_API_URL="http://localhost:3000/api"
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your-secret-here"
+OPEN_EXCHANGE_RATES_APP_ID="your-app-id"
+```
+
+This document should be updated whenever dependencies are added, removed, or updated.

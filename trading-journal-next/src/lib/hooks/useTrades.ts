@@ -1,173 +1,88 @@
-import { useEffect, useState, useCallback } from "react";
-import type { Trade, Pagination, TradeSort, TradeFilters } from "@/types/trade";
+import { useState } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import type { Trade } from '@/types/trade';
 
-type DatabaseState = 'checking' | 'empty' | 'ready' | 'error';
-
-interface UseTradesOptions {
-  sort?: TradeSort;
-  filter?: TradeFilters;
+export interface Pagination {
+  page: number;
+  pageSize: number;
+  totalPages: number;
+  totalItems: number;
 }
 
-interface RawTrade {
-  timestamp: Date | string;
-  shares: number | string;
-  price: number | string;
-  result?: number | string;
-  fees?: number | string;
-  exchangeRate?: number | string;
-  ticker: string;
-  action: Trade['action'];
-  [key: string]: unknown;
-}
+export type DatabaseState = 'empty' | 'loading' | 'ready' | 'error';
 
-function processTrade(trade: RawTrade): Trade {
-  const timestamp = trade.timestamp instanceof Date ? 
-    trade.timestamp : 
-    new Date(trade.timestamp);
-  
-  const shares = Number(trade.shares);
-  const price = Number(trade.price);
-  const result = trade.result ? Number(trade.result) : 0;
-  const fees = trade.fees ? Number(trade.fees) : 0;
-  const exchangeRate = trade.exchangeRate ? Number(trade.exchangeRate) : undefined;
-
-  return {
-    ...trade,
-    timestamp,
-    shares,
-    price,
-    result,
-    fees,
-    exchangeRate
-  } as Trade;
+export interface UseTradesOptions {
+  initialPage?: number;
+  pageSize?: number;
+  onError?: (error: Error) => void;
 }
 
 export function useTrades(options: UseTradesOptions = {}) {
-  const [trades, setTrades] = useState<Trade[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-  const [dbState, setDbState] = useState<DatabaseState>('checking');
+  const queryClient = useQueryClient();
+  const [page, setPage] = useState(options.initialPage || 1);
+  const pageSize = options.pageSize || 10;
 
-  const { sort } = options;
-
-  useEffect(() => {
-    async function checkDatabase() {
-      try {
-        const response = await fetch('/api/check-db');
-        if (!response.ok) {
-          throw new Error('Failed to check database status');
-        }
-        
-        const data = await response.json();
-        
-        if (data.status === 'created' || data.isEmpty) {
-          const demoResponse = await fetch('/api/trades/demo', {
-            method: 'POST'
-          });
-          
-          if (!demoResponse.ok) {
-            throw new Error('Failed to load demo trades');
-          }
-
-          setDbState('ready');
-          return;
-        }
-        
-        if (data.hasData) {
-          setDbState('ready');
-          return;
-        }
-        
-        setDbState('empty');
-        setIsLoading(false);
-      } catch (e) {
-        console.error("DB Check Error:", e);
-        setDbState('error');
-        setError(e instanceof Error ? e : new Error("Failed to check database status"));
-        setIsLoading(false);
+  const {
+    data,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ['trades', page, pageSize],
+    queryFn: async () => {
+      const response = await fetch(
+        `/api/trades?page=${page}&pageSize=${pageSize}`
+      );
+      if (!response.ok) {
+        throw new Error('Failed to fetch trades');
       }
-    }
-    void checkDatabase();
-  }, []);
+      return response.json();
+    },
+  });
 
-  const getTradesUrl = useCallback(() => {
-    const url = new URL('/api/trades', window.location.origin);
-    if (sort?.column && sort?.direction) {
-      url.searchParams.set('sortColumn', sort.column);
-      url.searchParams.set('sortDirection', sort.direction);
-    } else {
-      url.searchParams.set('sortColumn', 'lastTradeDate');
-      url.searchParams.set('sortDirection', 'desc');
-    }
-    return url.toString();
-  }, [sort]);
-
-  useEffect(() => {
-    if (dbState === 'ready') {
-      async function fetchTrades() {
-        try {
-          setIsLoading(true);
-          setError(null);
-
-          const response = await fetch(getTradesUrl());
-          if (!response.ok) throw new Error('Failed to fetch trades');
-
-          const data = await response.json();
-
-          if (data.status === 'empty') {
-            setTrades([]);
-            setIsLoading(false);
-            return;
-          }
-
-          const processedTrades = data.trades.map((trade: RawTrade) => processTrade(trade));
-          setTrades(processedTrades);
-        } catch (e) {
-          console.error("Trade Fetch Error:", e);
-          setError(e instanceof Error ? e : new Error("Failed to fetch trades"));
-        } finally {
-          setIsLoading(false);
-        }
+  const { mutateAsync: clearTrades } = useMutation({
+    mutationFn: async () => {
+      const response = await fetch('/api/trades/clear', {
+        method: 'POST',
+      });
+      if (!response.ok) {
+        throw new Error('Failed to clear trades');
       }
-      void fetchTrades();
-    }
-  }, [dbState, getTradesUrl]);
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['trades'] });
+    },
+    onError: (error: Error) => {
+      options.onError?.(error);
+    },
+  });
 
-  const refresh = useCallback(async () => {
-    if (dbState !== 'ready') return;
-    
-    try {
-      setIsLoading(true);
-      setError(null);
-
-      const response = await fetch(getTradesUrl());
-      if (!response.ok) throw new Error('Failed to fetch trades');
-
-      const data = await response.json();
-      const processedTrades = data.trades.map((trade: RawTrade) => processTrade(trade));
-      setTrades(processedTrades);
-    } catch (e) {
-      console.error("Refresh Error:", e);
-      setError(e instanceof Error ? e : new Error("Failed to fetch trades"));
-    } finally {
-      setIsLoading(false);
-    }
-  }, [dbState, getTradesUrl]);
-
-  const pagination: Pagination = {
-    page: 1,
-    pageSize: 20,
-    totalItems: trades.length,
-    totalPages: Math.ceil(trades.length / 20)
+  const trades: Trade[] = data?.trades || [];
+  const pagination: Pagination = data?.pagination || {
+    page,
+    pageSize,
+    totalPages: 1,
+    totalItems: 0,
   };
+
+  const isEmpty = !isLoading && trades.length === 0;
+  const dbState: DatabaseState = isLoading
+    ? 'loading'
+    : error
+    ? 'error'
+    : isEmpty
+    ? 'empty'
+    : 'ready';
 
   return {
     trades,
     isLoading,
     error,
-    isEmpty: trades.length === 0,
+    isEmpty,
     dbState,
-    refresh,
-    pagination
+    pagination,
+    clearTrades,
+    refresh: refetch,
   };
 }

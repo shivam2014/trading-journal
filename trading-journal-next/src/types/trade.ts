@@ -4,40 +4,32 @@ export interface Trade {
   id: string;
   userId: string;
   brokerTradeId: string;
-  action: string;
   ticker: string;
-  name?: string | null;
+  action: 'BUY' | 'SELL';
   quantity: Decimal;
   price: Decimal;
   currency: string;
-  exchangeRate?: Decimal | null;
-  totalAmount: Decimal;
-  convertedCurrency?: string | null;
-  convertedAmount?: Decimal | null;
   timestamp: Date;
-  notes?: string | null;
   createdAt: Date;
   updatedAt: Date;
+  totalAmount: Decimal;
 }
 
 export interface TradeGroup {
   id: string;
   userId: string;
   ticker: string;
-  status: string;
+  status: 'OPEN' | 'CLOSED';
   entryDate: Date;
-  exitDate?: Date | null;
   initialQuantity: Decimal;
   remainingQuantity: Decimal;
   averageEntryPrice: Decimal;
-  averageExitPrice?: Decimal | null;
-  realizedPnl?: Decimal | null;
   currency: string;
-  notes?: string | null;
-  createdAt: Date;
-  updatedAt: Date;
   entries: TradeGroupEntry[];
   patterns: TechnicalPattern[];
+  createdAt: Date;
+  updatedAt: Date;
+  notes?: string;
 }
 
 export interface TradeGroupEntry {
@@ -46,8 +38,8 @@ export interface TradeGroupEntry {
   tradeId: string;
   quantity: Decimal;
   createdAt: Date;
-  trade: Trade;
-  tradeGroup: TradeGroup;
+  trade?: Trade;
+  tradeGroup?: TradeGroup;
 }
 
 export interface TechnicalPattern {
@@ -58,19 +50,7 @@ export interface TechnicalPattern {
   entryPattern: boolean;
   exitPattern: boolean;
   timestamp: Date;
-  metadata?: any;
   createdAt: Date;
-  tradeGroup: TradeGroup;
-}
-
-export interface GroupingOptions {
-  strategy: 'ticker' | 'day' | 'week' | 'pattern' | 'custom';
-  timeframe?: 'day' | 'week' | 'month';
-  maxTimeGap?: number;
-  minTrades?: number;
-  patternConfidence?: number;
-  customGroupId?: string;
-  notes?: string;
 }
 
 export interface TradeGroupMetrics {
@@ -88,25 +68,53 @@ export interface TradeGroupMetrics {
   realizedPnl: number;
 }
 
-export interface GroupedTrade {
-  tradeId: string;
-  groupId: string;
-  quantity: number;
-  price: number;
-  timestamp: Date;
-}
-
-export interface PatternGroupCriteria {
-  patternType: string;
-  confidence: number;
-  timestamp: Date;
-}
-
 export interface TradeGroupingResult {
   group: TradeGroup;
   metrics: TradeGroupMetrics;
 }
 
-export type GroupingStrategy = GroupingOptions['strategy'];
+export interface GroupingOptions {
+  strategy: 'ticker' | 'day' | 'week' | 'pattern' | 'custom';
+  minTrades?: number;
+  timeframe?: 'day' | 'week' | 'month';
+  patternConfidence?: number;
+  maxTimeGap?: number;
+  customGroupId?: string;
+  notes?: string;
+}
 
-export type TimeFrame = NonNullable<GroupingOptions['timeframe']>;
+export interface Candle {
+  timestamp: number;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume?: number;
+}
+
+export interface PatternResult {
+  type: string;
+  direction: 'BULLISH' | 'BEARISH';
+  confidence: number;
+}
+
+export interface AnalysisResult {
+  sma: Record<string, number[]>;
+  rsi: number[];
+  macd: {
+    macd: number[];
+    signal: number[];
+    histogram: number[];
+  };
+}
+
+export interface AnalysisCapabilities {
+  indicators: string[];
+  patterns: string[];
+}
+
+export interface MACDOptions {
+  fast: number;
+  slow: number;
+  signal: number;
+}

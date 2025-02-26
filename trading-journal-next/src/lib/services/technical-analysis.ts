@@ -120,19 +120,19 @@ export class TechnicalAnalysisService {
     rsi?: number,
     macd?: { fast: number, slow: number, signal: number },
     bbands?: { period: number, stdDev: number },
-  } = {}): Promise<Record<string, IndicatorValue[]>> {
+  } = {}): Promise<Record<string, IndicatorValue[] | undefined>> {
     await this.initTALib();
     this.validateCandles(candles);
 
     const closes = candles.map(c => c.close);
     const timestamps = candles.map(c => c.timestamp);
-    const results: Record<string, IndicatorValue[]> = {};
+    const results: Record<string, IndicatorValue[] | undefined> = {};
 
     // Calculate SMAs
     if (options.sma) {
       for (const period of options.sma) {
         try {
-          const sma = await this.talib.execute({
+          const result = await this.talib.execute({
             name: 'SMA',
             startIdx: 0,
             endIdx: closes.length - 1,
@@ -140,12 +140,17 @@ export class TechnicalAnalysisService {
             optInTimePeriod: period,
           });
 
-          results[`SMA${period}`] = sma.result.outReal.map((value: number, i: number) => ({
-            timestamp: timestamps[i + period - 1],
-            value,
-          }));
+          if (result?.result?.outReal) {
+            results[`SMA${period}`] = result.result.outReal.map((value: number, i: number) => ({
+              timestamp: timestamps[i + period - 1],
+              value,
+            }));
+          } else {
+            results[`SMA${period}`] = undefined;
+          }
         } catch (error) {
           console.error(`Error calculating SMA${period}:`, error);
+          results[`SMA${period}`] = undefined;
         }
       }
     }

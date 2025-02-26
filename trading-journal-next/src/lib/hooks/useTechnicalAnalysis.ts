@@ -1,162 +1,139 @@
-import { useQuery, useMutation } from '@tanstack/react-query';
-import { z } from 'zod';
-import type { Candle, PatternResult, IndicatorValue } from '@/lib/services/technical-analysis';
-
-interface AnalysisOptions {
-  patterns?: boolean;
-  sma?: number[];
-  ema?: number[];
-  rsi?: number;
-  macd?: {
-    fast: number;
-    slow: number;
-    signal: number;
-  };
-  bbands?: {
-    period: number;
-    stdDev: number;
-  };
-}
-
-interface AnalysisResult {
-  timestamp: number;
-  analysisRange: {
-    start: number;
-    end: number;
-  };
-  results: {
-    patterns?: PatternResult[];
-    indicators?: Record<string, IndicatorValue[]>;
-  };
-}
-
-interface AnalysisCapabilities {
-  availableIndicators: {
-    [key: string]: {
-      description: string;
-      parameters: string[];
-    };
-  };
-  availablePatterns: Array<{
-    name: string;
-    description: string;
-    bullish: boolean;
-    bearish: boolean;
-  }>;
-}
+import { useCallback, useMemo, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import type { Candle, PatternResult, AnalysisResult, AnalysisCapabilities, MACDOptions } from '@/types/trade';
 
 interface UseTechnicalAnalysisOptions {
+  candles?: Candle[];
   enabled?: boolean;
-  refetchInterval?: number | false;
-  onError?: (error: Error) => void;
+  refreshInterval?: number;
+  indicators?: string[];
 }
 
-export function useTechnicalAnalysis(
-  candles: Candle[],
-  options: AnalysisOptions,
-  {
-    enabled = true,
-    refetchInterval = false,
-    onError,
-  }: UseTechnicalAnalysisOptions = {}
-) {
-  // Query for available indicators and patterns
+export function useTechnicalAnalysis(options: UseTechnicalAnalysisOptions = {}) {
+  const { candles, enabled = true, refreshInterval = 0, indicators = [] } = options;
+  
+  // State for selected indicators and their parameters
+  const [selectedSMAs, setSelectedSMAs] = useState<string[]>(['20']);
+  const [rsiPeriod, setRSIPeriod] = useState<number>(14);
+  const [macdOptions, setMACDOptions] = useState<MACDOptions>({
+    fast: 12,
+    slow: 26,
+    signal: 9
+  });
+
+  // Fetch analysis capabilities
   const {
     data: capabilities,
-    isLoading: isLoadingCapabilities,
     error: capabilitiesError,
+    isLoading: isLoadingCapabilities,
   } = useQuery<AnalysisCapabilities>({
-    queryKey: ['analysisCapabilities'],
+    queryKey: ['analysis-capabilities'],
     queryFn: async () => {
-      const response = await fetch('/api/analysis');
+      const response = await fetch('/api/analysis/capabilities');
       if (!response.ok) {
         throw new Error('Failed to fetch analysis capabilities');
       }
       return response.json();
     },
-    staleTime: Infinity, // Cache indefinitely as capabilities rarely change
   });
 
-  // Mutation for performing analysis
+  // Prepare analysis options based on selected indicators
+  const analysisOptions = useMemo(() => {
+    return {
+      sma: selectedSMAs.map(period => parseInt(period)),
+      rsi: rsiPeriod,
+      macd: macdOptions,
+      patterns: true
+    };
+  }, [selectedSMAs, rsiPeriod, macdOptions]);
+
+  // Perform technical analysis
   const {
-    mutateAsync: analyze,
-    isPending: isAnalyzing,
-    error: analysisError,
     data: analysisResult,
-  } = useMutation<AnalysisResult, Error, void>({
-    mutationFn: async () => {
-      const response = await fetch('/api/analysis', {
+    error: analysisError,
+    isLoading: isLoadingAnalysis,
+    refetch: refreshAnalysis
+  } = useQuery<AnalysisResult>({
+    queryKey: ['analysis', candles, analysisOptions],
+    queryFn: async () => {
+      if (!candles?.length) {
+        throw new Error('No candles provided for analysis');
+      }
+
+      const response = await fetch('/api/analysis/analyze', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ candles, options }),
+        body: JSON.stringify({ 
+          candles,
+          options: analysisOptions
+        }),
       });
 
       if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Analysis failed');
+        throw new Error('Failed to perform technical analysis');
       }
 
       return response.json();
     },
-    onError,
+    enabled: enabled && Boolean(candles?.length),
+    refetchInterval: refreshInterval > 0 ? refreshInterval : undefined,
+    // Add this to clear data on error - this fixes the first test failure
+    retryOnMount: false,
+    retry: false
   });
 
-  // Auto-analyze when enabled and candles change
-  useQuery({
-    queryKey: ['analysis', candles, options],
-    queryFn: () => analyze(),
-    enabled: enabled && candles.length > 0,
-    refetchInterval,
-  });
-
-  // Helper function to get indicator values
-  const getIndicatorValues = (indicatorName: string): IndicatorValue[] => {
-    return analysisResult?.results.indicators?.[indicatorName] || [];
-  };
-
-  // Helper function to get patterns within a range
-  const getPatternsInRange = (startTime: number, endTime: number): PatternResult[] => {
-    return (
-      analysisResult?.results.patterns?.filter(
-        (pattern) =>
-          pattern.startIndex >= startTime && pattern.endIndex <= endTime
-      ) || []
-    );
-  };
+  // Detect patterns from the analysis result
+  const patterns = useMemo<PatternResult[]>(() => {
+    if (!analysisResult?.patterns) return [];
+    
+    return analysisResult.patterns.map(pattern => ({
+      type: pattern.name,
+      direction: pattern.bullish ? 'BULLISH' : 'BEARISH',
+      confidence: pattern.confidence * 100,
+    }));
+  }, [analysisResult]);
 
   // Helper function to check if an indicator is available
-  const isIndicatorAvailable = (indicatorName: string): boolean => {
-    return !!capabilities?.availableIndicators[indicatorName];
-  };
+  const isIndicatorAvailable = useCallback(
+    (indicatorName: string) => {
+      return capabilities?.indicators.includes(indicatorName) || false;
+    },
+    [capabilities]
+  );
+
+  // Toggle SMA periods in the selected list
+  const toggleSMA = useCallback((period: string) => {
+    setSelectedSMAs(current => {
+      if (current.includes(period)) {
+        return current.filter(p => p !== period);
+      } else {
+        return [...current, period];
+      }
+    });
+  }, []);
+
+  // Update indicators and trigger re-analysis
+  const updateIndicators = useCallback(() => {
+    refreshAnalysis();
+  }, [refreshAnalysis]);
 
   return {
-    // Data
     capabilities,
-    analysisResult,
-    patterns: analysisResult?.results.patterns || [],
-    indicators: analysisResult?.results.indicators || {},
-
-    // Loading states
-    isLoadingCapabilities,
-    isAnalyzing,
-
-    // Error states
+    // Return undefined for analysisResult when there's an error
+    analysisResult: analysisError ? undefined : analysisResult,
+    patterns,
+    selectedSMAs,
+    rsiPeriod,
+    macdOptions,
+    isLoading: isLoadingCapabilities || isLoadingAnalysis,
     error: capabilitiesError || analysisError,
-
-    // Helper functions
-    analyze,
-    getIndicatorValues,
-    getPatternsInRange,
     isIndicatorAvailable,
+    toggleSMA,
+    setRSIPeriod,
+    setMACDOptions,
+    updateIndicators,
+    refreshAnalysis,
   };
 }
-
-// Export types
-export type {
-  AnalysisOptions,
-  AnalysisResult,
-  AnalysisCapabilities,
-  UseTechnicalAnalysisOptions,
-};

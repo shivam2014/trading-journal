@@ -88,9 +88,10 @@ describe('TechnicalAnalysisService', () => {
       });
 
       expect(indicators).toHaveProperty('SMA3');
-      expect(indicators.SMA3).toHaveLength(3);
-      expect(indicators.SMA3[0]).toHaveProperty('value');
-      expect(indicators.SMA3[0]).toHaveProperty('timestamp');
+      expect(indicators.SMA3).toBeDefined();
+      expect(indicators.SMA3!).toHaveLength(3);
+      expect(indicators.SMA3![0]).toHaveProperty('value');
+      expect(indicators.SMA3![0]).toHaveProperty('timestamp');
     });
 
     it('should calculate RSI correctly', async () => {
@@ -127,13 +128,15 @@ describe('TechnicalAnalysisService', () => {
     });
 
     it('should handle TA-Lib errors gracefully', async () => {
-      (require('talib.js').default.execute as jest.Mock).mockRejectedValue(new Error('TA-Lib error'));
+      const mockTalib = require('talib.js').default;
+      mockTalib.execute = jest.fn().mockRejectedValueOnce(new Error('TA-Lib error'));
 
       const indicators = await service.calculateIndicators(sampleCandles, {
         sma: [3],
       });
 
       expect(indicators.SMA3).toBeUndefined();
+      expect(mockTalib.execute).toHaveBeenCalled();
     });
   });
 

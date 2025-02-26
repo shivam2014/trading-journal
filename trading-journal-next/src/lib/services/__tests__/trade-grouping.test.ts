@@ -65,6 +65,7 @@ describe('TradeGroupingService', () => {
     remainingQuantity: new Decimal(50),
     averageEntryPrice: new Decimal(150),
     currency: 'USD',
+    notes: 'ENGULFING pattern-based trades', // Add this line
     createdAt: new Date(),
     updatedAt: new Date(),
     entries: [

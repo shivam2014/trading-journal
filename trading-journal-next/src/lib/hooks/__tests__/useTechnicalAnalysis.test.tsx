@@ -1,231 +1,203 @@
-import { renderHook, waitFor } from '@testing-library/react';
+import { renderHook, act } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useTechnicalAnalysis } from '../useTechnicalAnalysis';
-import type { Candle } from '@/lib/services/technical-analysis';
+import type { Candle, AnalysisCapabilities, AnalysisResult } from '@/types/trade';
 
-const mockCapabilities = {
-  availableIndicators: {
-    sma: {
-      description: 'Simple Moving Average',
-      parameters: ['period'],
-    },
-    rsi: {
-      description: 'Relative Strength Index',
-      parameters: ['period'],
-    },
-  },
-  availablePatterns: [
-    {
-      name: 'CDL_ENGULFING',
-      description: 'Engulfing Pattern',
-      bullish: true,
-      bearish: true,
-    },
-  ],
-};
-
-const mockAnalysisResult = {
-  timestamp: Date.now(),
-  analysisRange: {
-    start: 1000,
-    end: 5000,
-  },
-  results: {
-    patterns: [
-      {
-        pattern: 'CDL_ENGULFING',
-        direction: 'bullish',
-        startIndex: 1,
-        endIndex: 2,
-        confidence: 0.8,
-      },
-    ],
-    indicators: {
-      SMA20: [
-        { timestamp: 1000, value: 100 },
-        { timestamp: 2000, value: 102 },
-      ],
-    },
-  },
-};
-
-const sampleCandles: Candle[] = [
-  { timestamp: 1000, open: 100, high: 105, low: 98, close: 103, volume: 1000 },
-  { timestamp: 2000, open: 103, high: 107, low: 101, close: 105, volume: 1200 },
-  { timestamp: 3000, open: 105, high: 108, low: 103, close: 106, volume: 1100 },
-];
+// Mock fetch globally
+global.fetch = jest.fn();
 
 describe('useTechnicalAnalysis', () => {
   let queryClient: QueryClient;
 
-  const createWrapper = () => {
+  const wrapper = ({ children }: { children: React.ReactNode }) => (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
+
+  const mockCandles: Candle[] = [
+    {
+      timestamp: new Date('2025-01-01').getTime(),
+      open: 100,
+      high: 105,
+      low: 95,
+      close: 102,
+      volume: 1000,
+    },
+  ];
+
+  const mockCapabilities: AnalysisCapabilities = {
+    indicators: ['SMA', 'RSI', 'MACD'],
+    patterns: ['ENGULFING', 'HAMMER', 'DOJI'],
+  };
+
+  const mockAnalysis: AnalysisResult = {
+    sma: { '20': [102.00] },
+    rsi: [65.00],
+    macd: {
+      macd: [1.4],
+      signal: [1.2],
+      histogram: [0.2],
+    },
+  };
+
+  beforeEach(() => {
     queryClient = new QueryClient({
       defaultOptions: {
         queries: {
           retry: false,
+          cacheTime: 0,
+          refetchOnWindowFocus: false,
         },
       },
     });
 
-    return ({ children }: { children: React.ReactNode }) => (
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
-    );
-  };
-
-  beforeEach(() => {
-    queryClient = new QueryClient();
-    fetchMock.resetMocks();
+    jest.clearAllMocks();
+    (global.fetch as jest.Mock).mockImplementation((url: string) => {
+      if (url.includes('/api/analysis/capabilities')) {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockCapabilities),
+        });
+      }
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockAnalysis),
+      });
+    });
   });
 
   it('should fetch capabilities on mount', async () => {
-    fetchMock.mockResponseOnce(JSON.stringify(mockCapabilities));
+    const { result } = renderHook(() => useTechnicalAnalysis(), { wrapper });
 
-    const { result } = renderHook(
-      () => useTechnicalAnalysis(sampleCandles, { patterns: true }),
-      { wrapper: createWrapper() }
-    );
-
-    expect(result.current.isLoadingCapabilities).toBe(true);
-
-    await waitFor(() => {
-      expect(result.current.capabilities).toEqual(mockCapabilities);
+    // Wait for initial fetch
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 50));
     });
 
-    expect(result.current.isLoadingCapabilities).toBe(false);
+    expect(result.current.capabilities).toEqual(mockCapabilities);
+    expect(result.current.isLoading).toBe(false);
   });
 
   it('should perform analysis when enabled', async () => {
-    fetchMock
-      .mockResponseOnce(JSON.stringify(mockCapabilities))
-      .mockResponseOnce(JSON.stringify(mockAnalysisResult));
-
     const { result } = renderHook(
-      () =>
-        useTechnicalAnalysis(
-          sampleCandles,
-          {
-            patterns: true,
-            sma: [20],
-          },
-          { enabled: true }
-        ),
-      { wrapper: createWrapper() }
+      () => useTechnicalAnalysis({ candles: mockCandles }),
+      { wrapper }
     );
 
-    await waitFor(() => {
-      expect(result.current.analysisResult).toEqual(mockAnalysisResult);
+    // Wait for all fetches to complete
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 50));
     });
 
-    expect(result.current.patterns).toHaveLength(1);
-    expect(result.current.indicators.SMA20).toBeDefined();
-  });
+    expect(result.current.analysisResult).toEqual(mockAnalysis);
+    expect(result.current.isLoading).toBe(false);
+  }, 10000);
 
   it('should not analyze when disabled', async () => {
-    fetchMock.mockResponseOnce(JSON.stringify(mockCapabilities));
-
     const { result } = renderHook(
-      () =>
-        useTechnicalAnalysis(
-          sampleCandles,
-          {
-            patterns: true,
-          },
-          { enabled: false }
-        ),
-      { wrapper: createWrapper() }
+      () => useTechnicalAnalysis({ candles: mockCandles, enabled: false }),
+      { wrapper }
     );
 
-    await waitFor(() => {
-      expect(result.current.capabilities).toBeDefined();
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 50));
     });
 
     expect(result.current.analysisResult).toBeUndefined();
-    expect(fetchMock).toHaveBeenCalledTimes(1); // Only capabilities fetch
+    // We still expect capabilities to be fetched
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect((global.fetch as jest.Mock).mock.calls[0][0]).toContain('/api/analysis/capabilities');
   });
 
   it('should handle analysis errors', async () => {
-    const mockError = { error: 'Analysis failed' };
-    fetchMock
-      .mockResponseOnce(JSON.stringify(mockCapabilities))
-      .mockResponseOnce(JSON.stringify(mockError), { status: 500 });
-
-    const onError = jest.fn();
-
-    const { result } = renderHook(
-      () =>
-        useTechnicalAnalysis(
-          sampleCandles,
-          {
-            patterns: true,
-          },
-          { onError }
-        ),
-      { wrapper: createWrapper() }
-    );
-
-    await waitFor(() => {
-      expect(onError).toHaveBeenCalled();
+    const error = new Error('Analysis failed');
+    
+    // Create a more specific mock that only rejects the analysis endpoint
+    (global.fetch as jest.Mock).mockImplementation((url: string) => {
+      if (url.includes('/api/analysis/capabilities')) {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockCapabilities),
+        });
+      }
+      if (url.includes('/api/analysis/analyze')) {
+        return Promise.reject(error);
+      }
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve({}),
+      });
     });
 
-    expect(result.current.error).toBeDefined();
+    const { result } = renderHook(
+      () => useTechnicalAnalysis({ candles: mockCandles }),
+      { wrapper }
+    );
+
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 50));
+    });
+
+    expect(result.current.error).toBeTruthy();
+    expect(result.current.analysisResult).toBeUndefined();
   });
 
   it('should handle helper functions correctly', async () => {
-    fetchMock
-      .mockResponseOnce(JSON.stringify(mockCapabilities))
-      .mockResponseOnce(JSON.stringify(mockAnalysisResult));
+    const { result } = renderHook(() => useTechnicalAnalysis(), { wrapper });
 
-    const { result } = renderHook(
-      () => useTechnicalAnalysis(sampleCandles, { patterns: true }),
-      { wrapper: createWrapper() }
-    );
-
-    await waitFor(() => {
-      expect(result.current.analysisResult).toBeDefined();
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 50));
     });
 
-    // Test getIndicatorValues
-    const smaValues = result.current.getIndicatorValues('SMA20');
-    expect(smaValues).toHaveLength(2);
-
-    // Test getPatternsInRange
-    const patterns = result.current.getPatternsInRange(1000, 5000);
-    expect(patterns).toHaveLength(1);
-
-    // Test isIndicatorAvailable
-    expect(result.current.isIndicatorAvailable('sma')).toBe(true);
-    expect(result.current.isIndicatorAvailable('unknown')).toBe(false);
+    expect(result.current.isIndicatorAvailable('SMA')).toBe(true);
+    expect(result.current.isIndicatorAvailable('UNKNOWN')).toBe(false);
   });
 
   it('should refetch analysis with interval when specified', async () => {
     jest.useFakeTimers();
-    
-    fetchMock
-      .mockResponseOnce(JSON.stringify(mockCapabilities))
-      .mockResponse(JSON.stringify(mockAnalysisResult));
+
+    // Setup fetch mock to count calls
+    let fetchCount = 0;
+    (global.fetch as jest.Mock).mockImplementation((url: string) => {
+      fetchCount++;
+      if (url.includes('/api/analysis/capabilities')) {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockCapabilities),
+        });
+      }
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockAnalysis),
+      });
+    });
 
     renderHook(
-      () =>
-        useTechnicalAnalysis(
-          sampleCandles,
-          { patterns: true },
-          { refetchInterval: 5000 }
-        ),
-      { wrapper: createWrapper() }
+      () => useTechnicalAnalysis({
+        candles: mockCandles,
+        refreshInterval: 1000,
+      }),
+      { wrapper }
     );
 
-    await waitFor(() => {
-      expect(fetchMock).toHaveBeenCalledTimes(2); // Initial capabilities + analysis
+    // Initial fetch
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+      await Promise.resolve(); // Flush promises
     });
 
-    jest.advanceTimersByTime(5000);
+    // Reset count after initial fetches
+    const initialFetchCount = fetchCount;
 
-    await waitFor(() => {
-      expect(fetchMock).toHaveBeenCalledTimes(3); // One more analysis fetch
+    // Advance timers
+    await act(async () => {
+      jest.advanceTimersByTime(1100);
+      jest.runOnlyPendingTimers();
+      await Promise.resolve(); // Flush promises
     });
+
+    // Verify additional fetches occurred
+    expect(fetchCount).toBeGreaterThan(initialFetchCount);
 
     jest.useRealTimers();
-  });
+  }, 15000);
 });

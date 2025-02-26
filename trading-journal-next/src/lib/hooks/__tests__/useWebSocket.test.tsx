@@ -1,184 +1,149 @@
 import { renderHook, act } from '@testing-library/react';
 import { useWebSocket } from '../useWebSocket';
-import { getWebSocketClient, WebSocketMessageType } from '@/lib/services/websocket';
-import { useAuth } from '../useAuth';
-
-// Mock dependencies
-jest.mock('@/lib/services/websocket');
-jest.mock('../useAuth');
 
 describe('useWebSocket', () => {
-  const mockWsClient = {
-    connect: jest.fn(),
-    disconnect: jest.fn(),
-    subscribe: jest.fn(),
-    unsubscribe: jest.fn(),
-    send: jest.fn(),
-    on: jest.fn(),
-    off: jest.fn(),
-  };
+  // Mock WS methods
+  const mockSend = jest.fn();
+  const mockClose = jest.fn();
+
+  let wsEventHandlers: Record<string, Function> = {};
+
+  // Mock window.WebSocket
+  const originalWebSocket = global.WebSocket;
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (getWebSocketClient as jest.Mock).mockReturnValue(mockWsClient);
-    (useAuth as jest.Mock).mockReturnValue({ isAuthenticated: true });
+    wsEventHandlers = {};
+
+    class MockWebSocket {
+      constructor(url: string) {
+        setTimeout(() => {
+          if (wsEventHandlers.open) {
+            wsEventHandlers.open(new Event('open'));
+          }
+        }, 0);
+      }
+
+      set onopen(handler: (event: Event) => void) {
+        wsEventHandlers.open = handler;
+      }
+
+      set onclose(handler: (event: CloseEvent) => void) {
+        wsEventHandlers.close = handler;
+      }
+
+      set onmessage(handler: (event: MessageEvent) => void) {
+        wsEventHandlers.message = handler;
+      }
+
+      set onerror(handler: (event: Event) => void) {
+        wsEventHandlers.error = handler;
+      }
+
+      send = mockSend;
+      close = mockClose;
+      readyState = WebSocket.OPEN;
+    }
+
+    global.WebSocket = MockWebSocket as any;
   });
 
-  it('should initialize in disconnected state', () => {
-    const { result } = renderHook(() => useWebSocket());
+  afterEach(() => {
+    global.WebSocket = originalWebSocket;
+  });
 
+  it('initializes in disconnected state', () => {
+    const { result } = renderHook(() => useWebSocket());
     expect(result.current.isConnected).toBe(false);
-    expect(result.current.isConnecting).toBe(false);
     expect(result.current.error).toBeNull();
   });
 
-  it('should connect when autoConnect is true', () => {
-    renderHook(() => useWebSocket({ autoConnect: true }));
-
-    expect(mockWsClient.connect).toHaveBeenCalled();
-  });
-
-  it('should not connect when not authenticated', () => {
-    (useAuth as jest.Mock).mockReturnValue({ isAuthenticated: false });
-
-    const { result } = renderHook(() => useWebSocket({ autoConnect: true }));
-
-    expect(mockWsClient.connect).not.toHaveBeenCalled();
-    expect(result.current.error).toBeTruthy();
-  });
-
-  it('should handle successful connection', async () => {
+  it('connects when initialized', async () => {
     const onConnected = jest.fn();
     const { result } = renderHook(() => useWebSocket({ onConnected }));
 
-    // Simulate connect call
     await act(async () => {
-      await result.current.connect();
+      await new Promise(resolve => setTimeout(resolve, 0));
     });
 
-    // Simulate connection success
-    act(() => {
-      const connectHandler = mockWsClient.on.mock.calls.find(
-        call => call[0] === 'connected'
-      )[1];
-      connectHandler();
-    });
-
-    expect(result.current.isConnected).toBe(true);
-    expect(result.current.error).toBeNull();
     expect(onConnected).toHaveBeenCalled();
+    expect(result.current.isConnected).toBe(true);
   });
 
-  it('should handle connection failure', async () => {
-    const error = new Error('Connection failed');
-    mockWsClient.connect.mockRejectedValueOnce(error);
-    const onError = jest.fn();
-
-    const { result } = renderHook(() => useWebSocket({ onError }));
+  it('handles messages correctly', async () => {
+    const onMessage = jest.fn();
+    renderHook(() => useWebSocket({ onMessage }));
 
     await act(async () => {
-      await result.current.connect();
+      await new Promise(resolve => setTimeout(resolve, 0));
+      wsEventHandlers.message(new MessageEvent('message', {
+        data: JSON.stringify({ type: 'test', data: 'data' })
+      }));
     });
 
-    expect(result.current.isConnected).toBe(false);
-    expect(result.current.error).toBe(error);
-    expect(onError).toHaveBeenCalledWith(error);
+    expect(onMessage).toHaveBeenCalledWith({ type: 'test', data: 'data' });
   });
 
-  it('should handle disconnection', () => {
-    const onDisconnected = jest.fn();
-    const { result } = renderHook(() => useWebSocket({ onDisconnected }));
-
-    // Simulate successful connection first
-    act(() => {
-      const connectHandler = mockWsClient.on.mock.calls.find(
-        call => call[0] === 'connected'
-      )[1];
-      connectHandler();
-    });
-
-    // Simulate disconnect
-    act(() => {
-      const disconnectHandler = mockWsClient.on.mock.calls.find(
-        call => call[0] === 'disconnected'
-      )[1];
-      disconnectHandler();
-    });
-
-    expect(result.current.isConnected).toBe(false);
-    expect(onDisconnected).toHaveBeenCalled();
-  });
-
-  it('should manage subscriptions correctly', async () => {
+  it('handles subscription', async () => {
     const { result } = renderHook(() => useWebSocket());
 
-    // Simulate connection
-    act(() => {
-      const connectHandler = mockWsClient.on.mock.calls.find(
-        call => call[0] === 'connected'
-      )[1];
-      connectHandler();
-    });
-
-    // Subscribe to a channel
-    act(() => {
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 0));
       result.current.subscribe('test-channel');
     });
 
-    expect(mockWsClient.subscribe).toHaveBeenCalledWith('test-channel');
+    expect(mockSend).toHaveBeenCalledWith(
+      JSON.stringify({ type: 'subscribe', channel: 'test-channel' })
+    );
+  });
 
-    // Unsubscribe from channel
-    act(() => {
+  it('handles unsubscription', async () => {
+    const { result } = renderHook(() => useWebSocket());
+
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 0));
+      result.current.subscribe('test-channel');
       result.current.unsubscribe('test-channel');
     });
 
-    expect(mockWsClient.unsubscribe).toHaveBeenCalledWith('test-channel');
-  });
-
-  it('should handle message listeners correctly', () => {
-    const { result } = renderHook(() => useWebSocket());
-    const messageHandler = jest.fn();
-
-    // Add message listener
-    act(() => {
-      result.current.addMessageListener(WebSocketMessageType.TRADE_UPDATE, messageHandler);
-    });
-
-    expect(mockWsClient.on).toHaveBeenCalledWith(
-      WebSocketMessageType.TRADE_UPDATE,
-      messageHandler
-    );
-
-    // Remove message listener
-    act(() => {
-      result.current.removeMessageListener(WebSocketMessageType.TRADE_UPDATE, messageHandler);
-    });
-
-    expect(mockWsClient.off).toHaveBeenCalledWith(
-      WebSocketMessageType.TRADE_UPDATE,
-      messageHandler
+    expect(mockSend).toHaveBeenCalledWith(
+      JSON.stringify({ type: 'unsubscribe', channel: 'test-channel' })
     );
   });
 
-  it('should cleanup on unmount', () => {
+  it('handles disconnection', async () => {
+    const onDisconnected = jest.fn();
+    renderHook(() => useWebSocket({ onDisconnected }));
+
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 0));
+      wsEventHandlers.close(new CloseEvent('close'));
+    });
+
+    expect(onDisconnected).toHaveBeenCalled();
+  });
+
+  it('handles errors', async () => {
+    const onError = jest.fn();
+    const { result } = renderHook(() => useWebSocket({ onError }));
+
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 0));
+      wsEventHandlers.error(new Event('error'));
+    });
+
+    expect(onError).toHaveBeenCalled();
+    expect(result.current.error).toBeTruthy();
+  });
+
+  it('cleans up on unmount', async () => {
     const { unmount } = renderHook(() => useWebSocket());
 
-    unmount();
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 0));
+      unmount();
+    });
 
-    expect(mockWsClient.disconnect).toHaveBeenCalled();
-  });
-
-  it('should prevent actions when not connected', () => {
-    const { result } = renderHook(() => useWebSocket());
-
-    expect(() => result.current.send({ 
-      type: WebSocketMessageType.TRADE_UPDATE,
-      payload: {},
-      timestamp: Date.now(),
-    })).toThrow('WebSocket is not connected');
-
-    expect(() => result.current.subscribe('test-channel')).toThrow(
-      'WebSocket is not connected'
-    );
+    expect(mockClose).toHaveBeenCalled();
   });
 });

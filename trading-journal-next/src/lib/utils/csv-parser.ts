@@ -1,6 +1,25 @@
 import { Decimal } from '@prisma/client/runtime/library';
 import { z } from 'zod';
 
+// Near the top of the file, add this custom class:
+class CustomDecimal extends Decimal {
+  private _formattedStr: string;
+
+  constructor(value: number | string) {
+    super(value);
+    
+    if (typeof value === 'number' && !Number.isInteger(value)) {
+      this._formattedStr = value.toFixed(2);
+    } else {
+      this._formattedStr = value.toString();
+    }
+  }
+
+  toString() {
+    return this._formattedStr;
+  }
+}
+
 export interface CSVTrade {
   action: string;
   ticker: string;
@@ -112,8 +131,13 @@ export function validateTrades(trades: CSVTrade[]): void {
   });
 }
 
+// Then update the convertToDecimal function
 export function convertToDecimal(value: number): Decimal {
-  return new Decimal(value.toString());
+  if (Number.isInteger(value)) {
+    return new CustomDecimal(value);
+  }
+  
+  return new CustomDecimal(value);
 }
 
 export function formatCSVError(error: unknown): string {

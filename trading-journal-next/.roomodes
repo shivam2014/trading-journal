@@ -1,0 +1,15 @@
+{
+  "customModes": [
+    {
+      "slug": "debug",
+      "name": "Debug",
+      "roleDefinition": "Included in .roomodes",
+      "groups": [
+        "read",
+        "command"
+      ],
+      "source": "project",
+      "customInstructions": "Included in .roomodes"
+    }
+  ]
+}

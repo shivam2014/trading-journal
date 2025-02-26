@@ -17,7 +17,7 @@ export default function TradeTable({
 }: TradeTableProps) {
   if (isLoading) {
     return (
-      <div className={`animate-pulse space-y-4 ${className}`}>
+      <div data-testid="loading-skeleton" className={`animate-pulse space-y-4 ${className}`}>
         {[...Array(5)].map((_, i) => (
           <div
             key={i}
@@ -85,7 +85,7 @@ export default function TradeTable({
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
                 {formatDate(trade.timestamp)}
               </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+              <td data-testid={`ticker-${trade.ticker}`} className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
                 {trade.ticker}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm">
@@ -106,10 +106,7 @@ export default function TradeTable({
                 {formatCurrency(parseFloat(trade.price.toString()), trade.currency)}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                {formatCurrency(
-                  parseFloat(trade.totalAmount.toString()),
-                  trade.currency
-                )}
+                {formatCurrency(parseFloat(trade.totalAmount.toString()), trade.currency)}
               </td>
             </tr>
           ))}

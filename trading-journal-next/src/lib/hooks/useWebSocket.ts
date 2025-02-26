@@ -1,136 +1,121 @@
-import { useEffect, useCallback, useState } from 'react';
-import { getWebSocketClient, WebSocketMessage, WebSocketMessageType } from '@/lib/services/websocket';
-import { useAuth } from './useAuth';
+import { useState, useCallback, useEffect, useRef } from 'react';
+import { WebSocketProvider } from '@/types/websocket';
 
-interface UseWebSocketOptions {
-  autoConnect?: boolean;
+export interface UseWebSocketOptions {
   onConnected?: () => void;
   onDisconnected?: () => void;
-  onError?: (error: Error) => void;
+  onMessage?: (message: any) => void;
+  onError?: (error: any) => void;
+  reconnectAttempts?: number;
+  reconnectInterval?: number;
 }
 
-export function useWebSocket(options: UseWebSocketOptions = {}) {
+export function useWebSocket({
+  onConnected,
+  onDisconnected,
+  onMessage,
+  onError,
+  reconnectAttempts = 5,
+  reconnectInterval = 1000,
+}: UseWebSocketOptions = {}) {
   const [isConnected, setIsConnected] = useState(false);
-  const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-  const { isAuthenticated } = useAuth();
+  const wsRef = useRef<WebSocket | null>(null);
+  const reconnectCountRef = useRef(0);
+  const subscriptionsRef = useRef<Set<string>>(new Set());
 
-  const wsClient = getWebSocketClient();
+  const connect = useCallback(() => {
+    try {
+      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      const ws = new WebSocket(`${protocol}//${window.location.host}/ws`);
 
-  const connect = useCallback(async () => {
-    if (!isAuthenticated) {
-      setError(new Error('Authentication required'));
+      ws.onopen = () => {
+        setIsConnected(true);
+        setError(null);
+        reconnectCountRef.current = 0;
+        onConnected?.();
+
+        // Resubscribe to channels
+        subscriptionsRef.current.forEach(channel => {
+          ws.send(JSON.stringify({ type: 'subscribe', channel }));
+        });
+      };
+
+      ws.onclose = () => {
+        setIsConnected(false);
+        onDisconnected?.();
+
+        // Attempt to reconnect
+        if (reconnectCountRef.current < reconnectAttempts) {
+          reconnectCountRef.current += 1;
+          setTimeout(connect, reconnectInterval);
+        }
+      };
+
+      ws.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          onMessage?.(data);
+        } catch (err) {
+          console.error('Failed to parse WebSocket message:', err);
+        }
+      };
+
+      ws.onerror = (event) => {
+        const wsError = new Error('WebSocket error');
+        setError(wsError);
+        onError?.(wsError);
+      };
+
+      wsRef.current = ws;
+    } catch (err) {
+      const error = err instanceof Error ? err : new Error('Failed to connect to WebSocket');
+      setError(error);
+      onError?.(error);
+    }
+  }, [onConnected, onDisconnected, onMessage, onError, reconnectAttempts, reconnectInterval]);
+
+  const subscribe = useCallback((channel: string) => {
+    if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
+      subscriptionsRef.current.add(channel);
+      connect();
       return;
     }
 
-    try {
-      setIsConnecting(true);
-      setError(null);
-      await wsClient.connect();
-    } catch (err) {
-      setError(err instanceof Error ? err : new Error('Failed to connect'));
-      options.onError?.(err instanceof Error ? err : new Error('Failed to connect'));
-    } finally {
-      setIsConnecting(false);
-    }
-  }, [isAuthenticated, options, wsClient]);
-
-  const disconnect = useCallback(() => {
-    wsClient.disconnect();
-  }, [wsClient]);
-
-  const subscribe = useCallback((channel: string) => {
-    if (!isConnected) {
-      throw new Error('WebSocket is not connected');
-    }
-    wsClient.subscribe(channel);
-  }, [isConnected, wsClient]);
+    wsRef.current.send(JSON.stringify({ type: 'subscribe', channel }));
+    subscriptionsRef.current.add(channel);
+  }, [connect]);
 
   const unsubscribe = useCallback((channel: string) => {
-    wsClient.unsubscribe(channel);
-  }, [wsClient]);
+    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'unsubscribe', channel }));
+    }
+    subscriptionsRef.current.delete(channel);
+  }, []);
 
-  const send = useCallback((message: WebSocketMessage) => {
-    if (!isConnected) {
+  const send = useCallback((data: any) => {
+    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify(data));
+    } else {
       throw new Error('WebSocket is not connected');
     }
-    wsClient.send(message);
-  }, [isConnected, wsClient]);
+  }, []);
 
-  // Set up event listeners
   useEffect(() => {
-    const handleConnect = () => {
-      setIsConnected(true);
-      setError(null);
-      options.onConnected?.();
-    };
-
-    const handleDisconnect = () => {
-      setIsConnected(false);
-      options.onDisconnected?.();
-    };
-
-    const handleError = (err: Error) => {
-      setError(err);
-      options.onError?.(err);
-    };
-
-    wsClient.on('connected', handleConnect);
-    wsClient.on('disconnected', handleDisconnect);
-    wsClient.on('error', handleError);
-
-    // Auto-connect if specified
-    if (options.autoConnect && isAuthenticated) {
-      connect();
-    }
+    connect();
 
     return () => {
-      wsClient.off('connected', handleConnect);
-      wsClient.off('disconnected', handleDisconnect);
-      wsClient.off('error', handleError);
+      if (wsRef.current) {
+        wsRef.current.close();
+      }
     };
-  }, [wsClient, options, connect, isAuthenticated]);
-
-  // Cleanup on unmount
-  useEffect(() => {
-    return () => {
-      disconnect();
-    };
-  }, [disconnect]);
-
-  const addMessageListener = useCallback(<T = any>(
-    type: WebSocketMessageType,
-    callback: (payload: T) => void
-  ) => {
-    wsClient.on(type, callback);
-    return () => wsClient.off(type, callback);
-  }, [wsClient]);
-
-  const removeMessageListener = useCallback(<T = any>(
-    type: WebSocketMessageType,
-    callback: (payload: T) => void
-  ) => {
-    wsClient.off(type, callback);
-  }, [wsClient]);
+  }, [connect]);
 
   return {
-    // Connection state
     isConnected,
-    isConnecting,
     error,
-
-    // Connection methods
-    connect,
-    disconnect,
-
-    // Messaging methods
-    send,
     subscribe,
     unsubscribe,
-    addMessageListener,
-    removeMessageListener,
+    send,
   };
 }
-
-// Type exports for consumers
-export type { WebSocketMessage, WebSocketMessageType };

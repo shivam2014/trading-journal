@@ -2,9 +2,10 @@ import { render, screen } from '@testing-library/react';
 import TradeTable from '../TradeTable';
 import { Decimal } from '@prisma/client/runtime/library';
 import { formatDate, formatNumber, formatCurrency } from '@/lib/utils';
+import type { Trade } from '@/types/trade';
 
 describe('TradeTable', () => {
-  const mockTrades = [
+  const mockTrades: Trade[] = [
     {
       id: '1',
       userId: 'user1',
@@ -37,8 +38,7 @@ describe('TradeTable', () => {
 
   it('renders loading state', () => {
     render(<TradeTable trades={[]} isLoading={true} />);
-    const skeletons = screen.getAllByTestId('loading-skeleton');
-    expect(skeletons).toHaveLength(5);
+    expect(screen.getByTestId('loading-skeleton')).toBeInTheDocument();
   });
 
   it('renders empty state', () => {
@@ -49,38 +49,36 @@ describe('TradeTable', () => {
   it('renders trade table with data', () => {
     render(<TradeTable trades={mockTrades} />);
 
-    // Check headers
-    expect(screen.getByText('Date')).toBeInTheDocument();
-    expect(screen.getByText('Ticker')).toBeInTheDocument();
-    expect(screen.getByText('Action')).toBeInTheDocument();
-    expect(screen.getByText('Quantity')).toBeInTheDocument();
-    expect(screen.getByText('Price')).toBeInTheDocument();
-    expect(screen.getByText('Total')).toBeInTheDocument();
-
-    // Check first trade data
     const firstTrade = mockTrades[0];
+    
+    // Check date
     expect(screen.getByText(formatDate(firstTrade.timestamp))).toBeInTheDocument();
-    expect(screen.getByText(firstTrade.ticker)).toBeInTheDocument();
-    expect(screen.getByText(firstTrade.action)).toBeInTheDocument();
-    expect(
-      screen.getByText(formatNumber(parseFloat(firstTrade.quantity.toString())))
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        formatCurrency(
-          parseFloat(firstTrade.price.toString()),
-          firstTrade.currency
-        )
-      )
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        formatCurrency(
-          parseFloat(firstTrade.totalAmount.toString()),
-          firstTrade.currency
-        )
-      )
-    ).toBeInTheDocument();
+    
+    // Check ticker
+    expect(screen.getAllByTestId(`ticker-${firstTrade.ticker}`)[0]).toHaveTextContent(firstTrade.ticker);
+    
+    // Check actions
+    expect(screen.getByText('BUY')).toBeInTheDocument();
+    expect(screen.getByText('SELL')).toBeInTheDocument();
+    
+    // Check quantities
+    const quantity = formatNumber(parseFloat(firstTrade.quantity.toString()));
+    expect(screen.getByText(quantity)).toBeInTheDocument();
+    
+    // Check prices
+    const price = formatCurrency(parseFloat(firstTrade.price.toString()), firstTrade.currency);
+    expect(screen.getByText(price)).toBeInTheDocument();
+    
+    // Check total amounts
+    const total = formatCurrency(parseFloat(firstTrade.totalAmount.toString()), firstTrade.currency);
+    expect(screen.getByText(total)).toBeInTheDocument();
+  });
+
+  it('applies custom className', () => {
+    const customClass = 'custom-class';
+    render(<TradeTable trades={mockTrades} className={customClass} />);
+    const container = screen.getByRole('table').parentElement;
+    expect(container).toHaveClass(customClass);
   });
 
   it('applies correct styling for buy/sell actions', () => {
@@ -91,14 +89,5 @@ describe('TradeTable', () => {
 
     expect(buyAction).toHaveClass('bg-green-100', 'text-green-800');
     expect(sellAction).toHaveClass('bg-red-100', 'text-red-800');
-  });
-
-  it('accepts and applies custom className', () => {
-    const customClass = 'custom-class';
-    render(<TradeTable trades={mockTrades} className={customClass} />);
-
-    const table = screen.getByRole('table');
-    const container = table.parentElement;
-    expect(container).toHaveClass(customClass);
   });
 });

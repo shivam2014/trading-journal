@@ -1,9 +1,10 @@
-import { http, HttpResponse } from 'msw';
+import { http, HttpResponse, delay } from 'msw';
 import { Decimal } from '@prisma/client/runtime/library';
 
 export const handlers = [
   // Mock trade import endpoint
   http.post('/api/trades/import', async () => {
+    await delay(100); // Simulate network delay
     return HttpResponse.json({
       count: 2,
       message: 'Successfully imported trades',
@@ -12,6 +13,7 @@ export const handlers = [
 
   // Mock trades fetch endpoint
   http.get('/api/trades', async () => {
+    await delay(100);
     return HttpResponse.json({
       trades: [
         {
@@ -40,6 +42,7 @@ export const handlers = [
 
   // Mock clear trades endpoint
   http.post('/api/trades/clear', async () => {
+    await delay(100);
     return HttpResponse.json({
       message: 'All trades cleared successfully',
     });
@@ -47,6 +50,7 @@ export const handlers = [
 
   // Mock trade groups fetch endpoint
   http.get('/api/trade-groups', async () => {
+    await delay(100);
     return HttpResponse.json({
       groups: [
         {
@@ -82,6 +86,7 @@ export const handlers = [
 
   // Mock trade group creation endpoint
   http.post('/api/trade-groups', async () => {
+    await delay(100);
     return HttpResponse.json({
       group: {
         id: 'new-group',
@@ -98,6 +103,14 @@ export const handlers = [
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+    });
+  }),
+
+  // Mock error response
+  http.get('/api/error', () => {
+    return new HttpResponse(null, {
+      status: 500,
+      statusText: 'Internal Server Error',
     });
   }),
 ];

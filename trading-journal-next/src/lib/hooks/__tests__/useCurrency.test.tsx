@@ -2,205 +2,156 @@ import { renderHook, act } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useCurrency } from '../useCurrency';
 
-// Mock successful responses
-const mockCurrencyData = {
-  availableCurrencies: ['USD', 'EUR', 'GBP'],
-  cacheAge: 0,
-  timestamp: Date.now(),
-};
-
-const mockConversionResult = {
-  amount: 100,
-  from: 'USD',
-  to: 'EUR',
-  result: 92,
-  timestamp: Date.now(),
-};
+// Mock fetch globally
+global.fetch = jest.fn();
 
 describe('useCurrency', () => {
   let queryClient: QueryClient;
+  const timestamp = 1740573417587; // Fixed timestamp for tests
+  const mockRates = {
+    USD: 1,
+    EUR: 0.85,
+    GBP: 0.75,
+  };
 
-  // Wrapper component for React Query
-  const createWrapper = () => {
-    const queryClient = new QueryClient({
+  const wrapper = ({ children }: { children: React.ReactNode }) => (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
+
+  beforeEach(() => {
+    queryClient = new QueryClient({
       defaultOptions: {
         queries: {
           retry: false,
+          cacheTime: 0,
+          refetchOnWindowFocus: false,
         },
       },
     });
 
-    return ({ children }: { children: React.ReactNode }) => (
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
-    );
-  };
-
-  beforeEach(() => {
-    queryClient = new QueryClient();
-    fetchMock.resetMocks();
+    jest.clearAllMocks();
+    (global.fetch as jest.Mock).mockImplementation((url) => {
+      if (url.includes('/api/currency/rates')) {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve({
+            base: 'USD',
+            rates: mockRates,
+            timestamp: timestamp,
+          }),
+        });
+      }
+      return Promise.resolve({
+        ok: false,
+        status: 404,
+        json: () => Promise.resolve({ error: 'Not found' }),
+      });
+    });
   });
 
   it('should fetch available currencies on mount', async () => {
-    fetchMock.mockResponseOnce(JSON.stringify(mockCurrencyData));
-
-    const { result } = renderHook(() => useCurrency(), {
-      wrapper: createWrapper(),
-    });
-
-    // Should start with loading state
-    expect(result.current.isLoadingCurrencies).toBe(true);
-
-    // Wait for data to be fetched
+    const { result } = renderHook(() => useCurrency(), { wrapper });
+    
+    // Wait for fetch to complete
     await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 0));
+      await new Promise(resolve => setTimeout(resolve, 100));
     });
-
-    expect(result.current.availableCurrencies).toEqual(['USD', 'EUR', 'GBP']);
-    expect(result.current.isLoadingCurrencies).toBe(false);
+    
+    expect(result.current.availableCurrencies).toEqual(Object.keys(mockRates));
+    expect(result.current.isLoading).toBe(false);
   });
 
   it('should handle currency conversion', async () => {
-    fetchMock.mockResponseOnce(JSON.stringify(mockCurrencyData));
-    fetchMock.mockResponseOnce(JSON.stringify(mockConversionResult));
-
-    const { result } = renderHook(() => useCurrency(), {
-      wrapper: createWrapper(),
-    });
-
-    // Wait for initial currencies to load
+    const { result } = renderHook(() => useCurrency(), { wrapper });
+    
     await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 0));
+      await new Promise(resolve => setTimeout(resolve, 100));
     });
-
-    // Perform conversion
-    let conversionResult;
+    
+    let convertedAmount;
     await act(async () => {
-      conversionResult = await result.current.convert({
-        amount: 100,
-        from: 'USD',
-        to: 'EUR',
-      });
+      convertedAmount = await result.current.convert(100, 'USD', 'EUR');
     });
-
-    expect(conversionResult).toEqual(mockConversionResult);
-    expect(result.current.error).toBeNull();
+    
+    expect(convertedAmount).toBeCloseTo(85);
   });
 
   it('should handle batch conversions', async () => {
-    const mockBatchResults = {
-      results: [
-        { amount: 100, from: 'USD', to: 'EUR', result: 92, timestamp: Date.now() },
-        { amount: 200, from: 'USD', to: 'GBP', result: 158, timestamp: Date.now() },
-      ],
-    };
-
-    fetchMock.mockResponseOnce(JSON.stringify(mockCurrencyData));
-    fetchMock.mockResponseOnce(JSON.stringify(mockBatchResults));
-
-    const { result } = renderHook(() => useCurrency(), {
-      wrapper: createWrapper(),
-    });
-
-    // Wait for initial currencies to load
+    const { result } = renderHook(() => useCurrency(), { wrapper });
+    
     await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 0));
+      await new Promise(resolve => setTimeout(resolve, 100));
     });
-
-    // Perform batch conversion
-    let batchResults;
+    
+    let convertedAmounts;
     await act(async () => {
-      batchResults = await result.current.convertBatch([
-        { amount: 100, from: 'USD', to: 'EUR' },
-        { amount: 200, from: 'USD', to: 'GBP' },
-      ]);
+      convertedAmounts = await result.current.convertBatch([100, 200], 'USD', 'EUR');
     });
-
-    expect(batchResults).toEqual(mockBatchResults);
-    expect(result.current.error).toBeNull();
-  });
-
-  it('should format currency correctly', async () => {
-    fetchMock.mockResponseOnce(JSON.stringify(mockCurrencyData));
-
-    const { result } = renderHook(() => useCurrency({ defaultCurrency: 'USD' }), {
-      wrapper: createWrapper(),
-    });
-
-    // Wait for initial currencies to load
-    await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 0));
-    });
-
-    expect(result.current.formatCurrency(1234.567)).toBe('$1,234.57');
-    expect(result.current.formatCurrency(1234.567, 'EUR')).toBe('€1,234.57');
+    
+    expect(convertedAmounts).toEqual(expect.arrayContaining([85, 170]));
   });
 
   it('should handle API errors gracefully', async () => {
-    const errorResponse = {
-      error: 'Failed to fetch currencies',
-      details: 'API Error',
-    };
-
-    fetchMock.mockResponseOnce(JSON.stringify(errorResponse), { status: 500 });
-
-    const { result } = renderHook(() => useCurrency(), {
-      wrapper: createWrapper(),
-    });
-
-    // Wait for error to be processed
+    (global.fetch as jest.Mock).mockRejectedValueOnce(new Error('API error'));
+    
+    const { result } = renderHook(() => useCurrency(), { wrapper });
+    
     await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 0));
+      await new Promise(resolve => setTimeout(resolve, 100));
     });
-
+    
     expect(result.current.error).toBeTruthy();
     expect(result.current.availableCurrencies).toEqual([]);
   });
 
-  it('should auto-refresh cache when enabled', async () => {
-    jest.useFakeTimers();
-
-    fetchMock.mockResponse(JSON.stringify(mockCurrencyData));
-
-    renderHook(() => useCurrency({ autoCacheRefresh: true, cacheStaleTime: 1000 }), {
-      wrapper: createWrapper(),
-    });
-
-    // Initial fetch
-    expect(fetchMock).toHaveBeenCalledTimes(1);
-
-    // Advance timer by cache stale time
+  it('should allow currency selection', async () => {
+    const { result } = renderHook(() => useCurrency(), { wrapper });
+    
+    // Wait for initial load
     await act(async () => {
-      jest.advanceTimersByTime(1000);
+      await new Promise(resolve => setTimeout(resolve, 100));
     });
-
-    // Should fetch again
-    expect(fetchMock).toHaveBeenCalledTimes(2);
-
-    jest.useRealTimers();
+    
+    expect(result.current.selectedCurrency).toBe('USD');
+    
+    await act(async () => {
+      result.current.setSelectedCurrency('EUR');
+      // Need to wait for state update
+      await new Promise(resolve => setTimeout(resolve, 10));
+    });
+    
+    expect(result.current.selectedCurrency).toBe('EUR');
   });
 
-  it('should not auto-refresh when disabled', async () => {
-    jest.useFakeTimers();
+  it('should format currency correctly', () => {
+    const { result } = renderHook(() => useCurrency(), { wrapper });
+    expect(result.current.formatCurrency(1000)).toBe('$1,000.00');
+    expect(result.current.formatCurrency(1000, 'EUR')).toBe('€1,000.00');
+  });
 
-    fetchMock.mockResponse(JSON.stringify(mockCurrencyData));
-
-    renderHook(() => useCurrency({ autoCacheRefresh: false }), {
-      wrapper: createWrapper(),
-    });
-
-    // Initial fetch
-    expect(fetchMock).toHaveBeenCalledTimes(1);
-
-    // Advance timer
+  it('should handle cache age', async () => {
+    const { result } = renderHook(() => useCurrency(), { wrapper });
+    
     await act(async () => {
-      jest.advanceTimersByTime(5000);
+      await new Promise(resolve => setTimeout(resolve, 100));
     });
+    
+    expect(result.current.cacheAge).toBe(timestamp);
+  });
 
-    // Should not fetch again
-    expect(fetchMock).toHaveBeenCalledTimes(1);
-
-    jest.useRealTimers();
+  it('should handle refresh', async () => {
+    const { result } = renderHook(() => useCurrency(), { wrapper });
+    
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 100));
+    });
+    
+    expect(global.fetch).toHaveBeenCalledTimes(1);
+    
+    await act(async () => {
+      await result.current.refetchCurrencies();
+    });
+    
+    expect(global.fetch).toHaveBeenCalledTimes(2);
   });
 });

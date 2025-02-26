@@ -6,10 +6,12 @@ export enum WebSocketMessageType {
   TRADE_UPDATE = 'TRADE_UPDATE',
   PRICE_UPDATE = 'PRICE_UPDATE',
   ANALYSIS_UPDATE = 'ANALYSIS_UPDATE',
+  CURRENCY_UPDATE = 'CURRENCY_UPDATE',
   ERROR = 'ERROR',
   AUTH = 'AUTH',
   SUBSCRIBE = 'SUBSCRIBE',
   UNSUBSCRIBE = 'UNSUBSCRIBE',
+  RATE_LIMIT = 'RATE_LIMIT',
 }
 
 export interface WebSocketMessage {
@@ -86,7 +88,9 @@ export class WebSocketClient extends EventEmitter {
 
   public subscribe(channel: string): void {
     this.subscriptions.add(channel);
-    if (this.ws?.readyState === WebSocket.OPEN) {
+    // WebSocket readyState values
+    const OPEN = 1;
+    if (this.ws?.readyState === OPEN) {
       this.send({
         type: WebSocketMessageType.SUBSCRIBE,
         payload: { channel },
@@ -178,6 +182,10 @@ export class WebSocketClient extends EventEmitter {
       clearTimeout(this.reconnectTimer);
       this.reconnectTimer = null;
     }
+  }
+
+  public isConnected(): boolean {
+    return this.ws?.readyState === WebSocket.OPEN;
   }
 }
 

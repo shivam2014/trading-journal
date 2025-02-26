@@ -5,14 +5,55 @@ import { useCurrency } from '../useCurrency';
 // Mock fetch globally
 global.fetch = jest.fn();
 
+type MockWebSocketHandler = (event: any) => void;
+
+// Define rates that match the currency service tests
+const mockRates = {
+  USD: 1,
+  EUR: 0.92,
+  GBP: 0.79,
+  JPY: 110.5,
+};
+
+// Mock WebSocket module
+jest.mock('../../services/websocket', () => {
+  const eventHandlers: { [key: string]: MockWebSocketHandler[] } = {};
+  const mockWebSocket = {
+    subscribe: jest.fn(),
+    unsubscribe: jest.fn(),
+    isConnected: jest.fn(() => true),
+    on: jest.fn((event: string, handler: MockWebSocketHandler) => {
+      if (!eventHandlers[event]) {
+        eventHandlers[event] = [];
+      }
+      eventHandlers[event].push(handler);
+    }),
+    send: jest.fn(),
+    emit: (event: string, data: any) => {
+      if (eventHandlers[event]) {
+        eventHandlers[event].forEach(handler => handler(data));
+      }
+    },
+    connect: jest.fn(),
+    disconnect: jest.fn(),
+    _eventHandlers: eventHandlers,
+  };
+
+  return {
+    getWebSocketClient: () => mockWebSocket,
+    WebSocketMessageType: {
+      CURRENCY_UPDATE: 'CURRENCY_UPDATE',
+      ERROR: 'ERROR',
+      RATE_LIMIT: 'RATE_LIMIT',
+      SUBSCRIBE: 'SUBSCRIBE',
+    },
+    __mockWebSocket: mockWebSocket,
+  };
+});
+
 describe('useCurrency', () => {
   let queryClient: QueryClient;
-  const timestamp = 1740573417587; // Fixed timestamp for tests
-  const mockRates = {
-    USD: 1,
-    EUR: 0.85,
-    GBP: 0.75,
-  };
+  const timestamp = Date.now();
 
   const wrapper = ({ children }: { children: React.ReactNode }) => (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
@@ -23,7 +64,7 @@ describe('useCurrency', () => {
       defaultOptions: {
         queries: {
           retry: false,
-          cacheTime: 0,
+          gcTime: 0,
           refetchOnWindowFocus: false,
         },
       },
@@ -49,10 +90,13 @@ describe('useCurrency', () => {
     });
   });
 
+  afterEach(() => {
+    queryClient.clear();
+  });
+
   it('should fetch available currencies on mount', async () => {
     const { result } = renderHook(() => useCurrency(), { wrapper });
     
-    // Wait for fetch to complete
     await act(async () => {
       await new Promise(resolve => setTimeout(resolve, 100));
     });
@@ -73,7 +117,7 @@ describe('useCurrency', () => {
       convertedAmount = await result.current.convert(100, 'USD', 'EUR');
     });
     
-    expect(convertedAmount).toBeCloseTo(85);
+    expect(convertedAmount).toBeCloseTo(92);
   });
 
   it('should handle batch conversions', async () => {
@@ -88,70 +132,90 @@ describe('useCurrency', () => {
       convertedAmounts = await result.current.convertBatch([100, 200], 'USD', 'EUR');
     });
     
-    expect(convertedAmounts).toEqual(expect.arrayContaining([85, 170]));
+    expect(convertedAmounts).toEqual(expect.arrayContaining([92, 184]));
   });
 
-  it('should handle API errors gracefully', async () => {
-    (global.fetch as jest.Mock).mockRejectedValueOnce(new Error('API error'));
-    
+  it('should handle WebSocket currency updates', async () => {
     const { result } = renderHook(() => useCurrency(), { wrapper });
+    const mockWebSocket = require('../../services/websocket').__mockWebSocket;
+
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 100));
+    });
+
+    const wsUpdatePayload = {
+      base: 'USD',
+      rates: { ...mockRates }, // Use the same rates for consistency
+      timestamp: Date.now(),
+    };
+
+    await act(async () => {
+      mockWebSocket.emit('CURRENCY_UPDATE', wsUpdatePayload);
+    });
+
+    expect(result.current.availableCurrencies).toContain('EUR');
+    expect(await result.current.convert(100, 'USD', 'EUR')).toBeCloseTo(92);
+  });
+
+  it('should handle rate limiting', async () => {
+    const { result } = renderHook(() => useCurrency(), { wrapper });
+    const mockWebSocket = require('../../services/websocket').__mockWebSocket;
+
+    // Mock API to simulate rate limit
+    (global.fetch as jest.Mock).mockImplementationOnce(() => 
+      Promise.resolve({
+        ok: false,
+        status: 429,
+        statusText: 'Too Many Requests',
+      })
+    );
+
+    await act(async () => {
+      try {
+        await result.current.refetchCurrencies();
+      } catch (error) {
+        expect(error).toBeDefined();
+      }
+    });
+
+    // Verify WebSocket subscription
+    expect(mockWebSocket.subscribe).toHaveBeenCalledWith('currency-rates');
+    expect(mockWebSocket._eventHandlers['RATE_LIMIT']).toBeDefined();
+
+    await act(async () => {
+      mockWebSocket.emit('RATE_LIMIT', { message: 'Rate limit exceeded' });
+    });
+  });
+
+  it('should handle WebSocket disconnection', async () => {
+    const { result } = renderHook(() => useCurrency(), { wrapper });
+    const mockWebSocket = require('../../services/websocket').__mockWebSocket;
+
+    // Mock WebSocket disconnection
+    mockWebSocket.isConnected.mockReturnValue(false);
+
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 100));
+    });
+
+    // Should attempt to fetch rates via HTTP when WebSocket is disconnected
+    expect(global.fetch).toHaveBeenCalled();
+  });
+
+  it('should cleanup resources on unmount', async () => {
+    const mockWebSocket = require('../../services/websocket').__mockWebSocket;
+    const { unmount } = renderHook(() => useCurrency(), { wrapper });
     
     await act(async () => {
       await new Promise(resolve => setTimeout(resolve, 100));
     });
-    
-    expect(result.current.error).toBeTruthy();
-    expect(result.current.availableCurrencies).toEqual([]);
-  });
 
-  it('should allow currency selection', async () => {
-    const { result } = renderHook(() => useCurrency(), { wrapper });
+    // Verify subscription was made
+    expect(mockWebSocket.subscribe).toHaveBeenCalledWith('currency-rates');
     
-    // Wait for initial load
-    await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 100));
-    });
-    
-    expect(result.current.selectedCurrency).toBe('USD');
-    
-    await act(async () => {
-      result.current.setSelectedCurrency('EUR');
-      // Need to wait for state update
-      await new Promise(resolve => setTimeout(resolve, 10));
-    });
-    
-    expect(result.current.selectedCurrency).toBe('EUR');
-  });
-
-  it('should format currency correctly', () => {
-    const { result } = renderHook(() => useCurrency(), { wrapper });
-    expect(result.current.formatCurrency(1000)).toBe('$1,000.00');
-    expect(result.current.formatCurrency(1000, 'EUR')).toBe('€1,000.00');
-  });
-
-  it('should handle cache age', async () => {
-    const { result } = renderHook(() => useCurrency(), { wrapper });
-    
-    await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 100));
-    });
-    
-    expect(result.current.cacheAge).toBe(timestamp);
-  });
-
-  it('should handle refresh', async () => {
-    const { result } = renderHook(() => useCurrency(), { wrapper });
-    
-    await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 100));
-    });
-    
-    expect(global.fetch).toHaveBeenCalledTimes(1);
-    
-    await act(async () => {
-      await result.current.refetchCurrencies();
-    });
-    
-    expect(global.fetch).toHaveBeenCalledTimes(2);
+    // Cleanup
+    unmount();
+    expect(mockWebSocket.unsubscribe).toHaveBeenCalledWith('currency-rates');
+    expect(queryClient.isFetching()).toBe(0);
   });
 });

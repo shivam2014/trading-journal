@@ -86,10 +86,12 @@
    - Health checks
 
 2. Message Handling
-   - Type-safe messages
-   - Message queuing
-   - Rate limiting
-   - Error recovery
+    - Type-safe messages with TypeScript interfaces
+    - Message queuing for connection interruptions
+    - Rate limiting with backoff strategy
+    - Error recovery with automatic retries
+    - Optimistic updates for UI responsiveness
+    - Message validation and sanitization
 
 ## Documentation Standards
 1. Code Documentation

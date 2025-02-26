@@ -45,7 +45,7 @@ Currently implementing core features:
 - ✅ Basic trade import functionality
 - ✅ Trade grouping logic
 - ✅ Performance metrics
-- 🟡 Currency conversion
+- 🟢 Currency conversion
 - 🟡 Technical analysis
 - ⚪️ Authentication
 - ⚪️ Docker deployment

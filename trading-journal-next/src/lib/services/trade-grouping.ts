@@ -152,65 +152,81 @@ export class TradeGroupingService {
   }
 
   private async calculateMetrics(group: TradeGroup): Promise<TradeGroupMetrics> {
-    const validTrades = group.entries
-      .filter(this.validateTradeEntry)
-      .map(entry => entry.trade);
-
-    let totalPnl = new Decimal(0);
-    let remainingQuantity = new Decimal(0);
+    const entries = group.entries.filter(this.validateTradeEntry);
+    let totalTrades = 0;
     let winningTrades = 0;
     let losingTrades = 0;
     let breakEvenTrades = 0;
     let totalWins = new Decimal(0);
     let totalLosses = new Decimal(0);
     let maxDrawdown = new Decimal(0);
-    let currentDrawdown = new Decimal(0);
-
-    // Calculate weighted average entry price
-    let totalBuyQuantity = new Decimal(0);
-    let totalBuyValue = new Decimal(0);
+    let peakBalance = new Decimal(0);
+    let currentBalance = new Decimal(0);
     
-    for (const trade of validTrades) {
-      if (trade.action === 'BUY') {
-        totalBuyValue = totalBuyValue.plus(trade.price.times(trade.quantity));
-        totalBuyQuantity = totalBuyQuantity.plus(trade.quantity);
-      }
-    }
+    // Initialize remaining quantity from buys only
+    let remainingQuantity = entries
+      .filter(entry => entry.trade.action === 'BUY')
+      .reduce((sum, entry) => sum.plus(entry.trade.quantity), new Decimal(0));
 
-    const averageEntryPrice = totalBuyQuantity.isZero()
-      ? new Decimal(0)
-      : totalBuyValue.div(totalBuyQuantity);
+    // Sort entries by date for accurate P&L calculation
+    const sortedEntries = [...entries].sort(
+      (a, b) => a.trade.timestamp.getTime() - b.trade.timestamp.getTime()
+    );
 
-    // Calculate PnL and metrics
-    for (const trade of validTrades) {
-      if (trade.action === 'BUY') {
-        remainingQuantity = remainingQuantity.plus(trade.quantity);
-        currentDrawdown = Decimal.min(currentDrawdown, totalPnl);
-      } else { // SELL
-        remainingQuantity = remainingQuantity.minus(trade.quantity);
-        // PnL = (Sell Price - Avg Entry Price) * Quantity
-        const tradePnl = trade.price.minus(averageEntryPrice).times(trade.quantity);
-        totalPnl = totalPnl.plus(tradePnl);
-        
-        if (tradePnl.isPositive()) {
+    let realizedPnl = new Decimal(0);
+    let unrealizedPnl = new Decimal(0);
+    let totalVolume = new Decimal(0);
+
+    for (const entry of sortedEntries) {
+      const trade = entry.trade;
+      totalTrades++;
+      totalVolume = totalVolume.plus(trade.quantity.times(trade.price));
+
+      if (trade.action === 'SELL') {
+        const tradeResult = trade.quantity.times(trade.price.minus(group.averageEntryPrice));
+        realizedPnl = realizedPnl.plus(tradeResult);
+
+        if (tradeResult.isPositive()) {
           winningTrades++;
-          totalWins = totalWins.plus(tradePnl);
-        } else if (tradePnl.isNegative()) {
+          totalWins = totalWins.plus(tradeResult);
+        } else if (tradeResult.isNegative()) {
           losingTrades++;
-          totalLosses = totalLosses.plus(tradePnl.abs());
+          totalLosses = totalLosses.plus(tradeResult.abs());
         } else {
           breakEvenTrades++;
         }
+
+        // Update remaining quantity for sells
+        remainingQuantity = remainingQuantity.minus(trade.quantity);
       }
-      maxDrawdown = Decimal.min(maxDrawdown, currentDrawdown);
+
+      // Calculate drawdown
+      currentBalance = currentBalance.plus(realizedPnl);
+      if (currentBalance.gt(peakBalance)) {
+        peakBalance = currentBalance;
+      }
+      const currentDrawdown = peakBalance.minus(currentBalance);
+      if (currentDrawdown.gt(maxDrawdown)) {
+        maxDrawdown = currentDrawdown;
+      }
     }
 
-    const totalTrades = validTrades.length;
+    // Calculate unrealized P&L if position is still open
+    if (!remainingQuantity.isZero()) {
+      const lastPrice = await this.getCurrentPrice(group.ticker);
+      if (lastPrice) {
+        unrealizedPnl = remainingQuantity.times(
+          new Decimal(lastPrice).minus(group.averageEntryPrice)
+        );
+      }
+    }
+
     const winRate = totalTrades > 0 ? winningTrades / totalTrades : 0;
     const averageWin = winningTrades > 0 ? totalWins.dividedBy(winningTrades).toNumber() : 0;
     const averageLoss = losingTrades > 0 ? totalLosses.dividedBy(losingTrades).toNumber() : 0;
-    const profitFactor = totalLosses.isZero() ? 0 : totalWins.dividedBy(totalLosses).toNumber();
-    const expectancy = winRate * averageWin - (1 - winRate) * averageLoss;
+    const profitFactor = totalLosses.isZero() ? 
+      totalWins.toNumber() : 
+      totalWins.dividedBy(totalLosses).toNumber();
 
     return {
       totalTrades,
@@ -222,10 +238,23 @@ export class TradeGroupingService {
       averageLoss,
       maxDrawdown: maxDrawdown.toNumber(),
       winRate,
-      expectancy,
+      expectancy: (winRate * averageWin) - ((1 - winRate) * averageLoss),
       remainingQuantity: remainingQuantity.toNumber(),
-      realizedPnl: totalPnl.toNumber(),
+      realizedPnl: realizedPnl.toNumber(),
+      unrealizedPnl: unrealizedPnl.toNumber(),
+      totalVolume: totalVolume.toNumber()
     };
+  }
+
+  private async getCurrentPrice(ticker: string): Promise<number | null> {
+    try {
+      // Implement price fetching from your preferred market data provider
+      // For now, return null as a placeholder
+      return null;
+    } catch (error) {
+      console.error(`Failed to fetch current price for ${ticker}:`, error);
+      return null;
+    }
   }
 
   private async groupByTicker(

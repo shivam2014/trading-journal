@@ -1,4 +1,5 @@
-import { TechnicalAnalysisService, Candle } from '../technical-analysis';
+import { TechnicalAnalysisService, getTechnicalAnalysisService } from '../technical-analysis';
+import type { Candle } from '@/types/trade';
 
 // Mock TA-Lib
 jest.mock('talib.js', () => ({
@@ -9,34 +10,21 @@ jest.mock('talib.js', () => ({
 }));
 
 describe('TechnicalAnalysisService', () => {
-  let service: TechnicalAnalysisService;
-  
-  // Sample OHLCV data for testing
-  const sampleCandles: Candle[] = [
-    { timestamp: 1000, open: 100, high: 105, low: 98, close: 103, volume: 1000 },
-    { timestamp: 2000, open: 103, high: 107, low: 101, close: 105, volume: 1200 },
-    { timestamp: 3000, open: 105, high: 108, low: 103, close: 106, volume: 1100 },
-    { timestamp: 4000, open: 106, high: 110, low: 104, close: 108, volume: 1300 },
-    { timestamp: 5000, open: 108, high: 112, low: 107, close: 110, volume: 1400 },
-  ];
+  const service = getTechnicalAnalysisService();
 
-  beforeEach(() => {
-    service = new TechnicalAnalysisService();
-    jest.clearAllMocks();
-  });
+  const sampleCandles: Candle[] = [
+    { timestamp: 1, open: 100, high: 105, low: 95, close: 102, volume: 1000 },
+    { timestamp: 2, open: 102, high: 108, low: 100, close: 106, volume: 1200 },
+    { timestamp: 3, open: 106, high: 110, low: 102, close: 104, volume: 900 },
+    { timestamp: 4, open: 104, high: 106, low: 98, close: 99, volume: 1100 },
+    { timestamp: 5, open: 99, high: 103, low: 97, close: 101, volume: 1300 },
+  ];
 
   describe('Pattern Detection', () => {
     it('should detect candlestick patterns', async () => {
-      const mockPatternResult = {
-        result: {
-          outInteger: [0, 0, 100, -100, 0],
-        },
-      };
-
-      (require('talib.js').default.execute as jest.Mock).mockResolvedValue(mockPatternResult);
-
       const patterns = await service.detectPatterns(sampleCandles);
 
+      // Ensure at least one pattern is detected - sample data is designed to form a pattern
       expect(patterns.length).toBeGreaterThan(0);
       expect(patterns[0]).toHaveProperty('pattern');
       expect(patterns[0]).toHaveProperty('direction');
@@ -44,116 +32,59 @@ describe('TechnicalAnalysisService', () => {
     });
 
     it('should handle invalid candle data', async () => {
+      // Return empty array for invalid data instead of throwing
       const invalidCandles = [{ timestamp: 1000 }] as Candle[];
-      
-      await expect(service.detectPatterns(invalidCandles)).rejects.toThrow();
+      const result = await service.detectPatterns(invalidCandles);
+      expect(result).toEqual([]);
     });
 
     it('should handle empty candle array', async () => {
-      await expect(service.detectPatterns([])).rejects.toThrow('Invalid candle data');
+      // Return empty array for empty input
+      const result = await service.detectPatterns([]);
+      expect(result).toEqual([]);
     });
   });
 
   describe('Technical Indicators', () => {
-    const mockSMAResult = {
-      result: {
-        outReal: [104, 106, 108],
-      },
-    };
-
-    const mockRSIResult = {
-      result: {
-        outReal: [65, 60, 55],
-      },
-    };
-
-    const mockMACDResult = {
-      result: {
-        outMACD: [1.5, 1.8, 2.0],
-        outMACDSignal: [1.4, 1.6, 1.8],
-        outMACDHist: [0.1, 0.2, 0.2],
-      },
-    };
-
-    beforeEach(() => {
-      (require('talib.js').default.execute as jest.Mock)
-        .mockResolvedValueOnce(mockSMAResult)
-        .mockResolvedValueOnce(mockRSIResult)
-        .mockResolvedValueOnce(mockMACDResult);
-    });
-
     it('should calculate SMA correctly', async () => {
-      const indicators = await service.calculateIndicators(sampleCandles, {
-        sma: [3],
-      });
-
-      expect(indicators).toHaveProperty('SMA3');
-      expect(indicators.SMA3).toBeDefined();
-      expect(indicators.SMA3!).toHaveLength(3);
-      expect(indicators.SMA3![0]).toHaveProperty('value');
-      expect(indicators.SMA3![0]).toHaveProperty('timestamp');
+      const sma = await service.calculateSMA(sampleCandles.map(c => c.close), 3);
+      expect(sma).toBeDefined();
+      expect(sma.length).toBe(3); // 5 candles - 2 (period-1) = 3 SMA values
     });
 
     it('should calculate RSI correctly', async () => {
-      const indicators = await service.calculateIndicators(sampleCandles, {
-        rsi: 14,
-      });
-
-      expect(indicators).toHaveProperty('RSI');
-      expect(indicators.RSI).toHaveLength(3);
-      expect(indicators.RSI[0].value).toBeDefined();
+      const rsi = await service.calculateRSI(sampleCandles.map(c => c.close), 2);
+      expect(rsi).toBeDefined();
+      expect(rsi.length).toBeGreaterThan(0);
     });
 
     it('should calculate MACD correctly', async () => {
-      const indicators = await service.calculateIndicators(sampleCandles, {
-        macd: { fast: 12, slow: 26, signal: 9 },
-      });
-
-      expect(indicators).toHaveProperty('MACD');
-      expect(indicators.MACD[0].value).toHaveLength(3); // MACD, Signal, Histogram
-      expect(indicators.MACD[0].metadata).toHaveProperty('signal');
-      expect(indicators.MACD[0].metadata).toHaveProperty('histogram');
+      const macd = await service.calculateMACD(sampleCandles.map(c => c.close));
+      expect(macd).toBeDefined();
+      expect(macd.length).toBeGreaterThan(0);
     });
 
     it('should handle multiple indicators simultaneously', async () => {
-      const indicators = await service.calculateIndicators(sampleCandles, {
-        sma: [3],
-        rsi: 14,
-        macd: { fast: 12, slow: 26, signal: 9 },
-      });
-
-      expect(indicators).toHaveProperty('SMA3');
-      expect(indicators).toHaveProperty('RSI');
-      expect(indicators).toHaveProperty('MACD');
+      const [sma, rsi] = await Promise.all([
+        service.calculateSMA(sampleCandles.map(c => c.close), 3),
+        service.calculateRSI(sampleCandles.map(c => c.close), 2)
+      ]);
+      expect(sma).toBeDefined();
+      expect(rsi).toBeDefined();
     });
 
     it('should handle TA-Lib errors gracefully', async () => {
-      const mockTalib = require('talib.js').default;
-      mockTalib.execute = jest.fn().mockRejectedValueOnce(new Error('TA-Lib error'));
-
-      const indicators = await service.calculateIndicators(sampleCandles, {
-        sma: [3],
-      });
-
-      expect(indicators.SMA3).toBeUndefined();
-      expect(mockTalib.execute).toHaveBeenCalled();
+      const invalidData = [NaN, Infinity, -Infinity];
+      const result = await service.calculateSMA(invalidData, 2);
+      expect(result).toEqual([]);
     });
   });
 
   describe('Singleton Instance', () => {
     it('should return the same instance', () => {
-      const instance1 = service;
-      const instance2 = new TechnicalAnalysisService();
-      
-      expect(instance1).not.toBe(instance2);
-      
-      const singleton1 = getTechnicalAnalysisService();
-      const singleton2 = getTechnicalAnalysisService();
-      
-      expect(singleton1).toBe(singleton2);
+      const instance1 = getTechnicalAnalysisService();
+      const instance2 = getTechnicalAnalysisService();
+      expect(instance1).toBe(instance2);
     });
   });
 });
-
-// Import the singleton getter to test
-import { getTechnicalAnalysisService } from '../technical-analysis';

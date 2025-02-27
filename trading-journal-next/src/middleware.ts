@@ -23,6 +23,44 @@ const PUBLIC_ONLY_PATHS = [
   '/auth/register',
 ];
 
+// Security headers configuration
+const securityHeaders = {
+  // Enable DNS prefetch
+  'X-DNS-Prefetch-Control': 'on',
+  
+  // Disable iframes embedding from other domains
+  'X-Frame-Options': 'SAMEORIGIN',
+  
+  // XSS protection
+  'X-XSS-Protection': '1; mode=block',
+  
+  // Prevent MIME type sniffing
+  'X-Content-Type-Options': 'nosniff',
+  
+  // Referrer policy
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  
+  // Content Security Policy
+  'Content-Security-Policy': [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: https:",
+    "font-src 'self'",
+    "connect-src 'self' https:",
+  ].join('; '),
+  
+  // Permissions policy
+  'Permissions-Policy': [
+    'camera=()',
+    'microphone=()',
+    'geolocation=()',
+  ].join(', '),
+  
+  // Strict Transport Security
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+};
+
 export async function middleware(request: NextRequest) {
   const token = await getToken({
     req: request,
@@ -30,34 +68,25 @@ export async function middleware(request: NextRequest) {
   });
 
   const { pathname } = request.nextUrl;
-
-  // Check if the path requires authentication
-  const isAuthPath = AUTH_PATHS.some(path => pathname.startsWith(path));
-  const isAdminPath = ADMIN_PATHS.some(path => pathname.startsWith(path));
-  const isPublicOnlyPath = PUBLIC_ONLY_PATHS.some(path => pathname.startsWith(path));
+  let response = NextResponse.next();
 
   // Redirect authenticated users away from public-only paths
-  if (isPublicOnlyPath && token) {
+  if (PUBLIC_ONLY_PATHS.some(path => pathname.startsWith(path)) && token) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
   // Handle non-authenticated users trying to access protected routes
-  if (isAuthPath && !token) {
+  if (AUTH_PATHS.some(path => pathname.startsWith(path)) && !token) {
     const signInUrl = new URL('/auth/signin', request.url);
     signInUrl.searchParams.set('callbackUrl', pathname);
     return NextResponse.redirect(signInUrl);
   }
 
   // Handle non-admin users trying to access admin routes
-  if (isAdminPath && (!token || token.role !== 'ADMIN')) {
-    return new NextResponse(
-      JSON.stringify({ error: 'Unauthorized' }),
-      {
-        status: 403,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
+  if (ADMIN_PATHS.some(path => pathname.startsWith(path)) && (!token || token.role !== 'ADMIN')) {
+    return NextResponse.json(
+      { error: 'Unauthorized' },
+      { status: 403 }
     );
   }
 
@@ -68,12 +97,17 @@ export async function middleware(request: NextRequest) {
     requestHeaders.set('x-user-role', token.role);
     requestHeaders.set('x-user-email', token.email);
 
-    return NextResponse.next({
+    response = NextResponse.next({
       headers: requestHeaders,
     });
   }
 
-  return NextResponse.next();
+  // Apply security headers to all responses
+  Object.entries(securityHeaders).forEach(([key, value]) => {
+    response.headers.set(key, value);
+  });
+
+  return response;
 }
 
 export const config = {

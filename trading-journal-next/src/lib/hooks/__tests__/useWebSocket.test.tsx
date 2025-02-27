@@ -1,50 +1,50 @@
 import { renderHook, act } from '@testing-library/react';
+import { SessionProvider } from 'next-auth/react';
 import { useWebSocket } from '../useWebSocket';
+
+// Mock next-auth session
+jest.mock('next-auth/react', () => ({
+  ...jest.requireActual('next-auth/react'),
+  useSession: () => ({
+    data: { user: { id: '123' } },
+    status: 'authenticated'
+  })
+}));
 
 describe('useWebSocket', () => {
   // Mock WS methods
   const mockSend = jest.fn();
   const mockClose = jest.fn();
+  let mockInstance: any;
 
-  let wsEventHandlers: Record<string, Function> = {};
+  const wrapper = ({ children }: { children: React.ReactNode }) => (
+    <SessionProvider session={{ user: { id: '123' }, expires: '2024-01-01' }}>
+      {children}
+    </SessionProvider>
+  );
 
   // Mock window.WebSocket
   const originalWebSocket = global.WebSocket;
 
+  class MockWebSocket {
+    onopen: ((event: Event) => void) | null = null;
+    onclose: ((event: CloseEvent) => void) | null = null;
+    onmessage: ((event: MessageEvent) => void) | null = null;
+    onerror: ((event: Event) => void) | null = null;
+    connected = false;
+    error = null;
+    readyState = WebSocket.OPEN;
+    send = mockSend;
+    close = mockClose;
+
+    constructor(url: string) {
+      mockInstance = this;
+    }
+  }
+
   beforeEach(() => {
     jest.clearAllMocks();
-    wsEventHandlers = {};
-
-    class MockWebSocket {
-      constructor(url: string) {
-        setTimeout(() => {
-          if (wsEventHandlers.open) {
-            wsEventHandlers.open(new Event('open'));
-          }
-        }, 0);
-      }
-
-      set onopen(handler: (event: Event) => void) {
-        wsEventHandlers.open = handler;
-      }
-
-      set onclose(handler: (event: CloseEvent) => void) {
-        wsEventHandlers.close = handler;
-      }
-
-      set onmessage(handler: (event: MessageEvent) => void) {
-        wsEventHandlers.message = handler;
-      }
-
-      set onerror(handler: (event: Event) => void) {
-        wsEventHandlers.error = handler;
-      }
-
-      send = mockSend;
-      close = mockClose;
-      readyState = WebSocket.OPEN;
-    }
-
+    mockInstance = null;
     global.WebSocket = MockWebSocket as any;
   });
 
@@ -53,16 +53,17 @@ describe('useWebSocket', () => {
   });
 
   it('initializes in disconnected state', () => {
-    const { result } = renderHook(() => useWebSocket());
+    const { result } = renderHook(() => useWebSocket(), { wrapper });
     expect(result.current.isConnected).toBe(false);
     expect(result.current.error).toBeNull();
   });
 
   it('connects when initialized', async () => {
     const onConnected = jest.fn();
-    const { result } = renderHook(() => useWebSocket({ onConnected }));
+    const { result } = renderHook(() => useWebSocket({ onConnected }), { wrapper });
 
     await act(async () => {
+      mockInstance.onopen?.(new Event('open'));
       await new Promise(resolve => setTimeout(resolve, 0));
     });
 
@@ -72,24 +73,33 @@ describe('useWebSocket', () => {
 
   it('handles messages correctly', async () => {
     const onMessage = jest.fn();
-    renderHook(() => useWebSocket({ onMessage }));
+    const { result } = renderHook(() => useWebSocket({ onMessage }), { wrapper });
 
     await act(async () => {
+      mockInstance.onopen?.(new Event('open'));
       await new Promise(resolve => setTimeout(resolve, 0));
-      wsEventHandlers.message(new MessageEvent('message', {
+
+      const messageEvent = new MessageEvent('message', {
         data: JSON.stringify({ type: 'test', data: 'data' })
-      }));
+      });
+      mockInstance.onmessage?.(messageEvent);
+      await new Promise(resolve => setTimeout(resolve, 0));
     });
 
     expect(onMessage).toHaveBeenCalledWith({ type: 'test', data: 'data' });
   });
 
   it('handles subscription', async () => {
-    const { result } = renderHook(() => useWebSocket());
+    const { result } = renderHook(() => useWebSocket(), { wrapper });
 
     await act(async () => {
+      mockInstance.onopen?.(new Event('open'));
       await new Promise(resolve => setTimeout(resolve, 0));
+    });
+
+    await act(async () => {
       result.current.subscribe('test-channel');
+      await new Promise(resolve => setTimeout(resolve, 0));
     });
 
     expect(mockSend).toHaveBeenCalledWith(
@@ -98,12 +108,17 @@ describe('useWebSocket', () => {
   });
 
   it('handles unsubscription', async () => {
-    const { result } = renderHook(() => useWebSocket());
+    const { result } = renderHook(() => useWebSocket(), { wrapper });
 
     await act(async () => {
+      mockInstance.onopen?.(new Event('open'));
       await new Promise(resolve => setTimeout(resolve, 0));
+    });
+
+    await act(async () => {
       result.current.subscribe('test-channel');
       result.current.unsubscribe('test-channel');
+      await new Promise(resolve => setTimeout(resolve, 0));
     });
 
     expect(mockSend).toHaveBeenCalledWith(
@@ -113,11 +128,13 @@ describe('useWebSocket', () => {
 
   it('handles disconnection', async () => {
     const onDisconnected = jest.fn();
-    renderHook(() => useWebSocket({ onDisconnected }));
+    renderHook(() => useWebSocket({ onDisconnected }), { wrapper });
 
     await act(async () => {
+      mockInstance.onopen?.(new Event('open'));
       await new Promise(resolve => setTimeout(resolve, 0));
-      wsEventHandlers.close(new CloseEvent('close'));
+      mockInstance.onclose?.(new CloseEvent('close'));
+      await new Promise(resolve => setTimeout(resolve, 0));
     });
 
     expect(onDisconnected).toHaveBeenCalled();
@@ -125,11 +142,13 @@ describe('useWebSocket', () => {
 
   it('handles errors', async () => {
     const onError = jest.fn();
-    const { result } = renderHook(() => useWebSocket({ onError }));
+    const { result } = renderHook(() => useWebSocket({ onError }), { wrapper });
 
     await act(async () => {
+      mockInstance.onopen?.(new Event('open'));
       await new Promise(resolve => setTimeout(resolve, 0));
-      wsEventHandlers.error(new Event('error'));
+      mockInstance.onerror?.(new Event('error'));
+      await new Promise(resolve => setTimeout(resolve, 0));
     });
 
     expect(onError).toHaveBeenCalled();
@@ -137,11 +156,16 @@ describe('useWebSocket', () => {
   });
 
   it('cleans up on unmount', async () => {
-    const { unmount } = renderHook(() => useWebSocket());
+    const { unmount } = renderHook(() => useWebSocket(), { wrapper });
 
     await act(async () => {
+      mockInstance.onopen?.(new Event('open'));
       await new Promise(resolve => setTimeout(resolve, 0));
+    });
+
+    await act(async () => {
       unmount();
+      await new Promise(resolve => setTimeout(resolve, 0));
     });
 
     expect(mockClose).toHaveBeenCalled();

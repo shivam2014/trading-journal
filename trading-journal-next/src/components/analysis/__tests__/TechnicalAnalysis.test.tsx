@@ -1,49 +1,43 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import TechnicalAnalysis from '../TechnicalAnalysis';
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
+import { TechnicalAnalysis } from '../TechnicalAnalysis';
 import { useTechnicalAnalysis } from '@/lib/hooks/useTechnicalAnalysis';
 import type { Candle, PatternResult, AnalysisResult, MACDOptions } from '@/types/trade';
+import { getTechnicalAnalysisService } from '@/lib/services/technical-analysis';
+import { useWebSocket } from '@/lib/hooks/useWebSocket';
 
-// Mock the hook correctly
+// Mock Chart.js
+jest.mock('react-chartjs-2', () => ({
+  Line: () => null
+}));
+
+// Mock hooks and services
 jest.mock('@/lib/hooks/useTechnicalAnalysis', () => ({
   useTechnicalAnalysis: jest.fn()
 }));
 
-const mockHookReturn = {
-  capabilities: {
-    indicators: ['SMA', 'RSI', 'MACD'],
-    patterns: ['ENGULFING', 'HAMMER', 'MORNINGSTAR'],
-  },
-  analysisResult: {
-    sma: { '20': [102.00] },
-    rsi: [65.00],
-    macd: {
-      macd: [1.4],
-      signal: [1.2],
-      histogram: [0.2],
-    },
-  } as AnalysisResult,
-  patterns: [
-    {
-      type: 'ENGULFING',
-      direction: 'BULLISH',
-      confidence: 80,
-    },
-  ] as PatternResult[],
-  selectedSMAs: ['20'],
-  rsiPeriod: 14,
-  macdOptions: {
-    fast: 12,
-    slow: 26,
-    signal: 9,
-  } as MACDOptions,
-  isLoading: false,
-  error: null,
-  toggleSMA: jest.fn(),
-  setRSIPeriod: jest.fn(),
-  setMACDOptions: jest.fn(),
-  updateIndicators: jest.fn(),
-  isIndicatorAvailable: jest.fn().mockImplementation((name: string) => true),
-};
+const mockCalculateIndicators = jest.fn();
+const mockDetectPatterns = jest.fn();
+
+jest.mock('@/lib/services/technical-analysis', () => ({
+  getTechnicalAnalysisService: jest.fn(() => ({
+    calculateIndicators: mockCalculateIndicators,
+    detectPatterns: mockDetectPatterns
+  }))
+}));
+
+const mockSubscribe = jest.fn();
+const mockUnsubscribe = jest.fn();
+let mockOnMessage: ((data: any) => void) | null = null;
+
+jest.mock('@/lib/hooks/useWebSocket', () => ({
+  useWebSocket: jest.fn(({ onMessage }) => {
+    mockOnMessage = onMessage;
+    return {
+      subscribe: mockSubscribe,
+      unsubscribe: mockUnsubscribe
+    };
+  })
+}));
 
 describe('TechnicalAnalysis', () => {
   const mockCandles: Candle[] = [
@@ -59,92 +53,115 @@ describe('TechnicalAnalysis', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (useTechnicalAnalysis as jest.Mock).mockReturnValue(mockHookReturn);
+    // Reset mocks to default successful responses
+    mockCalculateIndicators.mockResolvedValue({
+      'SMA20': [{ value: 102 }],
+      'RSI': [{ value: 65 }]
+    });
+    mockDetectPatterns.mockResolvedValue([{
+      type: 'ENGULFING',
+      direction: 'BULLISH',
+      confidence: 0.8,
+      timestamp: new Date('2025-01-01').getTime(),
+      price: 102
+    }]);
   });
 
-  it('renders loading state', () => {
-    (useTechnicalAnalysis as jest.Mock).mockReturnValue({
-      ...mockHookReturn,
-      isLoading: true,
+  it('renders loading state initially', async () => {
+    // Create a promise that won't resolve immediately
+    let resolvePromise: (value: any) => void;
+    const promise = new Promise((resolve) => {
+      resolvePromise = resolve;
     });
+    mockCalculateIndicators.mockImplementation(() => promise);
 
     render(<TechnicalAnalysis candles={mockCandles} />);
+    
+    // Loading state should be visible immediately
     expect(screen.getByTestId('loading-skeleton')).toBeInTheDocument();
   });
 
-  it('renders error state', () => {
-    (useTechnicalAnalysis as jest.Mock).mockReturnValue({
-      ...mockHookReturn,
-      error: new Error('Test error'),
+  it('renders with provided candles', async () => {
+    await act(async () => {
+      render(<TechnicalAnalysis candles={mockCandles} />);
+    });
+    
+    await waitFor(() => {
+      expect(screen.getByText('ENGULFING')).toBeInTheDocument();
     });
 
-    render(<TechnicalAnalysis candles={mockCandles} />);
-    expect(screen.getByText('Test error')).toBeInTheDocument();
+    const pattern = await screen.findByText('BULLISH');
+    expect(pattern).toBeInTheDocument();
+    expect(screen.getByText('80.0%')).toBeInTheDocument();
   });
 
-  it('renders patterns and indicators', () => {
-    render(<TechnicalAnalysis candles={mockCandles} />);
-
-    // Check patterns
-    expect(screen.getByText('ENGULFING')).toBeInTheDocument();
-    expect(screen.getByText(/BULLISH/)).toBeInTheDocument();
-    expect(screen.getByText(/80/)).toBeInTheDocument();
-
-    // Check indicators
-    expect(screen.getByText('SMA20')).toBeInTheDocument();
-    expect(screen.getByText('RSI')).toBeInTheDocument();
+  it('renders with symbol-based data fetching', async () => {
+    await act(async () => {
+      render(<TechnicalAnalysis symbol="AAPL" />);
+    });
     
-    // Use partial text matching instead of exact match
-    expect(screen.getByText(/102\.00/)).toBeInTheDocument();
-    expect(screen.getByText(/65\.00/)).toBeInTheDocument();
+    expect(mockSubscribe).toHaveBeenCalledWith('price-updates-AAPL');
+
+    // Verify cleanup
+    const { unmount } = render(<TechnicalAnalysis symbol="AAPL" />);
+    unmount();
+    expect(mockUnsubscribe).toHaveBeenCalledWith('price-updates-AAPL');
   });
 
-  it('handles SMA selection changes', () => {
-    render(<TechnicalAnalysis candles={mockCandles} />);
+  it('applies custom className', async () => {
+    const customClass = 'custom-class';
+    await act(async () => {
+      render(<TechnicalAnalysis candles={mockCandles} className={customClass} />);
+    });
 
-    // Better approach for handling select element changes
-    const smaSelect = screen.getByRole('listbox');
+    await waitFor(() => {
+      const container = screen.getByTestId('technical-analysis');
+      expect(container).toHaveClass(customClass);
+    });
+  });
+
+  it('handles empty candles state', async () => {
+    await act(async () => {
+      render(<TechnicalAnalysis candles={[]} />);
+    });
+    expect(screen.getByText('No data available')).toBeInTheDocument();
+  });
+
+  it('updates indicators when new candles arrive via WebSocket', async () => {
+    await act(async () => {
+      render(<TechnicalAnalysis symbol="AAPL" />);
+    });
+
+    expect(mockOnMessage).toBeTruthy();
     
-    // Use a more direct approach to simulate selection
-    fireEvent.change(smaSelect, {
-      target: {
-        value: '50'
+    await act(async () => {
+      if (mockOnMessage) {
+        mockOnMessage({
+          type: 'PRICE_UPDATE',
+          symbol: 'AAPL',
+          timestamp: new Date().toISOString(),
+          open: 150,
+          high: 155,
+          low: 145,
+          close: 152,
+          volume: 1000
+        });
       }
     });
 
-    expect(mockHookReturn.toggleSMA).toHaveBeenCalledWith('50');
+    await waitFor(() => {
+      expect(mockCalculateIndicators).toHaveBeenCalled();
+    });
   });
 
-  it('handles RSI period changes', () => {
+  it('shows error state when calculation fails', async () => {
+    const errorMessage = 'Test error';
+    mockCalculateIndicators.mockRejectedValueOnce(new Error(errorMessage));
+    
     render(<TechnicalAnalysis candles={mockCandles} />);
 
-    // Use getByDisplayValue to find the input with a value of 14
-    const rsiInput = screen.getByDisplayValue('14');
-    fireEvent.change(rsiInput, { target: { value: '21' } });
-
-    expect(mockHookReturn.setRSIPeriod).toHaveBeenCalledWith(21);
-  });
-
-  it('handles MACD options changes', () => {
-    render(<TechnicalAnalysis candles={mockCandles} />);
-
-    const fastInput = screen.getByPlaceholderText('Fast');
-    fireEvent.change(fastInput, { target: { value: '10' } });
-
-    expect(mockHookReturn.setMACDOptions).toHaveBeenCalledWith(
-      expect.objectContaining({
-        fast: 10,
-        slow: 26,
-        signal: 9,
-      })
-    );
-  });
-
-  it('applies custom className', () => {
-    const customClass = 'custom-class';
-    render(<TechnicalAnalysis candles={mockCandles} className={customClass} />);
-
-    const container = screen.getByTestId('technical-analysis');
-    expect(container).toHaveClass(customClass);
+    await waitFor(() => {
+      expect(screen.getByText(errorMessage)).toBeInTheDocument();
+    });
   });
 });

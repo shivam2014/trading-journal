@@ -1,115 +1,99 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
-import { WebSocketProvider } from '@/types/websocket';
+import { useEffect, useCallback, useRef, useState } from 'react';
+import { useSession } from 'next-auth/react';
 
-export interface UseWebSocketOptions {
+interface UseWebSocketOptions {
+  onMessage?: (data: any) => void;
+  onError?: (error: Error) => void;
   onConnected?: () => void;
   onDisconnected?: () => void;
-  onMessage?: (message: any) => void;
-  onError?: (error: any) => void;
-  reconnectAttempts?: number;
-  reconnectInterval?: number;
 }
 
-export function useWebSocket({
-  onConnected,
-  onDisconnected,
-  onMessage,
-  onError,
-  reconnectAttempts = 5,
-  reconnectInterval = 1000,
-}: UseWebSocketOptions = {}) {
+export function useWebSocket(options: UseWebSocketOptions = {}) {
+  const { data: session } = useSession();
+  const wsRef = useRef<WebSocket | null>(null);
   const [isConnected, setIsConnected] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-  const wsRef = useRef<WebSocket | null>(null);
-  const reconnectCountRef = useRef(0);
-  const subscriptionsRef = useRef<Set<string>>(new Set());
+  const subscribedChannels = useRef<Set<string>>(new Set());
 
-  const connect = useCallback(() => {
-    try {
-      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const ws = new WebSocket(`${protocol}//${window.location.host}/ws`);
+  // Initialize WebSocket connection
+  useEffect(() => {
+    if (!session?.user) return;
 
-      ws.onopen = () => {
-        setIsConnected(true);
-        setError(null);
-        reconnectCountRef.current = 0;
-        onConnected?.();
+    const ws = new WebSocket(process.env.NEXT_PUBLIC_WS_URL || `ws://${window.location.host}`);
+    wsRef.current = ws;
 
-        // Resubscribe to channels
-        subscriptionsRef.current.forEach(channel => {
-          ws.send(JSON.stringify({ type: 'subscribe', channel }));
-        });
-      };
+    ws.onopen = () => {
+      setIsConnected(true);
+      setError(null);
+      options.onConnected?.();
+      
+      // Resubscribe to channels after reconnection
+      subscribedChannels.current.forEach(channel => {
+        ws.send(JSON.stringify({ type: 'subscribe', channel }));
+      });
+    };
 
-      ws.onclose = () => {
-        setIsConnected(false);
-        onDisconnected?.();
+    ws.onclose = () => {
+      setIsConnected(false);
+      options.onDisconnected?.();
+    };
 
-        // Attempt to reconnect
-        if (reconnectCountRef.current < reconnectAttempts) {
-          reconnectCountRef.current += 1;
-          setTimeout(connect, reconnectInterval);
-        }
-      };
+    ws.onerror = (event) => {
+      const wsError = new Error('WebSocket error');
+      setError(wsError);
+      options.onError?.(wsError);
+    };
 
-      ws.onmessage = (event) => {
-        try {
-          const data = JSON.parse(event.data);
-          onMessage?.(data);
-        } catch (err) {
-          console.error('Failed to parse WebSocket message:', err);
-        }
-      };
+    ws.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        options.onMessage?.(data);
+      } catch (error) {
+        console.error('Failed to parse WebSocket message:', error);
+      }
+    };
 
-      ws.onerror = (event) => {
-        const wsError = new Error('WebSocket error');
-        setError(wsError);
-        onError?.(wsError);
-      };
+    return () => {
+      ws.close();
+      wsRef.current = null;
+    };
+  }, [session, options]);
 
-      wsRef.current = ws;
-    } catch (err) {
-      const error = err instanceof Error ? err : new Error('Failed to connect to WebSocket');
-      setError(error);
-      onError?.(error);
-    }
-  }, [onConnected, onDisconnected, onMessage, onError, reconnectAttempts, reconnectInterval]);
-
+  // Subscribe to a channel
   const subscribe = useCallback((channel: string) => {
     if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
-      subscriptionsRef.current.add(channel);
-      connect();
+      console.warn('WebSocket not connected, cannot subscribe to:', channel);
       return;
     }
 
+    subscribedChannels.current.add(channel);
     wsRef.current.send(JSON.stringify({ type: 'subscribe', channel }));
-    subscriptionsRef.current.add(channel);
-  }, [connect]);
+  }, []);
 
+  // Unsubscribe from a channel
   const unsubscribe = useCallback((channel: string) => {
-    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
-      wsRef.current.send(JSON.stringify({ type: 'unsubscribe', channel }));
+    if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
+      console.warn('WebSocket not connected, cannot unsubscribe from:', channel);
+      return;
     }
-    subscriptionsRef.current.delete(channel);
+
+    subscribedChannels.current.delete(channel);
+    wsRef.current.send(JSON.stringify({ type: 'unsubscribe', channel }));
   }, []);
 
-  const send = useCallback((data: any) => {
-    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
-      wsRef.current.send(JSON.stringify(data));
-    } else {
-      throw new Error('WebSocket is not connected');
+  // Send a message
+  const send = useCallback((type: string, payload: any) => {
+    if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
+      console.warn('WebSocket not connected, cannot send message');
+      return;
     }
+
+    wsRef.current.send(JSON.stringify({
+      type,
+      payload,
+      timestamp: Date.now(),
+    }));
   }, []);
-
-  useEffect(() => {
-    connect();
-
-    return () => {
-      if (wsRef.current) {
-        wsRef.current.close();
-      }
-    };
-  }, [connect]);
 
   return {
     isConnected,

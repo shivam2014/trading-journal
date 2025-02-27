@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Alert } from "@/components/ui/Alert";
+import { UserPreferences } from '@/components/settings/UserPreferences';
 
 export default function SettingsPage() {
   const router = useRouter();
@@ -149,6 +150,22 @@ export default function SettingsPage() {
                     "Reset to Demo Data"
                   )}
                 </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow dark:border-gray-800 dark:bg-gray-900">
+            <div className="px-4 py-5 sm:p-6">
+              <h3 className="text-base font-semibold leading-6 text-gray-900 dark:text-gray-100">
+                User Preferences
+              </h3>
+              <div className="mt-2 max-w-xl text-sm text-gray-500 dark:text-gray-400">
+                <p>
+                  Manage your user preferences and settings.
+                </p>
+              </div>
+              <div className="mt-5">
+                <UserPreferences />
               </div>
             </div>
           </div>

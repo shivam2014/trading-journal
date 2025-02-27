@@ -1,14 +1,17 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { TradeGroupingService } from '@/lib/services/trade-grouping';
+import { useWebSocket } from '@/lib/hooks/useWebSocket';
 import type { 
   Trade, 
   TradeGroup, 
   GroupingOptions, 
-  TradeGroupingResult 
+  TradeGroupingResult,
+  TechnicalPattern
 } from '@/types/trade';
 
 interface UseTradeGroupingOptions {
+  strategy?: GroupingOptions['strategy'];
   enabled?: boolean;
   onError?: (error: Error) => void;
   onSuccess?: (results: TradeGroupingResult[]) => void;
@@ -17,9 +20,26 @@ interface UseTradeGroupingOptions {
 export function useTradeGrouping(options: UseTradeGroupingOptions = {}) {
   const [isCreatingGroup, setIsCreatingGroup] = useState(false);
   const queryClient = useQueryClient();
-  
-  // Create a singleton instance of the service
-  const tradeGroupingService = new TradeGroupingService();
+  const service = new TradeGroupingService();
+
+  // WebSocket integration for real-time updates
+  const { subscribe, unsubscribe } = useWebSocket({
+    onMessage: (data) => {
+      if (data.type === 'PRICE_UPDATE' || data.type === 'PATTERN_DETECTED') {
+        queryClient.invalidateQueries({ queryKey: ['tradeGroups'] });
+      }
+    }
+  });
+
+  // Subscribe to updates on mount
+  useEffect(() => {
+    subscribe('trade-updates');
+    subscribe('pattern-updates');
+    return () => {
+      unsubscribe('trade-updates');
+      unsubscribe('pattern-updates');
+    };
+  }, [subscribe, unsubscribe]);
 
   // Query existing groups
   const {
@@ -28,10 +48,13 @@ export function useTradeGrouping(options: UseTradeGroupingOptions = {}) {
     error: groupsError,
     refetch: refetchGroups,
   } = useQuery({
-    queryKey: ['tradeGroups'],
+    queryKey: ['tradeGroups', options.strategy],
     queryFn: async () => {
-      // This would be replaced with your API call to fetch groups
-      return [] as TradeGroup[];
+      const allGroups = await service.getGroups();
+      return allGroups.filter(group => {
+        if (!options.strategy) return true;
+        return group.groupingStrategy === options.strategy;
+      });
     },
     enabled: options.enabled,
   });
@@ -51,19 +74,15 @@ export function useTradeGrouping(options: UseTradeGroupingOptions = {}) {
     }) => {
       setIsCreatingGroup(true);
       try {
-        // We'll need to get the user ID from your auth context
-        const userId = 'current-user-id'; // Replace with actual user ID
-        return await tradeGroupingService.groupTrades(
-          userId,
-          trades,
-          groupingOptions
-        );
+        return await service.groupTrades(trades, {
+          strategy: options.strategy || 'ticker',
+          ...groupingOptions,
+        });
       } finally {
         setIsCreatingGroup(false);
       }
     },
     onSuccess: (results) => {
-      // Invalidate and refetch groups
       queryClient.invalidateQueries({ queryKey: ['tradeGroups'] });
       options.onSuccess?.(results);
     },
@@ -75,12 +94,18 @@ export function useTradeGrouping(options: UseTradeGroupingOptions = {}) {
   // Convenience method for creating a single group
   const createGroup = useCallback(async (
     trades: Trade[],
-    groupingOptions: GroupingOptions
+    groupingOptions: Partial<GroupingOptions> = {}
   ): Promise<TradeGroupingResult[]> => {
-    return createGroups({ trades, groupingOptions });
-  }, [createGroups]);
+    return createGroups({
+      trades,
+      groupingOptions: {
+        strategy: options.strategy || 'ticker',
+        ...groupingOptions,
+      },
+    });
+  }, [createGroups, options.strategy]);
 
-  // Method to get metrics for a specific group
+  // Get metrics for a specific group
   const getGroupMetrics = useCallback(async (
     groupId: string
   ): Promise<TradeGroupingResult | null> => {
@@ -88,43 +113,57 @@ export function useTradeGrouping(options: UseTradeGroupingOptions = {}) {
     if (!group) return null;
 
     try {
-      // Get metrics for the group
-      const metrics = await tradeGroupingService.getGroupMetrics(group);
+      const metrics = await service.getGroupMetrics(group);
       return { group, metrics };
     } catch (error) {
       options.onError?.(error as Error);
       return null;
     }
-  }, [groups, options.onError, tradeGroupingService]);
+  }, [groups, options.onError, service]);
 
-  // Method to update group settings
+  // Update group settings
   const updateGroup = useCallback(async (
     groupId: string,
     updates: Partial<GroupingOptions>
   ): Promise<void> => {
     try {
-      // This would be replaced with your API call to update group
-      await Promise.resolve(); // Placeholder
-      // Invalidate and refetch groups
-      queryClient.invalidateQueries({ queryKey: ['tradeGroups'] });
+      await service.updateGroup(groupId, updates);
+      await queryClient.invalidateQueries({ queryKey: ['tradeGroups'] });
     } catch (error) {
       options.onError?.(error as Error);
     }
-  }, [queryClient, options.onError]);
+  }, [queryClient, options.onError, service]);
+
+  // Delete a group
+  const deleteGroup = useCallback(async (
+    groupId: string
+  ): Promise<void> => {
+    try {
+      await service.deleteGroup(groupId);
+      await queryClient.invalidateQueries({ queryKey: ['tradeGroups'] });
+    } catch (error) {
+      options.onError?.(error as Error);
+    }
+  }, [queryClient, options.onError, service]);
 
   // Helper method to check if trades can be grouped
   const canGroupTrades = useCallback((
     trades: Trade[],
-    options: GroupingOptions
+    groupingOptions: GroupingOptions
   ): boolean => {
     if (!trades.length) return false;
     
     // Check minimum trades requirement
-    if (options.minTrades && trades.length < options.minTrades) {
+    if (groupingOptions.minTrades && trades.length < groupingOptions.minTrades) {
       return false;
     }
 
-    // Additional validation could be added here
+    // Check if all trades have the same currency for the group
+    const currencies = new Set(trades.map(t => t.currency));
+    if (currencies.size > 1) {
+      return false;
+    }
+
     return true;
   }, []);
 
@@ -142,6 +181,7 @@ export function useTradeGrouping(options: UseTradeGroupingOptions = {}) {
     createGroups,
     getGroupMetrics,
     updateGroup,
+    deleteGroup,
     canGroupTrades,
     refetchGroups,
   };
